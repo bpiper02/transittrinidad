@@ -32,4 +32,17 @@ assert.throws(() => validateService({
   sources:[{name:'x',url:'https://example.com',checkedAt:'2026-09-10'}]
 }), /must include geometry/);
 
+assert.throws(() => validateService({
+  id:'bad-direction',
+  mode:'ptsc',
+  originNodeId:'a',
+  destinationNodeId:'b',
+  bidirectional:'yes',
+  serviceConfidence:'verified_service',
+  geometryConfidence:'endpoints_only',
+  fareConfidence:'unknown',
+  scheduleConfidence:'unknown',
+  sources:[{name:'x',url:'https://example.com',checkedAt:'2026-09-10'}]
+}), /bidirectional/);
+
 console.log(`data contract tests passed: ${nodes.length} nodes, ${services.length} services`);
