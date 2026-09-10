@@ -22,15 +22,25 @@ function serviceDirections(service){
     : [[service.originNodeId,service.destinationNodeId],[service.destinationNodeId,service.originNodeId]];
 }
 
-const MODE_SPEED_KPH={ptsc:32,bus:32,maxi:30,route_taxi:34,water_taxi:38,ferry:42};
+const MODE_SPEED_KPH={ptsc:27,maxi:25,route_taxi:30,water_taxi:34,ferry:38};
+const ROUTE_DISTANCE_FACTOR={ptsc:1.28,maxi:1.28,route_taxi:1.22,water_taxi:1.04,ferry:1.04};
 
 export function estimateServiceMinutes(service,nodes){
   if(Number.isFinite(service.estimatedMinutes)&&service.estimatedMinutes>0)return service.estimatedMinutes;
   const origin=nodes.get(service.originNodeId),destination=nodes.get(service.destinationNodeId);
   if(!origin?.location||!destination?.location)return 60;
-  const km=kmBetween(origin.location,destination.location);
-  const speed=MODE_SPEED_KPH[service.mode]||30;
-  return Math.max(3,(km/speed)*60);
+  const directKm=kmBetween(origin.location,destination.location);
+  const routedKm=directKm*(ROUTE_DISTANCE_FACTOR[service.mode]||1.25);
+  const speed=MODE_SPEED_KPH[service.mode]||27;
+  return Math.max(3,(routedKm/speed)*60);
+}
+
+export function estimateAccess(km,{walkThresholdKm=1.5,walkKph=4.8,localKph=22,localWaitMinutes=5}={}){
+  if(!Number.isFinite(km)||km<=0)return{mode:'none',minutes:0,km:0};
+  if(km<=walkThresholdKm){
+    return{mode:'walk',minutes:(km/walkKph)*60,km};
+  }
+  return{mode:'local',minutes:localWaitMinutes+(km/localKph)*60,km};
 }
 
 export function findJourney(startId,endId,services,nodes=new Map(),{transferPenaltyMinutes=10}={}){
@@ -45,19 +55,20 @@ export function findJourney(startId,endId,services,nodes=new Map(),{transferPena
 
   const best=new Map([[startId,0]]);
   const previous=new Map();
-  const queue=[{node:startId,cost:0}];
+  const queue=[{node:startId,cost:0,legs:0}];
   while(queue.length){
     queue.sort((a,b)=>a.cost-b.cost);
     const current=queue.shift();
     if(current.cost!==best.get(current.node))continue;
     if(current.node===endId)break;
     for(const edge of graph.get(current.node)||[]){
-      const edgeCost=estimateServiceMinutes(edge.service,nodes)+transferPenaltyMinutes;
+      const transferCost=current.legs>0?transferPenaltyMinutes:0;
+      const edgeCost=estimateServiceMinutes(edge.service,nodes)+transferCost;
       const nextCost=current.cost+edgeCost;
       if(nextCost>=(best.get(edge.next)??Infinity))continue;
       best.set(edge.next,nextCost);
       previous.set(edge.next,{node:current.node,service:edge.service});
-      queue.push({node:edge.next,cost:nextCost});
+      queue.push({node:edge.next,cost:nextCost,legs:current.legs+1});
     }
   }
   if(!previous.has(endId))return null;
@@ -78,7 +89,7 @@ export function journeyMinutes(legs,nodes,{transferPenaltyMinutes=10}={}){
   return travel+Math.max(0,legs.length-1)*transferPenaltyMinutes;
 }
 
-export function chooseConnectedJourney({fromPlace,toPlace,nodes,services,knownFrom=null,knownTo=null,candidateLimit=6,maxAccessKm=25,transferPenaltyMinutes=10,walkKph=4.8}){
+export function chooseConnectedJourney({fromPlace,toPlace,nodes,services,knownFrom=null,knownTo=null,candidateLimit=8,maxAccessKm=20,transferPenaltyMinutes=10,accessOptions={}}){
   const starts=knownFrom?[{node:knownFrom,km:0}]:nearestNodes(fromPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm});
   const ends=knownTo?[{node:knownTo,km:0}]:nearestNodes(toPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm});
   let best=null;
@@ -87,11 +98,25 @@ export function chooseConnectedJourney({fromPlace,toPlace,nodes,services,knownFr
     for(const end of ends){
       const legs=findJourney(start.node.id,end.node.id,services,nodes,{transferPenaltyMinutes});
       if(legs===null)continue;
+      // Arbitrary places that happen to share a nearby hub are not a transit journey.
+      // Only allow a zero-leg result when the user explicitly chose that same transport node.
+      if(legs.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
       const transferCount=Math.max(0,legs.length-1);
       const transitMinutes=journeyMinutes(legs,nodes,{transferPenaltyMinutes});
-      const accessMinutes=((start.km+end.km)/walkKph)*60;
-      const score=transitMinutes+accessMinutes;
-      const candidate={fromNear:start,toNear:end,legs,score,transferCount,estimatedMinutes:Math.round(score)};
+      const fromAccess=estimateAccess(start.km,accessOptions);
+      const toAccess=estimateAccess(end.km,accessOptions);
+      const score=transitMinutes+fromAccess.minutes+toAccess.minutes;
+      const candidate={
+        fromNear:start,
+        toNear:end,
+        fromAccess,
+        toAccess,
+        legs,
+        score,
+        transferCount,
+        transitMinutes:Math.round(transitMinutes),
+        estimatedMinutes:Math.round(score)
+      };
       if(!best||candidate.score<best.score)best=candidate;
     }
   }
