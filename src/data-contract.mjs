@@ -11,12 +11,19 @@ function isLatLng(value) {
   return value && Number.isFinite(value.lat) && value.lat >= -90 && value.lat <= 90 && Number.isFinite(value.lng) && value.lng >= -180 && value.lng <= 180;
 }
 
+function isRealDate(value) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(value || '')) return false;
+  const [y,m,d] = value.split('-').map(Number);
+  const date = new Date(Date.UTC(y,m-1,d));
+  return date.getUTCFullYear()===y && date.getUTCMonth()===m-1 && date.getUTCDate()===d;
+}
+
 export function validateSource(source) {
   if (!source || typeof source !== 'object') throw new Error('source is required');
   if (!isNonEmpty(source.name)) throw new Error('source.name is required');
   if (!isNonEmpty(source.url)) throw new Error('source.url is required');
   if (!/^https?:\/\//i.test(source.url)) throw new Error('source.url must be http(s)');
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(source.checkedAt || '')) throw new Error('source.checkedAt must be YYYY-MM-DD');
+  if (!isRealDate(source.checkedAt)) throw new Error('source.checkedAt must be a real YYYY-MM-DD date');
   return true;
 }
 
@@ -37,12 +44,13 @@ export function validateService(service) {
   if (!MODES.has(service.mode)) throw new Error(`invalid mode for ${service.id}`);
   if (!isNonEmpty(service.originNodeId) || !isNonEmpty(service.destinationNodeId)) throw new Error(`service ${service.id} needs origin and destination nodes`);
   if (service.originNodeId === service.destinationNodeId) throw new Error(`service ${service.id} cannot have the same origin and destination`);
-  if (service.bidirectional != null && typeof service.bidirectional !== 'boolean') throw new Error(`invalid bidirectional flag for ${service.id}`);
+  if (typeof service.bidirectional !== 'boolean') throw new Error(`service ${service.id} must explicitly declare bidirectional true or false`);
   if (!SERVICE_CONFIDENCE.has(service.serviceConfidence)) throw new Error(`invalid service confidence for ${service.id}`);
   if (!GEOMETRY_CONFIDENCE.has(service.geometryConfidence)) throw new Error(`invalid geometry confidence for ${service.id}`);
   if (!CLAIM_CONFIDENCE.has(service.fareConfidence)) throw new Error(`invalid fare confidence for ${service.id}`);
   if (!CLAIM_CONFIDENCE.has(service.scheduleConfidence)) throw new Error(`invalid schedule confidence for ${service.id}`);
   if (service.fareTTD != null && (!Number.isFinite(service.fareTTD) || service.fareTTD < 0)) throw new Error(`invalid fare for ${service.id}`);
+  if (service.estimatedMinutes != null && (!Number.isFinite(service.estimatedMinutes) || service.estimatedMinutes <= 0)) throw new Error(`invalid estimatedMinutes for ${service.id}`);
   if (service.geometry != null && (!Array.isArray(service.geometry) || service.geometry.length < 2 || service.geometry.some(point => !isLatLng(point)))) throw new Error(`invalid geometry for ${service.id}`);
   if (service.geometryConfidence === 'verified_path' && !service.geometry) throw new Error(`verified path ${service.id} must include geometry`);
   if (!Array.isArray(service.sources) || service.sources.length === 0) throw new Error(`service ${service.id} needs at least one source`);
