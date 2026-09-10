@@ -18,4 +18,13 @@ assert.ok(journey,'Couva to Port of Spain should find a connected nearby-node jo
 assert.equal(journey.toNear.node.id,'ptsc-pos-transit-centre','route-aware snapping should choose the connected PTSC destination node');
 assert.ok(journey.legs.length>=1,'connected journey should include transit');
 
+const oneWay=[{
+  id:'one-way-test',
+  originNodeId:'a',
+  destinationNodeId:'b',
+  bidirectional:false
+}];
+assert.ok(findJourney('a','b',oneWay),'one-way service should route in its declared direction');
+assert.equal(findJourney('b','a',oneWay),null,'one-way service must not be silently reversed');
+
 console.log(`routing core tests passed: Couva -> POS via ${journey.fromNear.node.name} -> ${journey.toNear.node.name}`);
