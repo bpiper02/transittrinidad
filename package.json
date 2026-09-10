@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node tests/data-contract.mjs && node tests/ui-contract.mjs"
+    "test": "node tests/data-contract.mjs && node tests/ui-contract.mjs && node tests/atlas-ui.mjs"
   }
 }
