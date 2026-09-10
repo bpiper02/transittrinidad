@@ -20,8 +20,15 @@ assert.match(app,/routingServices\(\)/,'trip planner must have a mode-aware serv
 assert.match(app,/services:usableServices/,'active mode must constrain graph routing, not only map rendering');
 assert.match(app,/chooseConnectedJourney/,'route-aware node selection must remain enabled');
 assert.match(app,/candidateLimit:10/,'route-aware snapping should inspect enough nearby terminals as the network grows');
-assert.match(app,/maxAccessKm:25/,'route snapping needs a guard against absurdly distant nodes');
-assert.match(app,/estimatedMinutes/,'planner should expose a rough ranking/time estimate');
+assert.match(app,/maxAccessKm:20/,'route snapping needs a guard against absurdly distant nodes');
+assert.doesNotMatch(app,/walkKph:18/,'long access must not be disguised as high-speed walking');
+assert.match(app,/fromAccess/,'planner should preserve first-mile access mode');
+assert.match(app,/Local connection/,'long first\/last-mile access should be surfaced honestly');
+assert.match(app,/fetchWithTimeout/,'external services need timeouts so the planner cannot hang indefinitely');
+assert.match(app,/plannerRequestId/,'async route results need stale-request protection');
+assert.match(app,/autocompleteControllers\.get\(inputId\)\?\.abort\(\)/,'stale autocomplete calls should abort immediately as input changes');
+assert.match(app,/event\.key==='ArrowDown'/,'autocomplete should support keyboard navigation');
+assert.match(app,/estimatedMinutes/,'planner should expose a ranking\/time estimate');
 assert.match(app,/router\.project-osrm\.org\/route\/v1\/driving/,'estimated road geometry should use OSRM');
 assert.match(app,/OSRM_CACHE_KEY/,'estimated geometry should be cached');
 assert.doesNotMatch(app,/fitCountry\(\);\s*hydrateDisplayGeometry\(\)/,'do not prefetch road geometry for the whole network on map load');
