@@ -48,9 +48,9 @@ function allLocatedPoints() {
 function fitAll() {
   if (!map) return;
   const pts = allLocatedPoints();
-  map.invalidateSize(false);
-  if (pts.length) map.fitBounds(pts,{padding:[35,35],maxZoom:9});
-  else map.setView([10.45,-61.25],8);
+  map.invalidateSize({pan:false,animate:false});
+  if (pts.length) map.fitBounds(pts,{padding:[35,35],maxZoom:9,animate:false});
+  else map.setView([10.45,-61.25],8,{animate:false});
 }
 
 function renderMap() {
@@ -128,8 +128,8 @@ function selectService(id, zoom=false) {
   if (zoom) {
     const [a,b]=serviceNodes(service);
     if (hasLocation(a)&&hasLocation(b)) {
-      map.invalidateSize(false);
-      map.fitBounds([[a.location.lat,a.location.lng],[b.location.lat,b.location.lng]],{padding:[70,70],maxZoom:10});
+      map.invalidateSize({pan:false,animate:false});
+      map.fitBounds([[a.location.lat,a.location.lng],[b.location.lat,b.location.lng]],{padding:[70,70],maxZoom:10,animate:false});
     }
   }
 }
@@ -147,15 +147,16 @@ function setupModeTabs() {
 }
 
 function setupMapResize() {
-  let resizeTimer;
+  const mapPanel = $('.map-panel');
+  let frame = 0;
   const refresh = () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => map?.invalidateSize(false), 80);
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => map?.invalidateSize({pan:false,animate:false}));
   };
-  window.addEventListener('resize', refresh);
-  if ('ResizeObserver' in window) {
+  window.addEventListener('resize', refresh, {passive:true});
+  if ('ResizeObserver' in window && mapPanel) {
     const observer = new ResizeObserver(refresh);
-    observer.observe($('#map'));
+    observer.observe(mapPanel);
   }
 }
 
@@ -166,9 +167,12 @@ async function start() {
     return;
   }
 
-  map = L.map('map',{zoomControl:true,attributionControl:true,preferCanvas:true}).setView([10.45,-61.25],8);
+  map = L.map('map',{zoomControl:true,attributionControl:true,preferCanvas:true,zoomAnimation:false,fadeAnimation:false}).setView([10.45,-61.25],8);
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
     maxZoom:18,
+    keepBuffer:4,
+    updateWhenIdle:false,
+    updateWhenZooming:false,
     attribution:'&copy; OpenStreetMap contributors'
   }).addTo(map);
   layerGroup=L.layerGroup().addTo(map);
@@ -181,7 +185,7 @@ async function start() {
     renderList();
     renderMap();
     setupModeTabs();
-    requestAnimationFrame(()=>requestAnimationFrame(fitAll));
+    map.whenReady(()=>requestAnimationFrame(()=>requestAnimationFrame(fitAll)));
   } catch (error) {
     console.error(error);
     $('#serviceList').innerHTML=`<p class="loading error">Transport data failed to load: ${escapeHtml(error.message)}</p>`;
