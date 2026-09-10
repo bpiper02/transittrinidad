@@ -1,0 +1,8 @@
+{
+  "name": "transittrinidad",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/data-contract.mjs"
+  }
+}
