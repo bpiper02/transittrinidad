@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { validateDataset, validateService } from '../src/data-contract.mjs';
+import { validateDataset, validateService, validateSource } from '../src/data-contract.mjs';
 
 const nodes = JSON.parse(await readFile(new URL('../data/nodes.json', import.meta.url)));
 const services = JSON.parse(await readFile(new URL('../data/services.json', import.meta.url)));
@@ -12,6 +12,7 @@ assert.throws(() => validateService({
   mode:'maxi',
   originNodeId:'a',
   destinationNodeId:'a',
+  bidirectional:true,
   serviceConfidence:'verified_service',
   geometryConfidence:'unknown',
   fareConfidence:'unknown',
@@ -24,6 +25,7 @@ assert.throws(() => validateService({
   mode:'ptsc',
   originNodeId:'a',
   destinationNodeId:'b',
+  bidirectional:true,
   serviceConfidence:'verified_service',
   geometryConfidence:'verified_path',
   geometry:null,
@@ -31,6 +33,18 @@ assert.throws(() => validateService({
   scheduleConfidence:'unknown',
   sources:[{name:'x',url:'https://example.com',checkedAt:'2026-09-10'}]
 }), /must include geometry/);
+
+assert.throws(() => validateService({
+  id:'missing-direction',
+  mode:'ptsc',
+  originNodeId:'a',
+  destinationNodeId:'b',
+  serviceConfidence:'verified_service',
+  geometryConfidence:'unknown',
+  fareConfidence:'unknown',
+  scheduleConfidence:'unknown',
+  sources:[{name:'x',url:'https://example.com',checkedAt:'2026-09-10'}]
+}), /must explicitly declare bidirectional/);
 
 assert.throws(() => validateService({
   id:'bad-direction',
@@ -44,5 +58,7 @@ assert.throws(() => validateService({
   scheduleConfidence:'unknown',
   sources:[{name:'x',url:'https://example.com',checkedAt:'2026-09-10'}]
 }), /bidirectional/);
+
+assert.throws(() => validateSource({name:'x',url:'https://example.com',checkedAt:'2026-02-31'}), /real YYYY-MM-DD date/);
 
 console.log(`data contract tests passed: ${nodes.length} nodes, ${services.length} services`);
