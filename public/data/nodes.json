@@ -1,0 +1,42 @@
+[
+  {
+    "id": "pos-water-taxi-terminal",
+    "name": "Port of Spain Water Taxi Terminal",
+    "kind": "water_taxi_terminal",
+    "location": {"lat":10.64883,"lng":-61.514},
+    "sources": [
+      {"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-10"},
+      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/way/390110168","checkedAt":"2026-09-10"}
+    ]
+  },
+  {
+    "id": "san-fernando-water-taxi-terminal",
+    "name": "San Fernando Water Taxi Terminal",
+    "kind": "water_taxi_terminal",
+    "location": {"lat":10.2822,"lng":-61.47087},
+    "sources": [
+      {"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-10"},
+      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/node/8745164784","checkedAt":"2026-09-10"}
+    ]
+  },
+  {
+    "id": "pos-ferry-terminal",
+    "name": "Port of Spain Ferry Terminal",
+    "kind": "ferry_terminal",
+    "location": {"lat":10.64728,"lng":-61.51223},
+    "sources": [
+      {"name":"Trinidad and Tobago Inter-Island Transportation Co.","url":"https://www.ttitferry.com/","checkedAt":"2026-09-10"},
+      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/way/175819521","checkedAt":"2026-09-10"}
+    ]
+  },
+  {
+    "id": "scarborough-ferry-terminal",
+    "name": "Scarborough Ferry Terminal",
+    "kind": "ferry_terminal",
+    "location": {"lat":11.18228,"lng":-60.73749},
+    "sources": [
+      {"name":"Trinidad and Tobago Inter-Island Transportation Co.","url":"https://www.ttitferry.com/","checkedAt":"2026-09-10"},
+      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/node/9721300375","checkedAt":"2026-09-10"}
+    ]
+  }
+]
