@@ -19,7 +19,10 @@ export function findJourney(startId,endId,services){
   if(startId===endId)return[];
   const graph=new Map();
   for(const service of services){
-    for(const [from,to] of [[service.originNodeId,service.destinationNodeId],[service.destinationNodeId,service.originNodeId]]){
+    const directions = service.bidirectional===false
+      ? [[service.originNodeId,service.destinationNodeId]]
+      : [[service.originNodeId,service.destinationNodeId],[service.destinationNodeId,service.originNodeId]];
+    for(const [from,to] of directions){
       if(!graph.has(from))graph.set(from,[]);
       graph.get(from).push({next:to,service});
     }
