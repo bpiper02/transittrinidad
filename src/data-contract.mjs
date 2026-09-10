@@ -37,6 +37,7 @@ export function validateService(service) {
   if (!MODES.has(service.mode)) throw new Error(`invalid mode for ${service.id}`);
   if (!isNonEmpty(service.originNodeId) || !isNonEmpty(service.destinationNodeId)) throw new Error(`service ${service.id} needs origin and destination nodes`);
   if (service.originNodeId === service.destinationNodeId) throw new Error(`service ${service.id} cannot have the same origin and destination`);
+  if (service.bidirectional != null && typeof service.bidirectional !== 'boolean') throw new Error(`invalid bidirectional flag for ${service.id}`);
   if (!SERVICE_CONFIDENCE.has(service.serviceConfidence)) throw new Error(`invalid service confidence for ${service.id}`);
   if (!GEOMETRY_CONFIDENCE.has(service.geometryConfidence)) throw new Error(`invalid geometry confidence for ${service.id}`);
   if (!CLAIM_CONFIDENCE.has(service.fareConfidence)) throw new Error(`invalid fare confidence for ${service.id}`);
