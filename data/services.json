@@ -1,0 +1,42 @@
+[
+  {
+    "id": "water-taxi-pos-san-fernando",
+    "mode": "water_taxi",
+    "operator": "NIDCO Water Taxi Service",
+    "originNodeId": "pos-water-taxi-terminal",
+    "destinationNodeId": "san-fernando-water-taxi-terminal",
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 15,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "sources": [
+      {
+        "name": "NIDCO Water Taxi Service",
+        "url": "https://www.nidco.co.tt/water-taxi-service/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "ferry-pos-scarborough",
+    "mode": "ferry",
+    "operator": "Trinidad and Tobago Inter-Island Transportation Co.",
+    "originNodeId": "pos-ferry-terminal",
+    "destinationNodeId": "scarborough-ferry-terminal",
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "official_current",
+    "sources": [
+      {
+        "name": "Trinidad and Tobago Inter-Island Transportation Co.",
+        "url": "https://www.ttitferry.com/schedule/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  }
+]
