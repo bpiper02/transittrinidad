@@ -4,77 +4,59 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Transit Trinidad</title>
-  <meta name="description" content="Explore Trinidad and Tobago's shared transport network across PTSC, maxis, route taxis and marine services." />
-  <link rel="preconnect" href="https://unpkg.com" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynJU4EKRtwsZKYNjMZ0bPeEhzQOw=" crossorigin="" />
+  <meta name="description" content="Plan trips across Trinidad and Tobago's public and shared transport network." />
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-gl.css" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="./">Transit Trinidad</a>
-    <span class="tagline">One map for how Trinidad & Tobago actually moves.</span>
-    <span class="phase">PHASE 1 · ATLAS</span>
-  </header>
+  <div id="appShell" class="app-shell">
+    <div id="map" class="map" aria-label="Transit map of Trinidad and Tobago"></div>
 
-  <main>
-    <section class="intro">
-      <p class="eyebrow">PUBLIC + SHARED TRANSPORT</p>
-      <h1>Find the route. Know where to board.</h1>
-      <p class="lede">We’re building one map across PTSC, maxis, route taxis, Water Taxi and ferry services. Route confidence is shown honestly as the network is verified.</p>
-      <div class="trip-search" aria-label="Trip planner preview">
-        <label><span>FROM</span><input id="fromInput" placeholder="San Fernando" disabled /></label>
-        <span class="arrow" aria-hidden="true">→</span>
-        <label><span>TO</span><input id="toInput" placeholder="Arima" disabled /></label>
-        <button type="button" disabled title="Routing arrives in Phase 2">PLAN TRIP · SOON</button>
+    <header class="topbar">
+      <div>
+        <strong class="brand">Transit Trinidad</strong>
+        <span class="subbrand">One map for PTSC, maxis, taxis and marine transport.</span>
       </div>
+      <span class="phase">PHASE 1 · ATLAS</span>
+    </header>
+
+    <section class="planner" aria-label="Trip planner">
+      <div class="planner-row">
+        <label>
+          <span>FROM</span>
+          <input id="fromInput" list="placeOptions" autocomplete="off" placeholder="San Fernando" />
+        </label>
+        <button id="swapButton" class="swap" type="button" aria-label="Swap origin and destination">⇅</button>
+        <label>
+          <span>TO</span>
+          <input id="toInput" list="placeOptions" autocomplete="off" placeholder="Arima" />
+        </label>
+        <button id="planButton" class="plan-button" type="button">FIND ROUTE</button>
+      </div>
+      <datalist id="placeOptions"></datalist>
+      <p id="plannerStatus" class="planner-status" aria-live="polite">Search currently uses verified transport nodes while Phase 1 coverage is being loaded.</p>
     </section>
 
-    <section class="atlas-shell">
-      <aside class="atlas-sidebar">
-        <div class="side-head">
-          <div>
-            <p class="eyebrow">NETWORK</p>
-            <h2>Services on the map</h2>
-          </div>
-          <strong id="serviceCount">—</strong>
-        </div>
+    <nav class="mode-tabs" id="modeTabs" aria-label="Transport mode filters">
+      <button class="is-active" data-mode="all" type="button">All</button>
+      <button data-mode="ptsc" type="button">PTSC</button>
+      <button data-mode="maxi" type="button">Maxi</button>
+      <button data-mode="route_taxi" type="button">Taxi</button>
+      <button data-mode="water_taxi" type="button">Water Taxi</button>
+      <button data-mode="ferry" type="button">Ferry</button>
+    </nav>
 
-        <div class="mode-tabs" id="modeTabs" aria-label="Transport mode filters">
-          <button class="is-active" data-mode="all" type="button">All</button>
-          <button data-mode="bus" type="button">PTSC</button>
-          <button data-mode="maxi" type="button">Maxi</button>
-          <button data-mode="route_taxi" type="button">Taxi</button>
-          <button data-mode="water_taxi" type="button">Water Taxi</button>
-          <button data-mode="ferry" type="button">Ferry</button>
-        </div>
+    <aside id="detailPanel" class="detail-panel" hidden aria-live="polite"></aside>
 
-        <div id="serviceList" class="service-list" aria-live="polite">
-          <p class="loading">Loading transport services…</p>
-        </div>
-      </aside>
-
-      <section class="map-panel" aria-label="Transport atlas">
-        <div id="map" class="map"></div>
-        <div class="map-note">
-          <strong>Solid endpoints ≠ exact route path.</strong>
-          <span>Phase 1 only draws exact geometry when we have it. Endpoint-only services are shown as straight connectors.</span>
-        </div>
-      </section>
-
-      <aside class="detail-panel" id="detailPanel">
-        <p class="eyebrow">ROUTE DETAIL</p>
-        <h2>Pick a service</h2>
-        <p class="detail-empty">Click a route or service card to inspect what we know, how confident we are, and where the information came from.</p>
-      </aside>
+    <section id="serviceTray" class="service-tray" aria-label="Visible services">
+      <button id="trayToggle" class="tray-toggle" type="button" aria-expanded="false">
+        <span>NETWORK</span>
+        <strong><span id="serviceCount">0</span> services</strong>
+      </button>
+      <div id="serviceList" class="service-list" hidden></div>
     </section>
-  </main>
+  </div>
 
-  <footer>
-    <span>Transit Trinidad · community-verifiable transport atlas</span>
-    <a href="https://github.com/bpiper02/transittrinidad" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-  </footer>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script type="module" src="./app.js"></script>
 </body>
 </html>
