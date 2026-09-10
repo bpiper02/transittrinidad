@@ -15,20 +15,20 @@
     <aside class="directions-shell">
       <header class="topbar">
         <strong class="brand">Transit Trinidad</strong>
-        <span class="subbrand">PTSC · MAXI · TAXI · MARINE</span>
+        <span class="subbrand">Public + shared transport</span>
       </header>
 
       <section class="planner" aria-label="Trip planner">
         <div class="planner-row">
           <div class="route-dots" aria-hidden="true"><span class="origin-dot"></span><span class="dot-line"></span><span class="destination-dot"></span></div>
           <div class="route-fields">
-            <label><span>FROM</span><input id="fromInput" autocomplete="off" placeholder="Gulf City, San Fernando" /></label>
-            <label><span>TO</span><input id="toInput" autocomplete="off" placeholder="Arima" /></label>
+            <label class="place-field"><span>From</span><input id="fromInput" autocomplete="off" placeholder="Start location" aria-autocomplete="list" aria-controls="fromSuggestions" /><div id="fromSuggestions" class="suggestions" role="listbox" hidden></div></label>
+            <label class="place-field"><span>To</span><input id="toInput" autocomplete="off" placeholder="Destination" aria-autocomplete="list" aria-controls="toSuggestions" /><div id="toSuggestions" class="suggestions" role="listbox" hidden></div></label>
           </div>
           <button id="swapButton" class="swap" type="button" aria-label="Swap origin and destination">⇅</button>
         </div>
-        <button id="planButton" class="plan-button" type="button">FIND ROUTE</button>
-        <p id="plannerStatus" class="planner-status" aria-live="polite">Enter any place in Trinidad & Tobago.</p>
+        <button id="planButton" class="plan-button" type="button">Route</button>
+        <p id="plannerStatus" class="planner-status" aria-live="polite">Search anywhere in Trinidad & Tobago.</p>
       </section>
 
       <nav class="mode-tabs" id="modeTabs" aria-label="Transport mode filters">
@@ -44,7 +44,7 @@
 
       <section id="serviceTray" class="service-tray" aria-label="Visible services">
         <button id="trayToggle" class="tray-toggle" type="button" aria-expanded="false">
-          <span>NETWORK</span><strong><span id="serviceCount">0</span> services</strong>
+          <span>Network</span><strong><span id="serviceCount">0</span> services</strong>
         </button>
         <div id="serviceList" class="service-list" hidden></div>
       </section>
