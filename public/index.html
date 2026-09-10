@@ -12,51 +12,44 @@
   <div id="appShell" class="app-shell">
     <div id="map" class="map" aria-label="Transit map of Trinidad and Tobago"></div>
 
-    <header class="topbar">
-      <div>
+    <aside class="directions-shell">
+      <header class="topbar">
         <strong class="brand">Transit Trinidad</strong>
-        <span class="subbrand">One map for PTSC, maxis, taxis and marine transport.</span>
-      </div>
-      <span class="phase">PHASE 1 · ATLAS</span>
-    </header>
+        <span class="subbrand">PTSC · MAXI · TAXI · MARINE</span>
+      </header>
 
-    <section class="planner" aria-label="Trip planner">
-      <div class="planner-row">
-        <label>
-          <span>FROM</span>
-          <input id="fromInput" list="placeOptions" autocomplete="off" placeholder="Gulf City, San Fernando" />
-        </label>
-        <button id="swapButton" class="swap" type="button" aria-label="Swap origin and destination">⇅</button>
-        <label>
-          <span>TO</span>
-          <input id="toInput" list="placeOptions" autocomplete="off" placeholder="Arima" />
-        </label>
+      <section class="planner" aria-label="Trip planner">
+        <div class="planner-row">
+          <div class="route-dots" aria-hidden="true"><span class="origin-dot"></span><span class="dot-line"></span><span class="destination-dot"></span></div>
+          <div class="route-fields">
+            <label><span>FROM</span><input id="fromInput" autocomplete="off" placeholder="Gulf City, San Fernando" /></label>
+            <label><span>TO</span><input id="toInput" autocomplete="off" placeholder="Arima" /></label>
+          </div>
+          <button id="swapButton" class="swap" type="button" aria-label="Swap origin and destination">⇅</button>
+        </div>
         <button id="planButton" class="plan-button" type="button">FIND ROUTE</button>
-      </div>
-      <datalist id="placeOptions"></datalist>
-      <p id="plannerStatus" class="planner-status" aria-live="polite">Enter any place in Trinidad & Tobago. We’ll locate it and connect it to the transport network we’ve verified so far.</p>
-    </section>
+        <p id="plannerStatus" class="planner-status" aria-live="polite">Enter any place in Trinidad & Tobago.</p>
+      </section>
 
-    <nav class="mode-tabs" id="modeTabs" aria-label="Transport mode filters">
-      <button class="is-active" data-mode="all" type="button">All</button>
-      <button data-mode="ptsc" type="button">PTSC</button>
-      <button data-mode="maxi" type="button">Maxi</button>
-      <button data-mode="route_taxi" type="button">Taxi</button>
-      <button data-mode="water_taxi" type="button">Water Taxi</button>
-      <button data-mode="ferry" type="button">Ferry</button>
-    </nav>
+      <nav class="mode-tabs" id="modeTabs" aria-label="Transport mode filters">
+        <button class="is-active" data-mode="all" type="button">All</button>
+        <button data-mode="ptsc" type="button">PTSC</button>
+        <button data-mode="maxi" type="button">Maxi</button>
+        <button data-mode="route_taxi" type="button">Taxi</button>
+        <button data-mode="water_taxi" type="button">Water Taxi</button>
+        <button data-mode="ferry" type="button">Ferry</button>
+      </nav>
 
-    <aside id="detailPanel" class="detail-panel" hidden aria-live="polite"></aside>
+      <aside id="detailPanel" class="detail-panel" hidden aria-live="polite"></aside>
 
-    <section id="serviceTray" class="service-tray" aria-label="Visible services">
-      <button id="trayToggle" class="tray-toggle" type="button" aria-expanded="false">
-        <span>NETWORK</span>
-        <strong><span id="serviceCount">0</span> services</strong>
-      </button>
-      <div id="serviceList" class="service-list" hidden></div>
-    </section>
+      <section id="serviceTray" class="service-tray" aria-label="Visible services">
+        <button id="trayToggle" class="tray-toggle" type="button" aria-expanded="false">
+          <span>NETWORK</span><strong><span id="serviceCount">0</span> services</strong>
+        </button>
+        <div id="serviceList" class="service-list" hidden></div>
+      </section>
+    </aside>
   </div>
-
   <script type="module" src="./app.js"></script>
 </body>
 </html>
