@@ -5,16 +5,8 @@
     "kind": "water_taxi_terminal",
     "location": {"lat":10.64883,"lng":-61.514},
     "sources": [
-      {
-        "name": "NIDCO Water Taxi Service",
-        "url": "https://www.nidco.co.tt/water-taxi-service/",
-        "checkedAt": "2026-09-10"
-      },
-      {
-        "name": "OpenStreetMap-derived terminal coordinates",
-        "url": "https://www.openstreetmap.org/way/390110168",
-        "checkedAt": "2026-09-10"
-      }
+      {"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-10"},
+      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/way/390110168","checkedAt":"2026-09-10"}
     ]
   },
   {
@@ -23,16 +15,8 @@
     "kind": "water_taxi_terminal",
     "location": {"lat":10.2822,"lng":-61.47087},
     "sources": [
-      {
-        "name": "NIDCO Water Taxi Service",
-        "url": "https://www.nidco.co.tt/water-taxi-service/",
-        "checkedAt": "2026-09-10"
-      },
-      {
-        "name": "OpenStreetMap-derived terminal coordinates",
-        "url": "https://www.openstreetmap.org/node/8745164784",
-        "checkedAt": "2026-09-10"
-      }
+      {"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-10"},
+      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/node/8745164784","checkedAt":"2026-09-10"}
     ]
   },
   {
@@ -41,16 +25,8 @@
     "kind": "ferry_terminal",
     "location": {"lat":10.64728,"lng":-61.51223},
     "sources": [
-      {
-        "name": "Trinidad and Tobago Inter-Island Transportation Co.",
-        "url": "https://www.ttitferry.com/",
-        "checkedAt": "2026-09-10"
-      },
-      {
-        "name": "OpenStreetMap-derived terminal coordinates",
-        "url": "https://www.openstreetmap.org/way/175819521",
-        "checkedAt": "2026-09-10"
-      }
+      {"name":"Trinidad and Tobago Inter-Island Transportation Co.","url":"https://www.ttitferry.com/","checkedAt":"2026-09-10"},
+      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/way/175819521","checkedAt":"2026-09-10"}
     ]
   },
   {
@@ -59,16 +35,58 @@
     "kind": "ferry_terminal",
     "location": {"lat":11.18228,"lng":-60.73749},
     "sources": [
-      {
-        "name": "Trinidad and Tobago Inter-Island Transportation Co.",
-        "url": "https://www.ttitferry.com/",
-        "checkedAt": "2026-09-10"
-      },
-      {
-        "name": "OpenStreetMap-derived terminal coordinates",
-        "url": "https://www.openstreetmap.org/node/9721300375",
-        "checkedAt": "2026-09-10"
-      }
+      {"name":"Trinidad and Tobago Inter-Island Transportation Co.","url":"https://www.ttitferry.com/","checkedAt":"2026-09-10"},
+      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/node/9721300375","checkedAt":"2026-09-10"}
+    ]
+  },
+  {
+    "id": "ptsc-pos-transit-centre",
+    "name": "Port of Spain Transit Centre",
+    "kind": "terminal",
+    "location": {"lat":10.64787,"lng":-61.5087},
+    "sources": [
+      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-10"},
+      {"name":"OpenStreetMap-derived transit centre coordinates","url":"https://www.openstreetmap.org/way/350372094","checkedAt":"2026-09-10"}
+    ]
+  },
+  {
+    "id": "ptsc-san-fernando",
+    "name": "San Fernando PTSC Terminus",
+    "kind": "terminal",
+    "location": {"lat":10.28394,"lng":-61.46781},
+    "sources": [
+      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-10"},
+      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/way/835910886","checkedAt":"2026-09-10"}
+    ]
+  },
+  {
+    "id": "ptsc-chaguanas",
+    "name": "Chaguanas PTSC Bus Terminal",
+    "kind": "terminal",
+    "location": {"lat":10.51831,"lng":-61.41402},
+    "sources": [
+      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-10"},
+      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/way/111453245","checkedAt":"2026-09-10"}
+    ]
+  },
+  {
+    "id": "ptsc-arima",
+    "name": "Arima PTSC Transit Hub",
+    "kind": "terminal",
+    "location": {"lat":10.63871,"lng":-61.28323},
+    "sources": [
+      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-10"},
+      {"name":"Mapped PTSC Arima Transit Hub coordinates","url":"https://www.wikiloc.com/hiking-trails/arima-loop-110973914","checkedAt":"2026-09-10"}
+    ]
+  },
+  {
+    "id": "ptsc-sangre-grande",
+    "name": "Sangre Grande PTSC Bus Station",
+    "kind": "terminal",
+    "location": {"lat":10.58639,"lng":-61.13054},
+    "sources": [
+      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-10"},
+      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/way/489636163","checkedAt":"2026-09-10"}
     ]
   }
 ]
