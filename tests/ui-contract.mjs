@@ -16,9 +16,15 @@ assert.match(app,/countrycodes:'tt'/,'fallback geocoder must stay country restri
 assert.match(app,/photon\.komoot\.io\/api/,'autocomplete should use Photon rather than Nominatim');
 assert.match(app,/autocompletePlaces/);
 assert.match(app,/bbox:'-61\.98,9\.95,-60\.42,11\.42'/,'autocomplete should be bounded to T&T');
+assert.match(app,/routingServices\(\)/,'trip planner must have a mode-aware service set');
+assert.match(app,/services:usableServices/,'active mode must constrain graph routing, not only map rendering');
 assert.match(app,/chooseConnectedJourney/,'route-aware node selection must remain enabled');
+assert.match(app,/candidateLimit:10/,'route-aware snapping should inspect enough nearby terminals as the network grows');
+assert.match(app,/maxAccessKm:25/,'route snapping needs a guard against absurdly distant nodes');
+assert.match(app,/estimatedMinutes/,'planner should expose a rough ranking/time estimate');
 assert.match(app,/router\.project-osrm\.org\/route\/v1\/driving/,'estimated road geometry should use OSRM');
 assert.match(app,/OSRM_CACHE_KEY/,'estimated geometry should be cached');
+assert.doesNotMatch(app,/fitCountry\(\);\s*hydrateDisplayGeometry\(\)/,'do not prefetch road geometry for the whole network on map load');
 assert.match(app,/MAXI_BAND_COLORS/,'maxi routes need statutory band color mapping');
 assert.match(app,/routeColor/,'map features should carry route colors');
 assert.match(app,/\['get','routeColor'\]/,'rendered journey must use per-service colors');
