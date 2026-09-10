@@ -1,0 +1,22 @@
+# Transit Trinidad
+
+A public transport atlas and routing foundation for Trinidad & Tobago, covering PTSC, maxi taxis, route taxis, water taxi, and inter-island ferry services.
+
+## Phase 1
+
+Build a trustworthy transport atlas before enabling A→B journey planning.
+
+Phase 1 focuses on:
+- structured service and transport-node data
+- provenance and confidence on every route claim
+- broad network coverage without inventing exact geometry
+- a map-first interface for browsing services
+- structured community corrections and confirmations
+
+## Data principles
+
+1. Service existence, exact path, fare, and schedule are separate claims with separate confidence.
+2. Every public claim should have provenance and a last-checked date.
+3. Historical or community-supplied information is labeled as such.
+4. Community corrections create evidence; they do not silently overwrite canonical data.
+5. The underlying model is a transport graph so the atlas can later support multimodal routing.
