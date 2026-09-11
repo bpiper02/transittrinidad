@@ -1,14 +1,15 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {chooseConnectedJourney,findJourney,nearestNodes,journeyMinutes,estimateAccess} from '../src/routing-core.mjs';
+import {chooseConnectedJourney,findJourney,nearestNodes,journeyMinutes,estimateAccess,countTransfers} from '../src/routing-core.mjs';
 
 const nodesArray=JSON.parse(await readFile(new URL('../data/nodes.json',import.meta.url)));
 const services=JSON.parse(await readFile(new URL('../data/services.json',import.meta.url)));
+const transfers=JSON.parse(await readFile(new URL('../data/transfers.json',import.meta.url)));
 const nodes=new Map(nodesArray.map(node=>[node.id,node]));
 
 assert.ok(findJourney('ptsc-chaguanas','ptsc-pos-transit-centre',services,nodes),'Chaguanas must connect to Port of Spain through a directed pattern');
 assert.ok(findJourney('ptsc-pos-transit-centre','ptsc-chaguanas',services,nodes),'Port of Spain must connect back through its own directed pattern');
-assert.deepEqual(findJourney('ptsc-chaguanas','ptsc-chaguanas',services,nodes),[],'same-node graph journey should need no transit legs');
+assert.deepEqual(findJourney('ptsc-chaguanas','ptsc-chaguanas',services,nodes),[],'same-node graph journey should need no network steps');
 assert.equal(findJourney('ptsc-chaguanas','missing-node',services,nodes),null,'disconnected destination should return null');
 assert.ok(findJourney('ptsc-pos-transit-centre','ptsc-point-fortin',services,nodes),'POS should connect to Point Fortin');
 assert.ok(findJourney('ptsc-point-fortin','ptsc-san-fernando',services,nodes),'Point Fortin should connect back to San Fernando');
@@ -17,14 +18,34 @@ assert.equal(findJourney('ptsc-curepe','ptsc-chaguanas',services,nodes),null,'re
 assert.ok(findJourney('ptsc-san-fernando','ptsc-uwi-st-augustine',services,nodes),'official San Fernando to UWI direction should route');
 assert.equal(findJourney('ptsc-uwi-st-augustine','ptsc-san-fernando',services,nodes),null,'reverse UWI to San Fernando must not be invented without a reverse pattern');
 
+const noTransferFerry=findJourney('ptsc-chaguanas','scarborough-ferry-terminal',services,nodes);
+assert.equal(noTransferFerry,null,'ferry should remain disconnected from PTSC if walking transfer links are absent');
+const ferryJourney=findJourney('ptsc-chaguanas','scarborough-ferry-terminal',services,nodes,{transfers,transferPenaltyMinutes:10});
+assert.ok(ferryJourney,'Chaguanas to Scarborough should connect through POS PTSC, a terminal walk, and the ferry');
+assert.ok(ferryJourney.some(step=>step.kind==='transfer'&&step.to==='pos-ferry-terminal'),'ferry itinerary must explicitly include the POS terminal walk');
+assert.deepEqual(ferryJourney.filter(step=>step.kind==='transit').map(step=>step.service.mode),['ptsc','ferry'],'ferry itinerary should combine PTSC and ferry');
+assert.equal(countTransfers(ferryJourney),1,'PTSC to ferry should count as one transit transfer');
+
+const ferryOnly=services.filter(service=>service.mode==='ferry');
+const ferryFromPosTransit=findJourney('ptsc-pos-transit-centre','scarborough-ferry-terminal',ferryOnly,nodes,{transfers});
+assert.ok(ferryFromPosTransit,'ferry-only routing should still permit a walking connector from the nearby POS transit centre');
+assert.equal(ferryFromPosTransit[0].kind,'transfer');
+assert.equal(ferryFromPosTransit.at(-1).service.mode,'ferry');
+
+const waterTaxiOnly=services.filter(service=>service.mode==='water_taxi');
+const waterTaxiFromPosTransit=findJourney('ptsc-pos-transit-centre','san-fernando-water-taxi-terminal',waterTaxiOnly,nodes,{transfers});
+assert.ok(waterTaxiFromPosTransit,'water-taxi-only routing should permit terminal walking access');
+assert.ok(waterTaxiFromPosTransit.some(step=>step.kind==='transfer'));
+assert.equal(waterTaxiFromPosTransit.at(-1).service.mode,'water_taxi');
+
 const portOfSpain={lat:10.6500,lng:-61.5140};
 const nearestToPos=nearestNodes(portOfSpain,nodes,{limit:1})[0];
 assert.notEqual(nearestToPos.node.id,'ptsc-pos-transit-centre','fixture must reproduce the nearby-terminal problem');
 
 const couva={lat:10.422,lng:-61.462};
-const journey=chooseConnectedJourney({fromPlace:couva,toPlace:portOfSpain,nodes,services,candidateLimit:8});
+const journey=chooseConnectedJourney({fromPlace:couva,toPlace:portOfSpain,nodes,services,transfers,candidateLimit:8});
 assert.ok(journey,'Couva to Port of Spain should find a connected nearby-node journey');
-assert.equal(journey.toNear.node.id,'ptsc-pos-transit-centre','route-aware snapping should choose the connected PTSC destination node');
+assert.equal(journey.toNear.node.id,'ptsc-pos-transit-centre','route-aware snapping should choose the useful connected PTSC destination node');
 assert.ok(journey.legs.length>=1,'connected journey should include transit');
 assert.ok(Number.isFinite(journey.estimatedMinutes)&&journey.estimatedMinutes>0,'journey should expose an estimated duration for ranking');
 assert.equal(journey.fromAccess.mode,'local','long first-mile access must not be mislabeled/scored as walking');
@@ -41,6 +62,17 @@ const oneWay=[{id:'a-to-b',corridorId:'a-b',mode:'ptsc',originNodeId:'a',destina
 assert.ok(findJourney('a','b',oneWay,oneWayNodes),'directed pattern should work in its declared direction');
 assert.equal(findJourney('b','a',oneWay,oneWayNodes),null,'router must never synthesize the reverse direction');
 
+const segmentNodes=new Map([
+  ['a',{id:'a',location:{lat:10.00,lng:-61.00}}],
+  ['b',{id:'b',location:{lat:10.02,lng:-61.00}}],
+  ['c',{id:'c',location:{lat:10.04,lng:-61.00}}]
+]);
+const throughService=[{id:'a-through-c',corridorId:'a-c',mode:'ptsc',originNodeId:'a',destinationNodeId:'c',stopNodeIds:['a','b','c'],estimatedMinutes:30}];
+const throughJourney=findJourney('a','c',throughService,segmentNodes,{transferPenaltyMinutes:10});
+assert.equal(throughJourney.length,2,'ordered stop patterns should create traversable stop-to-stop segments');
+assert.equal(countTransfers(throughJourney),0,'staying on the same service across intermediate stops must not count as a transfer');
+assert.ok(findJourney('b','c',throughService,segmentNodes),'riders must be able to board at an intermediate stop');
+
 const weightedNodes=new Map([
   ['a',{id:'a',location:{lat:10.00,lng:-61.00}}],['b',{id:'b',location:{lat:10.02,lng:-61.00}}],['c',{id:'c',location:{lat:10.04,lng:-61.00}}],['d',{id:'d',location:{lat:10.06,lng:-61.00}}],['far',{id:'far',location:{lat:10.90,lng:-61.00}}]
 ]);
@@ -51,7 +83,7 @@ const weightedServices=[
   {id:'short-3',corridorId:'short-3',mode:'ptsc',originNodeId:'c',destinationNodeId:'d',estimatedMinutes:8,stopNodeIds:['c','d']}
 ];
 const weighted=findJourney('a','d',weightedServices,weightedNodes,{transferPenaltyMinutes:5});
-assert.deepEqual(weighted.map(leg=>leg.service.id),['short-1','short-2','short-3'],'weighted routing should prefer a much faster multi-leg path over a slow direct service');
+assert.deepEqual(weighted.filter(step=>step.kind==='transit').map(step=>step.service.id),['short-1','short-2','short-3'],'weighted routing should prefer a much faster multi-leg path over a slow direct service');
 assert.ok(journeyMinutes(weighted,weightedNodes,{transferPenaltyMinutes:5})<90,'weighted path estimate should beat the long direct trip');
 assert.equal(nearestNodes({lat:10,lng:-61},weightedNodes,{limit:10,maxKm:20}).some(item=>item.node.id==='far'),false,'access radius should exclude absurdly distant snap nodes');
 
@@ -63,5 +95,6 @@ assert.equal(falseZeroLeg,null,'two arbitrary places must not become a fake zero
 const corridorIds=new Set(services.map(service=>service.corridorId));
 assert.equal(corridorIds.size,12,'current dataset should represent 12 human-facing corridors');
 assert.equal(services.length,22,'current dataset should represent 22 directed service patterns');
+assert.equal(transfers.length,8,'current transfer dataset should contain the approved directional terminal walks');
 
-console.log(`routing core tests passed: ${nodesArray.length} nodes, ${corridorIds.size} corridors, ${services.length} directed patterns`);
+console.log(`routing core tests passed: ${nodesArray.length} nodes, ${corridorIds.size} corridors, ${services.length} directed patterns, ${transfers.length} transfers`);
