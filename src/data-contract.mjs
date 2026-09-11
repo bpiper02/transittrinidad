@@ -3,6 +3,7 @@ export const SERVICE_CONFIDENCE = new Set(['verified_service','community_verifie
 export const GEOMETRY_CONFIDENCE = new Set(['verified_path','partial_path','endpoints_only','unknown']);
 export const CLAIM_CONFIDENCE = new Set(['official_current','official_historical','community_verified','reported','unknown']);
 export const LOCATION_CONFIDENCE = new Set(['verified_station','mapped_station','approximate_area']);
+export const TRANSFER_CONFIDENCE = new Set(['verified_walk','estimated_walk']);
 
 function isNonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -63,8 +64,22 @@ export function validateService(service) {
   return true;
 }
 
-export function validateDataset({nodes,services}) {
-  if (!Array.isArray(nodes) || !Array.isArray(services)) throw new Error('nodes and services must be arrays');
+export function validateTransfer(transfer) {
+  if (!transfer || typeof transfer !== 'object') throw new Error('transfer is required');
+  if (!isNonEmpty(transfer.id)) throw new Error('transfer.id is required');
+  if (!isNonEmpty(transfer.fromNodeId) || !isNonEmpty(transfer.toNodeId)) throw new Error(`transfer ${transfer.id} needs fromNodeId and toNodeId`);
+  if (transfer.fromNodeId === transfer.toNodeId) throw new Error(`transfer ${transfer.id} cannot connect a node to itself`);
+  if (transfer.mode !== 'walk') throw new Error(`invalid transfer mode for ${transfer.id}`);
+  if (!Number.isFinite(transfer.distanceKm) || transfer.distanceKm <= 0) throw new Error(`invalid distanceKm for ${transfer.id}`);
+  if (!Number.isFinite(transfer.estimatedMinutes) || transfer.estimatedMinutes <= 0) throw new Error(`invalid estimatedMinutes for ${transfer.id}`);
+  if (!TRANSFER_CONFIDENCE.has(transfer.confidence)) throw new Error(`invalid transfer confidence for ${transfer.id}`);
+  if (!Array.isArray(transfer.sources) || transfer.sources.length === 0) throw new Error(`transfer ${transfer.id} needs at least one source`);
+  transfer.sources.forEach(validateSource);
+  return true;
+}
+
+export function validateDataset({nodes,services,transfers=[]}) {
+  if (!Array.isArray(nodes) || !Array.isArray(services) || !Array.isArray(transfers)) throw new Error('nodes, services and transfers must be arrays');
   const nodeIds = new Set();
   for (const node of nodes) {
     validateNode(node);
@@ -79,6 +94,18 @@ export function validateDataset({nodes,services}) {
     if (!nodeIds.has(service.originNodeId)) throw new Error(`unknown origin node ${service.originNodeId}`);
     if (!nodeIds.has(service.destinationNodeId)) throw new Error(`unknown destination node ${service.destinationNodeId}`);
     for (const stopNodeId of service.stopNodeIds) if (!nodeIds.has(stopNodeId)) throw new Error(`unknown stop node ${stopNodeId} in ${service.id}`);
+  }
+  const transferIds = new Set();
+  const transferPairs = new Set();
+  for (const transfer of transfers) {
+    validateTransfer(transfer);
+    if (transferIds.has(transfer.id)) throw new Error(`duplicate transfer id ${transfer.id}`);
+    transferIds.add(transfer.id);
+    if (!nodeIds.has(transfer.fromNodeId)) throw new Error(`unknown transfer origin node ${transfer.fromNodeId}`);
+    if (!nodeIds.has(transfer.toNodeId)) throw new Error(`unknown transfer destination node ${transfer.toNodeId}`);
+    const pair=`${transfer.fromNodeId}->${transfer.toNodeId}`;
+    if (transferPairs.has(pair)) throw new Error(`duplicate transfer pair ${pair}`);
+    transferPairs.add(pair);
   }
   return true;
 }
