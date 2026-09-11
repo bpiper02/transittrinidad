@@ -1,0 +1,15 @@
+{
+  "source": {
+    "name": "PTSC Routes and Schedules directory",
+    "url": "https://ptsc.co.tt/routes-and-schedules/",
+    "checkedAt": "2026-09-11"
+  },
+  "captureScope": "First five route cards visible in the official directory; this is a pipeline fixture, not a complete catalog export.",
+  "records": [
+    {"officialId":"ptsc-card-6-2-scale-pos","title":"#6 & #2 Scale / POS via Barrackpore (Commuter Special)","from":"#6 & #2 Scale","to":"POS","serviceDays":"Monday-Friday","fareTTD":12,"amTimes":["4:00"],"pmTimes":["2:00"]},
+    {"officialId":"ptsc-card-arima-aripo","title":"Arima / Aripo","from":"Arima","to":"Aripo","serviceDays":"Monday-Friday","fareTTD":3,"amTimes":["5:00","7:00","9:00"],"pmTimes":["1:00","3:00","5:00"]},
+    {"officialId":"ptsc-card-arima-la-horquetta","title":"Arima / La Horquetta","from":"Arima","to":"La Horquetta","serviceDays":"Monday-Friday","fareTTD":3,"amTimes":["5:00","6:00","7:00","8:00","9:00","10:00","11:00"],"pmTimes":["12:00","1:00","2:00","3:00","4:00","5:00","6:00","7:00","8:00"]},
+    {"officialId":"ptsc-card-arima-st-helena-weekday","title":"Arima / St Helena Via Carapo","from":"Arima","to":"St Helena Via Carapo","serviceDays":"Monday-Friday","fareTTD":3,"amTimes":["5:00","7:00","9:00"],"pmTimes":["2:00","4:00","6:00"]},
+    {"officialId":"ptsc-card-arima-st-helena-saturday","title":"Arima / St Helena Via Carapo","from":"Arima","to":"St Helena Via Carapo","serviceDays":"Saturday","fareTTD":3,"amTimes":["7:00","9:00"],"pmTimes":["2:00","4:00"]}
+  ]
+}

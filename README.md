@@ -20,3 +20,7 @@ Phase 1 focuses on:
 3. Historical or community-supplied information is labeled as such.
 4. Community corrections create evidence; they do not silently overwrite canonical data.
 5. The underlying model is a transport graph so the atlas can later support multimodal routing.
+
+## PTSC catalog intake
+
+Official PTSC directory cards are captured as dated source snapshots under `data/source/`. Run `node tools/ptsc-import.mjs <snapshot.json> <candidates.json>` to create review candidates. The importer normalizes official departure periods, service days, endpoint aliases, and fares, but sets `autoPromote` to `false`: a person must review endpoint mappings, duplicate variants, and schedule upgrades before changing the app's canonical `services.json` or `schedules.json`.
