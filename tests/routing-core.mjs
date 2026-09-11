@@ -54,6 +54,18 @@ const couvaOptions=chooseJourneyOptions({fromPlace:couva,toPlace:portOfSpain,nod
 assert.ok(couvaOptions.length>=2,'Couva to Port of Spain should expose more than one reasonable itinerary');
 assert.ok(couvaOptions.some(option=>option.modes.includes('water_taxi')),'Couva to Port of Spain alternatives should surface the San Fernando Water Taxi option');
 assert.equal(couvaOptions[0].score<=couvaOptions[1].score,true,'best estimate should remain first even when mode-diverse alternatives are surfaced');
+const rideSignature=option=>{
+  const ids=[];
+  for(const step of option.steps){
+    if(step.kind!=='transit'||ids.at(-1)===step.service.id)continue;
+    ids.push(step.service.id);
+  }
+  return ids.join('>');
+};
+assert.equal(new Set(couvaOptions.map(rideSignature)).size,couvaOptions.length,'rider-facing alternatives must represent distinct transit ride sequences');
+const waterTaxiCouvaOptions=chooseJourneyOptions({fromPlace:couva,toPlace:portOfSpain,nodes,services:waterTaxiOnly,transfers,candidateLimit:10,maxOptions:3});
+assert.equal(waterTaxiCouvaOptions.length,1,'Water Taxi-only mode should show one option when every candidate boards the same Water Taxi service');
+assert.deepEqual(waterTaxiCouvaOptions[0].modes,['water_taxi']);
 
 const shortAccess=estimateAccess(0.8);
 assert.equal(shortAccess.mode,'walk');
