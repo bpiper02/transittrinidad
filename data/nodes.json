@@ -183,5 +183,17 @@
   {
     "id":"maxi-siparia","name":"Siparia Maxi Zone","kind":"stop_zone","location":{"lat":10.1454,"lng":-61.5075},"locationConfidence":"approximate_area",
     "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Siparia%2C%20Trinidad","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-couva","name":"Couva Maxi Zone","kind":"stop_zone","location":{"lat":10.422,"lng":-61.462},"locationConfidence":"approximate_area",
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Couva%2C%20Trinidad","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"c3-centre","name":"C3 Centre","kind":"stop_zone","location":{"lat":10.245,"lng":-61.452},"locationConfidence":"approximate_area",
+    "sources":[{"name":"C3 Centre contact details","url":"https://www.c3centrett.com/","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=C3%20Centre%2C%20Trinidad","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"gulf-city-mall","name":"Gulf City Mall","kind":"stop_zone","location":{"lat":10.244,"lng":-61.456},"locationConfidence":"approximate_area",
+    "sources":[{"name":"Trinidad local listing for Gulf City Mall","url":"https://www.trinigo.com/","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Gulf%20City%20Mall%2C%20Trinidad","checkedAt":"2026-09-11"}]
   }
 ]

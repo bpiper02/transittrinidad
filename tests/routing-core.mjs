@@ -25,6 +25,11 @@ assert.ok(eastMaxiJourney,'the Red Band corridor must be usable as a transit jou
 assert.ok(eastMaxiJourney.every(step=>step.service.mode==='maxi'));
 assert.ok(findJourney('maxi-diego-martin','ptsc-pos-transit-centre',maxiOnly,nodes,{transfers}),'the Yellow Band hub must connect into the wider network through its walking transfer');
 assert.ok(findJourney('maxi-mayaro','ptsc-san-fernando',maxiOnly,nodes),'the Black Band corridor must be traversable through Princes Town');
+assert.ok(findJourney('maxi-couva','ptsc-san-fernando',maxiOnly,nodes),'the Green Band corridor must connect Couva to San Fernando');
+assert.ok(findJourney('ptsc-san-fernando','maxi-couva',maxiOnly,nodes),'the Green Band corridor must connect San Fernando to Couva');
+const localSouthOnly=services.filter(service=>service.mode==='route_taxi');
+assert.ok(findJourney('ptsc-san-fernando','c3-centre',localSouthOnly,nodes),'San Fernando should connect to C3 by a local route-taxi leg');
+assert.ok(findJourney('gulf-city-mall','ptsc-san-fernando',localSouthOnly,nodes),'Gulf City should connect back to San Fernando by a local route-taxi leg');
 
 const noTransferFerry=findJourney('ptsc-chaguanas','scarborough-ferry-terminal',services,nodes);
 assert.equal(noTransferFerry,null,'ferry should remain disconnected from PTSC if walking transfer links are absent');
@@ -118,8 +123,8 @@ const falseZeroLeg=chooseConnectedJourney({fromPlace:{lat:10.40,lng:-61.46},toPl
 assert.equal(falseZeroLeg,null,'two arbitrary places must not become a fake zero-transit journey merely because they snap to the same hub');
 
 const corridorIds=new Set(services.map(service=>service.corridorId));
-assert.equal(corridorIds.size,23,'current dataset should represent 23 human-facing corridors');
-assert.equal(services.length,40,'current dataset should represent 40 directed service patterns');
+assert.equal(corridorIds.size,26,'current dataset should represent 26 human-facing corridors');
+assert.equal(services.length,46,'current dataset should represent 46 directed service patterns');
 assert.equal(transfers.length,10,'current transfer dataset should contain the approved directional terminal walks');
 
 console.log(`routing core tests passed: ${nodesArray.length} nodes, ${corridorIds.size} corridors, ${services.length} directed patterns, ${transfers.length} transfers`);

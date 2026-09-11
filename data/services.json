@@ -238,5 +238,41 @@
     "originNodeId":"maxi-siparia","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["maxi-siparia","ptsc-san-fernando"],
     "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
     "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-green-san-fernando-to-couva","corridorId":"maxi-green-san-fernando-couva","mode":"maxi","operator":"Route 3 Green Band Maxi Taxi",
+    "originNodeId":"ptsc-san-fernando","destinationNodeId":"maxi-couva","stopNodeIds":["ptsc-san-fernando","maxi-couva"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"Trinidad route taxi and maxi guide","url":"https://www.tntisland.com/routetaxis.html","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-green-couva-to-san-fernando","corridorId":"maxi-green-san-fernando-couva","mode":"maxi","operator":"Route 3 Green Band Maxi Taxi",
+    "originNodeId":"maxi-couva","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["maxi-couva","ptsc-san-fernando"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"Trinidad route taxi and maxi guide","url":"https://www.tntisland.com/routetaxis.html","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"route-taxi-san-fernando-to-c3","corridorId":"route-taxi-san-fernando-c3","mode":"route_taxi","operator":"San Fernando / C3 Route Taxi",
+    "originNodeId":"ptsc-san-fernando","destinationNodeId":"c3-centre","stopNodeIds":["ptsc-san-fernando","c3-centre"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"Local route taxi service; no published timetable. Confirm the current stand, fare, and destination with the driver."},
+    "sources":[{"name":"Community C3 route taxi report","url":"https://www.trinituner.com/v4/forums/viewtopic.php?t=745451","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"route-taxi-c3-to-san-fernando","corridorId":"route-taxi-san-fernando-c3","mode":"route_taxi","operator":"San Fernando / C3 Route Taxi",
+    "originNodeId":"c3-centre","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["c3-centre","ptsc-san-fernando"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"Local route taxi service; no published timetable. Confirm the current stand, fare, and destination with the driver."},
+    "sources":[{"name":"Community C3 route taxi report","url":"https://www.trinituner.com/v4/forums/viewtopic.php?t=745451","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"route-taxi-san-fernando-to-gulf-city","corridorId":"route-taxi-san-fernando-gulf-city","mode":"route_taxi","operator":"San Fernando / Gulf City Route Taxi",
+    "originNodeId":"ptsc-san-fernando","destinationNodeId":"gulf-city-mall","stopNodeIds":["ptsc-san-fernando","gulf-city-mall"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"Local route taxi service; no published timetable. Confirm the current stand, fare, and destination with the driver."},
+    "sources":[{"name":"Community Gulf City route taxi report","url":"https://www.trinituner.com/v4/forums/viewtopic.php?t=288235","checkedAt":"2026-09-11"},{"name":"Newsday fare report","url":"https://newsday.co.tt/2021/05/10/la-romaine-san-fernando-fare-rises-temporarily-by-2/","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"route-taxi-gulf-city-to-san-fernando","corridorId":"route-taxi-san-fernando-gulf-city","mode":"route_taxi","operator":"San Fernando / Gulf City Route Taxi",
+    "originNodeId":"gulf-city-mall","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["gulf-city-mall","ptsc-san-fernando"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"Local route taxi service; no published timetable. Confirm the current stand, fare, and destination with the driver."},
+    "sources":[{"name":"Community Gulf City route taxi report","url":"https://www.trinituner.com/v4/forums/viewtopic.php?t=288235","checkedAt":"2026-09-11"},{"name":"Newsday fare report","url":"https://newsday.co.tt/2021/05/10/la-romaine-san-fernando-fare-rises-temporarily-by-2/","checkedAt":"2026-09-11"}]
   }
 ]
