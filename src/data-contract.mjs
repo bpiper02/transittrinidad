@@ -43,10 +43,13 @@ export function validateNode(node) {
 export function validateService(service) {
   if (!service || typeof service !== 'object') throw new Error('service is required');
   if (!isNonEmpty(service.id)) throw new Error('service.id is required');
+  if (!isNonEmpty(service.corridorId)) throw new Error(`service ${service.id} needs corridorId`);
   if (!MODES.has(service.mode)) throw new Error(`invalid mode for ${service.id}`);
   if (!isNonEmpty(service.originNodeId) || !isNonEmpty(service.destinationNodeId)) throw new Error(`service ${service.id} needs origin and destination nodes`);
   if (service.originNodeId === service.destinationNodeId) throw new Error(`service ${service.id} cannot have the same origin and destination`);
-  if (typeof service.bidirectional !== 'boolean') throw new Error(`service ${service.id} must explicitly declare bidirectional true or false`);
+  if ('bidirectional' in service) throw new Error(`service ${service.id} must be directional; bidirectional is not allowed`);
+  if (!Array.isArray(service.stopNodeIds) || service.stopNodeIds.length < 2) throw new Error(`service ${service.id} needs ordered stopNodeIds`);
+  if (service.stopNodeIds[0] !== service.originNodeId || service.stopNodeIds.at(-1) !== service.destinationNodeId) throw new Error(`service ${service.id} stopNodeIds must start at origin and end at destination`);
   if (!SERVICE_CONFIDENCE.has(service.serviceConfidence)) throw new Error(`invalid service confidence for ${service.id}`);
   if (!GEOMETRY_CONFIDENCE.has(service.geometryConfidence)) throw new Error(`invalid geometry confidence for ${service.id}`);
   if (!CLAIM_CONFIDENCE.has(service.fareConfidence)) throw new Error(`invalid fare confidence for ${service.id}`);
@@ -75,6 +78,7 @@ export function validateDataset({nodes,services}) {
     serviceIds.add(service.id);
     if (!nodeIds.has(service.originNodeId)) throw new Error(`unknown origin node ${service.originNodeId}`);
     if (!nodeIds.has(service.destinationNodeId)) throw new Error(`unknown destination node ${service.destinationNodeId}`);
+    for (const stopNodeId of service.stopNodeIds) if (!nodeIds.has(stopNodeId)) throw new Error(`unknown stop node ${stopNodeId} in ${service.id}`);
   }
   return true;
 }
