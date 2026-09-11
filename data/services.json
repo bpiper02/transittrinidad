@@ -1,213 +1,134 @@
 [
   {
-    "id": "water-taxi-pos-san-fernando",
-    "mode": "water_taxi",
-    "operator": "NIDCO Water Taxi Service",
-    "originNodeId": "pos-water-taxi-terminal",
-    "destinationNodeId": "san-fernando-water-taxi-terminal",
-    "bidirectional": true,
-    "serviceConfidence": "verified_service",
-    "geometryConfidence": "endpoints_only",
-    "geometry": null,
-    "fareTTD": 15,
-    "fareConfidence": "official_current",
-    "scheduleConfidence": "official_current",
-    "sources": [
-      {"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-10"}
-    ]
+    "id":"water-taxi-pos-to-san-fernando","corridorId":"water-taxi-pos-san-fernando","mode":"water_taxi","operator":"NIDCO Water Taxi Service",
+    "originNodeId":"pos-water-taxi-terminal","destinationNodeId":"san-fernando-water-taxi-terminal","stopNodeIds":["pos-water-taxi-terminal","san-fernando-water-taxi-terminal"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":15,"fareConfidence":"official_current","scheduleConfidence":"official_current",
+    "sources":[{"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-10"}]
   },
   {
-    "id": "ferry-pos-scarborough",
-    "mode": "ferry",
-    "operator": "Trinidad and Tobago Inter-Island Transportation Co.",
-    "originNodeId": "pos-ferry-terminal",
-    "destinationNodeId": "scarborough-ferry-terminal",
-    "bidirectional": true,
-    "serviceConfidence": "verified_service",
-    "geometryConfidence": "endpoints_only",
-    "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
-    "scheduleConfidence": "official_current",
-    "sources": [
-      {"name":"Trinidad and Tobago Inter-Island Transportation Co.","url":"https://www.ttitferry.com/schedule/","checkedAt":"2026-09-10"}
-    ]
+    "id":"water-taxi-san-fernando-to-pos","corridorId":"water-taxi-pos-san-fernando","mode":"water_taxi","operator":"NIDCO Water Taxi Service",
+    "originNodeId":"san-fernando-water-taxi-terminal","destinationNodeId":"pos-water-taxi-terminal","stopNodeIds":["san-fernando-water-taxi-terminal","pos-water-taxi-terminal"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":15,"fareConfidence":"official_current","scheduleConfidence":"official_current",
+    "sources":[{"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-10"}]
   },
   {
-    "id": "ptsc-pos-arima",
-    "mode": "ptsc",
-    "operator": "PTSC",
-    "originNodeId": "ptsc-pos-transit-centre",
-    "destinationNodeId": "ptsc-arima",
-    "bidirectional": true,
-    "serviceConfidence": "verified_service",
-    "geometryConfidence": "endpoints_only",
-    "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
-    "scheduleConfidence": "unknown",
-    "sources": [
-      {"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},
-      {"name":"PTSC Arima routes","url":"https://ptsc.co.tt/to/arima/","checkedAt":"2026-09-10"}
-    ]
+    "id":"ferry-pos-to-scarborough","corridorId":"ferry-pos-scarborough","mode":"ferry","operator":"Trinidad and Tobago Inter-Island Transportation Co.",
+    "originNodeId":"pos-ferry-terminal","destinationNodeId":"scarborough-ferry-terminal","stopNodeIds":["pos-ferry-terminal","scarborough-ferry-terminal"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"official_current",
+    "sources":[{"name":"Trinidad and Tobago Inter-Island Transportation Co.","url":"https://www.ttitferry.com/schedule/","checkedAt":"2026-09-10"}]
   },
   {
-    "id": "ptsc-pos-chaguanas",
-    "mode": "ptsc",
-    "operator": "PTSC",
-    "originNodeId": "ptsc-pos-transit-centre",
-    "destinationNodeId": "ptsc-chaguanas",
-    "bidirectional": true,
-    "serviceConfidence": "verified_service",
-    "geometryConfidence": "endpoints_only",
-    "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
-    "scheduleConfidence": "unknown",
-    "sources": [
-      {"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"}
-    ]
+    "id":"ferry-scarborough-to-pos","corridorId":"ferry-pos-scarborough","mode":"ferry","operator":"Trinidad and Tobago Inter-Island Transportation Co.",
+    "originNodeId":"scarborough-ferry-terminal","destinationNodeId":"pos-ferry-terminal","stopNodeIds":["scarborough-ferry-terminal","pos-ferry-terminal"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"official_current",
+    "sources":[{"name":"Trinidad and Tobago Inter-Island Transportation Co.","url":"https://www.ttitferry.com/schedule/","checkedAt":"2026-09-10"}]
   },
   {
-    "id": "ptsc-pos-san-fernando",
-    "mode": "ptsc",
-    "operator": "PTSC",
-    "originNodeId": "ptsc-pos-transit-centre",
-    "destinationNodeId": "ptsc-san-fernando",
-    "bidirectional": true,
-    "serviceConfidence": "verified_service",
-    "geometryConfidence": "endpoints_only",
-    "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
-    "scheduleConfidence": "unknown",
-    "sources": [
-      {"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},
-      {"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-10"}
-    ]
+    "id":"ptsc-pos-to-arima","corridorId":"ptsc-pos-arima","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-arima","stopNodeIds":["ptsc-pos-transit-centre","ptsc-arima"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},{"name":"PTSC Arima routes","url":"https://ptsc.co.tt/to/arima/","checkedAt":"2026-09-10"}]
   },
   {
-    "id": "ptsc-pos-sangre-grande",
-    "mode": "ptsc",
-    "operator": "PTSC",
-    "originNodeId": "ptsc-pos-transit-centre",
-    "destinationNodeId": "ptsc-sangre-grande",
-    "bidirectional": true,
-    "serviceConfidence": "verified_service",
-    "geometryConfidence": "endpoints_only",
-    "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
-    "scheduleConfidence": "unknown",
-    "sources": [
-      {"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},
-      {"name":"PTSC Sangre Grande routes","url":"https://ptsc.co.tt/from/sangre-grande/","checkedAt":"2026-09-10"}
-    ]
+    "id":"ptsc-arima-to-pos","corridorId":"ptsc-pos-arima","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-arima","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-arima","ptsc-pos-transit-centre"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},{"name":"PTSC Arima routes","url":"https://ptsc.co.tt/to/arima/","checkedAt":"2026-09-10"}]
   },
   {
-    "id": "ptsc-arima-sangre-grande",
-    "mode": "ptsc",
-    "operator": "PTSC",
-    "originNodeId": "ptsc-arima",
-    "destinationNodeId": "ptsc-sangre-grande",
-    "bidirectional": true,
-    "serviceConfidence": "verified_service",
-    "geometryConfidence": "endpoints_only",
-    "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
-    "scheduleConfidence": "unknown",
-    "sources": [
-      {"name":"PTSC Sangre Grande routes","url":"https://ptsc.co.tt/from/sangre-grande/","checkedAt":"2026-09-10"},
-      {"name":"PTSC Arima routes","url":"https://ptsc.co.tt/to/arima/","checkedAt":"2026-09-10"}
-    ]
+    "id":"ptsc-pos-to-chaguanas","corridorId":"ptsc-pos-chaguanas","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-chaguanas","stopNodeIds":["ptsc-pos-transit-centre","ptsc-chaguanas"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"}]
   },
   {
-    "id": "ptsc-chaguanas-san-fernando",
-    "mode": "ptsc",
-    "operator": "PTSC",
-    "originNodeId": "ptsc-chaguanas",
-    "destinationNodeId": "ptsc-san-fernando",
-    "bidirectional": true,
-    "serviceConfidence": "verified_service",
-    "geometryConfidence": "endpoints_only",
-    "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
-    "scheduleConfidence": "unknown",
-    "sources": [
-      {"name":"PTSC Chaguanas routes","url":"https://ptsc.co.tt/from/chaguanas/","checkedAt":"2026-09-10"},
-      {"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-10"}
-    ]
+    "id":"ptsc-chaguanas-to-pos","corridorId":"ptsc-pos-chaguanas","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-chaguanas","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-chaguanas","ptsc-pos-transit-centre"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"}]
   },
   {
-    "id": "ptsc-pos-point-fortin",
-    "mode": "ptsc",
-    "operator": "PTSC",
-    "originNodeId": "ptsc-pos-transit-centre",
-    "destinationNodeId": "ptsc-point-fortin",
-    "bidirectional": true,
-    "serviceConfidence": "verified_service",
-    "geometryConfidence": "endpoints_only",
-    "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
-    "scheduleConfidence": "unknown",
-    "sources": [
-      {"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-11"},
-      {"name":"PTSC routes to Port of Spain","url":"https://ptsc.co.tt/to/port-of-spain/page/2/","checkedAt":"2026-09-11"}
-    ]
+    "id":"ptsc-pos-to-san-fernando","corridorId":"ptsc-pos-san-fernando","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["ptsc-pos-transit-centre","ptsc-san-fernando"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},{"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-10"}]
   },
   {
-    "id": "ptsc-chaguanas-curepe",
-    "mode": "ptsc",
-    "operator": "PTSC",
-    "originNodeId": "ptsc-chaguanas",
-    "destinationNodeId": "ptsc-curepe",
-    "bidirectional": false,
-    "serviceConfidence": "verified_service",
-    "geometryConfidence": "endpoints_only",
-    "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
-    "scheduleConfidence": "unknown",
-    "sources": [
-      {"name":"PTSC Chaguanas routes","url":"https://ptsc.co.tt/from/chaguanas/","checkedAt":"2026-09-11"}
-    ]
+    "id":"ptsc-san-fernando-to-pos","corridorId":"ptsc-pos-san-fernando","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-san-fernando","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-san-fernando","ptsc-pos-transit-centre"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},{"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-10"}]
   },
   {
-    "id": "ptsc-san-fernando-point-fortin",
-    "mode": "ptsc",
-    "operator": "PTSC",
-    "originNodeId": "ptsc-san-fernando",
-    "destinationNodeId": "ptsc-point-fortin",
-    "bidirectional": true,
-    "serviceConfidence": "verified_service",
-    "geometryConfidence": "endpoints_only",
-    "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
-    "scheduleConfidence": "unknown",
-    "sources": [
-      {"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/from/sanfernando/","checkedAt":"2026-09-11"},
-      {"name":"PTSC routes to San Fernando","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-11"}
-    ]
+    "id":"ptsc-pos-to-sangre-grande","corridorId":"ptsc-pos-sangre-grande","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-sangre-grande","stopNodeIds":["ptsc-pos-transit-centre","ptsc-sangre-grande"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},{"name":"PTSC Sangre Grande routes","url":"https://ptsc.co.tt/from/sangre-grande/","checkedAt":"2026-09-10"}]
   },
   {
-    "id": "ptsc-san-fernando-uwi",
-    "mode": "ptsc",
-    "operator": "PTSC",
-    "originNodeId": "ptsc-san-fernando",
-    "destinationNodeId": "ptsc-uwi-st-augustine",
-    "bidirectional": false,
-    "serviceConfidence": "verified_service",
-    "geometryConfidence": "endpoints_only",
-    "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
-    "scheduleConfidence": "unknown",
-    "sources": [
-      {"name":"PTSC San Fernando / UWI route","url":"https://ptsc.co.tt/route/san-fernando-uwi/","checkedAt":"2026-09-11"}
-    ]
+    "id":"ptsc-sangre-grande-to-pos","corridorId":"ptsc-pos-sangre-grande","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-sangre-grande","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-sangre-grande","ptsc-pos-transit-centre"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},{"name":"PTSC Sangre Grande routes","url":"https://ptsc.co.tt/from/sangre-grande/","checkedAt":"2026-09-10"}]
+  },
+  {
+    "id":"ptsc-arima-to-sangre-grande","corridorId":"ptsc-arima-sangre-grande","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-arima","destinationNodeId":"ptsc-sangre-grande","stopNodeIds":["ptsc-arima","ptsc-sangre-grande"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Sangre Grande routes","url":"https://ptsc.co.tt/from/sangre-grande/","checkedAt":"2026-09-10"},{"name":"PTSC Arima routes","url":"https://ptsc.co.tt/to/arima/","checkedAt":"2026-09-10"}]
+  },
+  {
+    "id":"ptsc-sangre-grande-to-arima","corridorId":"ptsc-arima-sangre-grande","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-sangre-grande","destinationNodeId":"ptsc-arima","stopNodeIds":["ptsc-sangre-grande","ptsc-arima"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Sangre Grande routes","url":"https://ptsc.co.tt/from/sangre-grande/","checkedAt":"2026-09-10"},{"name":"PTSC Arima routes","url":"https://ptsc.co.tt/to/arima/","checkedAt":"2026-09-10"}]
+  },
+  {
+    "id":"ptsc-chaguanas-to-san-fernando","corridorId":"ptsc-chaguanas-san-fernando","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-chaguanas","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["ptsc-chaguanas","ptsc-san-fernando"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Chaguanas routes","url":"https://ptsc.co.tt/from/chaguanas/","checkedAt":"2026-09-10"},{"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-10"}]
+  },
+  {
+    "id":"ptsc-san-fernando-to-chaguanas","corridorId":"ptsc-chaguanas-san-fernando","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-san-fernando","destinationNodeId":"ptsc-chaguanas","stopNodeIds":["ptsc-san-fernando","ptsc-chaguanas"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Chaguanas routes","url":"https://ptsc.co.tt/from/chaguanas/","checkedAt":"2026-09-10"},{"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-10"}]
+  },
+  {
+    "id":"ptsc-pos-to-point-fortin","corridorId":"ptsc-pos-point-fortin","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-point-fortin","stopNodeIds":["ptsc-pos-transit-centre","ptsc-point-fortin"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-11"},{"name":"PTSC routes to Port of Spain","url":"https://ptsc.co.tt/to/port-of-spain/page/2/","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"ptsc-point-fortin-to-pos","corridorId":"ptsc-pos-point-fortin","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-point-fortin","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-point-fortin","ptsc-pos-transit-centre"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-11"},{"name":"PTSC routes to Port of Spain","url":"https://ptsc.co.tt/to/port-of-spain/page/2/","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"ptsc-chaguanas-to-curepe","corridorId":"ptsc-chaguanas-curepe","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-chaguanas","destinationNodeId":"ptsc-curepe","stopNodeIds":["ptsc-chaguanas","ptsc-curepe"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC Chaguanas routes","url":"https://ptsc.co.tt/from/chaguanas/","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"ptsc-san-fernando-to-point-fortin","corridorId":"ptsc-san-fernando-point-fortin","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-san-fernando","destinationNodeId":"ptsc-point-fortin","stopNodeIds":["ptsc-san-fernando","ptsc-point-fortin"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/from/sanfernando/","checkedAt":"2026-09-11"},{"name":"PTSC routes to San Fernando","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"ptsc-point-fortin-to-san-fernando","corridorId":"ptsc-san-fernando-point-fortin","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-point-fortin","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["ptsc-point-fortin","ptsc-san-fernando"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/from/sanfernando/","checkedAt":"2026-09-11"},{"name":"PTSC routes to San Fernando","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"ptsc-san-fernando-to-uwi","corridorId":"ptsc-san-fernando-uwi","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-san-fernando","destinationNodeId":"ptsc-uwi-st-augustine","stopNodeIds":["ptsc-san-fernando","ptsc-uwi-st-augustine"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
+    "sources":[{"name":"PTSC San Fernando / UWI route","url":"https://ptsc.co.tt/route/san-fernando-uwi/","checkedAt":"2026-09-11"}]
   }
 ]
