@@ -139,5 +139,75 @@
       {"name":"PTSC Chaguanas routes","url":"https://ptsc.co.tt/from/chaguanas/","checkedAt":"2026-09-10"},
       {"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-10"}
     ]
+  },
+  {
+    "id": "ptsc-pos-point-fortin",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-point-fortin",
+    "bidirectional": true,
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-11"},
+      {"name":"PTSC routes to Port of Spain","url":"https://ptsc.co.tt/to/port-of-spain/page/2/","checkedAt":"2026-09-11"}
+    ]
+  },
+  {
+    "id": "ptsc-chaguanas-curepe",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-chaguanas",
+    "destinationNodeId": "ptsc-curepe",
+    "bidirectional": false,
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {"name":"PTSC Chaguanas routes","url":"https://ptsc.co.tt/from/chaguanas/","checkedAt":"2026-09-11"}
+    ]
+  },
+  {
+    "id": "ptsc-san-fernando-point-fortin",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "ptsc-point-fortin",
+    "bidirectional": true,
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/from/sanfernando/","checkedAt":"2026-09-11"},
+      {"name":"PTSC routes to San Fernando","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-11"}
+    ]
+  },
+  {
+    "id": "ptsc-san-fernando-uwi",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "ptsc-uwi-st-augustine",
+    "bidirectional": false,
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {"name":"PTSC San Fernando / UWI route","url":"https://ptsc.co.tt/route/san-fernando-uwi/","checkedAt":"2026-09-11"}
+    ]
   }
 ]
