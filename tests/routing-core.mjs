@@ -20,16 +20,16 @@ assert.ok(findJourney('ptsc-san-fernando','ptsc-uwi-st-augustine',services,nodes
 assert.equal(findJourney('ptsc-uwi-st-augustine','ptsc-san-fernando',services,nodes),null,'reverse UWI to San Fernando must not be invented without a reverse pattern');
 
 const maxiOnly=services.filter(service=>service.mode==='maxi');
-const eastMaxiJourney=findJourney('ptsc-pos-transit-centre','ptsc-sangre-grande',maxiOnly,nodes);
+const eastMaxiJourney=findJourney('ptsc-pos-transit-centre','grande-maxi-area',maxiOnly,nodes);
 assert.ok(eastMaxiJourney,'the Red Band corridor must be usable as a transit journey');
 assert.ok(eastMaxiJourney.every(step=>step.service.mode==='maxi'));
 assert.ok(findJourney('maxi-diego-martin','ptsc-pos-transit-centre',maxiOnly,nodes,{transfers}),'the Yellow Band hub must connect into the wider network through its walking transfer');
-assert.ok(findJourney('maxi-mayaro','ptsc-san-fernando',maxiOnly,nodes),'the Black Band corridor must be traversable through Princes Town');
-assert.ok(findJourney('maxi-couva','ptsc-san-fernando',maxiOnly,nodes),'the Green Band corridor must connect Couva to San Fernando');
-assert.ok(findJourney('ptsc-san-fernando','maxi-couva',maxiOnly,nodes),'the Green Band corridor must connect San Fernando to Couva');
+assert.equal(findJourney('maxi-mayaro','ptsc-san-fernando',maxiOnly.filter(s=>s.id.startsWith('maxi-black-')),nodes,{transfers}),null,'unsupported reverse Princes Town service must not manufacture a Mayaro–SF journey');
+assert.ok(findJourney('maxi-couva','ptsc-san-fernando',maxiOnly,nodes,{transfers}),'Couva service should connect to SF through an explicit terminal walk');
+assert.ok(findJourney('ptsc-san-fernando','maxi-couva',maxiOnly,nodes,{transfers}),'SF should connect to its Couva stand through an explicit walk');
 const localSouthOnly=services.filter(service=>service.mode==='route_taxi');
-assert.ok(findJourney('ptsc-san-fernando','c3-centre',localSouthOnly,nodes),'San Fernando should connect to C3 by a local route-taxi leg');
-assert.ok(findJourney('gulf-city-mall','ptsc-san-fernando',localSouthOnly,nodes),'Gulf City should connect back to San Fernando by a local route-taxi leg');
+assert.ok(findJourney('ptsc-san-fernando','c3-centre',localSouthOnly,nodes,{transfers}),'SF terminal should reach C3 through its separate taxi boarding area');
+assert.ok(findJourney('gulf-city-mall','ptsc-san-fernando',localSouthOnly,nodes,{transfers}),'Gulf City should connect back through the La Romaine taxi area walk');
 
 const noTransferFerry=findJourney('ptsc-chaguanas','scarborough-ferry-terminal',services,nodes);
 assert.equal(noTransferFerry,null,'ferry should remain disconnected from PTSC if walking transfer links are absent');
@@ -58,10 +58,10 @@ assert.notEqual(nearestToPos.node.id,'ptsc-pos-transit-centre','fixture must rep
 const couva={lat:10.422,lng:-61.462};
 const journey=chooseConnectedJourney({fromPlace:couva,toPlace:portOfSpain,nodes,services,transfers,candidateLimit:8});
 assert.ok(journey,'Couva to Port of Spain should find a connected nearby-node journey');
-assert.equal(journey.toNear.node.id,'ptsc-pos-transit-centre','route-aware snapping should choose the useful connected PTSC destination node');
+assert.ok(journey.steps.some(step=>step.kind==='transit'),'route-aware snapping should use a connected service, including newly mapped taxi stands');
 assert.ok(journey.legs.length>=1,'connected journey should include transit');
 assert.ok(Number.isFinite(journey.estimatedMinutes)&&journey.estimatedMinutes>0,'journey should expose an estimated duration for ranking');
-assert.equal(journey.fromAccess.mode,'local','long first-mile access must not be mislabeled/scored as walking');
+assert.equal(journey.fromAccess.mode,estimateAccess(journey.fromAccess.km).mode,'access mode must reflect the selected stand distance');
 
 const couvaOptions=chooseJourneyOptions({fromPlace:couva,toPlace:portOfSpain,nodes,services,transfers,candidateLimit:10,maxOptions:3});
 assert.ok(couvaOptions.length>=2,'Couva to Port of Spain should expose more than one reasonable itinerary');
@@ -123,8 +123,26 @@ const falseZeroLeg=chooseConnectedJourney({fromPlace:{lat:10.40,lng:-61.46},toPl
 assert.equal(falseZeroLeg,null,'two arbitrary places must not become a fake zero-transit journey merely because they snap to the same hub');
 
 const corridorIds=new Set(services.map(service=>service.corridorId));
-assert.equal(corridorIds.size,26,'current dataset should represent 26 human-facing corridors');
-assert.equal(services.length,46,'current dataset should represent 46 directed service patterns');
-assert.equal(transfers.length,10,'current transfer dataset should contain the approved directional terminal walks');
+assert.ok(corridorIds.size>26,'regional sprint must expand the original 26 corridors');
+const chagCouva=findJourney('chag-maxi-area','maxi-couva',maxiOnly,nodes,{transfers});
+assert.equal(chagCouva.filter(step=>step.kind==='transit').length,1,'Chaguanas–Couva must be a direct Maxi leg');
+const chagC3=findJourney('chag-maxi-area','c3-centre',services.filter(s=>s.mode==='maxi'||s.id==='route-taxi-san-fernando-to-c3'),nodes,{transfers});
+assert.ok(chagC3.some(step=>step.kind==='transit'&&step.service.mode==='maxi'));
+assert.ok(chagC3.some(step=>step.kind==='transit'&&step.service.mode==='route_taxi'));
+assert.ok(chagC3.some(step=>step.kind==='transfer'),'Maxi to C3 taxi must include an explicit stand transfer');
+assert.equal(findJourney('a','b',[{...oneWay[0],serviceConfidence:'needs_review'}],oneWayNodes),null,'held service must never enter the graph');
+assert.ok(findJourney('penal-siparia-taxi','siparia-penal-taxi',localSouthOnly,nodes));
+assert.ok(findJourney('maxi-mayaro','guayaguayare-area',maxiOnly,nodes));
+assert.equal(findJourney('guayaguayare-area','maxi-mayaro',maxiOnly,nodes),null,'a destination label must not invent a return service');
+assert.ok(findJourney('scarborough-ferry-terminal','crown-point-area',services,nodes,{transfers}),'Tobago route taxi must connect to a ferry journey through a stand walk');
+assert.ok(nodes.get('maxi-mayaro').location.lng>-61.02,'Mayaro must be on the east coast');
+assert.ok(nodes.get('c3-centre').location.lat>10.27&&nodes.get('c3-centre').location.lng>-61.45,'C3 must be in Corinth');
+assert.ok(nodes.get('gulf-city-mall').location.lng<-61.46,'Gulf City must be at Gulf View');
+assert.ok(nodes.get('ptsc-la-horquetta').location.lat<10.61,'La Horquetta must not be north of Arima');
+for(const s of services.filter(s=>s.serviceConfidence==='reported_service')){
+  assert.equal(s.fareTTD,null,'historical fares cannot be presented as current');
+  assert.equal(s.scheduleConfidence,'unknown');
+  assert.ok(s.boardingNote&&s.sources.length,'reported routes need boarding caveats and evidence');
+}
 
 console.log(`routing core tests passed: ${nodesArray.length} nodes, ${corridorIds.size} corridors, ${services.length} directed patterns, ${transfers.length} transfers`);

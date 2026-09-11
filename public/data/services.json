@@ -1,278 +1,3452 @@
 [
   {
-    "id":"water-taxi-pos-to-san-fernando","corridorId":"water-taxi-pos-san-fernando","mode":"water_taxi","operator":"NIDCO Water Taxi Service",
-    "originNodeId":"pos-water-taxi-terminal","destinationNodeId":"san-fernando-water-taxi-terminal","stopNodeIds":["pos-water-taxi-terminal","san-fernando-water-taxi-terminal"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":15,"fareConfidence":"official_current","scheduleConfidence":"official_current",
-    "sources":[{"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-10"}]
+    "id": "water-taxi-pos-to-san-fernando",
+    "corridorId": "water-taxi-pos-san-fernando",
+    "mode": "water_taxi",
+    "operator": "NIDCO Water Taxi Service",
+    "originNodeId": "pos-water-taxi-terminal",
+    "destinationNodeId": "san-fernando-water-taxi-terminal",
+    "stopNodeIds": [
+      "pos-water-taxi-terminal",
+      "san-fernando-water-taxi-terminal"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 15,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "sources": [
+      {
+        "name": "NIDCO Water Taxi Service",
+        "url": "https://www.nidco.co.tt/water-taxi-service/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"water-taxi-san-fernando-to-pos","corridorId":"water-taxi-pos-san-fernando","mode":"water_taxi","operator":"NIDCO Water Taxi Service",
-    "originNodeId":"san-fernando-water-taxi-terminal","destinationNodeId":"pos-water-taxi-terminal","stopNodeIds":["san-fernando-water-taxi-terminal","pos-water-taxi-terminal"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":15,"fareConfidence":"official_current","scheduleConfidence":"official_current",
-    "sources":[{"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-10"}]
+    "id": "water-taxi-san-fernando-to-pos",
+    "corridorId": "water-taxi-pos-san-fernando",
+    "mode": "water_taxi",
+    "operator": "NIDCO Water Taxi Service",
+    "originNodeId": "san-fernando-water-taxi-terminal",
+    "destinationNodeId": "pos-water-taxi-terminal",
+    "stopNodeIds": [
+      "san-fernando-water-taxi-terminal",
+      "pos-water-taxi-terminal"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 15,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "sources": [
+      {
+        "name": "NIDCO Water Taxi Service",
+        "url": "https://www.nidco.co.tt/water-taxi-service/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ferry-pos-to-scarborough","corridorId":"ferry-pos-scarborough","mode":"ferry","operator":"Trinidad and Tobago Inter-Island Transportation Co.",
-    "originNodeId":"pos-ferry-terminal","destinationNodeId":"scarborough-ferry-terminal","stopNodeIds":["pos-ferry-terminal","scarborough-ferry-terminal"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"official_current",
-    "sources":[{"name":"Trinidad and Tobago Inter-Island Transportation Co.","url":"https://www.ttitferry.com/schedule/","checkedAt":"2026-09-10"}]
+    "id": "ferry-pos-to-scarborough",
+    "corridorId": "ferry-pos-scarborough",
+    "mode": "ferry",
+    "operator": "Trinidad and Tobago Inter-Island Transportation Co.",
+    "originNodeId": "pos-ferry-terminal",
+    "destinationNodeId": "scarborough-ferry-terminal",
+    "stopNodeIds": [
+      "pos-ferry-terminal",
+      "scarborough-ferry-terminal"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "official_current",
+    "sources": [
+      {
+        "name": "Trinidad and Tobago Inter-Island Transportation Co.",
+        "url": "https://www.ttitferry.com/schedule/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ferry-scarborough-to-pos","corridorId":"ferry-pos-scarborough","mode":"ferry","operator":"Trinidad and Tobago Inter-Island Transportation Co.",
-    "originNodeId":"scarborough-ferry-terminal","destinationNodeId":"pos-ferry-terminal","stopNodeIds":["scarborough-ferry-terminal","pos-ferry-terminal"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"official_current",
-    "sources":[{"name":"Trinidad and Tobago Inter-Island Transportation Co.","url":"https://www.ttitferry.com/schedule/","checkedAt":"2026-09-10"}]
+    "id": "ferry-scarborough-to-pos",
+    "corridorId": "ferry-pos-scarborough",
+    "mode": "ferry",
+    "operator": "Trinidad and Tobago Inter-Island Transportation Co.",
+    "originNodeId": "scarborough-ferry-terminal",
+    "destinationNodeId": "pos-ferry-terminal",
+    "stopNodeIds": [
+      "scarborough-ferry-terminal",
+      "pos-ferry-terminal"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "official_current",
+    "sources": [
+      {
+        "name": "Trinidad and Tobago Inter-Island Transportation Co.",
+        "url": "https://www.ttitferry.com/schedule/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ptsc-pos-to-arima","corridorId":"ptsc-pos-arima","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-arima","stopNodeIds":["ptsc-pos-transit-centre","ptsc-arima"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},{"name":"PTSC Arima routes","url":"https://ptsc.co.tt/to/arima/","checkedAt":"2026-09-10"}]
+    "id": "ptsc-pos-to-arima",
+    "corridorId": "ptsc-pos-arima",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-arima",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-arima"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Port of Spain routes",
+        "url": "https://ptsc.co.tt/from/pos/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "PTSC Arima routes",
+        "url": "https://ptsc.co.tt/to/arima/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ptsc-arima-to-pos","corridorId":"ptsc-pos-arima","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-arima","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-arima","ptsc-pos-transit-centre"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},{"name":"PTSC Arima routes","url":"https://ptsc.co.tt/to/arima/","checkedAt":"2026-09-10"}]
+    "id": "ptsc-arima-to-pos",
+    "corridorId": "ptsc-pos-arima",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-arima",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "ptsc-arima",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Port of Spain routes",
+        "url": "https://ptsc.co.tt/from/pos/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "PTSC Arima routes",
+        "url": "https://ptsc.co.tt/to/arima/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ptsc-pos-to-chaguanas","corridorId":"ptsc-pos-chaguanas","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-chaguanas","stopNodeIds":["ptsc-pos-transit-centre","ptsc-chaguanas"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"}]
+    "id": "ptsc-pos-to-chaguanas",
+    "corridorId": "ptsc-pos-chaguanas",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-chaguanas",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-chaguanas"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Port of Spain routes",
+        "url": "https://ptsc.co.tt/from/pos/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ptsc-chaguanas-to-pos","corridorId":"ptsc-pos-chaguanas","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-chaguanas","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-chaguanas","ptsc-pos-transit-centre"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"}]
+    "id": "ptsc-chaguanas-to-pos",
+    "corridorId": "ptsc-pos-chaguanas",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-chaguanas",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "ptsc-chaguanas",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Port of Spain routes",
+        "url": "https://ptsc.co.tt/from/pos/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ptsc-pos-to-san-fernando","corridorId":"ptsc-pos-san-fernando","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["ptsc-pos-transit-centre","ptsc-san-fernando"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},{"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-10"}]
+    "id": "ptsc-pos-to-san-fernando",
+    "corridorId": "ptsc-pos-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Port of Spain routes",
+        "url": "https://ptsc.co.tt/from/pos/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "PTSC San Fernando routes",
+        "url": "https://ptsc.co.tt/to/san-fernando/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ptsc-san-fernando-to-pos","corridorId":"ptsc-pos-san-fernando","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-san-fernando","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-san-fernando","ptsc-pos-transit-centre"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},{"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-10"}]
+    "id": "ptsc-san-fernando-to-pos",
+    "corridorId": "ptsc-pos-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Port of Spain routes",
+        "url": "https://ptsc.co.tt/from/pos/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "PTSC San Fernando routes",
+        "url": "https://ptsc.co.tt/to/san-fernando/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ptsc-pos-to-sangre-grande","corridorId":"ptsc-pos-sangre-grande","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-sangre-grande","stopNodeIds":["ptsc-pos-transit-centre","ptsc-sangre-grande"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},{"name":"PTSC Sangre Grande routes","url":"https://ptsc.co.tt/from/sangre-grande/","checkedAt":"2026-09-10"}]
+    "id": "ptsc-pos-to-sangre-grande",
+    "corridorId": "ptsc-pos-sangre-grande",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-sangre-grande",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-sangre-grande"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Port of Spain routes",
+        "url": "https://ptsc.co.tt/from/pos/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "PTSC Sangre Grande routes",
+        "url": "https://ptsc.co.tt/from/sangre-grande/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ptsc-sangre-grande-to-pos","corridorId":"ptsc-pos-sangre-grande","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-sangre-grande","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-sangre-grande","ptsc-pos-transit-centre"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-10"},{"name":"PTSC Sangre Grande routes","url":"https://ptsc.co.tt/from/sangre-grande/","checkedAt":"2026-09-10"}]
+    "id": "ptsc-sangre-grande-to-pos",
+    "corridorId": "ptsc-pos-sangre-grande",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-sangre-grande",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "ptsc-sangre-grande",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Port of Spain routes",
+        "url": "https://ptsc.co.tt/from/pos/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "PTSC Sangre Grande routes",
+        "url": "https://ptsc.co.tt/from/sangre-grande/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ptsc-arima-to-sangre-grande","corridorId":"ptsc-arima-sangre-grande","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-arima","destinationNodeId":"ptsc-sangre-grande","stopNodeIds":["ptsc-arima","ptsc-sangre-grande"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Sangre Grande routes","url":"https://ptsc.co.tt/from/sangre-grande/","checkedAt":"2026-09-10"},{"name":"PTSC Arima routes","url":"https://ptsc.co.tt/to/arima/","checkedAt":"2026-09-10"}]
+    "id": "ptsc-arima-to-sangre-grande",
+    "corridorId": "ptsc-arima-sangre-grande",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-arima",
+    "destinationNodeId": "ptsc-sangre-grande",
+    "stopNodeIds": [
+      "ptsc-arima",
+      "ptsc-sangre-grande"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Sangre Grande routes",
+        "url": "https://ptsc.co.tt/from/sangre-grande/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "PTSC Arima routes",
+        "url": "https://ptsc.co.tt/to/arima/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ptsc-sangre-grande-to-arima","corridorId":"ptsc-arima-sangre-grande","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-sangre-grande","destinationNodeId":"ptsc-arima","stopNodeIds":["ptsc-sangre-grande","ptsc-arima"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Sangre Grande routes","url":"https://ptsc.co.tt/from/sangre-grande/","checkedAt":"2026-09-10"},{"name":"PTSC Arima routes","url":"https://ptsc.co.tt/to/arima/","checkedAt":"2026-09-10"}]
+    "id": "ptsc-sangre-grande-to-arima",
+    "corridorId": "ptsc-arima-sangre-grande",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-sangre-grande",
+    "destinationNodeId": "ptsc-arima",
+    "stopNodeIds": [
+      "ptsc-sangre-grande",
+      "ptsc-arima"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Sangre Grande routes",
+        "url": "https://ptsc.co.tt/from/sangre-grande/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "PTSC Arima routes",
+        "url": "https://ptsc.co.tt/to/arima/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ptsc-chaguanas-to-san-fernando","corridorId":"ptsc-chaguanas-san-fernando","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-chaguanas","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["ptsc-chaguanas","ptsc-san-fernando"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Chaguanas routes","url":"https://ptsc.co.tt/from/chaguanas/","checkedAt":"2026-09-10"},{"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-10"}]
+    "id": "ptsc-chaguanas-to-san-fernando",
+    "corridorId": "ptsc-chaguanas-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-chaguanas",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "ptsc-chaguanas",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Chaguanas routes",
+        "url": "https://ptsc.co.tt/from/chaguanas/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "PTSC San Fernando routes",
+        "url": "https://ptsc.co.tt/to/san-fernando/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ptsc-san-fernando-to-chaguanas","corridorId":"ptsc-chaguanas-san-fernando","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-san-fernando","destinationNodeId":"ptsc-chaguanas","stopNodeIds":["ptsc-san-fernando","ptsc-chaguanas"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Chaguanas routes","url":"https://ptsc.co.tt/from/chaguanas/","checkedAt":"2026-09-10"},{"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-10"}]
+    "id": "ptsc-san-fernando-to-chaguanas",
+    "corridorId": "ptsc-chaguanas-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "ptsc-chaguanas",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "ptsc-chaguanas"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Chaguanas routes",
+        "url": "https://ptsc.co.tt/from/chaguanas/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "PTSC San Fernando routes",
+        "url": "https://ptsc.co.tt/to/san-fernando/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
   },
   {
-    "id":"ptsc-pos-to-point-fortin","corridorId":"ptsc-pos-point-fortin","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-point-fortin","stopNodeIds":["ptsc-pos-transit-centre","ptsc-point-fortin"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-11"},{"name":"PTSC routes to Port of Spain","url":"https://ptsc.co.tt/to/port-of-spain/page/2/","checkedAt":"2026-09-11"}]
+    "id": "ptsc-pos-to-point-fortin",
+    "corridorId": "ptsc-pos-point-fortin",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-point-fortin",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-point-fortin"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Port of Spain routes",
+        "url": "https://ptsc.co.tt/from/pos/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC routes to Port of Spain",
+        "url": "https://ptsc.co.tt/to/port-of-spain/page/2/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"ptsc-point-fortin-to-pos","corridorId":"ptsc-pos-point-fortin","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-point-fortin","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-point-fortin","ptsc-pos-transit-centre"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Port of Spain routes","url":"https://ptsc.co.tt/from/pos/","checkedAt":"2026-09-11"},{"name":"PTSC routes to Port of Spain","url":"https://ptsc.co.tt/to/port-of-spain/page/2/","checkedAt":"2026-09-11"}]
+    "id": "ptsc-point-fortin-to-pos",
+    "corridorId": "ptsc-pos-point-fortin",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-point-fortin",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "ptsc-point-fortin",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Port of Spain routes",
+        "url": "https://ptsc.co.tt/from/pos/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC routes to Port of Spain",
+        "url": "https://ptsc.co.tt/to/port-of-spain/page/2/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"ptsc-chaguanas-to-curepe","corridorId":"ptsc-chaguanas-curepe","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-chaguanas","destinationNodeId":"ptsc-curepe","stopNodeIds":["ptsc-chaguanas","ptsc-curepe"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC Chaguanas routes","url":"https://ptsc.co.tt/from/chaguanas/","checkedAt":"2026-09-11"}]
+    "id": "ptsc-chaguanas-to-curepe",
+    "corridorId": "ptsc-chaguanas-curepe",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-chaguanas",
+    "destinationNodeId": "ptsc-curepe",
+    "stopNodeIds": [
+      "ptsc-chaguanas",
+      "ptsc-curepe"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC Chaguanas routes",
+        "url": "https://ptsc.co.tt/from/chaguanas/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"ptsc-san-fernando-to-point-fortin","corridorId":"ptsc-san-fernando-point-fortin","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-san-fernando","destinationNodeId":"ptsc-point-fortin","stopNodeIds":["ptsc-san-fernando","ptsc-point-fortin"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/from/sanfernando/","checkedAt":"2026-09-11"},{"name":"PTSC routes to San Fernando","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-11"}]
+    "id": "ptsc-san-fernando-to-point-fortin",
+    "corridorId": "ptsc-san-fernando-point-fortin",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "ptsc-point-fortin",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "ptsc-point-fortin"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC San Fernando routes",
+        "url": "https://ptsc.co.tt/from/sanfernando/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC routes to San Fernando",
+        "url": "https://ptsc.co.tt/to/san-fernando/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"ptsc-point-fortin-to-san-fernando","corridorId":"ptsc-san-fernando-point-fortin","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-point-fortin","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["ptsc-point-fortin","ptsc-san-fernando"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC San Fernando routes","url":"https://ptsc.co.tt/from/sanfernando/","checkedAt":"2026-09-11"},{"name":"PTSC routes to San Fernando","url":"https://ptsc.co.tt/to/san-fernando/","checkedAt":"2026-09-11"}]
+    "id": "ptsc-point-fortin-to-san-fernando",
+    "corridorId": "ptsc-san-fernando-point-fortin",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-point-fortin",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "ptsc-point-fortin",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC San Fernando routes",
+        "url": "https://ptsc.co.tt/from/sanfernando/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC routes to San Fernando",
+        "url": "https://ptsc.co.tt/to/san-fernando/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"ptsc-san-fernando-to-uwi","corridorId":"ptsc-san-fernando-uwi","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-san-fernando","destinationNodeId":"ptsc-uwi-st-augustine","stopNodeIds":["ptsc-san-fernando","ptsc-uwi-st-augustine"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
-    "sources":[{"name":"PTSC San Fernando / UWI route","url":"https://ptsc.co.tt/route/san-fernando-uwi/","checkedAt":"2026-09-11"}]
+    "id": "ptsc-san-fernando-to-uwi",
+    "corridorId": "ptsc-san-fernando-uwi",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "ptsc-uwi-st-augustine",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "ptsc-uwi-st-augustine"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "PTSC San Fernando / UWI route",
+        "url": "https://ptsc.co.tt/route/san-fernando-uwi/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"ptsc-arima-to-la-horquetta","corridorId":"ptsc-arima-la-horquetta","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-arima","destinationNodeId":"ptsc-la-horquetta","stopNodeIds":["ptsc-arima","ptsc-la-horquetta"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":3,"fareConfidence":"official_historical","scheduleConfidence":"official_current",
-    "sources":[{"name":"PTSC Arima / La Horquetta route","url":"https://ptsc.co.tt/routes/arima-la-horquetta/","checkedAt":"2026-09-11"},{"name":"Official PTSC Arima services notice","url":"https://www.facebook.com/PTSCTT/posts/211583190397634/","checkedAt":"2026-09-11"}]
+    "id": "ptsc-arima-to-la-horquetta",
+    "corridorId": "ptsc-arima-la-horquetta",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-arima",
+    "destinationNodeId": "ptsc-la-horquetta",
+    "stopNodeIds": [
+      "ptsc-arima",
+      "ptsc-la-horquetta"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_historical",
+    "scheduleConfidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Arima / La Horquetta route",
+        "url": "https://ptsc.co.tt/routes/arima-la-horquetta/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Official PTSC Arima services notice",
+        "url": "https://www.facebook.com/PTSCTT/posts/211583190397634/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"ptsc-arima-to-st-helena-carapo","corridorId":"ptsc-arima-st-helena-carapo","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-arima","destinationNodeId":"ptsc-st-helena-carapo","stopNodeIds":["ptsc-arima","ptsc-st-helena-carapo"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":3,"fareConfidence":"official_historical","scheduleConfidence":"official_current",
-    "sources":[{"name":"PTSC Arima / St Helena via Carapo route","url":"https://ptsc.co.tt/routes/arima-carapo/","checkedAt":"2026-09-11"},{"name":"Official PTSC Arima services notice","url":"https://www.facebook.com/PTSCTT/posts/211583190397634/","checkedAt":"2026-09-11"}]
+    "id": "ptsc-arima-to-st-helena-carapo",
+    "corridorId": "ptsc-arima-st-helena-carapo",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-arima",
+    "destinationNodeId": "ptsc-st-helena-carapo",
+    "stopNodeIds": [
+      "ptsc-arima",
+      "ptsc-st-helena-carapo"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_historical",
+    "scheduleConfidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Arima / St Helena via Carapo route",
+        "url": "https://ptsc.co.tt/routes/arima-carapo/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Official PTSC Arima services notice",
+        "url": "https://www.facebook.com/PTSCTT/posts/211583190397634/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"ptsc-arima-to-aripo","corridorId":"ptsc-arima-aripo","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-arima","destinationNodeId":"ptsc-aripo","stopNodeIds":["ptsc-arima","ptsc-aripo"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":3,"fareConfidence":"official_historical","scheduleConfidence":"official_current",
-    "sources":[{"name":"PTSC Arima / Aripo route","url":"https://ptsc.co.tt/routes/arima-aripo/","checkedAt":"2026-09-11"},{"name":"Official PTSC Arima services notice","url":"https://www.facebook.com/PTSCTT/posts/211583190397634/","checkedAt":"2026-09-11"}]
+    "id": "ptsc-arima-to-aripo",
+    "corridorId": "ptsc-arima-aripo",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-arima",
+    "destinationNodeId": "ptsc-aripo",
+    "stopNodeIds": [
+      "ptsc-arima",
+      "ptsc-aripo"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_historical",
+    "scheduleConfidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Arima / Aripo route",
+        "url": "https://ptsc.co.tt/routes/arima-aripo/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Official PTSC Arima services notice",
+        "url": "https://www.facebook.com/PTSCTT/posts/211583190397634/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"ptsc-arima-to-wallerfield","corridorId":"ptsc-arima-wallerfield","mode":"ptsc","operator":"PTSC",
-    "originNodeId":"ptsc-arima","destinationNodeId":"ptsc-wallerfield","stopNodeIds":["ptsc-arima","ptsc-wallerfield"],
-    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":3,"fareConfidence":"official_historical","scheduleConfidence":"official_current",
-    "sources":[{"name":"PTSC Arima / Wallerfield route","url":"https://ptsc.co.tt/routes/arima-wallerfield/","checkedAt":"2026-09-11"},{"name":"Official PTSC Arima services notice","url":"https://www.facebook.com/PTSCTT/posts/211583190397634/","checkedAt":"2026-09-11"}]
+    "id": "ptsc-arima-to-wallerfield",
+    "corridorId": "ptsc-arima-wallerfield",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-arima",
+    "destinationNodeId": "ptsc-wallerfield",
+    "stopNodeIds": [
+      "ptsc-arima",
+      "ptsc-wallerfield"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_historical",
+    "scheduleConfidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Arima / Wallerfield route",
+        "url": "https://ptsc.co.tt/routes/arima-wallerfield/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Official PTSC Arima services notice",
+        "url": "https://www.facebook.com/PTSCTT/posts/211583190397634/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"maxi-red-pos-to-sangre-grande","corridorId":"maxi-red-pos-sangre-grande","mode":"maxi","operator":"Route 2 Red Band Maxi Taxi",
-    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-sangre-grande","stopNodeIds":["ptsc-pos-transit-centre","ptsc-arima","ptsc-sangre-grande"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
-    "sources":[{"name":"Maxi-Taxi Act route area 2","url":"https://laws.gov.tt/","checkedAt":"2026-09-11"},{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+    "id": "maxi-red-pos-to-sangre-grande",
+    "corridorId": "maxi-red-pos-sangre-grande",
+    "mode": "maxi",
+    "operator": "Route 2 Red Band Maxi Taxi",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "grande-maxi-area",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "grande-maxi-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Confirm current fare and boarding point before travel."
+    },
+    "sources": [
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "routeArea": 2
   },
   {
-    "id":"maxi-red-sangre-grande-to-pos","corridorId":"maxi-red-pos-sangre-grande","mode":"maxi","operator":"Route 2 Red Band Maxi Taxi",
-    "originNodeId":"ptsc-sangre-grande","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-sangre-grande","ptsc-arima","ptsc-pos-transit-centre"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
-    "sources":[{"name":"Maxi-Taxi Act route area 2","url":"https://laws.gov.tt/","checkedAt":"2026-09-11"},{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+    "id": "maxi-red-sangre-grande-to-pos",
+    "corridorId": "maxi-red-pos-sangre-grande",
+    "mode": "maxi",
+    "operator": "Route 2 Red Band Maxi Taxi",
+    "originNodeId": "grande-maxi-area",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "grande-maxi-area",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Confirm current fare and boarding point before travel."
+    },
+    "sources": [
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "routeArea": 2
   },
   {
-    "id":"maxi-green-pos-to-san-fernando","corridorId":"maxi-green-pos-san-fernando","mode":"maxi","operator":"Route 3 Green Band Maxi Taxi",
-    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["ptsc-pos-transit-centre","ptsc-curepe","ptsc-chaguanas","ptsc-san-fernando"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
-    "sources":[{"name":"Maxi-Taxi Act route area 3","url":"https://laws.gov.tt/","checkedAt":"2026-09-11"},{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+    "id": "maxi-green-pos-to-san-fernando",
+    "corridorId": "maxi-green-pos-san-fernando",
+    "mode": "maxi",
+    "operator": "Route 3 Green Band Maxi Taxi",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "sf-pos-maxi",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "sf-pos-maxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Confirm current fare and boarding point before travel."
+    },
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Port of Spain Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221836",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "TTT report: San Fernando–Port of Spain Maxi relaunch",
+        "url": "https://www.youtube.com/watch?v=d4kR1l-JIJ8",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2019-02-25"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "routeArea": 3
   },
   {
-    "id":"maxi-green-san-fernando-to-pos","corridorId":"maxi-green-pos-san-fernando","mode":"maxi","operator":"Route 3 Green Band Maxi Taxi",
-    "originNodeId":"ptsc-san-fernando","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-san-fernando","ptsc-chaguanas","ptsc-curepe","ptsc-pos-transit-centre"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
-    "sources":[{"name":"Maxi-Taxi Act route area 3","url":"https://laws.gov.tt/","checkedAt":"2026-09-11"},{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+    "id": "maxi-green-san-fernando-to-pos",
+    "corridorId": "maxi-green-pos-san-fernando",
+    "mode": "maxi",
+    "operator": "Route 3 Green Band Maxi Taxi",
+    "originNodeId": "sf-pos-maxi",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "sf-pos-maxi",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Confirm current fare and boarding point before travel."
+    },
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Port of Spain Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221836",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "TTT report: San Fernando–Port of Spain Maxi relaunch",
+        "url": "https://www.youtube.com/watch?v=d4kR1l-JIJ8",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2019-02-25"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "routeArea": 3
   },
   {
-    "id":"maxi-yellow-pos-to-diego-martin","corridorId":"maxi-yellow-pos-diego-martin","mode":"maxi","operator":"Route 1 Yellow Band Maxi Taxi",
-    "originNodeId":"maxi-pos-western-hub","destinationNodeId":"maxi-diego-martin","stopNodeIds":["maxi-pos-western-hub","maxi-diego-martin"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"Destination Trinidad transport guide","url":"https://www.destinationtnt.com/","checkedAt":"2026-09-11"}]
+    "id": "maxi-yellow-pos-to-diego-martin",
+    "corridorId": "maxi-yellow-pos-diego-martin",
+    "mode": "maxi",
+    "operator": "Route 1 Yellow Band Maxi Taxi",
+    "originNodeId": "maxi-pos-western-hub",
+    "destinationNodeId": "maxi-diego-martin",
+    "stopNodeIds": [
+      "maxi-pos-western-hub",
+      "maxi-diego-martin"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Boarding zone is approximate."
+    },
+    "sources": [
+      {
+        "name": "Trinidad maxi route bands",
+        "url": "https://en.wikipedia.org/wiki/Maxi_taxi",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "routeArea": 1
   },
   {
-    "id":"maxi-yellow-diego-martin-to-pos","corridorId":"maxi-yellow-pos-diego-martin","mode":"maxi","operator":"Route 1 Yellow Band Maxi Taxi",
-    "originNodeId":"maxi-diego-martin","destinationNodeId":"maxi-pos-western-hub","stopNodeIds":["maxi-diego-martin","maxi-pos-western-hub"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"Destination Trinidad transport guide","url":"https://www.destinationtnt.com/","checkedAt":"2026-09-11"}]
+    "id": "maxi-yellow-diego-martin-to-pos",
+    "corridorId": "maxi-yellow-pos-diego-martin",
+    "mode": "maxi",
+    "operator": "Route 1 Yellow Band Maxi Taxi",
+    "originNodeId": "maxi-diego-martin",
+    "destinationNodeId": "maxi-pos-western-hub",
+    "stopNodeIds": [
+      "maxi-diego-martin",
+      "maxi-pos-western-hub"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Boarding zone is approximate."
+    },
+    "sources": [
+      {
+        "name": "Trinidad maxi route bands",
+        "url": "https://en.wikipedia.org/wiki/Maxi_taxi",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "routeArea": 1
   },
   {
-    "id":"maxi-black-san-fernando-to-princes-town","corridorId":"maxi-black-san-fernando-princes-town","mode":"maxi","operator":"Route 4 Black Band Maxi Taxi",
-    "originNodeId":"ptsc-san-fernando","destinationNodeId":"maxi-princes-town","stopNodeIds":["ptsc-san-fernando","maxi-princes-town"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+    "id": "maxi-black-san-fernando-to-princes-town",
+    "corridorId": "maxi-black-san-fernando-princes-town",
+    "mode": "maxi",
+    "operator": "Route 4 Black Band Maxi Taxi",
+    "originNodeId": "sf-princes-town-maxi",
+    "destinationNodeId": "princes-town-local-area",
+    "stopNodeIds": [
+      "sf-princes-town-maxi",
+      "princes-town-local-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Boarding zone is approximate."
+    },
+    "sources": [
+      {
+        "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+        "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Princes Town Maxi Stand, Coffee Street; mapped plus code 772W7GGQ+XFF",
+        "url": "https://www.waze.com/live-map/directions/tt/san-fernando-city-corporation/san-fernando/princes-town-maxi-stand?to=place.ChIJYxXMKoqNNYwR_Y3dxqqrtuI",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Reported two-way service. Coffee Street stand in San Fernando; Princes Town return boarding area requires local confirmation.",
+    "routeArea": 4
   },
   {
-    "id":"maxi-black-princes-town-to-san-fernando","corridorId":"maxi-black-san-fernando-princes-town","mode":"maxi","operator":"Route 4 Black Band Maxi Taxi",
-    "originNodeId":"maxi-princes-town","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["maxi-princes-town","ptsc-san-fernando"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+    "id": "maxi-black-princes-town-to-san-fernando",
+    "corridorId": "maxi-black-san-fernando-princes-town",
+    "mode": "maxi",
+    "operator": "Route 4 Black Band Maxi Taxi",
+    "originNodeId": "princes-town-local-area",
+    "destinationNodeId": "sf-princes-town-maxi",
+    "stopNodeIds": [
+      "princes-town-local-area",
+      "sf-princes-town-maxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Boarding zone is approximate."
+    },
+    "sources": [
+      {
+        "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+        "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Princes Town Maxi Stand, Coffee Street; mapped plus code 772W7GGQ+XFF",
+        "url": "https://www.waze.com/live-map/directions/tt/san-fernando-city-corporation/san-fernando/princes-town-maxi-stand?to=place.ChIJYxXMKoqNNYwR_Y3dxqqrtuI",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Reported two-way service. Coffee Street stand in San Fernando; Princes Town return boarding area requires local confirmation.",
+    "routeArea": 4
   },
   {
-    "id":"maxi-black-princes-town-to-mayaro","corridorId":"maxi-black-princes-town-mayaro","mode":"maxi","operator":"Route 4 Black Band Maxi Taxi",
-    "originNodeId":"maxi-princes-town","destinationNodeId":"maxi-mayaro","stopNodeIds":["maxi-princes-town","maxi-mayaro"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+    "id": "maxi-black-princes-town-to-mayaro",
+    "corridorId": "maxi-black-princes-town-mayaro",
+    "mode": "maxi",
+    "operator": "Route 4 Black Band Maxi Taxi",
+    "originNodeId": "maxi-princes-town",
+    "destinationNodeId": "maxi-mayaro",
+    "stopNodeIds": [
+      "maxi-princes-town",
+      "maxi-mayaro"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Boarding zone is approximate."
+    },
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Princes Town-Mayaro Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764462743",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "routeArea": 4
   },
   {
-    "id":"maxi-black-mayaro-to-princes-town","corridorId":"maxi-black-princes-town-mayaro","mode":"maxi","operator":"Route 4 Black Band Maxi Taxi",
-    "originNodeId":"maxi-mayaro","destinationNodeId":"maxi-princes-town","stopNodeIds":["maxi-mayaro","maxi-princes-town"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+    "id": "maxi-black-mayaro-to-princes-town",
+    "corridorId": "maxi-black-princes-town-mayaro",
+    "mode": "maxi",
+    "operator": "Route 4 Black Band Maxi Taxi",
+    "originNodeId": "maxi-mayaro",
+    "destinationNodeId": "maxi-princes-town",
+    "stopNodeIds": [
+      "maxi-mayaro",
+      "maxi-princes-town"
+    ],
+    "serviceConfidence": "needs_review",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Boarding zone is approximate."
+    },
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Princes Town-Mayaro Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764462743",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Reverse direction needs independent service evidence.",
+    "routeArea": 4
   },
   {
-    "id":"maxi-brown-san-fernando-to-point-fortin","corridorId":"maxi-brown-san-fernando-point-fortin","mode":"maxi","operator":"Route 5 Brown Band Maxi Taxi",
-    "originNodeId":"ptsc-san-fernando","destinationNodeId":"ptsc-point-fortin","stopNodeIds":["ptsc-san-fernando","ptsc-point-fortin"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+    "id": "maxi-brown-san-fernando-to-point-fortin",
+    "corridorId": "maxi-brown-san-fernando-point-fortin",
+    "mode": "maxi",
+    "operator": "Route 5 Brown Band Maxi Taxi",
+    "originNodeId": "sf-point-maxi",
+    "destinationNodeId": "point-fortin-maxi-area",
+    "stopNodeIds": [
+      "sf-point-maxi",
+      "point-fortin-maxi-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Confirm current fare and boarding point before travel."
+    },
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Point Fortin Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1538914694",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "routeArea": 5
   },
   {
-    "id":"maxi-brown-point-fortin-to-san-fernando","corridorId":"maxi-brown-san-fernando-point-fortin","mode":"maxi","operator":"Route 5 Brown Band Maxi Taxi",
-    "originNodeId":"ptsc-point-fortin","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["ptsc-point-fortin","ptsc-san-fernando"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+    "id": "maxi-brown-point-fortin-to-san-fernando",
+    "corridorId": "maxi-brown-san-fernando-point-fortin",
+    "mode": "maxi",
+    "operator": "Route 5 Brown Band Maxi Taxi",
+    "originNodeId": "point-fortin-maxi-area",
+    "destinationNodeId": "sf-point-maxi",
+    "stopNodeIds": [
+      "point-fortin-maxi-area",
+      "sf-point-maxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Confirm current fare and boarding point before travel."
+    },
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Point Fortin Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1538914694",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "routeArea": 5
   },
   {
-    "id":"maxi-brown-san-fernando-to-siparia","corridorId":"maxi-brown-san-fernando-siparia","mode":"maxi","operator":"Route 5 Brown Band Maxi Taxi",
-    "originNodeId":"ptsc-san-fernando","destinationNodeId":"maxi-siparia","stopNodeIds":["ptsc-san-fernando","maxi-siparia"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+    "id": "maxi-brown-san-fernando-to-siparia",
+    "corridorId": "maxi-brown-san-fernando-siparia",
+    "mode": "maxi",
+    "operator": "Route 5 Brown Band Maxi Taxi",
+    "originNodeId": "sf-siparia-maxi",
+    "destinationNodeId": "maxi-siparia",
+    "stopNodeIds": [
+      "sf-siparia-maxi",
+      "maxi-siparia"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Boarding zone is approximate."
+    },
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221833",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410049",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "routeArea": 5
   },
   {
-    "id":"maxi-brown-siparia-to-san-fernando","corridorId":"maxi-brown-san-fernando-siparia","mode":"maxi","operator":"Route 5 Brown Band Maxi Taxi",
-    "originNodeId":"maxi-siparia","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["maxi-siparia","ptsc-san-fernando"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+    "id": "maxi-brown-siparia-to-san-fernando",
+    "corridorId": "maxi-brown-san-fernando-siparia",
+    "mode": "maxi",
+    "operator": "Route 5 Brown Band Maxi Taxi",
+    "originNodeId": "maxi-siparia",
+    "destinationNodeId": "sf-siparia-maxi",
+    "stopNodeIds": [
+      "maxi-siparia",
+      "sf-siparia-maxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Boarding zone is approximate."
+    },
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221833",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410049",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "routeArea": 5
   },
   {
-    "id":"maxi-green-san-fernando-to-couva","corridorId":"maxi-green-san-fernando-couva","mode":"maxi","operator":"Route 3 Green Band Maxi Taxi",
-    "originNodeId":"ptsc-san-fernando","destinationNodeId":"maxi-couva","stopNodeIds":["ptsc-san-fernando","maxi-couva"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"Trinidad route taxi and maxi guide","url":"https://www.tntisland.com/routetaxis.html","checkedAt":"2026-09-11"}]
+    "id": "maxi-green-san-fernando-to-couva",
+    "corridorId": "maxi-green-san-fernando-couva",
+    "mode": "maxi",
+    "operator": "Route 3 Green Band Maxi Taxi",
+    "originNodeId": "sf-couva-area",
+    "destinationNodeId": "maxi-couva",
+    "stopNodeIds": [
+      "sf-couva-area",
+      "maxi-couva"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Confirm current fare and boarding point before travel."
+    },
+    "sources": [
+      {
+        "name": "Reported Couva maxi stand on Penitence Street, San Fernando",
+        "url": "https://newsday.co.tt/2020/05/04/2-women-knocked-down-as-driver-suffers-seizure/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2020-05-04"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "routeArea": 3
   },
   {
-    "id":"maxi-green-couva-to-san-fernando","corridorId":"maxi-green-san-fernando-couva","mode":"maxi","operator":"Route 3 Green Band Maxi Taxi",
-    "originNodeId":"maxi-couva","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["maxi-couva","ptsc-san-fernando"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"Trinidad route taxi and maxi guide","url":"https://www.tntisland.com/routetaxis.html","checkedAt":"2026-09-11"}]
+    "id": "maxi-green-couva-to-san-fernando",
+    "corridorId": "maxi-green-san-fernando-couva",
+    "mode": "maxi",
+    "operator": "Route 3 Green Band Maxi Taxi",
+    "originNodeId": "maxi-couva",
+    "destinationNodeId": "sf-couva-area",
+    "stopNodeIds": [
+      "maxi-couva",
+      "sf-couva-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No published timetable. Confirm current fare and boarding point before travel."
+    },
+    "sources": [
+      {
+        "name": "Reported Couva maxi stand on Penitence Street, San Fernando",
+        "url": "https://newsday.co.tt/2020/05/04/2-women-knocked-down-as-driver-suffers-seizure/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2020-05-04"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "routeArea": 3
   },
   {
-    "id":"route-taxi-san-fernando-to-c3","corridorId":"route-taxi-san-fernando-c3","mode":"route_taxi","operator":"San Fernando / C3 Route Taxi",
-    "originNodeId":"ptsc-san-fernando","destinationNodeId":"c3-centre","stopNodeIds":["ptsc-san-fernando","c3-centre"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"Local route taxi service; no published timetable. Confirm the current stand, fare, and destination with the driver."},
-    "sources":[{"name":"Community C3 route taxi report","url":"https://www.trinituner.com/v4/forums/viewtopic.php?t=745451","checkedAt":"2026-09-11"}]
+    "id": "route-taxi-san-fernando-to-c3",
+    "corridorId": "route-taxi-san-fernando-c3",
+    "mode": "route_taxi",
+    "operator": "San Fernando / C3 Route Taxi",
+    "originNodeId": "sf-c3-area",
+    "destinationNodeId": "c3-centre",
+    "stopNodeIds": [
+      "sf-c3-area",
+      "c3-centre"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "Local route taxi service; no published timetable. Confirm the current stand, fare, and destination with the driver."
+    },
+    "sources": [
+      {
+        "name": "Historical passenger discussion: C3 taxis at Library Corner",
+        "url": "https://www.trinituner.com/v4/forums/viewtopic.php?t=745451",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays."
   },
   {
-    "id":"route-taxi-c3-to-san-fernando","corridorId":"route-taxi-san-fernando-c3","mode":"route_taxi","operator":"San Fernando / C3 Route Taxi",
-    "originNodeId":"c3-centre","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["c3-centre","ptsc-san-fernando"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"Local route taxi service; no published timetable. Confirm the current stand, fare, and destination with the driver."},
-    "sources":[{"name":"Community C3 route taxi report","url":"https://www.trinituner.com/v4/forums/viewtopic.php?t=745451","checkedAt":"2026-09-11"}]
+    "id": "route-taxi-c3-to-san-fernando",
+    "corridorId": "route-taxi-san-fernando-c3",
+    "mode": "route_taxi",
+    "operator": "San Fernando / C3 Route Taxi",
+    "originNodeId": "c3-centre",
+    "destinationNodeId": "sf-c3-area",
+    "stopNodeIds": [
+      "c3-centre",
+      "sf-c3-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "Local route taxi service; no published timetable. Confirm the current stand, fare, and destination with the driver."
+    },
+    "sources": [
+      {
+        "name": "Historical passenger discussion: C3 taxis at Library Corner",
+        "url": "https://www.trinituner.com/v4/forums/viewtopic.php?t=745451",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays."
   },
   {
-    "id":"route-taxi-san-fernando-to-gulf-city","corridorId":"route-taxi-san-fernando-gulf-city","mode":"route_taxi","operator":"San Fernando / Gulf City Route Taxi",
-    "originNodeId":"ptsc-san-fernando","destinationNodeId":"gulf-city-mall","stopNodeIds":["ptsc-san-fernando","gulf-city-mall"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"Local route taxi service; no published timetable. Confirm the current stand, fare, and destination with the driver."},
-    "sources":[{"name":"Community Gulf City route taxi report","url":"https://www.trinituner.com/v4/forums/viewtopic.php?t=288235","checkedAt":"2026-09-11"},{"name":"Newsday fare report","url":"https://newsday.co.tt/2021/05/10/la-romaine-san-fernando-fare-rises-temporarily-by-2/","checkedAt":"2026-09-11"}]
+    "id": "route-taxi-san-fernando-to-gulf-city",
+    "corridorId": "route-taxi-san-fernando-gulf-city",
+    "mode": "route_taxi",
+    "operator": "San Fernando / Gulf City Route Taxi",
+    "originNodeId": "sf-la-romaine-taxi",
+    "destinationNodeId": "gulf-city-mall",
+    "stopNodeIds": [
+      "sf-la-romaine-taxi",
+      "gulf-city-mall"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "Local route taxi service; no published timetable. Confirm the current stand, fare, and destination with the driver."
+    },
+    "sources": [
+      {
+        "name": "La Romaine–Gulf City association service report; historical fares excluded",
+        "url": "https://newsday.co.tt/2021/05/10/la-romaine-san-fernando-fare-rises-temporarily-by-2/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2021-05-10"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays."
   },
   {
-    "id":"route-taxi-gulf-city-to-san-fernando","corridorId":"route-taxi-san-fernando-gulf-city","mode":"route_taxi","operator":"San Fernando / Gulf City Route Taxi",
-    "originNodeId":"gulf-city-mall","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["gulf-city-mall","ptsc-san-fernando"],
-    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"Local route taxi service; no published timetable. Confirm the current stand, fare, and destination with the driver."},
-    "sources":[{"name":"Community Gulf City route taxi report","url":"https://www.trinituner.com/v4/forums/viewtopic.php?t=288235","checkedAt":"2026-09-11"},{"name":"Newsday fare report","url":"https://newsday.co.tt/2021/05/10/la-romaine-san-fernando-fare-rises-temporarily-by-2/","checkedAt":"2026-09-11"}]
+    "id": "route-taxi-gulf-city-to-san-fernando",
+    "corridorId": "route-taxi-san-fernando-gulf-city",
+    "mode": "route_taxi",
+    "operator": "San Fernando / Gulf City Route Taxi",
+    "originNodeId": "gulf-city-mall",
+    "destinationNodeId": "sf-la-romaine-taxi",
+    "stopNodeIds": [
+      "gulf-city-mall",
+      "sf-la-romaine-taxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "Local route taxi service; no published timetable. Confirm the current stand, fare, and destination with the driver."
+    },
+    "sources": [
+      {
+        "name": "La Romaine–Gulf City association service report; historical fares excluded",
+        "url": "https://newsday.co.tt/2021/05/10/la-romaine-san-fernando-fare-rises-temporarily-by-2/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2021-05-10"
+      }
+    ],
+    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays."
+  },
+  {
+    "id": "maxi-chag-san-fernando-out",
+    "corridorId": "maxi-chag-san-fernando",
+    "mode": "maxi",
+    "operator": "Route 3 Maxi taxis",
+    "originNodeId": "chag-maxi-area",
+    "destinationNodeId": "sf-chag-maxi",
+    "stopNodeIds": [
+      "chag-maxi-area",
+      "maxi-couva",
+      "sf-chag-maxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Couva is an approximate area for the reported Exchange fare stage; confirm the roadside stopping point with the driver.",
+    "sources": [
+      {
+        "name": "Reported Route 3 association fare stages (2022; fares not adopted)",
+        "url": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-06-17"
+      },
+      {
+        "name": "Chaguanas Maxi operators describe San Fernando service",
+        "url": "https://www.guardian.co.tt/news/chaguanas-maxi-drivers-want-better-security-as-robberies-rise-6.2.2350220.4934d668b3",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2025-07-08"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Chaguanas Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1811264148",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 3
+  },
+  {
+    "id": "maxi-chag-san-fernando-back",
+    "corridorId": "maxi-chag-san-fernando",
+    "mode": "maxi",
+    "operator": "Route 3 Maxi taxis",
+    "originNodeId": "sf-chag-maxi",
+    "destinationNodeId": "chag-maxi-area",
+    "stopNodeIds": [
+      "sf-chag-maxi",
+      "chag-maxi-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Reported Route 3 association fare stages (2022; fares not adopted)",
+        "url": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-06-17"
+      },
+      {
+        "name": "Chaguanas Maxi operators describe San Fernando service",
+        "url": "https://www.guardian.co.tt/news/chaguanas-maxi-drivers-want-better-security-as-robberies-rise-6.2.2350220.4934d668b3",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2025-07-08"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Chaguanas Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1811264148",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 3
+  },
+  {
+    "id": "maxi-curepe-chaguanas-out",
+    "corridorId": "maxi-curepe-chaguanas",
+    "mode": "maxi",
+    "operator": "Route 3 Maxi taxis",
+    "originNodeId": "curepe-chag-maxi",
+    "destinationNodeId": "chag-maxi-area",
+    "stopNodeIds": [
+      "curepe-chag-maxi",
+      "chag-maxi-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Reported Route 3 association fare stages (2022; fares not adopted)",
+        "url": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-06-17"
+      },
+      {
+        "name": "OpenStreetMap contributors: Chaguanas Maxi stand",
+        "url": "https://www.openstreetmap.org/node/1350168605",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 3
+  },
+  {
+    "id": "maxi-curepe-chaguanas-back",
+    "corridorId": "maxi-curepe-chaguanas",
+    "mode": "maxi",
+    "operator": "Route 3 Maxi taxis",
+    "originNodeId": "chag-maxi-area",
+    "destinationNodeId": "curepe-chag-maxi",
+    "stopNodeIds": [
+      "chag-maxi-area",
+      "curepe-chag-maxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Reported Route 3 association fare stages (2022; fares not adopted)",
+        "url": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-06-17"
+      },
+      {
+        "name": "OpenStreetMap contributors: Chaguanas Maxi stand",
+        "url": "https://www.openstreetmap.org/node/1350168605",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 3
+  },
+  {
+    "id": "maxi-chaguanas-to-pos",
+    "corridorId": "maxi-chaguanas--pos",
+    "mode": "maxi",
+    "operator": "Route 3 Maxi taxis",
+    "originNodeId": "chag-maxi-area",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "chag-maxi-area",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Historical Eleanor Street service report; confirm operation. POS destination is the transit-centre area, not a confirmed reverse Maxi bay.",
+    "sources": [
+      {
+        "name": "Historical Central transport guide; confirm present boarding",
+        "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2007-04-21"
+      }
+    ],
+    "routeArea": 3
+  },
+  {
+    "id": "taxi-chaguanas-to-couva",
+    "corridorId": "taxi-chaguanas--couva",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "chag-local-area",
+    "destinationNodeId": "maxi-couva",
+    "stopNodeIds": [
+      "chag-local-area",
+      "maxi-couva"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Historical Central transport guide; confirm present boarding",
+        "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2007-04-21"
+      },
+      {
+        "name": "Chaguanas St Mary’s Couva Taxi Association",
+        "url": "https://www.facebook.com/p/Chaguanas-St-Marys-Couva-Taxi-Association-100076587752656/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-chaguanas-to-california-area",
+    "corridorId": "taxi-chaguanas--california-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "chag-local-area",
+    "destinationNodeId": "california-area",
+    "stopNodeIds": [
+      "chag-local-area",
+      "california-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Historical Central transport guide; confirm present boarding",
+        "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2007-04-21"
+      }
+    ]
+  },
+  {
+    "id": "taxi-chaguanas-to-chase-village-area",
+    "corridorId": "taxi-chaguanas--chase-village-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "chag-local-area",
+    "destinationNodeId": "chase-village-area",
+    "stopNodeIds": [
+      "chag-local-area",
+      "chase-village-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Historical Central transport guide; confirm present boarding",
+        "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2007-04-21"
+      }
+    ]
+  },
+  {
+    "id": "taxi-pos-chaguanas-out",
+    "corridorId": "taxi-pos-chaguanas",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "pos-chag-taxi",
+    "destinationNodeId": "chag-pos-taxi-area",
+    "stopNodeIds": [
+      "pos-chag-taxi",
+      "chag-pos-taxi-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Chaguanas drop-off is the Southern Main Road taxi area; confirm the POS boarding stand across the road.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Chaguanas Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772038430",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Historical Central transport guide; confirm present boarding",
+        "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2007-04-21"
+      }
+    ]
+  },
+  {
+    "id": "taxi-pos-chaguanas-back",
+    "corridorId": "taxi-pos-chaguanas",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "chag-pos-taxi-area",
+    "destinationNodeId": "pos-chag-taxi",
+    "stopNodeIds": [
+      "chag-pos-taxi-area",
+      "pos-chag-taxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Chaguanas drop-off is the Southern Main Road taxi area; confirm the POS boarding stand across the road.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Chaguanas Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772038430",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Historical Central transport guide; confirm present boarding",
+        "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2007-04-21"
+      }
+    ]
+  },
+  {
+    "id": "taxi-pos-san-fernando-out",
+    "corridorId": "taxi-pos-san-fernando",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "pos-sf-taxi",
+    "destinationNodeId": "sf-pos-chag-taxi",
+    "stopNodeIds": [
+      "pos-sf-taxi",
+      "sf-pos-chag-taxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772038420",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Port of Spain and Chagunas taxi stand",
+        "url": "https://www.openstreetmap.org/node/1761221840",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-pos-san-fernando-back",
+    "corridorId": "taxi-pos-san-fernando",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "sf-pos-chag-taxi",
+    "destinationNodeId": "pos-sf-taxi",
+    "stopNodeIds": [
+      "sf-pos-chag-taxi",
+      "pos-sf-taxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Port of Spain and Chagunas taxi stand",
+        "url": "https://www.openstreetmap.org/node/1761221840",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772038420",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-chaguanas-san-fernando-out",
+    "corridorId": "taxi-chaguanas-san-fernando",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "chag-sf-taxi",
+    "destinationNodeId": "sf-pos-chag-taxi",
+    "stopNodeIds": [
+      "chag-sf-taxi",
+      "sf-pos-chag-taxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1862244256",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Port of Spain and Chagunas taxi stand",
+        "url": "https://www.openstreetmap.org/node/1761221840",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-chaguanas-san-fernando-back",
+    "corridorId": "taxi-chaguanas-san-fernando",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "sf-pos-chag-taxi",
+    "destinationNodeId": "chag-sf-taxi",
+    "stopNodeIds": [
+      "sf-pos-chag-taxi",
+      "chag-sf-taxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Port of Spain and Chagunas taxi stand",
+        "url": "https://www.openstreetmap.org/node/1761221840",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1862244256",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-grand-bazaar-to-curepe",
+    "corridorId": "taxi-grand-bazaar--curepe",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "grand-bazaar-curepe-taxi",
+    "destinationNodeId": "ptsc-curepe",
+    "stopNodeIds": [
+      "grand-bazaar-curepe-taxi",
+      "ptsc-curepe"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Grand Bazaar - Curepe Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1786634434",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap-derived Curepe Priority Mall",
+        "url": "https://www.openstreetmap.org/way/129752535",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "maxi-penal-san-fernando-out",
+    "corridorId": "maxi-penal-san-fernando",
+    "mode": "maxi",
+    "operator": "Route 5 Maxi taxis",
+    "originNodeId": "penal-sf-maxi",
+    "destinationNodeId": "sf-siparia-maxi",
+    "stopNodeIds": [
+      "penal-sf-maxi",
+      "sf-siparia-maxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Penal-San Fernando Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1810716978",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221833",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 5
+  },
+  {
+    "id": "maxi-penal-san-fernando-back",
+    "corridorId": "maxi-penal-san-fernando",
+    "mode": "maxi",
+    "operator": "Route 5 Maxi taxis",
+    "originNodeId": "sf-siparia-maxi",
+    "destinationNodeId": "penal-sf-maxi",
+    "stopNodeIds": [
+      "sf-siparia-maxi",
+      "penal-sf-maxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221833",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Penal-San Fernando Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1810716978",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 5
+  },
+  {
+    "id": "taxi-penal-siparia-out",
+    "corridorId": "taxi-penal-siparia",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "penal-siparia-taxi",
+    "destinationNodeId": "siparia-penal-taxi",
+    "stopNodeIds": [
+      "penal-siparia-taxi",
+      "siparia-penal-taxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Penal-Siparia Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1786799555",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Siparia-Penal Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764257867",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-penal-siparia-back",
+    "corridorId": "taxi-penal-siparia",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "siparia-penal-taxi",
+    "destinationNodeId": "penal-siparia-taxi",
+    "stopNodeIds": [
+      "siparia-penal-taxi",
+      "penal-siparia-taxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-Penal Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764257867",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Penal-Siparia Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1786799555",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-penal-to-san-fernando",
+    "corridorId": "taxi-penal--san-fernando",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "penal-sf-taxi",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "penal-sf-taxi",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "San Fernando destination area only; Penal taxi return bay not resolved.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Penal-San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772894772",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap-derived terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/835910886",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "taxi-siparia-to-san-fernando",
+    "corridorId": "taxi-siparia--san-fernando",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "siparia-sf-taxi",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "siparia-sf-taxi",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "San Fernando destination area only; Siparia taxi return bay not resolved.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764257869",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap-derived terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/835910886",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "taxi-point-fortin-san-fernando-out",
+    "corridorId": "taxi-point-fortin-san-fernando",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "point-sf-taxi",
+    "destinationNodeId": "sf-point-taxi",
+    "stopNodeIds": [
+      "point-sf-taxi",
+      "sf-point-taxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/2403701177",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Point Fortin Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221852",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-point-fortin-san-fernando-back",
+    "corridorId": "taxi-point-fortin-san-fernando",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "sf-point-taxi",
+    "destinationNodeId": "point-sf-taxi",
+    "stopNodeIds": [
+      "sf-point-taxi",
+      "point-sf-taxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Point Fortin Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221852",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/2403701177",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-siparia-to-erin",
+    "corridorId": "taxi-siparia--erin",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "siparia-erin-taxi",
+    "destinationNodeId": "erin-area",
+    "stopNodeIds": [
+      "siparia-erin-taxi",
+      "erin-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-Erin Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410040",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Erin",
+        "url": "https://www.openstreetmap.org/node/1824961788",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-siparia-to-fyzabad",
+    "corridorId": "taxi-siparia--fyzabad",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "siparia-fyzabad-taxi",
+    "destinationNodeId": "fyzabad-area",
+    "stopNodeIds": [
+      "siparia-fyzabad-taxi",
+      "fyzabad-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-Fyzabad Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410041",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Fyzabad",
+        "url": "https://www.openstreetmap.org/node/1358726695",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "maxi-pos-arima-out",
+    "corridorId": "maxi-pos-arima",
+    "mode": "maxi",
+    "operator": "Route 2 Maxi taxis",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "arima-pbr-maxi",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "arima-pbr-maxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      },
+      {
+        "name": "OpenStreetMap contributors: Priority Bus Route (Route 2) Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/4110786989",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 2
+  },
+  {
+    "id": "maxi-pos-arima-back",
+    "corridorId": "maxi-pos-arima",
+    "mode": "maxi",
+    "operator": "Route 2 Maxi taxis",
+    "originNodeId": "arima-pbr-maxi",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "arima-pbr-maxi",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      },
+      {
+        "name": "OpenStreetMap contributors: Priority Bus Route (Route 2) Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/4110786989",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 2
+  },
+  {
+    "id": "maxi-arima-grande-out",
+    "corridorId": "maxi-arima-grande",
+    "mode": "maxi",
+    "operator": "Route 2 Maxi taxis",
+    "originNodeId": "arima-emr-maxi",
+    "destinationNodeId": "grande-maxi-area",
+    "stopNodeIds": [
+      "arima-emr-maxi",
+      "grande-maxi-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      },
+      {
+        "name": "OpenStreetMap contributors: Eastern Main Road Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/4110786990",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 2
+  },
+  {
+    "id": "maxi-arima-grande-back",
+    "corridorId": "maxi-arima-grande",
+    "mode": "maxi",
+    "operator": "Route 2 Maxi taxis",
+    "originNodeId": "grande-maxi-area",
+    "destinationNodeId": "arima-emr-maxi",
+    "stopNodeIds": [
+      "grande-maxi-area",
+      "arima-emr-maxi"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      },
+      {
+        "name": "OpenStreetMap contributors: Eastern Main Road Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/4110786990",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 2
+  },
+  {
+    "id": "maxi-pos-to-maloney-area",
+    "corridorId": "maxi-pos--maloney-area",
+    "mode": "maxi",
+    "operator": "Route 2 Maxi taxis",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "maloney-area",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "maloney-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Reported City Gate service. Destination area only; return stand and current hours unconfirmed.",
+    "sources": [
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      }
+    ],
+    "routeArea": 2
+  },
+  {
+    "id": "maxi-pos-to-la-horquetta-area",
+    "corridorId": "maxi-pos--la-horquetta-area",
+    "mode": "maxi",
+    "operator": "Route 2 Maxi taxis",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "la-horquetta-area",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "la-horquetta-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Reported City Gate service. Destination area only; return stand and current hours unconfirmed.",
+    "sources": [
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      }
+    ],
+    "routeArea": 2
+  },
+  {
+    "id": "maxi-mayaro-to-rio-claro-area",
+    "corridorId": "maxi-mayaro--rio-claro-area",
+    "mode": "maxi",
+    "operator": "Route 4 Maxi taxis",
+    "originNodeId": "maxi-mayaro",
+    "destinationNodeId": "rio-claro-hub",
+    "stopNodeIds": [
+      "maxi-mayaro",
+      "rio-claro-hub"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527533",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Rio Claro",
+        "url": "https://www.openstreetmap.org/node/1174919917",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 4
+  },
+  {
+    "id": "route_taxi-mayaro-to-rio-claro-area",
+    "corridorId": "route_taxi-mayaro--rio-claro-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "maxi-mayaro",
+    "destinationNodeId": "rio-claro-hub",
+    "stopNodeIds": [
+      "maxi-mayaro",
+      "rio-claro-hub"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527533",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Rio Claro",
+        "url": "https://www.openstreetmap.org/node/1174919917",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "maxi-mayaro-to-guayaguayare-area",
+    "corridorId": "maxi-mayaro--guayaguayare-area",
+    "mode": "maxi",
+    "operator": "Route 4 Maxi taxis",
+    "originNodeId": "maxi-mayaro",
+    "destinationNodeId": "guayaguayare-area",
+    "stopNodeIds": [
+      "maxi-mayaro",
+      "guayaguayare-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527533",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Guayaguayare",
+        "url": "https://www.openstreetmap.org/node/3090743327",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 4
+  },
+  {
+    "id": "route_taxi-mayaro-to-guayaguayare-area",
+    "corridorId": "route_taxi-mayaro--guayaguayare-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "maxi-mayaro",
+    "destinationNodeId": "guayaguayare-area",
+    "stopNodeIds": [
+      "maxi-mayaro",
+      "guayaguayare-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527533",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Guayaguayare",
+        "url": "https://www.openstreetmap.org/node/3090743327",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-mayaro-to-grande",
+    "corridorId": "taxi-mayaro--grande",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "mayaro-grande-taxi",
+    "destinationNodeId": "grande-maxi-area",
+    "stopNodeIds": [
+      "mayaro-grande-taxi",
+      "grande-maxi-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Mayaro/Sangre Grande Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527532",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      },
+      {
+        "name": "Mapped Mayaro/Rio Claro direction information; not a boarding platform",
+        "url": "https://www.openstreetmap.org/node/8288016519",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "maxi-mayaro-to-grande",
+    "corridorId": "maxi-mayaro--grande",
+    "mode": "maxi",
+    "operator": "Local Maxi taxis — band unconfirmed",
+    "originNodeId": "mayaro-grande-taxi",
+    "destinationNodeId": "grande-maxi-area",
+    "stopNodeIds": [
+      "mayaro-grande-taxi",
+      "grande-maxi-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Mapped mixed stand reports very few maxis. No frequency guarantee; taxi may be the available option.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Mayaro/Sangre Grande Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527532",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      },
+      {
+        "name": "Mapped Mayaro/Rio Claro direction information; not a boarding platform",
+        "url": "https://www.openstreetmap.org/node/8288016519",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "pos-maraval-taxi-to-maraval-area",
+    "corridorId": "pos-maraval-taxi--maraval-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "pos-maraval-taxi",
+    "destinationNodeId": "maraval-area",
+    "stopNodeIds": [
+      "pos-maraval-taxi",
+      "maraval-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Maraval Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1447592867",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Maraval",
+        "url": "https://www.openstreetmap.org/node/3496076024",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "pos-san-juan-taxi-to-san-juan-area",
+    "corridorId": "pos-san-juan-taxi--san-juan-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "pos-san-juan-taxi",
+    "destinationNodeId": "san-juan-area",
+    "stopNodeIds": [
+      "pos-san-juan-taxi",
+      "san-juan-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Juan Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1809362904",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Juan",
+        "url": "https://www.openstreetmap.org/node/477499598",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "pos-chaguaramas-taxi-to-chaguaramas-area",
+    "corridorId": "pos-chaguaramas-taxi--chaguaramas-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "pos-chaguaramas-taxi",
+    "destinationNodeId": "chaguaramas-area",
+    "stopNodeIds": [
+      "pos-chaguaramas-taxi",
+      "chaguaramas-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Chaguaramas Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1809362906",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Chaguaramas",
+        "url": "https://www.openstreetmap.org/node/1822868105",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "pos-grande-taxi-to-grande-maxi-area",
+    "corridorId": "pos-grande-taxi--grande-maxi-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "pos-grande-taxi",
+    "destinationNodeId": "grande-maxi-area",
+    "stopNodeIds": [
+      "pos-grande-taxi",
+      "grande-maxi-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Sangre Grande Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1809362903",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      },
+      {
+        "name": "Mapped Mayaro/Rio Claro direction information; not a boarding platform",
+        "url": "https://www.openstreetmap.org/node/8288016519",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "san-juan-santa-cruz-taxi-to-santa-cruz-area",
+    "corridorId": "san-juan-santa-cruz-taxi--santa-cruz-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "san-juan-santa-cruz-taxi",
+    "destinationNodeId": "santa-cruz-area",
+    "stopNodeIds": [
+      "san-juan-santa-cruz-taxi",
+      "santa-cruz-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Santa Cruz Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/840268930",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Santa Cruz",
+        "url": "https://www.openstreetmap.org/node/477519549",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "scarborough-crown-point-taxi-to-crown-point-area",
+    "corridorId": "scarborough-crown-point-taxi--crown-point-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "scarborough-crown-point-taxi",
+    "destinationNodeId": "crown-point-area",
+    "stopNodeIds": [
+      "scarborough-crown-point-taxi",
+      "crown-point-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Scarborough-Crown Point Taxt Stand",
+        "url": "https://www.openstreetmap.org/node/1745991289",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Crown Point",
+        "url": "https://www.openstreetmap.org/node/1821476686",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-scarborough-to-buccoo-area",
+    "corridorId": "taxi-scarborough--buccoo-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "scarborough-across-taxi",
+    "destinationNodeId": "buccoo-area",
+    "stopNodeIds": [
+      "scarborough-across-taxi",
+      "buccoo-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Mapped Across stand names Buccoo/Bethel. Endpoint alternatives only; stop order and return stands unconfirmed.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Buccoo/Bethel - Scarborough Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/231004882",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Buccoo",
+        "url": "https://www.openstreetmap.org/node/1816584125",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-scarborough-to-bethel-area",
+    "corridorId": "taxi-scarborough--bethel-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "scarborough-across-taxi",
+    "destinationNodeId": "bethel-area",
+    "stopNodeIds": [
+      "scarborough-across-taxi",
+      "bethel-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Mapped Across stand names Buccoo/Bethel. Endpoint alternatives only; stop order and return stands unconfirmed.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Buccoo/Bethel - Scarborough Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/231004882",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Bethel",
+        "url": "https://www.openstreetmap.org/node/1816584104",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "maxi-san-fernando-la-brea-out",
+    "corridorId": "maxi-san-fernando-la-brea",
+    "mode": "maxi",
+    "operator": "Route 5 Maxi taxis",
+    "originNodeId": "sf-la-brea-area",
+    "destinationNodeId": "la-brea-area",
+    "stopNodeIds": [
+      "sf-la-brea-area",
+      "la-brea-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+        "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: to La Brea",
+        "url": "https://www.openstreetmap.org/node/12639062801",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 5
+  },
+  {
+    "id": "maxi-san-fernando-la-brea-back",
+    "corridorId": "maxi-san-fernando-la-brea",
+    "mode": "maxi",
+    "operator": "Route 5 Maxi taxis",
+    "originNodeId": "la-brea-area",
+    "destinationNodeId": "sf-la-brea-area",
+    "stopNodeIds": [
+      "la-brea-area",
+      "sf-la-brea-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+        "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: to La Brea",
+        "url": "https://www.openstreetmap.org/node/12639062801",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 5
+  },
+  {
+    "id": "maxi-princes-town-to-new-grant",
+    "corridorId": "maxi-princes-town--new-grant",
+    "mode": "maxi",
+    "operator": "Route 4 Maxi taxis",
+    "originNodeId": "princes-town-local-area",
+    "destinationNodeId": "new-grant-area",
+    "stopNodeIds": [
+      "princes-town-local-area",
+      "new-grant-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+        "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 4
+  },
+  {
+    "id": "taxi-san-fernando-to-curepe",
+    "corridorId": "taxi-san-fernando--curepe",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "sf-curepe-taxi-area",
+    "destinationNodeId": "ptsc-curepe",
+    "stopNodeIds": [
+      "sf-curepe-taxi-area",
+      "ptsc-curepe"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Firsthand route report; SF pickup is an approximate local taxi area, not a confirmed Curepe bay.",
+    "sources": [
+      {
+        "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+        "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "maxi-rio-claro-to-mayaro",
+    "corridorId": "maxi-mayaro--rio-claro-area",
+    "mode": "maxi",
+    "operator": "Route 4 Maxi taxis",
+    "originNodeId": "rio-claro-hub",
+    "destinationNodeId": "maxi-mayaro",
+    "stopNodeIds": [
+      "rio-claro-hub",
+      "maxi-mayaro"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527533",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 4
+  },
+  {
+    "id": "maxi-rio-claro-to-princes-town",
+    "corridorId": "maxi-rio-claro--princes-town",
+    "mode": "maxi",
+    "operator": "Route 4 Maxi taxis",
+    "originNodeId": "rio-claro-hub",
+    "destinationNodeId": "princes-town-local-area",
+    "stopNodeIds": [
+      "rio-claro-hub",
+      "princes-town-local-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "routeArea": 4
+  },
+  {
+    "id": "route_taxi-rio-claro-to-mayaro",
+    "corridorId": "route_taxi-mayaro--rio-claro-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "rio-claro-hub",
+    "destinationNodeId": "maxi-mayaro",
+    "stopNodeIds": [
+      "rio-claro-hub",
+      "maxi-mayaro"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527533",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "route_taxi-rio-claro-to-princes-town",
+    "corridorId": "route_taxi-rio-claro--princes-town",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "rio-claro-hub",
+    "destinationNodeId": "princes-town-local-area",
+    "stopNodeIds": [
+      "rio-claro-hub",
+      "princes-town-local-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "maxi-princes-town-to-rio-claro",
+    "corridorId": "maxi-rio-claro--princes-town",
+    "mode": "maxi",
+    "operator": "Route 4 Maxi taxis",
+    "originNodeId": "princes-town-local-area",
+    "destinationNodeId": "rio-claro-hub",
+    "stopNodeIds": [
+      "princes-town-local-area",
+      "rio-claro-hub"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Reported passengers travelling Princes Town to Rio Claro in a Maxi",
+        "url": "https://newsday.co.tt/2024/05/07/tick-from-moruga-jailed-for-taxi-robberies/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2024-05-07"
+      }
+    ],
+    "routeArea": 4
+  },
+  {
+    "id": "maxi-princes-town-to-moruga",
+    "corridorId": "maxi-princes-town--moruga",
+    "mode": "maxi",
+    "operator": "Route 4 Maxi taxis",
+    "originNodeId": "princes-town-local-area",
+    "destinationNodeId": "moruga-area",
+    "stopNodeIds": [
+      "princes-town-local-area",
+      "moruga-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "sources": [
+      {
+        "name": "Route 4 association report; proposed hub not assumed built",
+        "url": "https://archives.newsday.co.tt/2013/09/05/transport-hub-for-south-taxi-drivers-coming-soon/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2013-09-05"
+      }
+    ],
+    "routeArea": 4
+  },
+  {
+    "id": "taxi-rio-claro-to-libertville-area",
+    "corridorId": "taxi-rio-claro--libertville-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "rio-claro-hub",
+    "destinationNodeId": "libertville-area",
+    "stopNodeIds": [
+      "rio-claro-hub",
+      "libertville-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Reported lane 6 destinations; confirm individual taxi destination. No through-stop order is assumed.",
+    "sources": [
+      {
+        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-rio-claro-to-poole-area",
+    "corridorId": "taxi-rio-claro--poole-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "rio-claro-hub",
+    "destinationNodeId": "poole-area",
+    "stopNodeIds": [
+      "rio-claro-hub",
+      "poole-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Reported lane 6 destinations; confirm individual taxi destination. No through-stop order is assumed.",
+    "sources": [
+      {
+        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "taxi-rio-claro-to-guayaguayare-area",
+    "corridorId": "taxi-rio-claro--guayaguayare-area",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "rio-claro-hub",
+    "destinationNodeId": "guayaguayare-area",
+    "stopNodeIds": [
+      "rio-claro-hub",
+      "guayaguayare-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "availability": {
+      "kind": "frequency_based",
+      "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
+    },
+    "boardingNote": "Reported lane 6 destinations; confirm individual taxi destination. No through-stop order is assumed.",
+    "sources": [
+      {
+        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   }
 ]

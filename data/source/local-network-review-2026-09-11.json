@@ -1,0 +1,1428 @@
+{
+  "checkedAt": "2026-09-11",
+  "method": "Direction-specific reported services; OSM stand and place evidence distinguished. Retrieval date is not an operation confirmation. No historical fare promoted to current.",
+  "attribution": "Map data © OpenStreetMap contributors, ODbL 1.0 https://www.openstreetmap.org/copyright",
+  "services": [
+    {
+      "serviceId": "maxi-red-pos-to-sangre-grande",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "Passenger report: direct Grande maxis and separate Arima services",
+          "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-08-24"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-red-sangre-grande-to-pos",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "Passenger report: direct Grande maxis and separate Arima services",
+          "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-08-24"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-green-pos-to-san-fernando",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: San Fernando-Port of Spain Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1761221836",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "TTT report: San Fernando–Port of Spain Maxi relaunch",
+          "url": "https://www.youtube.com/watch?v=d4kR1l-JIJ8",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2019-02-25"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-green-san-fernando-to-pos",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: San Fernando-Port of Spain Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1761221836",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "TTT report: San Fernando–Port of Spain Maxi relaunch",
+          "url": "https://www.youtube.com/watch?v=d4kR1l-JIJ8",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2019-02-25"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-yellow-pos-to-diego-martin",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "Trinidad maxi route bands",
+          "url": "https://en.wikipedia.org/wiki/Maxi_taxi",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-yellow-diego-martin-to-pos",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "Trinidad maxi route bands",
+          "url": "https://en.wikipedia.org/wiki/Maxi_taxi",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-black-san-fernando-to-princes-town",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+          "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "Princes Town Maxi Stand, Coffee Street; mapped plus code 772W7GGQ+XFF",
+          "url": "https://www.waze.com/live-map/directions/tt/san-fernando-city-corporation/san-fernando/princes-town-maxi-stand?to=place.ChIJYxXMKoqNNYwR_Y3dxqqrtuI",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-black-princes-town-to-san-fernando",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+          "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "Princes Town Maxi Stand, Coffee Street; mapped plus code 772W7GGQ+XFF",
+          "url": "https://www.waze.com/live-map/directions/tt/san-fernando-city-corporation/san-fernando/princes-town-maxi-stand?to=place.ChIJYxXMKoqNNYwR_Y3dxqqrtuI",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-black-princes-town-to-mayaro",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Princes Town-Mayaro Maxi Stand",
+          "url": "https://www.openstreetmap.org/node/1764462743",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-black-mayaro-to-princes-town",
+      "decision": "held",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Princes Town-Mayaro Maxi Stand",
+          "url": "https://www.openstreetmap.org/node/1764462743",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-brown-san-fernando-to-point-fortin",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: San Fernando-Point Fortin Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1538914694",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-brown-point-fortin-to-san-fernando",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: San Fernando-Point Fortin Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1538914694",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-brown-san-fernando-to-siparia",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1761221833",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Siparia-San Fernando Maxi Stand",
+          "url": "https://www.openstreetmap.org/node/1757410049",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-brown-siparia-to-san-fernando",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1761221833",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Siparia-San Fernando Maxi Stand",
+          "url": "https://www.openstreetmap.org/node/1757410049",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-green-san-fernando-to-couva",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "Reported Couva maxi stand on Penitence Street, San Fernando",
+          "url": "https://newsday.co.tt/2020/05/04/2-women-knocked-down-as-driver-suffers-seizure/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2020-05-04"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-green-couva-to-san-fernando",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "Reported Couva maxi stand on Penitence Street, San Fernando",
+          "url": "https://newsday.co.tt/2020/05/04/2-women-knocked-down-as-driver-suffers-seizure/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2020-05-04"
+        }
+      ]
+    },
+    {
+      "serviceId": "route-taxi-san-fernando-to-c3",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "Historical passenger discussion: C3 taxis at Library Corner",
+          "url": "https://www.trinituner.com/v4/forums/viewtopic.php?t=745451",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "route-taxi-c3-to-san-fernando",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "Historical passenger discussion: C3 taxis at Library Corner",
+          "url": "https://www.trinituner.com/v4/forums/viewtopic.php?t=745451",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "route-taxi-san-fernando-to-gulf-city",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "La Romaine–Gulf City association service report; historical fares excluded",
+          "url": "https://newsday.co.tt/2021/05/10/la-romaine-san-fernando-fare-rises-temporarily-by-2/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2021-05-10"
+        }
+      ]
+    },
+    {
+      "serviceId": "route-taxi-gulf-city-to-san-fernando",
+      "decision": "routing_reported",
+      "directionEvidence": "Re-audited existing pattern; current operation unconfirmed",
+      "sources": [
+        {
+          "name": "La Romaine–Gulf City association service report; historical fares excluded",
+          "url": "https://newsday.co.tt/2021/05/10/la-romaine-san-fernando-fare-rises-temporarily-by-2/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2021-05-10"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-chag-san-fernando-out",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "Reported Route 3 association fare stages (2022; fares not adopted)",
+          "url": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-06-17"
+        },
+        {
+          "name": "Chaguanas Maxi operators describe San Fernando service",
+          "url": "https://www.guardian.co.tt/news/chaguanas-maxi-drivers-want-better-security-as-robberies-rise-6.2.2350220.4934d668b3",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2025-07-08"
+        },
+        {
+          "name": "OpenStreetMap contributors: San Fernando-Chaguanas Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1811264148",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-chag-san-fernando-back",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "Reported Route 3 association fare stages (2022; fares not adopted)",
+          "url": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-06-17"
+        },
+        {
+          "name": "Chaguanas Maxi operators describe San Fernando service",
+          "url": "https://www.guardian.co.tt/news/chaguanas-maxi-drivers-want-better-security-as-robberies-rise-6.2.2350220.4934d668b3",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2025-07-08"
+        },
+        {
+          "name": "OpenStreetMap contributors: San Fernando-Chaguanas Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1811264148",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-curepe-chaguanas-out",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "Reported Route 3 association fare stages (2022; fares not adopted)",
+          "url": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-06-17"
+        },
+        {
+          "name": "OpenStreetMap contributors: Chaguanas Maxi stand",
+          "url": "https://www.openstreetmap.org/node/1350168605",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-curepe-chaguanas-back",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "Reported Route 3 association fare stages (2022; fares not adopted)",
+          "url": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-06-17"
+        },
+        {
+          "name": "OpenStreetMap contributors: Chaguanas Maxi stand",
+          "url": "https://www.openstreetmap.org/node/1350168605",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-chaguanas-to-pos",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Historical Central transport guide; confirm present boarding",
+          "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2007-04-21"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-chaguanas-to-couva",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Historical Central transport guide; confirm present boarding",
+          "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2007-04-21"
+        },
+        {
+          "name": "Chaguanas St Mary’s Couva Taxi Association",
+          "url": "https://www.facebook.com/p/Chaguanas-St-Marys-Couva-Taxi-Association-100076587752656/",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-chaguanas-to-california-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Historical Central transport guide; confirm present boarding",
+          "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2007-04-21"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-chaguanas-to-chase-village-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Historical Central transport guide; confirm present boarding",
+          "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2007-04-21"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-pos-chaguanas-out",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Chaguanas Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1772038430",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "Historical Central transport guide; confirm present boarding",
+          "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2007-04-21"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-pos-chaguanas-back",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Chaguanas Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1772038430",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "Historical Central transport guide; confirm present boarding",
+          "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2007-04-21"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-pos-san-fernando-out",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1772038420",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Port of Spain and Chagunas taxi stand",
+          "url": "https://www.openstreetmap.org/node/1761221840",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-pos-san-fernando-back",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Port of Spain and Chagunas taxi stand",
+          "url": "https://www.openstreetmap.org/node/1761221840",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1772038420",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-chaguanas-san-fernando-out",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1862244256",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Port of Spain and Chagunas taxi stand",
+          "url": "https://www.openstreetmap.org/node/1761221840",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-chaguanas-san-fernando-back",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Port of Spain and Chagunas taxi stand",
+          "url": "https://www.openstreetmap.org/node/1761221840",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1862244256",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-grand-bazaar-to-curepe",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Grand Bazaar - Curepe Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1786634434",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "PTSC Bus Stops and Schedules",
+          "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap-derived Curepe Priority Mall",
+          "url": "https://www.openstreetmap.org/way/129752535",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-penal-san-fernando-out",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Penal-San Fernando Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1810716978",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1761221833",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-penal-san-fernando-back",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1761221833",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Penal-San Fernando Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1810716978",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-penal-siparia-out",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Penal-Siparia Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1786799555",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Siparia-Penal Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1764257867",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-penal-siparia-back",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Siparia-Penal Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1764257867",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Penal-Siparia Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1786799555",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-penal-to-san-fernando",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Penal-San Fernando Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1772894772",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "PTSC Bus Stops and Schedules",
+          "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+          "checkedAt": "2026-09-10"
+        },
+        {
+          "name": "OpenStreetMap-derived terminal coordinates",
+          "url": "https://www.openstreetmap.org/way/835910886",
+          "checkedAt": "2026-09-10"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-siparia-to-san-fernando",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Siparia-San Fernando Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1764257869",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "PTSC Bus Stops and Schedules",
+          "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+          "checkedAt": "2026-09-10"
+        },
+        {
+          "name": "OpenStreetMap-derived terminal coordinates",
+          "url": "https://www.openstreetmap.org/way/835910886",
+          "checkedAt": "2026-09-10"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-point-fortin-san-fernando-out",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/2403701177",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: San Fernando-Point Fortin Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1761221852",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-point-fortin-san-fernando-back",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: San Fernando-Point Fortin Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1761221852",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/2403701177",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-siparia-to-erin",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Siparia-Erin Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1757410040",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Erin",
+          "url": "https://www.openstreetmap.org/node/1824961788",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-siparia-to-fyzabad",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Siparia-Fyzabad Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1757410041",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Fyzabad",
+          "url": "https://www.openstreetmap.org/node/1358726695",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-pos-arima-out",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "Passenger report: direct Grande maxis and separate Arima services",
+          "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-08-24"
+        },
+        {
+          "name": "OpenStreetMap contributors: Priority Bus Route (Route 2) Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/4110786989",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-pos-arima-back",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "Passenger report: direct Grande maxis and separate Arima services",
+          "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-08-24"
+        },
+        {
+          "name": "OpenStreetMap contributors: Priority Bus Route (Route 2) Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/4110786989",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-arima-grande-out",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "Passenger report: direct Grande maxis and separate Arima services",
+          "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-08-24"
+        },
+        {
+          "name": "OpenStreetMap contributors: Eastern Main Road Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/4110786990",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-arima-grande-back",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "Passenger report: direct Grande maxis and separate Arima services",
+          "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-08-24"
+        },
+        {
+          "name": "OpenStreetMap contributors: Eastern Main Road Maxi Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/4110786990",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-pos-to-maloney-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Passenger report: direct Grande maxis and separate Arima services",
+          "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-08-24"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-pos-to-la-horquetta-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Passenger report: direct Grande maxis and separate Arima services",
+          "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-08-24"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-mayaro-to-rio-claro-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+          "url": "https://www.openstreetmap.org/way/479527533",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Rio Claro",
+          "url": "https://www.openstreetmap.org/node/1174919917",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+          "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "route_taxi-mayaro-to-rio-claro-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+          "url": "https://www.openstreetmap.org/way/479527533",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Rio Claro",
+          "url": "https://www.openstreetmap.org/node/1174919917",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+          "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-mayaro-to-guayaguayare-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+          "url": "https://www.openstreetmap.org/way/479527533",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Guayaguayare",
+          "url": "https://www.openstreetmap.org/node/3090743327",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "route_taxi-mayaro-to-guayaguayare-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+          "url": "https://www.openstreetmap.org/way/479527533",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Guayaguayare",
+          "url": "https://www.openstreetmap.org/node/3090743327",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-mayaro-to-grande",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Mayaro/Sangre Grande Taxi Stand",
+          "url": "https://www.openstreetmap.org/way/479527532",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "Passenger report: direct Grande maxis and separate Arima services",
+          "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-08-24"
+        },
+        {
+          "name": "Mapped Mayaro/Rio Claro direction information; not a boarding platform",
+          "url": "https://www.openstreetmap.org/node/8288016519",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-mayaro-to-grande",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Mayaro/Sangre Grande Taxi Stand",
+          "url": "https://www.openstreetmap.org/way/479527532",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "Passenger report: direct Grande maxis and separate Arima services",
+          "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-08-24"
+        },
+        {
+          "name": "Mapped Mayaro/Rio Claro direction information; not a boarding platform",
+          "url": "https://www.openstreetmap.org/node/8288016519",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "pos-maraval-taxi-to-maraval-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Maraval Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1447592867",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Maraval",
+          "url": "https://www.openstreetmap.org/node/3496076024",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "pos-san-juan-taxi-to-san-juan-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: San Juan Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1809362904",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: San Juan",
+          "url": "https://www.openstreetmap.org/node/477499598",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "pos-chaguaramas-taxi-to-chaguaramas-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Chaguaramas Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1809362906",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Chaguaramas",
+          "url": "https://www.openstreetmap.org/node/1822868105",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "pos-grande-taxi-to-grande-maxi-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Sangre Grande Taxi Stand",
+          "url": "https://www.openstreetmap.org/node/1809362903",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "Passenger report: direct Grande maxis and separate Arima services",
+          "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-08-24"
+        },
+        {
+          "name": "Mapped Mayaro/Rio Claro direction information; not a boarding platform",
+          "url": "https://www.openstreetmap.org/node/8288016519",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "san-juan-santa-cruz-taxi-to-santa-cruz-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Santa Cruz Taxi Stand",
+          "url": "https://www.openstreetmap.org/way/840268930",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Santa Cruz",
+          "url": "https://www.openstreetmap.org/node/477519549",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "scarborough-crown-point-taxi-to-crown-point-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Scarborough-Crown Point Taxt Stand",
+          "url": "https://www.openstreetmap.org/node/1745991289",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Crown Point",
+          "url": "https://www.openstreetmap.org/node/1821476686",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-scarborough-to-buccoo-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Buccoo/Bethel - Scarborough Taxi Stand",
+          "url": "https://www.openstreetmap.org/way/231004882",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Buccoo",
+          "url": "https://www.openstreetmap.org/node/1816584125",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-scarborough-to-bethel-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "OpenStreetMap contributors: Buccoo/Bethel - Scarborough Taxi Stand",
+          "url": "https://www.openstreetmap.org/way/231004882",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Bethel",
+          "url": "https://www.openstreetmap.org/node/1816584104",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-san-fernando-la-brea-out",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+          "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: to La Brea",
+          "url": "https://www.openstreetmap.org/node/12639062801",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-san-fernando-la-brea-back",
+      "decision": "routing_reported",
+      "directionEvidence": "Reciprocal named stands or explicit two-way route account; see sources",
+      "sources": [
+        {
+          "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+          "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: to La Brea",
+          "url": "https://www.openstreetmap.org/node/12639062801",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-princes-town-to-new-grant",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+          "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-san-fernando-to-curepe",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+          "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-rio-claro-to-mayaro",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+          "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+          "url": "https://www.openstreetmap.org/way/479527533",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-rio-claro-to-princes-town",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+          "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "route_taxi-rio-claro-to-mayaro",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+          "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+          "url": "https://www.openstreetmap.org/way/479527533",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "route_taxi-rio-claro-to-princes-town",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+          "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-princes-town-to-rio-claro",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Reported passengers travelling Princes Town to Rio Claro in a Maxi",
+          "url": "https://newsday.co.tt/2024/05/07/tick-from-moruga-jailed-for-taxi-robberies/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2024-05-07"
+        }
+      ]
+    },
+    {
+      "serviceId": "maxi-princes-town-to-moruga",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Route 4 association report; proposed hub not assumed built",
+          "url": "https://archives.newsday.co.tt/2013/09/05/transport-hub-for-south-taxi-drivers-coming-soon/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2013-09-05"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-rio-claro-to-libertville-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+          "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-rio-claro-to-poole-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+          "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "serviceId": "taxi-rio-claro-to-guayaguayare-area",
+      "decision": "routing_reported",
+      "directionEvidence": "Named origin stand or direction-specific report; no automatic reverse",
+      "sources": [
+        {
+          "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+          "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    {
+      "region": "Central",
+      "route": "Chaguanas–St Mary’s / McBean",
+      "status": "not_routed",
+      "reason": "Taxi documented; resolve each village and current stand before adding",
+      "sources": [
+        {
+          "name": "Historical Central transport guide; confirm present boarding",
+          "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2007-04-21"
+        }
+      ]
+    },
+    {
+      "region": "Central",
+      "route": "Chaguanas–Flanagin Town / Point Lisas",
+      "status": "not_routed",
+      "reason": "Directory discovery; destination/boarding evidence incomplete",
+      "sources": [
+        {
+          "name": "Chaguanas taxi directory",
+          "url": "https://www.cybo.com/TT/chaguanas-chaguanas/taxis/",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "region": "Central",
+      "route": "Reverse Couva–Chaguanas Maxi boarding",
+      "status": "not_routed",
+      "reason": "Outbound Exchange fare stage is documented; reverse roadside boarding not resolved",
+      "sources": [
+        {
+          "name": "Reported Route 3 association fare stages (2022; fares not adopted)",
+          "url": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2022-06-17"
+        }
+      ]
+    },
+    {
+      "region": "East",
+      "route": "Sangre Grande–Toco",
+      "status": "not_routed",
+      "reason": "Service reports found; 2025 stand relocation unresolved",
+      "sources": [
+        {
+          "name": "Local 2025 route report",
+          "url": "https://www.instagram.com/p/DFsirFIR0kt/",
+          "checkedAt": "2026-09-11"
+        },
+        {
+          "name": "Toco stand relocation meeting",
+          "url": "https://www.facebook.com/anicia.williams.1/posts/-public-notice-meeting-rescheduled-topic-relocation-of-the-toco-maxi-stand-venue/24716986531235993/",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "region": "East",
+      "route": "Arima–Malabar",
+      "status": "not_routed",
+      "reason": "Transfer service reported; precise origin stand remains unresolved",
+      "sources": [
+        {
+          "name": "Malabar commuter report",
+          "url": "https://www.guardian.co.tt/news/more-commuters-take-ptsc-buses-after-fuel-hike-6.2.1552746.0b92b5ec05",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "region": "Northwest",
+      "route": "POS–Carenage / Petit Valley Maxi",
+      "status": "not_routed",
+      "reason": "Broad route descriptions and expired night-stand trial do not prove current bays",
+      "sources": [
+        {
+          "name": "Historical three-month night stand trial",
+          "url": "https://archives.newsday.co.tt/2014/01/23/yellow-band-maxis-on-broadway-at-nights/",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "region": "Northwest",
+      "route": "POS–Chaguaramas Maxi",
+      "status": "not_routed",
+      "reason": "Historical firsthand service; current endpoint and route variants unresolved",
+      "sources": [
+        {
+          "name": "Historical traveller journal",
+          "url": "https://www.maxingout.com/donnajournalarchive4.htm",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "region": "Northwest",
+      "route": "POS local taxis: St Ann’s, St James, Morvant, Long Circular",
+      "status": "not_routed",
+      "reason": "Origin stands mapped; destination pickup/drop-off extent unresolved",
+      "sources": []
+    },
+    {
+      "region": "Southwest",
+      "route": "Penal–Rock Road / Clarke Road; Point Fortin–Cap de Ville",
+      "status": "not_routed",
+      "reason": "Origin stands mapped; destination road extent or stand unresolved",
+      "sources": []
+    },
+    {
+      "region": "Tobago",
+      "route": "Scarborough–Charlotteville / L’Anse Fourmi concessionaires",
+      "status": "not_routed",
+      "reason": "Official service announcement found; resolve boarding terminals and timetable, do not label frequency-based",
+      "sources": [
+        {
+          "name": "PTSC concessionaire launch announcement",
+          "url": "https://www.facebook.com/PTSCTT/posts/-we-announce-the-introduction-of-maxi-taxi-concessionaires-on-the-scarboroughlan/1123368329796493/",
+          "checkedAt": "2026-09-11",
+          "publishedAt": "2025-01-10"
+        }
+      ]
+    },
+    {
+      "region": "Tobago",
+      "route": "School maxi transport / private charters",
+      "status": "not_routed",
+      "reason": "Excluded from public fixed-route journeys",
+      "sources": [
+        {
+          "name": "Scarborough Secondary school transport",
+          "url": "https://www.scarboroughsec.edu.tt/school-updates/2024-2025-maxi-taxi-schedule-for-sss",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    },
+    {
+      "region": "Southeast",
+      "route": "Rio Claro–Ecclesville; reverse Moruga/New Grant",
+      "status": "not_routed",
+      "reason": "Ecclesville destination not resolved; reverse boarding directions need independent evidence",
+      "sources": [
+        {
+          "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+          "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+          "checkedAt": "2026-09-11"
+        }
+      ]
+    }
+  ]
+}

@@ -1,114 +1,1932 @@
 [
   {
-    "id":"walk-pos-ptsc-to-ferry",
-    "fromNodeId":"ptsc-pos-transit-centre",
-    "toNodeId":"pos-ferry-terminal",
-    "mode":"walk",
-    "distanceKm":0.391,
-    "estimatedMinutes":6,
-    "confidence":"estimated_walk",
-    "sources":[
-      {"name":"Mapped Port of Spain Transit Centre and Ferry Terminal coordinates","url":"https://www.openstreetmap.org/way/350372094","checkedAt":"2026-09-11"},
-      {"name":"Mapped Port of Spain Ferry Terminal coordinates","url":"https://www.openstreetmap.org/way/175819521","checkedAt":"2026-09-11"}
+    "id": "walk-pos-ptsc-to-ferry",
+    "fromNodeId": "ptsc-pos-transit-centre",
+    "toNodeId": "pos-ferry-terminal",
+    "mode": "walk",
+    "distanceKm": 0.391,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "sources": [
+      {
+        "name": "Mapped Port of Spain Transit Centre and Ferry Terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/350372094",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Mapped Port of Spain Ferry Terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/175819521",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
-    "id":"walk-pos-ferry-to-ptsc",
-    "fromNodeId":"pos-ferry-terminal",
-    "toNodeId":"ptsc-pos-transit-centre",
-    "mode":"walk",
-    "distanceKm":0.391,
-    "estimatedMinutes":6,
-    "confidence":"estimated_walk",
-    "sources":[
-      {"name":"Mapped Port of Spain Ferry Terminal and Transit Centre coordinates","url":"https://www.openstreetmap.org/way/175819521","checkedAt":"2026-09-11"},
-      {"name":"Mapped Port of Spain Transit Centre coordinates","url":"https://www.openstreetmap.org/way/350372094","checkedAt":"2026-09-11"}
+    "id": "walk-pos-ferry-to-ptsc",
+    "fromNodeId": "pos-ferry-terminal",
+    "toNodeId": "ptsc-pos-transit-centre",
+    "mode": "walk",
+    "distanceKm": 0.391,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "sources": [
+      {
+        "name": "Mapped Port of Spain Ferry Terminal and Transit Centre coordinates",
+        "url": "https://www.openstreetmap.org/way/175819521",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Mapped Port of Spain Transit Centre coordinates",
+        "url": "https://www.openstreetmap.org/way/350372094",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
-    "id":"walk-pos-ptsc-to-water-taxi",
-    "fromNodeId":"ptsc-pos-transit-centre",
-    "toNodeId":"pos-water-taxi-terminal",
-    "mode":"walk",
-    "distanceKm":0.589,
-    "estimatedMinutes":9,
-    "confidence":"estimated_walk",
-    "sources":[
-      {"name":"Mapped Port of Spain Transit Centre coordinates","url":"https://www.openstreetmap.org/way/350372094","checkedAt":"2026-09-11"},
-      {"name":"Mapped Port of Spain Water Taxi Terminal coordinates","url":"https://www.openstreetmap.org/way/390110168","checkedAt":"2026-09-11"}
+    "id": "walk-pos-ptsc-to-water-taxi",
+    "fromNodeId": "ptsc-pos-transit-centre",
+    "toNodeId": "pos-water-taxi-terminal",
+    "mode": "walk",
+    "distanceKm": 0.589,
+    "estimatedMinutes": 9,
+    "confidence": "estimated_walk",
+    "sources": [
+      {
+        "name": "Mapped Port of Spain Transit Centre coordinates",
+        "url": "https://www.openstreetmap.org/way/350372094",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Mapped Port of Spain Water Taxi Terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/390110168",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
-    "id":"walk-pos-water-taxi-to-ptsc",
-    "fromNodeId":"pos-water-taxi-terminal",
-    "toNodeId":"ptsc-pos-transit-centre",
-    "mode":"walk",
-    "distanceKm":0.589,
-    "estimatedMinutes":9,
-    "confidence":"estimated_walk",
-    "sources":[
-      {"name":"Mapped Port of Spain Water Taxi Terminal coordinates","url":"https://www.openstreetmap.org/way/390110168","checkedAt":"2026-09-11"},
-      {"name":"Mapped Port of Spain Transit Centre coordinates","url":"https://www.openstreetmap.org/way/350372094","checkedAt":"2026-09-11"}
+    "id": "walk-pos-water-taxi-to-ptsc",
+    "fromNodeId": "pos-water-taxi-terminal",
+    "toNodeId": "ptsc-pos-transit-centre",
+    "mode": "walk",
+    "distanceKm": 0.589,
+    "estimatedMinutes": 9,
+    "confidence": "estimated_walk",
+    "sources": [
+      {
+        "name": "Mapped Port of Spain Water Taxi Terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/390110168",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Mapped Port of Spain Transit Centre coordinates",
+        "url": "https://www.openstreetmap.org/way/350372094",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
-    "id":"walk-pos-ferry-to-water-taxi",
-    "fromNodeId":"pos-ferry-terminal",
-    "toNodeId":"pos-water-taxi-terminal",
-    "mode":"walk",
-    "distanceKm":0.259,
-    "estimatedMinutes":4,
-    "confidence":"estimated_walk",
-    "sources":[
-      {"name":"Mapped Port of Spain Ferry Terminal coordinates","url":"https://www.openstreetmap.org/way/175819521","checkedAt":"2026-09-11"},
-      {"name":"Mapped Port of Spain Water Taxi Terminal coordinates","url":"https://www.openstreetmap.org/way/390110168","checkedAt":"2026-09-11"}
+    "id": "walk-pos-ferry-to-water-taxi",
+    "fromNodeId": "pos-ferry-terminal",
+    "toNodeId": "pos-water-taxi-terminal",
+    "mode": "walk",
+    "distanceKm": 0.259,
+    "estimatedMinutes": 4,
+    "confidence": "estimated_walk",
+    "sources": [
+      {
+        "name": "Mapped Port of Spain Ferry Terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/175819521",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Mapped Port of Spain Water Taxi Terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/390110168",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
-    "id":"walk-pos-water-taxi-to-ferry",
-    "fromNodeId":"pos-water-taxi-terminal",
-    "toNodeId":"pos-ferry-terminal",
-    "mode":"walk",
-    "distanceKm":0.259,
-    "estimatedMinutes":4,
-    "confidence":"estimated_walk",
-    "sources":[
-      {"name":"Mapped Port of Spain Water Taxi Terminal coordinates","url":"https://www.openstreetmap.org/way/390110168","checkedAt":"2026-09-11"},
-      {"name":"Mapped Port of Spain Ferry Terminal coordinates","url":"https://www.openstreetmap.org/way/175819521","checkedAt":"2026-09-11"}
+    "id": "walk-pos-water-taxi-to-ferry",
+    "fromNodeId": "pos-water-taxi-terminal",
+    "toNodeId": "pos-ferry-terminal",
+    "mode": "walk",
+    "distanceKm": 0.259,
+    "estimatedMinutes": 4,
+    "confidence": "estimated_walk",
+    "sources": [
+      {
+        "name": "Mapped Port of Spain Water Taxi Terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/390110168",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Mapped Port of Spain Ferry Terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/175819521",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
-    "id":"walk-sando-ptsc-to-water-taxi",
-    "fromNodeId":"ptsc-san-fernando",
-    "toNodeId":"san-fernando-water-taxi-terminal",
-    "mode":"walk",
-    "distanceKm":0.387,
-    "estimatedMinutes":6,
-    "confidence":"estimated_walk",
-    "sources":[
-      {"name":"Mapped San Fernando PTSC Terminus coordinates","url":"https://www.openstreetmap.org/way/835910886","checkedAt":"2026-09-11"},
-      {"name":"Mapped San Fernando Water Taxi Terminal coordinates","url":"https://www.openstreetmap.org/node/8745164784","checkedAt":"2026-09-11"}
+    "id": "walk-sando-ptsc-to-water-taxi",
+    "fromNodeId": "ptsc-san-fernando",
+    "toNodeId": "san-fernando-water-taxi-terminal",
+    "mode": "walk",
+    "distanceKm": 0.387,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "sources": [
+      {
+        "name": "Mapped San Fernando PTSC Terminus coordinates",
+        "url": "https://www.openstreetmap.org/way/835910886",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Mapped San Fernando Water Taxi Terminal coordinates",
+        "url": "https://www.openstreetmap.org/node/8745164784",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
-    "id":"walk-sando-water-taxi-to-ptsc",
-    "fromNodeId":"san-fernando-water-taxi-terminal",
-    "toNodeId":"ptsc-san-fernando",
-    "mode":"walk",
-    "distanceKm":0.387,
-    "estimatedMinutes":6,
-    "confidence":"estimated_walk",
-    "sources":[
-      {"name":"Mapped San Fernando Water Taxi Terminal coordinates","url":"https://www.openstreetmap.org/node/8745164784","checkedAt":"2026-09-11"},
-      {"name":"Mapped San Fernando PTSC Terminus coordinates","url":"https://www.openstreetmap.org/way/835910886","checkedAt":"2026-09-11"}
+    "id": "walk-sando-water-taxi-to-ptsc",
+    "fromNodeId": "san-fernando-water-taxi-terminal",
+    "toNodeId": "ptsc-san-fernando",
+    "mode": "walk",
+    "distanceKm": 0.387,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "sources": [
+      {
+        "name": "Mapped San Fernando Water Taxi Terminal coordinates",
+        "url": "https://www.openstreetmap.org/node/8745164784",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Mapped San Fernando PTSC Terminus coordinates",
+        "url": "https://www.openstreetmap.org/way/835910886",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
-    "id":"walk-pos-transit-to-western-maxi","fromNodeId":"ptsc-pos-transit-centre","toNodeId":"maxi-pos-western-hub","mode":"walk","distanceKm":0.3,"estimatedMinutes":5,"confidence":"estimated_walk",
-    "sources":[{"name":"Trinidad transport overview","url":"https://en.wikipedia.org/wiki/Transport_in_Trinidad_and_Tobago","checkedAt":"2026-09-11"}]
+    "id": "walk-pos-transit-to-western-maxi",
+    "fromNodeId": "ptsc-pos-transit-centre",
+    "toNodeId": "maxi-pos-western-hub",
+    "mode": "walk",
+    "distanceKm": 0.3,
+    "estimatedMinutes": 5,
+    "confidence": "estimated_walk",
+    "sources": [
+      {
+        "name": "Trinidad transport overview",
+        "url": "https://en.wikipedia.org/wiki/Transport_in_Trinidad_and_Tobago",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"walk-western-maxi-to-pos-transit","fromNodeId":"maxi-pos-western-hub","toNodeId":"ptsc-pos-transit-centre","mode":"walk","distanceKm":0.3,"estimatedMinutes":5,"confidence":"estimated_walk",
-    "sources":[{"name":"Trinidad transport overview","url":"https://en.wikipedia.org/wiki/Transport_in_Trinidad_and_Tobago","checkedAt":"2026-09-11"}]
+    "id": "walk-western-maxi-to-pos-transit",
+    "fromNodeId": "maxi-pos-western-hub",
+    "toNodeId": "ptsc-pos-transit-centre",
+    "mode": "walk",
+    "distanceKm": 0.3,
+    "estimatedMinutes": 5,
+    "confidence": "estimated_walk",
+    "sources": [
+      {
+        "name": "Trinidad transport overview",
+        "url": "https://en.wikipedia.org/wiki/Transport_in_Trinidad_and_Tobago",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-pos-transit-centre-to-pos-sf-taxi",
+    "fromNodeId": "ptsc-pos-transit-centre",
+    "toNodeId": "pos-sf-taxi",
+    "mode": "walk",
+    "distanceKm": 0.276,
+    "estimatedMinutes": 4,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772038420",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-pos-sf-taxi-to-ptsc-pos-transit-centre",
+    "fromNodeId": "pos-sf-taxi",
+    "toNodeId": "ptsc-pos-transit-centre",
+    "mode": "walk",
+    "distanceKm": 0.276,
+    "estimatedMinutes": 4,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772038420",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-pos-transit-centre-to-pos-chag-taxi",
+    "fromNodeId": "ptsc-pos-transit-centre",
+    "toNodeId": "pos-chag-taxi",
+    "mode": "walk",
+    "distanceKm": 0.214,
+    "estimatedMinutes": 3,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: Chaguanas Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772038430",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-pos-chag-taxi-to-ptsc-pos-transit-centre",
+    "fromNodeId": "pos-chag-taxi",
+    "toNodeId": "ptsc-pos-transit-centre",
+    "mode": "walk",
+    "distanceKm": 0.214,
+    "estimatedMinutes": 3,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Chaguanas Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772038430",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-pos-transit-centre-to-pos-grande-taxi",
+    "fromNodeId": "ptsc-pos-transit-centre",
+    "toNodeId": "pos-grande-taxi",
+    "mode": "walk",
+    "distanceKm": 0.283,
+    "estimatedMinutes": 4,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: Sangre Grande Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1809362903",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-pos-grande-taxi-to-ptsc-pos-transit-centre",
+    "fromNodeId": "pos-grande-taxi",
+    "toNodeId": "ptsc-pos-transit-centre",
+    "mode": "walk",
+    "distanceKm": 0.283,
+    "estimatedMinutes": 4,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Sangre Grande Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1809362903",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-pos-transit-centre-to-pos-san-juan-taxi",
+    "fromNodeId": "ptsc-pos-transit-centre",
+    "toNodeId": "pos-san-juan-taxi",
+    "mode": "walk",
+    "distanceKm": 0.314,
+    "estimatedMinutes": 4,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Juan Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1809362904",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-pos-san-juan-taxi-to-ptsc-pos-transit-centre",
+    "fromNodeId": "pos-san-juan-taxi",
+    "toNodeId": "ptsc-pos-transit-centre",
+    "mode": "walk",
+    "distanceKm": 0.314,
+    "estimatedMinutes": 4,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Juan Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1809362904",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-pos-transit-centre-to-pos-chaguaramas-taxi",
+    "fromNodeId": "ptsc-pos-transit-centre",
+    "toNodeId": "pos-chaguaramas-taxi",
+    "mode": "walk",
+    "distanceKm": 0.246,
+    "estimatedMinutes": 4,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: Chaguaramas Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1809362906",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-pos-chaguaramas-taxi-to-ptsc-pos-transit-centre",
+    "fromNodeId": "pos-chaguaramas-taxi",
+    "toNodeId": "ptsc-pos-transit-centre",
+    "mode": "walk",
+    "distanceKm": 0.246,
+    "estimatedMinutes": 4,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Chaguaramas Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1809362906",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-san-fernando-to-sf-point-maxi",
+    "fromNodeId": "ptsc-san-fernando",
+    "toNodeId": "sf-point-maxi",
+    "mode": "walk",
+    "distanceKm": 0.081,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Point Fortin Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1538914694",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-point-maxi-to-ptsc-san-fernando",
+    "fromNodeId": "sf-point-maxi",
+    "toNodeId": "ptsc-san-fernando",
+    "mode": "walk",
+    "distanceKm": 0.081,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Point Fortin Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1538914694",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-san-fernando-to-sf-siparia-maxi",
+    "fromNodeId": "ptsc-san-fernando",
+    "toNodeId": "sf-siparia-maxi",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221833",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-siparia-maxi-to-ptsc-san-fernando",
+    "fromNodeId": "sf-siparia-maxi",
+    "toNodeId": "ptsc-san-fernando",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221833",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-san-fernando-to-sf-pos-maxi",
+    "fromNodeId": "ptsc-san-fernando",
+    "toNodeId": "sf-pos-maxi",
+    "mode": "walk",
+    "distanceKm": 0.081,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Port of Spain Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221836",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-pos-maxi-to-ptsc-san-fernando",
+    "fromNodeId": "sf-pos-maxi",
+    "toNodeId": "ptsc-san-fernando",
+    "mode": "walk",
+    "distanceKm": 0.081,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Port of Spain Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221836",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-san-fernando-to-sf-pos-chag-taxi",
+    "fromNodeId": "ptsc-san-fernando",
+    "toNodeId": "sf-pos-chag-taxi",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: Port of Spain and Chagunas taxi stand",
+        "url": "https://www.openstreetmap.org/node/1761221840",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-pos-chag-taxi-to-ptsc-san-fernando",
+    "fromNodeId": "sf-pos-chag-taxi",
+    "toNodeId": "ptsc-san-fernando",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Port of Spain and Chagunas taxi stand",
+        "url": "https://www.openstreetmap.org/node/1761221840",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-san-fernando-to-sf-point-taxi",
+    "fromNodeId": "ptsc-san-fernando",
+    "toNodeId": "sf-point-taxi",
+    "mode": "walk",
+    "distanceKm": 0.083,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Point Fortin Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221852",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-point-taxi-to-ptsc-san-fernando",
+    "fromNodeId": "sf-point-taxi",
+    "toNodeId": "ptsc-san-fernando",
+    "mode": "walk",
+    "distanceKm": 0.083,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Point Fortin Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221852",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-san-fernando-to-sf-chag-maxi",
+    "fromNodeId": "ptsc-san-fernando",
+    "toNodeId": "sf-chag-maxi",
+    "mode": "walk",
+    "distanceKm": 0.44,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Chaguanas Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1811264148",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-chag-maxi-to-ptsc-san-fernando",
+    "fromNodeId": "sf-chag-maxi",
+    "toNodeId": "ptsc-san-fernando",
+    "mode": "walk",
+    "distanceKm": 0.44,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Chaguanas Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1811264148",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-san-fernando-to-sf-couva-area",
+    "fromNodeId": "ptsc-san-fernando",
+    "toNodeId": "sf-couva-area",
+    "mode": "walk",
+    "distanceKm": 0.44,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "Reported Couva maxi stand on Penitence Street, San Fernando",
+        "url": "https://newsday.co.tt/2020/05/04/2-women-knocked-down-as-driver-suffers-seizure/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2020-05-04"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-couva-area-to-ptsc-san-fernando",
+    "fromNodeId": "sf-couva-area",
+    "toNodeId": "ptsc-san-fernando",
+    "mode": "walk",
+    "distanceKm": 0.44,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "Reported Couva maxi stand on Penitence Street, San Fernando",
+        "url": "https://newsday.co.tt/2020/05/04/2-women-knocked-down-as-driver-suffers-seizure/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2020-05-04"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-san-fernando-to-sf-la-romaine-taxi",
+    "fromNodeId": "ptsc-san-fernando",
+    "toNodeId": "sf-la-romaine-taxi",
+    "mode": "walk",
+    "distanceKm": 1.038,
+    "estimatedMinutes": 13,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: La Romaine Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/3942125063",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-la-romaine-taxi-to-ptsc-san-fernando",
+    "fromNodeId": "sf-la-romaine-taxi",
+    "toNodeId": "ptsc-san-fernando",
+    "mode": "walk",
+    "distanceKm": 1.038,
+    "estimatedMinutes": 13,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: La Romaine Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/3942125063",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-san-fernando-to-sf-c3-area",
+    "fromNodeId": "ptsc-san-fernando",
+    "toNodeId": "sf-c3-area",
+    "mode": "walk",
+    "distanceKm": 1.038,
+    "estimatedMinutes": 13,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "Historical passenger discussion: C3 taxis at Library Corner",
+        "url": "https://www.trinituner.com/v4/forums/viewtopic.php?t=745451",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-c3-area-to-ptsc-san-fernando",
+    "fromNodeId": "sf-c3-area",
+    "toNodeId": "ptsc-san-fernando",
+    "mode": "walk",
+    "distanceKm": 1.038,
+    "estimatedMinutes": 13,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "Historical passenger discussion: C3 taxis at Library Corner",
+        "url": "https://www.trinituner.com/v4/forums/viewtopic.php?t=745451",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-chag-maxi-area-to-ptsc-chaguanas",
+    "fromNodeId": "chag-maxi-area",
+    "toNodeId": "ptsc-chaguanas",
+    "mode": "walk",
+    "distanceKm": 1.031,
+    "estimatedMinutes": 13,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "Chaguanas Maxi operators describe San Fernando service",
+        "url": "https://www.guardian.co.tt/news/chaguanas-maxi-drivers-want-better-security-as-robberies-rise-6.2.2350220.4934d668b3",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2025-07-08"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-chaguanas-to-chag-maxi-area",
+    "fromNodeId": "ptsc-chaguanas",
+    "toNodeId": "chag-maxi-area",
+    "mode": "walk",
+    "distanceKm": 1.031,
+    "estimatedMinutes": 13,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "Chaguanas Maxi operators describe San Fernando service",
+        "url": "https://www.guardian.co.tt/news/chaguanas-maxi-drivers-want-better-security-as-robberies-rise-6.2.2350220.4934d668b3",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2025-07-08"
+      }
+    ]
+  },
+  {
+    "id": "walk-chag-maxi-area-to-chag-local-area",
+    "fromNodeId": "chag-maxi-area",
+    "toNodeId": "chag-local-area",
+    "mode": "walk",
+    "distanceKm": 0.303,
+    "estimatedMinutes": 4,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "Chaguanas Maxi operators describe San Fernando service",
+        "url": "https://www.guardian.co.tt/news/chaguanas-maxi-drivers-want-better-security-as-robberies-rise-6.2.2350220.4934d668b3",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2025-07-08"
+      },
+      {
+        "name": "OpenStreetMap contributors: Chaguanas",
+        "url": "https://www.openstreetmap.org/node/1824462523",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-chag-local-area-to-chag-maxi-area",
+    "fromNodeId": "chag-local-area",
+    "toNodeId": "chag-maxi-area",
+    "mode": "walk",
+    "distanceKm": 0.303,
+    "estimatedMinutes": 4,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Chaguanas",
+        "url": "https://www.openstreetmap.org/node/1824462523",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Chaguanas Maxi operators describe San Fernando service",
+        "url": "https://www.guardian.co.tt/news/chaguanas-maxi-drivers-want-better-security-as-robberies-rise-6.2.2350220.4934d668b3",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2025-07-08"
+      }
+    ]
+  },
+  {
+    "id": "walk-chag-maxi-area-to-chag-sf-taxi",
+    "fromNodeId": "chag-maxi-area",
+    "toNodeId": "chag-sf-taxi",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "Chaguanas Maxi operators describe San Fernando service",
+        "url": "https://www.guardian.co.tt/news/chaguanas-maxi-drivers-want-better-security-as-robberies-rise-6.2.2350220.4934d668b3",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2025-07-08"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1862244256",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-chag-sf-taxi-to-chag-maxi-area",
+    "fromNodeId": "chag-sf-taxi",
+    "toNodeId": "chag-maxi-area",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1862244256",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Chaguanas Maxi operators describe San Fernando service",
+        "url": "https://www.guardian.co.tt/news/chaguanas-maxi-drivers-want-better-security-as-robberies-rise-6.2.2350220.4934d668b3",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2025-07-08"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-curepe-to-curepe-chag-maxi",
+    "fromNodeId": "ptsc-curepe",
+    "toNodeId": "curepe-chag-maxi",
+    "mode": "walk",
+    "distanceKm": 0.179,
+    "estimatedMinutes": 3,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Chaguanas Maxi stand",
+        "url": "https://www.openstreetmap.org/node/1350168605",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-curepe-chag-maxi-to-ptsc-curepe",
+    "fromNodeId": "curepe-chag-maxi",
+    "toNodeId": "ptsc-curepe",
+    "mode": "walk",
+    "distanceKm": 0.179,
+    "estimatedMinutes": 3,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Chaguanas Maxi stand",
+        "url": "https://www.openstreetmap.org/node/1350168605",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-curepe-to-curepe-maracas-taxi",
+    "fromNodeId": "ptsc-curepe",
+    "toNodeId": "curepe-maracas-taxi",
+    "mode": "walk",
+    "distanceKm": 0.151,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Maracas taxi stand",
+        "url": "https://www.openstreetmap.org/node/1346361962",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-curepe-maracas-taxi-to-ptsc-curepe",
+    "fromNodeId": "curepe-maracas-taxi",
+    "toNodeId": "ptsc-curepe",
+    "mode": "walk",
+    "distanceKm": 0.151,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Maracas taxi stand",
+        "url": "https://www.openstreetmap.org/node/1346361962",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-arima-to-arima-pbr-maxi",
+    "fromNodeId": "ptsc-arima",
+    "toNodeId": "arima-pbr-maxi",
+    "mode": "walk",
+    "distanceKm": 0.442,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: Priority Bus Route (Route 2) Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/4110786989",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-arima-pbr-maxi-to-ptsc-arima",
+    "fromNodeId": "arima-pbr-maxi",
+    "toNodeId": "ptsc-arima",
+    "mode": "walk",
+    "distanceKm": 0.442,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Priority Bus Route (Route 2) Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/4110786989",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-arima-to-arima-emr-maxi",
+    "fromNodeId": "ptsc-arima",
+    "toNodeId": "arima-emr-maxi",
+    "mode": "walk",
+    "distanceKm": 0.429,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: Eastern Main Road Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/4110786990",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-arima-emr-maxi-to-ptsc-arima",
+    "fromNodeId": "arima-emr-maxi",
+    "toNodeId": "ptsc-arima",
+    "mode": "walk",
+    "distanceKm": 0.429,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Eastern Main Road Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/4110786990",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-sangre-grande-to-grande-maxi-area",
+    "fromNodeId": "ptsc-sangre-grande",
+    "toNodeId": "grande-maxi-area",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      }
+    ]
+  },
+  {
+    "id": "walk-grande-maxi-area-to-ptsc-sangre-grande",
+    "fromNodeId": "grande-maxi-area",
+    "toNodeId": "ptsc-sangre-grande",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-point-fortin-to-point-sf-taxi",
+    "fromNodeId": "ptsc-point-fortin",
+    "toNodeId": "point-sf-taxi",
+    "mode": "walk",
+    "distanceKm": 0.867,
+    "estimatedMinutes": 11,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/2403701177",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-point-sf-taxi-to-ptsc-point-fortin",
+    "fromNodeId": "point-sf-taxi",
+    "toNodeId": "ptsc-point-fortin",
+    "mode": "walk",
+    "distanceKm": 0.867,
+    "estimatedMinutes": 11,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/2403701177",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-point-fortin-to-point-fortin-maxi-area",
+    "fromNodeId": "ptsc-point-fortin",
+    "toNodeId": "point-fortin-maxi-area",
+    "mode": "walk",
+    "distanceKm": 0.867,
+    "estimatedMinutes": 11,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/2403701177",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-point-fortin-maxi-area-to-ptsc-point-fortin",
+    "fromNodeId": "point-fortin-maxi-area",
+    "toNodeId": "ptsc-point-fortin",
+    "mode": "walk",
+    "distanceKm": 0.867,
+    "estimatedMinutes": 11,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/2403701177",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-maxi-siparia-to-siparia-sf-taxi",
+    "fromNodeId": "maxi-siparia",
+    "toNodeId": "siparia-sf-taxi",
+    "mode": "walk",
+    "distanceKm": 0.23,
+    "estimatedMinutes": 3,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410049",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764257869",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-siparia-sf-taxi-to-maxi-siparia",
+    "fromNodeId": "siparia-sf-taxi",
+    "toNodeId": "maxi-siparia",
+    "mode": "walk",
+    "distanceKm": 0.23,
+    "estimatedMinutes": 3,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764257869",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410049",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-maxi-siparia-to-siparia-penal-taxi",
+    "fromNodeId": "maxi-siparia",
+    "toNodeId": "siparia-penal-taxi",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410049",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Siparia-Penal Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764257867",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-siparia-penal-taxi-to-maxi-siparia",
+    "fromNodeId": "siparia-penal-taxi",
+    "toNodeId": "maxi-siparia",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-Penal Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764257867",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410049",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-maxi-siparia-to-siparia-fyzabad-taxi",
+    "fromNodeId": "maxi-siparia",
+    "toNodeId": "siparia-fyzabad-taxi",
+    "mode": "walk",
+    "distanceKm": 0.576,
+    "estimatedMinutes": 8,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410049",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Siparia-Fyzabad Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410041",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-siparia-fyzabad-taxi-to-maxi-siparia",
+    "fromNodeId": "siparia-fyzabad-taxi",
+    "toNodeId": "maxi-siparia",
+    "mode": "walk",
+    "distanceKm": 0.576,
+    "estimatedMinutes": 8,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-Fyzabad Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410041",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410049",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-maxi-siparia-to-siparia-erin-taxi",
+    "fromNodeId": "maxi-siparia",
+    "toNodeId": "siparia-erin-taxi",
+    "mode": "walk",
+    "distanceKm": 0.371,
+    "estimatedMinutes": 5,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410049",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Siparia-Erin Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410040",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-siparia-erin-taxi-to-maxi-siparia",
+    "fromNodeId": "siparia-erin-taxi",
+    "toNodeId": "maxi-siparia",
+    "mode": "walk",
+    "distanceKm": 0.371,
+    "estimatedMinutes": 5,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-Erin Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410040",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410049",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-penal-sf-maxi-to-penal-sf-taxi",
+    "fromNodeId": "penal-sf-maxi",
+    "toNodeId": "penal-sf-taxi",
+    "mode": "walk",
+    "distanceKm": 0.215,
+    "estimatedMinutes": 3,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Penal-San Fernando Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1810716978",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Penal-San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772894772",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-penal-sf-taxi-to-penal-sf-maxi",
+    "fromNodeId": "penal-sf-taxi",
+    "toNodeId": "penal-sf-maxi",
+    "mode": "walk",
+    "distanceKm": 0.215,
+    "estimatedMinutes": 3,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Penal-San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772894772",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Penal-San Fernando Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1810716978",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-penal-sf-maxi-to-penal-siparia-taxi",
+    "fromNodeId": "penal-sf-maxi",
+    "toNodeId": "penal-siparia-taxi",
+    "mode": "walk",
+    "distanceKm": 0.219,
+    "estimatedMinutes": 3,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Penal-San Fernando Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1810716978",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Penal-Siparia Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1786799555",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-penal-siparia-taxi-to-penal-sf-maxi",
+    "fromNodeId": "penal-siparia-taxi",
+    "toNodeId": "penal-sf-maxi",
+    "mode": "walk",
+    "distanceKm": 0.219,
+    "estimatedMinutes": 3,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Penal-Siparia Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1786799555",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Penal-San Fernando Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1810716978",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-maxi-mayaro-to-mayaro-grande-taxi",
+    "fromNodeId": "maxi-mayaro",
+    "toNodeId": "mayaro-grande-taxi",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527533",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Mayaro/Sangre Grande Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527532",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-mayaro-grande-taxi-to-maxi-mayaro",
+    "fromNodeId": "mayaro-grande-taxi",
+    "toNodeId": "maxi-mayaro",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Mayaro/Sangre Grande Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527532",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527533",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-scarborough-ferry-terminal-to-scarborough-crown-point-taxi",
+    "fromNodeId": "scarborough-ferry-terminal",
+    "toNodeId": "scarborough-crown-point-taxi",
+    "mode": "walk",
+    "distanceKm": 0.133,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "Trinidad and Tobago Inter-Island Transportation Co.",
+        "url": "https://www.ttitferry.com/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: Scarborough-Crown Point Taxt Stand",
+        "url": "https://www.openstreetmap.org/node/1745991289",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-scarborough-crown-point-taxi-to-scarborough-ferry-terminal",
+    "fromNodeId": "scarborough-crown-point-taxi",
+    "toNodeId": "scarborough-ferry-terminal",
+    "mode": "walk",
+    "distanceKm": 0.133,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Scarborough-Crown Point Taxt Stand",
+        "url": "https://www.openstreetmap.org/node/1745991289",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Trinidad and Tobago Inter-Island Transportation Co.",
+        "url": "https://www.ttitferry.com/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-scarborough-ferry-terminal-to-scarborough-across-taxi",
+    "fromNodeId": "scarborough-ferry-terminal",
+    "toNodeId": "scarborough-across-taxi",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "Trinidad and Tobago Inter-Island Transportation Co.",
+        "url": "https://www.ttitferry.com/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap contributors: Buccoo/Bethel - Scarborough Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/231004882",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-scarborough-across-taxi-to-scarborough-ferry-terminal",
+    "fromNodeId": "scarborough-across-taxi",
+    "toNodeId": "scarborough-ferry-terminal",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Buccoo/Bethel - Scarborough Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/231004882",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Trinidad and Tobago Inter-Island Transportation Co.",
+        "url": "https://www.ttitferry.com/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-san-juan-area-to-san-juan-santa-cruz-taxi",
+    "fromNodeId": "san-juan-area",
+    "toNodeId": "san-juan-santa-cruz-taxi",
+    "mode": "walk",
+    "distanceKm": 0.368,
+    "estimatedMinutes": 5,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Juan",
+        "url": "https://www.openstreetmap.org/node/477499598",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Santa Cruz Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/840268930",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-san-juan-santa-cruz-taxi-to-san-juan-area",
+    "fromNodeId": "san-juan-santa-cruz-taxi",
+    "toNodeId": "san-juan-area",
+    "mode": "walk",
+    "distanceKm": 0.368,
+    "estimatedMinutes": 5,
+    "confidence": "estimated_walk",
+    "note": "Estimated hub-area walk from endpoint distance ×1.4; pedestrian route, crossing and accessibility not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Santa Cruz Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/840268930",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Juan",
+        "url": "https://www.openstreetmap.org/node/477499598",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-la-romaine-taxi-to-sf-princes-town-maxi",
+    "fromNodeId": "sf-la-romaine-taxi",
+    "toNodeId": "sf-princes-town-maxi",
+    "mode": "walk",
+    "distanceKm": 0.409,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "note": "Endpoint-distance estimate ×1.4, not a surveyed pedestrian path. Confirm crossing and boarding side.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: La Romaine Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/3942125063",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Princes Town Maxi Stand, Coffee Street; mapped plus code 772W7GGQ+XFF",
+        "url": "https://www.waze.com/live-map/directions/tt/san-fernando-city-corporation/san-fernando/princes-town-maxi-stand?to=place.ChIJYxXMKoqNNYwR_Y3dxqqrtuI",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-princes-town-maxi-to-sf-la-romaine-taxi",
+    "fromNodeId": "sf-princes-town-maxi",
+    "toNodeId": "sf-la-romaine-taxi",
+    "mode": "walk",
+    "distanceKm": 0.409,
+    "estimatedMinutes": 6,
+    "confidence": "estimated_walk",
+    "note": "Endpoint-distance estimate ×1.4, not a surveyed pedestrian path. Confirm crossing and boarding side.",
+    "sources": [
+      {
+        "name": "Princes Town Maxi Stand, Coffee Street; mapped plus code 772W7GGQ+XFF",
+        "url": "https://www.waze.com/live-map/directions/tt/san-fernando-city-corporation/san-fernando/princes-town-maxi-stand?to=place.ChIJYxXMKoqNNYwR_Y3dxqqrtuI",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: La Romaine Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/3942125063",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-chag-maxi-to-sf-la-brea-area",
+    "fromNodeId": "sf-chag-maxi",
+    "toNodeId": "sf-la-brea-area",
+    "mode": "walk",
+    "distanceKm": 0.131,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Endpoint-distance estimate ×1.4, not a surveyed pedestrian path. Confirm crossing and boarding side.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Chaguanas Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1811264148",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: to La Brea",
+        "url": "https://www.openstreetmap.org/node/12639062801",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-la-brea-area-to-sf-chag-maxi",
+    "fromNodeId": "sf-la-brea-area",
+    "toNodeId": "sf-chag-maxi",
+    "mode": "walk",
+    "distanceKm": 0.131,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Endpoint-distance estimate ×1.4, not a surveyed pedestrian path. Confirm crossing and boarding side.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: to La Brea",
+        "url": "https://www.openstreetmap.org/node/12639062801",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Chaguanas Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1811264148",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-ptsc-san-fernando-to-sf-curepe-taxi-area",
+    "fromNodeId": "ptsc-san-fernando",
+    "toNodeId": "sf-curepe-taxi-area",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Endpoint-distance estimate ×1.4, not a surveyed pedestrian path. Confirm crossing and boarding side.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+        "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-sf-curepe-taxi-area-to-ptsc-san-fernando",
+    "fromNodeId": "sf-curepe-taxi-area",
+    "toNodeId": "ptsc-san-fernando",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Endpoint-distance estimate ×1.4, not a surveyed pedestrian path. Confirm crossing and boarding side.",
+    "sources": [
+      {
+        "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+        "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      }
+    ]
+  },
+  {
+    "id": "walk-princes-town-local-area-to-maxi-princes-town",
+    "fromNodeId": "princes-town-local-area",
+    "toNodeId": "maxi-princes-town",
+    "mode": "walk",
+    "distanceKm": 0.191,
+    "estimatedMinutes": 3,
+    "confidence": "estimated_walk",
+    "note": "Endpoint-distance estimate ×1.4, not a surveyed pedestrian path. Confirm crossing and boarding side.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Princes Town",
+        "url": "https://www.openstreetmap.org/node/1366539642",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Princes Town-Mayaro Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764462743",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-maxi-princes-town-to-princes-town-local-area",
+    "fromNodeId": "maxi-princes-town",
+    "toNodeId": "princes-town-local-area",
+    "mode": "walk",
+    "distanceKm": 0.191,
+    "estimatedMinutes": 3,
+    "confidence": "estimated_walk",
+    "note": "Endpoint-distance estimate ×1.4, not a surveyed pedestrian path. Confirm crossing and boarding side.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Princes Town-Mayaro Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764462743",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Princes Town",
+        "url": "https://www.openstreetmap.org/node/1366539642",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "walk-chag-maxi-area-to-chag-pos-taxi-area",
+    "fromNodeId": "chag-maxi-area",
+    "toNodeId": "chag-pos-taxi-area",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Endpoint-distance estimate ×1.4, not a surveyed pedestrian path. Confirm crossing and boarding side.",
+    "sources": [
+      {
+        "name": "Chaguanas Maxi operators describe San Fernando service",
+        "url": "https://www.guardian.co.tt/news/chaguanas-maxi-drivers-want-better-security-as-robberies-rise-6.2.2350220.4934d668b3",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2025-07-08"
+      },
+      {
+        "name": "Historical Central transport guide; confirm present boarding",
+        "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2007-04-21"
+      }
+    ]
+  },
+  {
+    "id": "walk-chag-pos-taxi-area-to-chag-maxi-area",
+    "fromNodeId": "chag-pos-taxi-area",
+    "toNodeId": "chag-maxi-area",
+    "mode": "walk",
+    "distanceKm": 0.08,
+    "estimatedMinutes": 2,
+    "confidence": "estimated_walk",
+    "note": "Endpoint-distance estimate ×1.4, not a surveyed pedestrian path. Confirm crossing and boarding side.",
+    "sources": [
+      {
+        "name": "Historical Central transport guide; confirm present boarding",
+        "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2007-04-21"
+      },
+      {
+        "name": "Chaguanas Maxi operators describe San Fernando service",
+        "url": "https://www.guardian.co.tt/news/chaguanas-maxi-drivers-want-better-security-as-robberies-rise-6.2.2350220.4934d668b3",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2025-07-08"
+      }
+    ]
   }
 ]

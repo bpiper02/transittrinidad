@@ -3,197 +3,1655 @@
     "id": "pos-water-taxi-terminal",
     "name": "Port of Spain Water Taxi Terminal",
     "kind": "water_taxi_terminal",
-    "location": {"lat":10.64883,"lng":-61.514},
+    "location": {
+      "lat": 10.64883,
+      "lng": -61.514
+    },
     "sources": [
-      {"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-10"},
-      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/way/390110168","checkedAt":"2026-09-10"}
+      {
+        "name": "NIDCO Water Taxi Service",
+        "url": "https://www.nidco.co.tt/water-taxi-service/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap-derived terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/390110168",
+        "checkedAt": "2026-09-10"
+      }
     ]
   },
   {
     "id": "san-fernando-water-taxi-terminal",
     "name": "San Fernando Water Taxi Terminal",
     "kind": "water_taxi_terminal",
-    "location": {"lat":10.2822,"lng":-61.47087},
+    "location": {
+      "lat": 10.2822,
+      "lng": -61.47087
+    },
     "sources": [
-      {"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-10"},
-      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/node/8745164784","checkedAt":"2026-09-10"}
+      {
+        "name": "NIDCO Water Taxi Service",
+        "url": "https://www.nidco.co.tt/water-taxi-service/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap-derived terminal coordinates",
+        "url": "https://www.openstreetmap.org/node/8745164784",
+        "checkedAt": "2026-09-10"
+      }
     ]
   },
   {
     "id": "pos-ferry-terminal",
     "name": "Port of Spain Ferry Terminal",
     "kind": "ferry_terminal",
-    "location": {"lat":10.64728,"lng":-61.51223},
+    "location": {
+      "lat": 10.64728,
+      "lng": -61.51223
+    },
     "sources": [
-      {"name":"Trinidad and Tobago Inter-Island Transportation Co.","url":"https://www.ttitferry.com/","checkedAt":"2026-09-10"},
-      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/way/175819521","checkedAt":"2026-09-10"}
+      {
+        "name": "Trinidad and Tobago Inter-Island Transportation Co.",
+        "url": "https://www.ttitferry.com/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap-derived terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/175819521",
+        "checkedAt": "2026-09-10"
+      }
     ]
   },
   {
     "id": "scarborough-ferry-terminal",
     "name": "Scarborough Ferry Terminal",
     "kind": "ferry_terminal",
-    "location": {"lat":11.18228,"lng":-60.73749},
+    "location": {
+      "lat": 11.18228,
+      "lng": -60.73749
+    },
     "sources": [
-      {"name":"Trinidad and Tobago Inter-Island Transportation Co.","url":"https://www.ttitferry.com/","checkedAt":"2026-09-10"},
-      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/node/9721300375","checkedAt":"2026-09-10"}
+      {
+        "name": "Trinidad and Tobago Inter-Island Transportation Co.",
+        "url": "https://www.ttitferry.com/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap-derived terminal coordinates",
+        "url": "https://www.openstreetmap.org/node/9721300375",
+        "checkedAt": "2026-09-10"
+      }
     ]
   },
   {
     "id": "ptsc-pos-transit-centre",
     "name": "Port of Spain Transit Centre",
     "kind": "terminal",
-    "location": {"lat":10.64787,"lng":-61.5087},
+    "location": {
+      "lat": 10.64787,
+      "lng": -61.5087
+    },
     "sources": [
-      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-10"},
-      {"name":"OpenStreetMap-derived transit centre coordinates","url":"https://www.openstreetmap.org/way/350372094","checkedAt":"2026-09-10"}
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap-derived transit centre coordinates",
+        "url": "https://www.openstreetmap.org/way/350372094",
+        "checkedAt": "2026-09-10"
+      }
     ]
   },
   {
     "id": "ptsc-san-fernando",
     "name": "San Fernando PTSC Terminus",
     "kind": "terminal",
-    "location": {"lat":10.28394,"lng":-61.46781},
+    "location": {
+      "lat": 10.28394,
+      "lng": -61.46781
+    },
     "sources": [
-      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-10"},
-      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/way/835910886","checkedAt":"2026-09-10"}
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap-derived terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/835910886",
+        "checkedAt": "2026-09-10"
+      }
     ]
   },
   {
     "id": "ptsc-chaguanas",
     "name": "Chaguanas PTSC Bus Terminal",
     "kind": "terminal",
-    "location": {"lat":10.51831,"lng":-61.41402},
+    "location": {
+      "lat": 10.51831,
+      "lng": -61.41402
+    },
     "sources": [
-      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-10"},
-      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/way/111453245","checkedAt":"2026-09-10"}
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap-derived terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/111453245",
+        "checkedAt": "2026-09-10"
+      }
     ]
   },
   {
     "id": "ptsc-arima",
     "name": "Arima PTSC Transit Hub",
     "kind": "terminal",
-    "location": {"lat":10.63871,"lng":-61.28323},
+    "location": {
+      "lat": 10.63871,
+      "lng": -61.28323
+    },
     "sources": [
-      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-10"},
-      {"name":"Mapped PTSC Arima Transit Hub coordinates","url":"https://www.wikiloc.com/hiking-trails/arima-loop-110973914","checkedAt":"2026-09-10"}
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "Mapped PTSC Arima Transit Hub coordinates",
+        "url": "https://www.wikiloc.com/hiking-trails/arima-loop-110973914",
+        "checkedAt": "2026-09-10"
+      }
     ]
   },
   {
     "id": "ptsc-sangre-grande",
     "name": "Sangre Grande PTSC Bus Station",
     "kind": "terminal",
-    "location": {"lat":10.58639,"lng":-61.13054},
+    "location": {
+      "lat": 10.58639,
+      "lng": -61.13054
+    },
     "sources": [
-      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-10"},
-      {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/way/489636163","checkedAt":"2026-09-10"}
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-10"
+      },
+      {
+        "name": "OpenStreetMap-derived terminal coordinates",
+        "url": "https://www.openstreetmap.org/way/489636163",
+        "checkedAt": "2026-09-10"
+      }
     ]
   },
   {
     "id": "ptsc-point-fortin",
     "name": "Point Fortin PTSC",
     "kind": "terminal",
-    "location": {"lat":10.1775,"lng":-61.68623},
+    "location": {
+      "lat": 10.1775,
+      "lng": -61.68623
+    },
     "sources": [
-      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-11"},
-      {"name":"OpenStreetMap-derived Point Fortin bus stop","url":"https://www.openstreetmap.org/node/3455531273","checkedAt":"2026-09-11"}
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap-derived Point Fortin bus stop",
+        "url": "https://www.openstreetmap.org/node/3455531273",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
     "id": "ptsc-curepe",
     "name": "Curepe Transit Mall",
     "kind": "terminal",
-    "location": {"lat":10.65003,"lng":-61.40998},
+    "location": {
+      "lat": 10.65003,
+      "lng": -61.40998
+    },
     "sources": [
-      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-11"},
-      {"name":"OpenStreetMap-derived Curepe Priority Mall","url":"https://www.openstreetmap.org/way/129752535","checkedAt":"2026-09-11"}
+      {
+        "name": "PTSC Bus Stops and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap-derived Curepe Priority Mall",
+        "url": "https://www.openstreetmap.org/way/129752535",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
     "id": "ptsc-uwi-st-augustine",
     "name": "UWI St. Augustine",
     "kind": "stop_zone",
-    "location": {"lat":10.64228,"lng":-61.39944},
+    "location": {
+      "lat": 10.64228,
+      "lng": -61.39944
+    },
     "locationConfidence": "approximate_area",
     "sources": [
-      {"name":"PTSC San Fernando / UWI route","url":"https://ptsc.co.tt/route/san-fernando-uwi/","checkedAt":"2026-09-11"},
-      {"name":"OpenStreetMap-derived UWI St. Augustine campus","url":"https://www.openstreetmap.org/way/100856792","checkedAt":"2026-09-11"}
+      {
+        "name": "PTSC San Fernando / UWI route",
+        "url": "https://ptsc.co.tt/route/san-fernando-uwi/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap-derived UWI St. Augustine campus",
+        "url": "https://www.openstreetmap.org/way/100856792",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
     "id": "ptsc-la-horquetta",
     "name": "La Horquetta",
     "kind": "stop_zone",
-    "location": {"lat":10.7006,"lng":-61.2952},
+    "location": {
+      "lat": 10.5973023,
+      "lng": -61.2754374
+    },
     "locationConfidence": "approximate_area",
     "sources": [
-      {"name":"PTSC Arima / La Horquetta route","url":"https://ptsc.co.tt/routes/arima-la-horquetta/","checkedAt":"2026-09-11"},
-      {"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=La%20Horquetta%2C%20Trinidad","checkedAt":"2026-09-11"}
-    ]
+      {
+        "name": "PTSC Arima / La Horquetta route",
+        "url": "https://ptsc.co.tt/routes/arima-la-horquetta/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap place search",
+        "url": "https://www.openstreetmap.org/search?query=La%20Horquetta%2C%20Trinidad",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: La Horquetta",
+        "url": "https://www.openstreetmap.org/node/1046800404",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally."
   },
   {
     "id": "ptsc-st-helena-carapo",
     "name": "St. Helena via Carapo",
     "kind": "stop_zone",
-    "location": {"lat":10.5968,"lng":-61.3375},
+    "location": {
+      "lat": 10.5968,
+      "lng": -61.3375
+    },
     "locationConfidence": "approximate_area",
     "sources": [
-      {"name":"PTSC Arima / St Helena via Carapo route","url":"https://ptsc.co.tt/routes/arima-carapo/","checkedAt":"2026-09-11"},
-      {"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=St%20Helena%2C%20Trinidad","checkedAt":"2026-09-11"}
+      {
+        "name": "PTSC Arima / St Helena via Carapo route",
+        "url": "https://ptsc.co.tt/routes/arima-carapo/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap place search",
+        "url": "https://www.openstreetmap.org/search?query=St%20Helena%2C%20Trinidad",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
     "id": "ptsc-aripo",
     "name": "Aripo",
     "kind": "stop_zone",
-    "location": {"lat":10.6346,"lng":-61.2245},
+    "location": {
+      "lat": 10.6346,
+      "lng": -61.2245
+    },
     "locationConfidence": "approximate_area",
     "sources": [
-      {"name":"PTSC Arima / Aripo route","url":"https://ptsc.co.tt/routes/arima-aripo/","checkedAt":"2026-09-11"},
-      {"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Aripo%2C%20Trinidad","checkedAt":"2026-09-11"}
+      {
+        "name": "PTSC Arima / Aripo route",
+        "url": "https://ptsc.co.tt/routes/arima-aripo/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap place search",
+        "url": "https://www.openstreetmap.org/search?query=Aripo%2C%20Trinidad",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
     "id": "ptsc-wallerfield",
     "name": "Wallerfield",
     "kind": "stop_zone",
-    "location": {"lat":10.5871,"lng":-61.2292},
+    "location": {
+      "lat": 10.5871,
+      "lng": -61.2292
+    },
     "locationConfidence": "approximate_area",
     "sources": [
-      {"name":"PTSC Arima / Wallerfield route","url":"https://ptsc.co.tt/routes/arima-wallerfield/","checkedAt":"2026-09-11"},
-      {"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Wallerfield%2C%20Trinidad","checkedAt":"2026-09-11"}
+      {
+        "name": "PTSC Arima / Wallerfield route",
+        "url": "https://ptsc.co.tt/routes/arima-wallerfield/",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap place search",
+        "url": "https://www.openstreetmap.org/search?query=Wallerfield%2C%20Trinidad",
+        "checkedAt": "2026-09-11"
+      }
     ]
   },
   {
-    "id":"maxi-pos-western-hub","name":"Port of Spain Western Maxi Hub","kind":"stand","location":{"lat":10.6481,"lng":-61.5114},"locationConfidence":"approximate_area",
-    "sources":[{"name":"OpenStreetMap Port of Spain place search","url":"https://www.openstreetmap.org/search?query=Port%20of%20Spain%2C%20Trinidad","checkedAt":"2026-09-11"},{"name":"Trinidad transport overview","url":"https://en.wikipedia.org/wiki/Transport_in_Trinidad_and_Tobago","checkedAt":"2026-09-11"}]
+    "id": "maxi-pos-western-hub",
+    "name": "Port of Spain Western Maxi Hub",
+    "kind": "stand",
+    "location": {
+      "lat": 10.6481,
+      "lng": -61.5114
+    },
+    "locationConfidence": "approximate_area",
+    "sources": [
+      {
+        "name": "OpenStreetMap Port of Spain place search",
+        "url": "https://www.openstreetmap.org/search?query=Port%20of%20Spain%2C%20Trinidad",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Trinidad transport overview",
+        "url": "https://en.wikipedia.org/wiki/Transport_in_Trinidad_and_Tobago",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"maxi-diego-martin","name":"Diego Martin Maxi Zone","kind":"stop_zone","location":{"lat":10.7208,"lng":-61.5548},"locationConfidence":"approximate_area",
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Diego%20Martin%2C%20Trinidad","checkedAt":"2026-09-11"}]
+    "id": "maxi-diego-martin",
+    "name": "Diego Martin Maxi Zone",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.7208,
+      "lng": -61.5548
+    },
+    "locationConfidence": "approximate_area",
+    "sources": [
+      {
+        "name": "Trinidad maxi route bands",
+        "url": "https://en.wikipedia.org/wiki/Maxi_taxi",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap place search",
+        "url": "https://www.openstreetmap.org/search?query=Diego%20Martin%2C%20Trinidad",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"maxi-princes-town","name":"Princes Town Maxi Zone","kind":"stop_zone","location":{"lat":10.2715,"lng":-61.3764},"locationConfidence":"approximate_area",
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Princes%20Town%2C%20Trinidad","checkedAt":"2026-09-11"}]
+    "id": "c3-centre",
+    "name": "C3 Centre",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.27479,
+      "lng": -61.43818
+    },
+    "locationConfidence": "approximate_area",
+    "sources": [
+      {
+        "name": "OpenStreetMap mall footprint (not boarding bay)",
+        "url": "https://www.openstreetmap.org/way/704652259",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Mall location, not a surveyed taxi bay; confirm roadside pickup with driver."
   },
   {
-    "id":"maxi-mayaro","name":"Mayaro Maxi Zone","kind":"stop_zone","location":{"lat":10.2941,"lng":-61.1646},"locationConfidence":"approximate_area",
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Mayaro%2C%20Trinidad","checkedAt":"2026-09-11"}]
+    "id": "gulf-city-mall",
+    "name": "Gulf City Mall",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.26078,
+      "lng": -61.46935
+    },
+    "locationConfidence": "approximate_area",
+    "sources": [
+      {
+        "name": "OpenStreetMap mall footprint (not boarding bay)",
+        "url": "https://www.openstreetmap.org/way/122080223",
+        "checkedAt": "2026-09-11"
+      }
+    ],
+    "boardingNote": "Mall location, not a surveyed taxi bay; confirm roadside pickup with driver."
   },
   {
-    "id":"maxi-siparia","name":"Siparia Maxi Zone","kind":"stop_zone","location":{"lat":10.1454,"lng":-61.5075},"locationConfidence":"approximate_area",
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Siparia%2C%20Trinidad","checkedAt":"2026-09-11"}]
+    "id": "sf-point-maxi",
+    "name": "San Fernando-Point Fortin Maxi Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.2834186,
+      "lng": -61.4678041
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Point Fortin Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1538914694",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"maxi-couva","name":"Couva Maxi Zone","kind":"stop_zone","location":{"lat":10.422,"lng":-61.462},"locationConfidence":"approximate_area",
-    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Couva%2C%20Trinidad","checkedAt":"2026-09-11"}]
+    "id": "sf-siparia-maxi",
+    "name": "San Fernando-Penal/Siparia Maxi Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.2834238,
+      "lng": -61.467798
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221833",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"c3-centre","name":"C3 Centre","kind":"stop_zone","location":{"lat":10.245,"lng":-61.452},"locationConfidence":"approximate_area",
-    "sources":[{"name":"C3 Centre contact details","url":"https://www.c3centrett.com/","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=C3%20Centre%2C%20Trinidad","checkedAt":"2026-09-11"}]
+    "id": "sf-pos-maxi",
+    "name": "San Fernando-Port of Spain Maxi Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.2834179,
+      "lng": -61.4677953
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Port of Spain Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221836",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   },
   {
-    "id":"gulf-city-mall","name":"Gulf City Mall","kind":"stop_zone","location":{"lat":10.244,"lng":-61.456},"locationConfidence":"approximate_area",
-    "sources":[{"name":"Trinidad local listing for Gulf City Mall","url":"https://www.trinigo.com/","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Gulf%20City%20Mall%2C%20Trinidad","checkedAt":"2026-09-11"}]
+    "id": "sf-pos-chag-taxi",
+    "name": "Port of Spain and Chagunas taxi stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.2834657,
+      "lng": -61.4677783
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Port of Spain and Chagunas taxi stand",
+        "url": "https://www.openstreetmap.org/node/1761221840",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "sf-point-taxi",
+    "name": "San Fernando-Point Fortin Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.2834067,
+      "lng": -61.4678121
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Point Fortin Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1761221852",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "sf-chag-maxi",
+    "name": "San Fernando-Chaguanas Maxi Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.2824385,
+      "lng": -61.4653789
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Chaguanas Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1811264148",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "sf-la-romaine-taxi",
+    "name": "La Romaine Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.2797911,
+      "lng": -61.462509
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: La Romaine Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/3942125063",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "siparia-erin-taxi",
+    "name": "Siparia-Erin Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.1437865,
+      "lng": -61.5092902
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-Erin Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410040",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "siparia-fyzabad-taxi",
+    "name": "Siparia-Fyzabad Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.1437828,
+      "lng": -61.5106376
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-Fyzabad Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410041",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "siparia-penal-taxi",
+    "name": "Siparia-Penal Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.1440539,
+      "lng": -61.5069296
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-Penal Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764257867",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "siparia-sf-taxi",
+    "name": "Siparia-San Fernando Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.1439648,
+      "lng": -61.508386
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764257869",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "penal-sf-taxi",
+    "name": "Penal-San Fernando Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.1677606,
+      "lng": -61.4586246
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Penal-San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772894772",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "penal-siparia-taxi",
+    "name": "Penal-Siparia Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.1677011,
+      "lng": -61.4585262
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Penal-Siparia Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1786799555",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "penal-sf-maxi",
+    "name": "Penal-San Fernando Maxi Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.1690362,
+      "lng": -61.4580856
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Penal-San Fernando Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1810716978",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "point-sf-taxi",
+    "name": "San Fernando Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.1739316,
+      "lng": -61.6818878
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/2403701177",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "chag-sf-taxi",
+    "name": "San Fernando Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.5138839,
+      "lng": -61.4092728
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1862244256",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "curepe-chag-maxi",
+    "name": "Chaguanas Maxi stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.6489101,
+      "lng": -61.4097088
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Chaguanas Maxi stand",
+        "url": "https://www.openstreetmap.org/node/1350168605",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "curepe-maracas-taxi",
+    "name": "Maracas taxi stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.6508138,
+      "lng": -61.4105636
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Maracas taxi stand",
+        "url": "https://www.openstreetmap.org/node/1346361962",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "grand-bazaar-curepe-taxi",
+    "name": "Grand Bazaar - Curepe Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.6292069,
+      "lng": -61.4279724
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Grand Bazaar - Curepe Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1786634434",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "pos-maraval-taxi",
+    "name": "Maraval Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.6549768,
+      "lng": -61.5075428
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Maraval Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1447592867",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "pos-sf-taxi",
+    "name": "San Fernando Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.6494224,
+      "lng": -61.509577
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772038420",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "pos-chag-taxi",
+    "name": "Chaguanas Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.6489612,
+      "lng": -61.5095514
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Chaguanas Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1772038430",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "pos-grande-taxi",
+    "name": "Sangre Grande Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.6496902,
+      "lng": -61.5086584
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Sangre Grande Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1809362903",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "pos-san-juan-taxi",
+    "name": "San Juan Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.649724,
+      "lng": -61.5078912
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Juan Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1809362904",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "pos-chaguaramas-taxi",
+    "name": "Chaguaramas Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.6482541,
+      "lng": -61.510257
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Chaguaramas Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1809362906",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "san-juan-santa-cruz-taxi",
+    "name": "Santa Cruz Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.650789,
+      "lng": -61.4518104
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Santa Cruz Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/840268930",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "scarborough-crown-point-taxi",
+    "name": "Scarborough-Crown Point Taxt Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 11.1826897,
+      "lng": -60.7367265
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Scarborough-Crown Point Taxt Stand",
+        "url": "https://www.openstreetmap.org/node/1745991289",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "scarborough-across-taxi",
+    "name": "Buccoo/Bethel - Scarborough Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 11.1826815,
+      "lng": -60.7375997
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Buccoo/Bethel - Scarborough Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/231004882",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "arima-pbr-maxi",
+    "name": "Priority Bus Route (Route 2) Maxi Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.641543,
+      "lng": -61.2834463
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Priority Bus Route (Route 2) Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/4110786989",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "arima-emr-maxi",
+    "name": "Eastern Main Road Maxi Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.6414545,
+      "lng": -61.2834577
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Eastern Main Road Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/4110786990",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "maxi-siparia",
+    "name": "Siparia-San Fernando Maxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.1442019,
+      "lng": -61.506906
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Siparia-San Fernando Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1757410049",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "maxi-princes-town",
+    "name": "Princes Town-Mayaro Maxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.2711814,
+      "lng": -61.372962
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Princes Town-Mayaro Maxi Stand",
+        "url": "https://www.openstreetmap.org/node/1764462743",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "maxi-mayaro",
+    "name": "Mayaro Junction Maxi and Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.2947464,
+      "lng": -61.0060746
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527533",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "mayaro-grande-taxi",
+    "name": "Mayaro/Sangre Grande Taxi Stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.2951859,
+      "lng": -61.0061147
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "OpenStreetMap stand location; current boarding side and operation require local confirmation.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Mayaro/Sangre Grande Taxi Stand",
+        "url": "https://www.openstreetmap.org/way/479527532",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "maxi-couva",
+    "name": "Couva central area — confirm stand",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.4223291,
+      "lng": -61.458708
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Couva",
+        "url": "https://www.openstreetmap.org/node/1383960098",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "chag-local-area",
+    "name": "Chaguanas local transport area — confirm stand",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.5147394,
+      "lng": -61.4076757
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Chaguanas",
+        "url": "https://www.openstreetmap.org/node/1824462523",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "guayaguayare-area",
+    "name": "Guayaguayare",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.1468175,
+      "lng": -61.0355387
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Guayaguayare",
+        "url": "https://www.openstreetmap.org/node/3090743327",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "erin-area",
+    "name": "Erin",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.0739525,
+      "lng": -61.6571026
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Erin",
+        "url": "https://www.openstreetmap.org/node/1824961788",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "fyzabad-area",
+    "name": "Fyzabad",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.1802665,
+      "lng": -61.5467618
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Fyzabad",
+        "url": "https://www.openstreetmap.org/node/1358726695",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "santa-cruz-area",
+    "name": "Santa Cruz",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.710225,
+      "lng": -61.4741636
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Santa Cruz",
+        "url": "https://www.openstreetmap.org/node/477519549",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "san-juan-area",
+    "name": "San Juan",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.6486053,
+      "lng": -61.450882
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Juan",
+        "url": "https://www.openstreetmap.org/node/477499598",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "maraval-area",
+    "name": "Maraval",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.6922223,
+      "lng": -61.5207987
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Maraval",
+        "url": "https://www.openstreetmap.org/node/3496076024",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "chaguaramas-area",
+    "name": "Chaguaramas",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.68279,
+      "lng": -61.6392368
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Chaguaramas",
+        "url": "https://www.openstreetmap.org/node/1822868105",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "maloney-area",
+    "name": "Maloney",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.6221508,
+      "lng": -61.3178149
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Maloney",
+        "url": "https://www.openstreetmap.org/node/1366577137",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "la-horquetta-area",
+    "name": "La Horquetta",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.5973023,
+      "lng": -61.2754374
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: La Horquetta",
+        "url": "https://www.openstreetmap.org/node/1046800404",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "crown-point-area",
+    "name": "Crown Point",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 11.1588971,
+      "lng": -60.8346264
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Crown Point",
+        "url": "https://www.openstreetmap.org/node/1821476686",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "buccoo-area",
+    "name": "Buccoo",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 11.1829382,
+      "lng": -60.8030282
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Buccoo",
+        "url": "https://www.openstreetmap.org/node/1816584125",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "bethel-area",
+    "name": "Bethel",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 11.1828305,
+      "lng": -60.7849284
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Bethel",
+        "url": "https://www.openstreetmap.org/node/1816584104",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "california-area",
+    "name": "California",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.4084951,
+      "lng": -61.4743826
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: California",
+        "url": "https://www.openstreetmap.org/node/1383960096",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "chase-village-area",
+    "name": "Chase Village",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.4767392,
+      "lng": -61.4112881
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Chase Village",
+        "url": "https://www.openstreetmap.org/node/10037964271",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "chag-maxi-area",
+    "name": "Chaguanas Maxi hub area — confirm bay",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.5136,
+      "lng": -61.40928
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Approximate Southern Main Road / Eleanor Street hub area; individual route bays unconfirmed. Area marker is near the mapped Southern Main Road taxi stand, not a surveyed Maxi bay.",
+    "sources": [
+      {
+        "name": "Chaguanas Maxi operators describe San Fernando service",
+        "url": "https://www.guardian.co.tt/news/chaguanas-maxi-drivers-want-better-security-as-robberies-rise-6.2.2350220.4934d668b3",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2025-07-08"
+      },
+      {
+        "name": "Historical Central transport guide; confirm present boarding",
+        "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2007-04-21"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1862244256",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "sf-couva-area",
+    "name": "San Fernando — Penitence Street Couva Maxi area",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.2824385,
+      "lng": -61.4653789
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Approximate Penitence Street area anchored to the mapped Chaguanas stand; Couva bay itself is not surveyed.",
+    "sources": [
+      {
+        "name": "Reported Couva maxi stand on Penitence Street, San Fernando",
+        "url": "https://newsday.co.tt/2020/05/04/2-women-knocked-down-as-driver-suffers-seizure/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2020-05-04"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando-Chaguanas Maxi Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1811264148",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "grande-maxi-area",
+    "name": "Sangre Grande Maxi hub area — confirm stand",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.5862654,
+      "lng": -61.130158
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area only. Confirm Brierley Street hub and route bay; Toco relocation remains unresolved.",
+    "sources": [
+      {
+        "name": "Passenger report: direct Grande maxis and separate Arima services",
+        "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2022-08-24"
+      },
+      {
+        "name": "Mapped Mayaro/Rio Claro direction information; not a boarding platform",
+        "url": "https://www.openstreetmap.org/node/8288016519",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "sf-c3-area",
+    "name": "San Fernando Library Corner — C3 taxi area",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.2797911,
+      "lng": -61.462509
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Approximate Library Corner area, not the La Romaine taxi bay. Ask for C3/Cocoyea service; current stand needs confirmation.",
+    "sources": [
+      {
+        "name": "Historical passenger discussion: C3 taxis at Library Corner",
+        "url": "https://www.trinituner.com/v4/forums/viewtopic.php?t=745451",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: La Romaine Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/3942125063",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "point-fortin-maxi-area",
+    "name": "Point Fortin town centre — Maxi area",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.1739316,
+      "lng": -61.6818878
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Approximate town centre; mapped taxi stand does not establish a Maxi bay.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/2403701177",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "sf-princes-town-maxi",
+    "name": "San Fernando — Princes Town Maxi stand",
+    "kind": "stand",
+    "location": {
+      "lat": 10.2774375,
+      "lng": -61.461328125
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "Directory-mapped Coffee Street stand. Confirm current bay and operation.",
+    "sources": [
+      {
+        "name": "Princes Town Maxi Stand, Coffee Street; mapped plus code 772W7GGQ+XFF",
+        "url": "https://www.waze.com/live-map/directions/tt/san-fernando-city-corporation/san-fernando/princes-town-maxi-stand?to=place.ChIJYxXMKoqNNYwR_Y3dxqqrtuI",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "princes-town-local-area",
+    "name": "Princes Town local Maxi area — confirm stand",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.2704779,
+      "lng": -61.3739866
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Princes Town",
+        "url": "https://www.openstreetmap.org/node/1366539642",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "la-brea-area",
+    "name": "La Brea area — confirm pickup",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.2371083,
+      "lng": -61.6158925
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: La Brea",
+        "url": "https://www.openstreetmap.org/node/1452374968",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "new-grant-area",
+    "name": "New Grant area — confirm pickup",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.2834646,
+      "lng": -61.3211265
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: New Grant",
+        "url": "https://www.openstreetmap.org/node/1311154078",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "moruga-area",
+    "name": "Moruga area — confirm pickup",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.0886548,
+      "lng": -61.2799658
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Moruga",
+        "url": "https://www.openstreetmap.org/node/3114227370",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "libertville-area",
+    "name": "Libertville area — confirm pickup",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.3039026,
+      "lng": -61.1957142
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Libertville",
+        "url": "https://www.openstreetmap.org/node/1453289589",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "poole-area",
+    "name": "Poole area — confirm pickup",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.3013848,
+      "lng": -61.2291371
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Area marker only; confirm the actual pickup/drop-off point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Poole",
+        "url": "https://www.openstreetmap.org/node/1453289595",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "rio-claro-hub",
+    "name": "Rio Claro Transport Hub",
+    "kind": "hub",
+    "location": {
+      "lat": 10.305570492407,
+      "lng": -61.173985576341
+    },
+    "locationConfidence": "mapped_station",
+    "boardingNote": "Directory location. Mayaro: Maxi lane 2, taxi lane 3. Princes Town: taxi lane 4, Maxi lane 5. Confirm lanes locally; directory hours are not a timetable.",
+    "sources": [
+      {
+        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "sf-la-brea-area",
+    "name": "San Fernando — La Brea transport area",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.2816068,
+      "lng": -61.4655083
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Mapped La Brea taxi label anchors the area; the Maxi boarding bay itself is unconfirmed.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: to La Brea",
+        "url": "https://www.openstreetmap.org/node/12639062801",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "chag-pos-taxi-area",
+    "name": "Chaguanas — POS taxi area",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.5138839,
+      "lng": -61.4092728
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Approximate Southern Main Road taxi area, not the San Fernando bay. Ask for the Port of Spain stand.",
+    "sources": [
+      {
+        "name": "Historical Central transport guide; confirm present boarding",
+        "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
+        "checkedAt": "2026-09-11",
+        "publishedAt": "2007-04-21"
+      },
+      {
+        "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
+        "url": "https://www.openstreetmap.org/node/1862244256",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "sf-curepe-taxi-area",
+    "name": "San Fernando — Curepe taxi area",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.2834657,
+      "lng": -61.4677783
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Approximate central taxi area; Curepe boarding stand not surveyed. Confirm locally.",
+    "sources": [
+      {
+        "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
+        "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
+        "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "OpenStreetMap contributors: Port of Spain and Chagunas taxi stand",
+        "url": "https://www.openstreetmap.org/node/1761221840",
+        "checkedAt": "2026-09-11"
+      }
+    ]
   }
 ]

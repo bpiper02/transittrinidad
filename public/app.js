@@ -53,7 +53,7 @@ function routeColor(service){
   }
   return OPERATOR_COLORS[service.mode] || '#6E6E73';
 }
-function filteredServices(){ return services.filter(service=>activeMode==='all'||service.mode===activeMode); }
+function filteredServices(){ return services.filter(service=>service.serviceConfidence!=='needs_review'&&(activeMode==='all'||service.mode===activeMode)); }
 function routingServices(){ return filteredServices(); }
 function corridorGroups(list=filteredServices()){
   const grouped=new Map();
@@ -86,7 +86,13 @@ function scheduleHtml(service){
 }
 function availabilityHtml(service){
   if(service.availability?.kind!=='frequency_based')return'';
-  return `<section class="schedule-block"><p class="eyebrow">Service pattern</p><strong>Frequency-based service</strong><p>${escapeHtml(service.availability.note||'No published timetable is available for this route.')}</p><span class="schedule-badge">No live vehicle tracking</span></section>`;
+  return `<section class="schedule-block"><p class="eyebrow">Service pattern</p><strong>Departure times unconfirmed</strong><p>${escapeHtml(service.availability.note||'No published timetable is available for this route.')}</p><span class="schedule-badge">No live vehicle tracking</span></section>`;
+}
+function evidenceHtml(service){
+  if(service.serviceConfidence!=='reported_service')return'';
+  const locations=[service.originNodeId,service.destinationNodeId].map(id=>nodeIndex.get(id)).filter(Boolean);
+  const links=(service.sources||[]).filter(source=>/^https?:\/\//i.test(source.url)).map(source=>`<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.name)}</a>${source.publishedAt?` · published ${escapeHtml(source.publishedAt)}`:''} · checked ${escapeHtml(source.checkedAt)}</li>`).join('');
+  return `<section class="schedule-block"><strong>Reported service · current operation unconfirmed</strong><p>${escapeHtml(service.boardingNote||'Confirm service and boarding before travelling.')}</p>${locations.map(node=>`<p><b>${escapeHtml(node.name)}</b>: ${escapeHtml(node.boardingNote||'Confirm the boarding point locally.')}</p>`).join('')}<details><summary>Route evidence</summary><p>Checked dates describe our source review, not a live service confirmation.</p><ul>${links}</ul><p>Map data © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>.</p></details></section>`;
 }
 function nodeCoordinates(id){
   const node=nodeIndex.get(id);
@@ -229,7 +235,7 @@ function renderDetail(service){
   const panel=$('#detailPanel'),[origin,destination]=serviceNodes(service);
   const fare=Number.isFinite(service.fareTTD)?`TT$${service.fareTTD}`:'Fare unavailable';
   panel.hidden=false;
-  panel.innerHTML=`<div class="journey-summary"><div class="route-title-row"><span class="route-swatch large" style="--route-color:${routeColor(service)}"></span><div><p class="eyebrow">${escapeHtml(modeLabel(service.mode))}</p><h2>${escapeHtml(origin?.name)} → ${escapeHtml(destination?.name)}</h2></div></div><p class="service-line">${fare} · ${escapeHtml(displayPathLabel(service))}</p></div>${scheduleHtml(service)||availabilityHtml(service)}`;
+  panel.innerHTML=`<div class="journey-summary"><div class="route-title-row"><span class="route-swatch large" style="--route-color:${routeColor(service)}"></span><div><p class="eyebrow">${escapeHtml(modeLabel(service.mode))}</p><h2>${escapeHtml(origin?.name)} → ${escapeHtml(destination?.name)}</h2></div></div><p class="service-line">${fare} · ${escapeHtml(displayPathLabel(service))}</p></div>${scheduleHtml(service)||availabilityHtml(service)}${evidenceHtml(service)}`;
   $('#scheduleDate')?.addEventListener('change',event=>{ selectedScheduleDate=scheduleDateFromInput(event.target.value); renderDetail(service); });
 }
 function selectService(id,zoom=false){
@@ -498,8 +504,9 @@ function renderJourney(connected,options=[],selectedIndex=0){
     }
     const fare=Number.isFinite(step.service.fareTTD)?` · TT$${step.service.fareTTD}`:'';
     const schedule=serviceSchedules(step.service.id),departures=nextDepartures(schedule,new Date(),1);
-    const scheduleCopy=departures.length?` · Next scheduled ${departures[0].label}`:schedule?` · Runs ${formatServiceDays(schedule.serviceDays)}`:'';
-    html+=`<div class="journey-leg"><span class="leg-route" style="--route-color:${routeColor(step.service)}"></span><div><h3>${escapeHtml(origin?.name||step.from)} → ${escapeHtml(destination?.name||step.to)}</h3><p>${escapeHtml(modeLabel(step.service.mode))}${fare}${escapeHtml(scheduleCopy)}</p></div></div>`;
+    const scheduleCopy=departures.length?` · Next scheduled ${departures[0].label}`:schedule.length?' · Published schedule; check travel date':'';
+    const reported=step.service.serviceConfidence==='reported_service';
+    html+=`<div class="journey-leg"><span class="leg-route" style="--route-color:${routeColor(step.service)}"></span><div><h3>${escapeHtml(origin?.name||step.from)} → ${escapeHtml(destination?.name||step.to)}</h3><p>${escapeHtml(modeLabel(step.service.mode))}${fare}${escapeHtml(scheduleCopy)}</p>${reported?`<p>Reported service · confirm operation and boarding.</p><p>${escapeHtml(origin?.boardingNote||step.service.boardingNote||'Confirm the pickup point locally.')}</p>`:''}</div></div>`;
   }
 
   const last=accessCopy(toAccess,toNear.node.name,true);

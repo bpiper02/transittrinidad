@@ -1,0 +1,640 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-09-11T23:23:19Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1346361962,
+      "lat": 10.6508138,
+      "lon": -61.4105636,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Maracas taxi stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1350168605,
+      "lat": 10.6489101,
+      "lon": -61.4097088,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Chaguanas Maxi stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1350168628,
+      "lat": 10.6496196,
+      "lon": -61.4097431,
+      "tags": {
+        "amenity": "taxi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1350168650,
+      "lat": 10.6495141,
+      "lon": -61.4094508,
+      "tags": {
+        "amenity": "taxi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1419137359,
+      "lat": 10.6276087,
+      "lon": -61.3536835,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Mall Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1434060920,
+      "lat": 10.6393807,
+      "lon": -61.2801254,
+      "tags": {
+        "amenity": "taxi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1447592867,
+      "lat": 10.6549768,
+      "lon": -61.5075428,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Maraval Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1538914694,
+      "lat": 10.2834186,
+      "lon": -61.4678041,
+      "tags": {
+        "amenity": "taxi",
+        "name": "San Fernando-Point Fortin Maxi Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1745991285,
+      "lat": 11.1820413,
+      "lon": -60.7350791,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Tobago Taxi Cab Co-op Society",
+        "phone": "+1 (868) 639-2659"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1745991289,
+      "lat": 11.1826897,
+      "lon": -60.7367265,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Scarborough-Crown Point Taxt Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1757410040,
+      "lat": 10.1437865,
+      "lon": -61.5092902,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Siparia-Erin Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1757410041,
+      "lat": 10.1437828,
+      "lon": -61.5106376,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Siparia-Fyzabad Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1757410049,
+      "lat": 10.1442019,
+      "lon": -61.506906,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Siparia-San Fernando Maxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1761221833,
+      "lat": 10.2834238,
+      "lon": -61.467798,
+      "tags": {
+        "amenity": "taxi",
+        "name": "San Fernando-Penal/Siparia Maxi Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1761221836,
+      "lat": 10.2834179,
+      "lon": -61.4677953,
+      "tags": {
+        "amenity": "taxi",
+        "name": "San Fernando-Port of Spain Maxi Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1761221840,
+      "lat": 10.2834657,
+      "lon": -61.4677783,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Port of Spain and Chagunas taxi stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1761221852,
+      "lat": 10.2834067,
+      "lon": -61.4678121,
+      "tags": {
+        "amenity": "taxi",
+        "name": "San Fernando-Point Fortin Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1764257867,
+      "lat": 10.1440539,
+      "lon": -61.5069296,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Siparia-Penal Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1764257869,
+      "lat": 10.1439648,
+      "lon": -61.508386,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Siparia-San Fernando Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1764462743,
+      "lat": 10.2711814,
+      "lon": -61.372962,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Princes Town-Mayaro Maxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1772038420,
+      "lat": 10.6494224,
+      "lon": -61.509577,
+      "tags": {
+        "amenity": "taxi",
+        "name": "San Fernando Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1772038430,
+      "lat": 10.6489612,
+      "lon": -61.5095514,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Chaguanas Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1772894772,
+      "lat": 10.1677606,
+      "lon": -61.4586246,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Penal-San Fernando Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1786634434,
+      "lat": 10.6292069,
+      "lon": -61.4279724,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Grand Bazaar - Curepe Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1786799555,
+      "lat": 10.1677011,
+      "lon": -61.4585262,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Penal-Siparia Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1809311005,
+      "lat": 10.6524951,
+      "lon": -61.5100207,
+      "tags": {
+        "amenity": "taxi",
+        "name": "St. Ann's Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1809362903,
+      "lat": 10.6496902,
+      "lon": -61.5086584,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Sangre Grande Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1809362904,
+      "lat": 10.649724,
+      "lon": -61.5078912,
+      "tags": {
+        "amenity": "taxi",
+        "name": "San Juan Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1809362905,
+      "lat": 10.6496271,
+      "lon": -61.5103173,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Wrightson Rd/Long Circular Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1809362906,
+      "lat": 10.6482541,
+      "lon": -61.510257,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Chaguaramas Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1810716978,
+      "lat": 10.1690362,
+      "lon": -61.4580856,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Penal-San Fernando Maxi Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1810716998,
+      "lat": 10.1679379,
+      "lon": -61.4581044,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Rock Road Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1810717002,
+      "lat": 10.1699688,
+      "lon": -61.4567676,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Clarke Road Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1811264148,
+      "lat": 10.2824385,
+      "lon": -61.4653789,
+      "tags": {
+        "amenity": "taxi",
+        "name": "San Fernando-Chaguanas Maxi Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1862229099,
+      "lat": 10.5144299,
+      "lon": -61.4059548,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Edinburgh 500 Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1862244256,
+      "lat": 10.5138839,
+      "lon": -61.4092728,
+      "tags": {
+        "amenity": "taxi",
+        "name": "San Fernando Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2403701177,
+      "lat": 10.1739316,
+      "lon": -61.6818878,
+      "tags": {
+        "amenity": "taxi",
+        "name": "San Fernando Taxi Stand",
+        "note": "Next to Victor Chin Kit Park. Corner Mainfield Road and Main Road."
+      }
+    },
+    {
+      "type": "node",
+      "id": 2403728263,
+      "lat": 10.175541,
+      "lon": -61.6843381,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Cap de Ville Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3929147863,
+      "lat": 10.6498457,
+      "lon": -61.5112595,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Ice House Taxi",
+        "source": "KG Ground Survey 2015"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3942125063,
+      "lat": 10.2797911,
+      "lon": -61.462509,
+      "tags": {
+        "amenity": "taxi",
+        "name": "La Romaine Taxi Stand",
+        "source": "KG Ground Survey 2015"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4110953841,
+      "lat": 10.6389289,
+      "lon": -61.283464,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Arima Old Road Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4124479889,
+      "lat": 10.6526031,
+      "lon": -61.5100292,
+      "tags": {
+        "amenity": "taxi",
+        "name": "St. James Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4480974031,
+      "lat": 10.6177985,
+      "lon": -61.2899243,
+      "tags": {
+        "amenity": "taxi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4484812850,
+      "lat": 10.6277808,
+      "lon": -61.3523487,
+      "tags": {
+        "amenity": "taxi"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4634793091,
+      "lat": 10.6496701,
+      "lon": -61.5071431,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Morvant Taxi Stand"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4728684593,
+      "lat": 10.649775,
+      "lon": -61.5093052,
+      "tags": {
+        "addr:street": "Broadway",
+        "amenity": "taxi",
+        "name": "Broadway Taxi Service",
+        "name:en": "Broadway Taxi Service",
+        "opening_hours": "24/7",
+        "phone": "18686237304"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12623584001,
+      "lat": 10.6532817,
+      "lon": -61.5089778,
+      "tags": {
+        "amenity": "taxi",
+        "name": "Shared taxi to Maracas"
+      }
+    },
+    {
+      "type": "node",
+      "id": 12639062801,
+      "lat": 10.2816068,
+      "lon": -61.4655083,
+      "tags": {
+        "amenity": "taxi",
+        "name": "to La Brea"
+      }
+    },
+    {
+      "type": "way",
+      "id": 231004879,
+      "center": {
+        "lat": 11.1826584,
+        "lon": -60.7376001
+      },
+      "tags": {
+        "alt_name": "Straight Taxi Stand",
+        "amenity": "taxi",
+        "name": "Crown Point - Scarborough Taxi Stand"
+      }
+    },
+    {
+      "type": "way",
+      "id": 231004882,
+      "center": {
+        "lat": 11.1826815,
+        "lon": -60.7375997
+      },
+      "tags": {
+        "alt_name": "Across Taxi Stand",
+        "amenity": "taxi",
+        "name": "Buccoo/Bethel - Scarborough Taxi Stand"
+      }
+    },
+    {
+      "type": "way",
+      "id": 349610834,
+      "center": {
+        "lat": 10.6478533,
+        "lon": -61.5111445
+      },
+      "tags": {
+        "access": "restricted",
+        "addr:city": "Port of Spain",
+        "addr:street": "Wrightson Road",
+        "amenity": "taxi",
+        "name": "Route 1 Maxi-Taxi Association",
+        "operator": "Route One (Diego Martin) Maxi Taxi Association"
+      }
+    },
+    {
+      "type": "way",
+      "id": 387031497,
+      "center": {
+        "lat": 11.156236,
+        "lon": -60.8375301
+      },
+      "tags": {
+        "amenity": "taxi",
+        "building": "yes",
+        "name": "Royal Taxi Service",
+        "source": "KG Ground Survey 2015"
+      }
+    },
+    {
+      "type": "way",
+      "id": 479527532,
+      "center": {
+        "lat": 10.2951859,
+        "lon": -61.0061147
+      },
+      "tags": {
+        "addr:city": "Mayaro",
+        "addr:street": "Peter Hill Road",
+        "amenity": "taxi",
+        "capacity": "10",
+        "description": "Maxi and Taxi Stand for Mayaro/Sangre Grande Taxis. Very few Maxis use this stand.",
+        "name": "Mayaro/Sangre Grande Taxi Stand",
+        "operator": "Mayaro/Rio Claro Regional Corporation"
+      }
+    },
+    {
+      "type": "way",
+      "id": 479527533,
+      "center": {
+        "lat": 10.2947464,
+        "lon": -61.0060746
+      },
+      "tags": {
+        "addr:city": "Mayaro",
+        "addr:street": "Guayaguayare Mayaro Road",
+        "amenity": "taxi",
+        "capacity": "60",
+        "description": "Maxi and Taxi Stand For Guayaguayare, Rio Claro and Sangre Grande (for some Maxis)",
+        "name": "Mayaro Junction Maxi and Taxi Stand",
+        "operator": "Mayaro/Rio Claro Regional Corporation"
+      }
+    },
+    {
+      "type": "way",
+      "id": 795411091,
+      "center": {
+        "lat": 10.4175288,
+        "lon": -61.4158394
+      },
+      "tags": {
+        "amenity": "taxi"
+      }
+    },
+    {
+      "type": "way",
+      "id": 795411092,
+      "center": {
+        "lat": 10.4159906,
+        "lon": -61.4150515
+      },
+      "tags": {
+        "amenity": "taxi"
+      }
+    },
+    {
+      "type": "way",
+      "id": 795411093,
+      "center": {
+        "lat": 10.4174678,
+        "lon": -61.4173508
+      },
+      "tags": {
+        "amenity": "taxi"
+      }
+    },
+    {
+      "type": "way",
+      "id": 795411094,
+      "center": {
+        "lat": 10.418252,
+        "lon": -61.4167406
+      },
+      "tags": {
+        "amenity": "taxi"
+      }
+    },
+    {
+      "type": "way",
+      "id": 840268930,
+      "center": {
+        "lat": 10.650789,
+        "lon": -61.4518104
+      },
+      "tags": {
+        "addr:street": "Saddle Road & Second Street",
+        "amenity": "taxi",
+        "name": "Santa Cruz Taxi Stand"
+      }
+    }
+  ]
+}

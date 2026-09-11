@@ -2,6 +2,12 @@
 
 A public transport atlas and routing foundation for Trinidad & Tobago, covering PTSC, maxi taxis, route taxis, water taxi, and inter-island ferry services.
 
+## Local transport coverage
+
+The September 2026 coverage sprint contains 70 corridors and 103 routing-eligible directional patterns, plus one held reverse pattern. Read the [sprint evidence and QA report](docs/local-network-sprint-2026-09-11.md) and [informal-route inventory](docs/local-route-inventory-2026-09-11.md). Reported routes have unconfirmed current operation, fares and departure times. `needs_review` patterns are excluded from routing and browsing; unresolved candidates remain in the source review ledger.
+
+Map data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), ODbL. Mapped stands and approximate areas carry separate location confidence.
+
 ## Phase 1
 
 Build a trustworthy transport atlas before enabling A→B journey planning.

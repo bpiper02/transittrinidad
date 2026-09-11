@@ -1,0 +1,214 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-09-11T23:24:21Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 1862238312,
+      "lat": 10.5150366,
+      "lon": -61.4080972,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "North-bound",
+        "network": "PTSC",
+        "public_transport": "platform"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2164046297,
+      "lat": 10.6409575,
+      "lon": -61.3992302,
+      "tags": {
+        "bench": "yes",
+        "bin": "yes",
+        "check_date:shelter": "2023-06-11",
+        "highway": "bus_stop",
+        "name": "Shuttle Stop",
+        "shelter": "yes",
+        "tactile_paving": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3455531273,
+      "lat": 10.1774973,
+      "lon": -61.6862264,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "local_ref": "Point Fortin Bus Terminus",
+        "name": "Point Fortin",
+        "public_transport": "platform"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3554621558,
+      "lat": 10.6479887,
+      "lon": -61.5113583,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "D/Martin (Main Rd)",
+        "network": "Route 1 Maxi-Taxis",
+        "public_transport": "platform"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3554623094,
+      "lat": 10.6479401,
+      "lon": -61.5114831,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Petit Valley",
+        "network": "Route 1 Maxi-Taxis",
+        "public_transport": "platform"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3554623095,
+      "lat": 10.6479678,
+      "lon": -61.5114179,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Chaguaramas",
+        "network": "Route 1 Maxi-Taxis",
+        "public_transport": "platform"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3561285084,
+      "lat": 10.6479223,
+      "lon": -61.5078758,
+      "tags": {
+        "bus": "yes",
+        "covered": "yes",
+        "highway": "bus_stop",
+        "name": "Drop-off zone",
+        "network": "Route 2 Maxi-Taxis",
+        "public_transport": "platform"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3561441280,
+      "lat": 10.6498293,
+      "lon": -61.5093101,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Unofficial Diego Martin Taxi Stand",
+        "public_transport": "platform"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3566332705,
+      "lat": 10.6477299,
+      "lon": -61.5092839,
+      "tags": {
+        "bench": "yes",
+        "bus": "yes",
+        "covered": "yes",
+        "highway": "bus_stop",
+        "name": "Platform 1",
+        "network": "PTSC",
+        "public_transport": "platform",
+        "shelter": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3577209839,
+      "lat": 10.6481503,
+      "lon": -61.5086277,
+      "tags": {
+        "bench": "yes",
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Drop off zone for incoming buses",
+        "name:en": "City Gate",
+        "operator": "PTSC",
+        "public_transport": "platform"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4110786989,
+      "lat": 10.641543,
+      "lon": -61.2834463,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Priority Bus Route (Route 2) Maxi Taxi Stand",
+        "public_transport": "platform"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4110786990,
+      "lat": 10.6414545,
+      "lon": -61.2834577,
+      "tags": {
+        "bus": "yes",
+        "highway": "bus_stop",
+        "name": "Eastern Main Road Maxi Taxi Stand",
+        "public_transport": "platform"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4263736889,
+      "lat": 10.6504295,
+      "lon": -61.410527,
+      "tags": {
+        "highway": "bus_stop",
+        "name": "USC Shuttle Stop"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4357419400,
+      "lat": 10.6454664,
+      "lon": -61.099732,
+      "tags": {
+        "highway": "bus_stop",
+        "name": "3.3/4mm, Toco Main Road, Sangre Grande",
+        "name:en": "3.3/4mm, Toco Main Road, Sangre Grande"
+      }
+    },
+    {
+      "type": "node",
+      "id": 5529434924,
+      "lat": 10.7050615,
+      "lon": -61.4104246,
+      "tags": {
+        "highway": "bus_stop",
+        "name": "La Grine road"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6537003885,
+      "lat": 10.6363239,
+      "lon": -61.341069,
+      "tags": {
+        "highway": "bus_stop",
+        "name": "Bus tor ferry",
+        "name:en": "Bus to PoS",
+        "name:nl": "Bus naar PoS"
+      }
+    }
+  ]
+}

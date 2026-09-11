@@ -1,5 +1,5 @@
 export const MODES = new Set(['ptsc','maxi','route_taxi','water_taxi','ferry']);
-export const SERVICE_CONFIDENCE = new Set(['verified_service','community_verified','needs_review']);
+export const SERVICE_CONFIDENCE = new Set(['verified_service','community_verified','reported_service','needs_review']);
 export const GEOMETRY_CONFIDENCE = new Set(['verified_path','partial_path','endpoints_only','unknown']);
 export const CLAIM_CONFIDENCE = new Set(['official_current','official_historical','community_verified','reported','unknown']);
 export const LOCATION_CONFIDENCE = new Set(['verified_station','mapped_station','approximate_area']);

@@ -63,6 +63,7 @@ function buildGraph(services,nodes,transfers=[]){
   const graph=new Map();
   const add=(from,edge)=>{if(!graph.has(from))graph.set(from,[]);graph.get(from).push(edge);};
   for(const service of services){
+    if(service.serviceConfidence==='needs_review')continue;
     const stops=patternStops(service);
     for(let i=0;i<stops.length-1;i++){
       const from=stops[i],to=stops[i+1];
