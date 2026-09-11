@@ -160,9 +160,9 @@ function modeSequence(steps){
 }
 
 function journeySignature(candidate){
-  const transit=compactTransitIds(candidate.steps).join('>');
-  const transferIds=(candidate.steps||[]).filter(step=>step.kind==='transfer').map(step=>step.transfer.id).join('>');
-  return `${transit}|${transferIds}`;
+  // Rider-facing alternatives are distinct rides, not different hidden access-node choices.
+  // If two candidates board the same ordered transit services, keep only the better one.
+  return compactTransitIds(candidate.steps).join('>');
 }
 
 function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions}){
@@ -216,6 +216,7 @@ export function chooseJourneyOptions({
       if(steps.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
       const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions});
       const signature=journeySignature(candidate);
+      if(!signature)continue;
       const existing=unique.get(signature);
       if(!existing||candidate.score<existing.score)unique.set(signature,candidate);
     }
