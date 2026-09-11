@@ -27,6 +27,7 @@ assert.match(app,/step\.kind==='transfer'/,'transfer steps must render explicitl
 assert.match(app,/journey-transfer/,'transfer walks need a visible map layer');
 assert.match(app,/chooseJourneyOptions/,'planner must generate multiple ranked journey options');
 assert.match(app,/maxOptions:3/,'planner should surface a compact set of route alternatives');
+assert.match(app,/if\(options\.length>1\)/,'route chooser must stay hidden when only one rider-facing route exists');
 assert.match(app,/routeOptionLabel/,'route alternatives need rider-facing labels');
 assert.match(app,/data-route-option/,'route alternatives must be selectable');
 assert.match(app,/Sailing times are not yet included/,'water routes need a schedule caveat until time-aware routing exists');
@@ -56,6 +57,7 @@ assert.match(css,/\.directions-shell\{[^}]*width:390px/);
 assert.match(css,/\.map\{[^}]*left:390px/);
 assert.match(css,/-apple-system/);
 assert.match(css,/\.suggestions\{/);
+assert.match(css,/\.mode-tabs\{[^}]*scrollbar-width:none/,'mode pills should remain scrollable without an exposed scrollbar');
 assert.match(css,/\.route-options\{/,'alternative routes need a dedicated compact selector');
 assert.match(css,/\.route-option\.is-active/,'selected route option should be visually distinct');
 
