@@ -19,6 +19,12 @@ assert.match(app,/services:routingServices\(\)/,'active mode must constrain grap
 assert.match(app,/corridorGroups/,'directed patterns must be grouped for human presentation');
 assert.match(app,/backgroundServices/,'map overview must avoid drawing duplicate reverse-direction lines');
 assert.match(app,/corridorIsBidirectional/,'corridor UI should derive two-way availability from actual reverse patterns');
+assert.match(app,/getJson\('\.\/data\/transfers\.json'\)/,'browser must load approved transfer links');
+assert.match(app,/\btransfers\b/,'planner must retain transfer data');
+assert.match(app,/transfers,\s*knownFrom/,'transfer graph must be passed into journey selection');
+assert.match(app,/compactJourneySteps/,'stop-to-stop segments should be compacted for rider-facing instructions');
+assert.match(app,/step\.kind==='transfer'/,'transfer steps must render explicitly');
+assert.match(app,/journey-transfer/,'transfer walks need a visible map layer');
 assert.match(app,/chooseConnectedJourney/);
 assert.match(app,/candidateLimit:10/);
 assert.match(app,/maxAccessKm:20/);
