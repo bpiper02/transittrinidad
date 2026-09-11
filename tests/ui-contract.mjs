@@ -30,6 +30,12 @@ assert.match(app,/maxOptions:3/,'planner should surface a compact set of route a
 assert.match(app,/routeOptionLabel/,'route alternatives need rider-facing labels');
 assert.match(app,/data-route-option/,'route alternatives must be selectable');
 assert.match(app,/Sailing times are not yet included/,'water routes need a schedule caveat until time-aware routing exists');
+assert.match(app,/let currentTripContext = null/,'resolved trip context must persist independently from a selected route option');
+assert.match(app,/async function planCurrentTrip/,'route calculation should be reusable outside the Route button handler');
+assert.match(app,/planCurrentTrip\(\{reuseContext:true\}\)/,'mode changes must immediately re-plan an already resolved trip');
+assert.match(app,/const shouldReplan=Boolean\(currentTripContext\)/,'mode tabs should only auto-route when a trip has already been planned');
+assert.match(app,/currentTripContext=\{from,to,knownFrom,knownTo\}/,'resolved endpoints should be cached for instant mode switching');
+assert.match(app,/No \$\{modeLabel\(activeMode\)\} route for this trip/,'mode-specific no-route states should remain useful without requiring another Route click');
 assert.match(app,/candidateLimit:10/);
 assert.match(app,/maxAccessKm:20/);
 assert.doesNotMatch(app,/walkKph:18/);
