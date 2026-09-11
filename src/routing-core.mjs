@@ -35,65 +35,124 @@ export function estimateAccess(km,{walkThresholdKm=1.5,walkKph=4.8,localKph=22,l
   return{mode:'local',minutes:localWaitMinutes+(km/localKph)*60,km};
 }
 
-export function findJourney(startId,endId,services,nodes=new Map(),{transferPenaltyMinutes=10}={}){
-  if(startId===endId)return[];
-  const graph=new Map();
-  for(const service of services){
-    if(!graph.has(service.originNodeId))graph.set(service.originNodeId,[]);
-    graph.get(service.originNodeId).push({next:service.destinationNodeId,service});
-  }
+function patternStops(service){
+  return Array.isArray(service.stopNodeIds)&&service.stopNodeIds.length>=2
+    ? service.stopNodeIds
+    : [service.originNodeId,service.destinationNodeId];
+}
 
-  const best=new Map([[startId,0]]);
-  const previous=new Map();
-  const queue=[{node:startId,cost:0,legs:0}];
+export function estimateSegmentMinutes(service,fromNodeId,toNodeId,nodes){
+  const stops=patternStops(service);
+  const total=estimateServiceMinutes(service,nodes);
+  if(stops.length===2)return total;
+  const pieces=[];
+  let totalKm=0;
+  for(let i=0;i<stops.length-1;i++){
+    const a=nodes.get(stops[i])?.location,b=nodes.get(stops[i+1])?.location;
+    const km=a&&b?kmBetween(a,b):0;
+    pieces.push({from:stops[i],to:stops[i+1],km});
+    totalKm+=km;
+  }
+  const piece=pieces.find(item=>item.from===fromNodeId&&item.to===toNodeId);
+  if(!piece)return total/Math.max(1,stops.length-1);
+  if(totalKm<=0)return total/Math.max(1,stops.length-1);
+  return Math.max(1,total*(piece.km/totalKm));
+}
+
+function buildGraph(services,nodes,transfers=[]){
+  const graph=new Map();
+  const add=(from,edge)=>{if(!graph.has(from))graph.set(from,[]);graph.get(from).push(edge);};
+  for(const service of services){
+    const stops=patternStops(service);
+    for(let i=0;i<stops.length-1;i++){
+      const from=stops[i],to=stops[i+1];
+      add(from,{kind:'transit',next:to,service,minutes:estimateSegmentMinutes(service,from,to,nodes)});
+    }
+  }
+  for(const transfer of transfers){
+    add(transfer.fromNodeId,{kind:'transfer',next:transfer.toNodeId,transfer,minutes:transfer.estimatedMinutes});
+  }
+  return graph;
+}
+
+function stateKey(node,lastServiceId){return`${node}::${lastServiceId||''}`;}
+
+export function findJourney(startId,endId,services,nodes=new Map(),{transferPenaltyMinutes=10,transfers=[]}={}){
+  if(startId===endId)return[];
+  const graph=buildGraph(services,nodes,transfers);
+  const start={node:startId,lastServiceId:null,cost:0,steps:[]};
+  const best=new Map([[stateKey(startId,null),0]]);
+  const queue=[start];
+
   while(queue.length){
     queue.sort((a,b)=>a.cost-b.cost);
     const current=queue.shift();
-    if(current.cost!==best.get(current.node))continue;
-    if(current.node===endId)break;
+    if(current.cost!==best.get(stateKey(current.node,current.lastServiceId)))continue;
+    if(current.node===endId)return current.steps;
+
     for(const edge of graph.get(current.node)||[]){
-      const transferCost=current.legs>0?transferPenaltyMinutes:0;
-      const nextCost=current.cost+estimateServiceMinutes(edge.service,nodes)+transferCost;
-      if(nextCost>=(best.get(edge.next)??Infinity))continue;
-      best.set(edge.next,nextCost);
-      previous.set(edge.next,{node:current.node,service:edge.service});
-      queue.push({node:edge.next,cost:nextCost,legs:current.legs+1});
+      let nextLastServiceId=current.lastServiceId;
+      let edgeCost=edge.minutes;
+      if(edge.kind==='transit'){
+        if(current.lastServiceId&&current.lastServiceId!==edge.service.id)edgeCost+=transferPenaltyMinutes;
+        nextLastServiceId=edge.service.id;
+      }
+      const nextKey=stateKey(edge.next,nextLastServiceId);
+      const nextCost=current.cost+edgeCost;
+      if(nextCost>=(best.get(nextKey)??Infinity))continue;
+      const step=edge.kind==='transit'
+        ? {kind:'transit',from:current.node,to:edge.next,service:edge.service,minutes:edge.minutes}
+        : {kind:'transfer',from:current.node,to:edge.next,transfer:edge.transfer,minutes:edge.minutes};
+      best.set(nextKey,nextCost);
+      queue.push({node:edge.next,lastServiceId:nextLastServiceId,cost:nextCost,steps:[...current.steps,step]});
     }
   }
-  if(!previous.has(endId))return null;
-  const legs=[];
-  let at=endId;
-  while(at!==startId){
-    const prev=previous.get(at);
-    if(!prev)return null;
-    legs.push({from:prev.node,to:at,service:prev.service});
-    at=prev.node;
+  return null;
+}
+
+export function journeyMinutes(steps,nodes,{transferPenaltyMinutes=10}={}){
+  if(!steps?.length)return 0;
+  let total=0;
+  let lastServiceId=null;
+  for(const step of steps){
+    if(step.kind==='transfer'){
+      total+=Number.isFinite(step.minutes)?step.minutes:step.transfer?.estimatedMinutes||0;
+      continue;
+    }
+    if(lastServiceId&&lastServiceId!==step.service.id)total+=transferPenaltyMinutes;
+    total+=Number.isFinite(step.minutes)?step.minutes:estimateSegmentMinutes(step.service,step.from,step.to,nodes);
+    lastServiceId=step.service.id;
   }
-  return legs.reverse();
+  return total;
 }
 
-export function journeyMinutes(legs,nodes,{transferPenaltyMinutes=10}={}){
-  if(!legs?.length)return 0;
-  const travel=legs.reduce((sum,leg)=>sum+estimateServiceMinutes(leg.service,nodes),0);
-  return travel+Math.max(0,legs.length-1)*transferPenaltyMinutes;
+export function countTransfers(steps){
+  let boardings=0;
+  let lastServiceId=null;
+  for(const step of steps||[]){
+    if(step.kind!=='transit')continue;
+    if(step.service.id!==lastServiceId){boardings+=1;lastServiceId=step.service.id;}
+  }
+  return Math.max(0,boardings-1);
 }
 
-export function chooseConnectedJourney({fromPlace,toPlace,nodes,services,knownFrom=null,knownTo=null,candidateLimit=8,maxAccessKm=20,transferPenaltyMinutes=10,accessOptions={}}){
+export function chooseConnectedJourney({fromPlace,toPlace,nodes,services,transfers=[],knownFrom=null,knownTo=null,candidateLimit=8,maxAccessKm=20,transferPenaltyMinutes=10,accessOptions={}}){
   const starts=knownFrom?[{node:knownFrom,km:0}]:nearestNodes(fromPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm});
   const ends=knownTo?[{node:knownTo,km:0}]:nearestNodes(toPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm});
   let best=null;
 
   for(const start of starts){
     for(const end of ends){
-      const legs=findJourney(start.node.id,end.node.id,services,nodes,{transferPenaltyMinutes});
-      if(legs===null)continue;
-      if(legs.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
-      const transferCount=Math.max(0,legs.length-1);
-      const transitMinutes=journeyMinutes(legs,nodes,{transferPenaltyMinutes});
+      const steps=findJourney(start.node.id,end.node.id,services,nodes,{transferPenaltyMinutes,transfers});
+      if(steps===null)continue;
+      if(steps.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
+      const transitSteps=steps.filter(step=>step.kind==='transit');
+      const transferCount=countTransfers(steps);
+      const networkMinutes=journeyMinutes(steps,nodes,{transferPenaltyMinutes});
       const fromAccess=estimateAccess(start.km,accessOptions);
       const toAccess=estimateAccess(end.km,accessOptions);
-      const score=transitMinutes+fromAccess.minutes+toAccess.minutes;
-      const candidate={fromNear:start,toNear:end,fromAccess,toAccess,legs,score,transferCount,transitMinutes:Math.round(transitMinutes),estimatedMinutes:Math.round(score)};
+      const score=networkMinutes+fromAccess.minutes+toAccess.minutes;
+      const candidate={fromNear:start,toNear:end,fromAccess,toAccess,steps,legs:transitSteps,score,transferCount,networkMinutes:Math.round(networkMinutes),estimatedMinutes:Math.round(score)};
       if(!best||candidate.score<best.score)best=candidate;
     }
   }
