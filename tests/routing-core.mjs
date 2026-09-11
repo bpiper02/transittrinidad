@@ -9,6 +9,12 @@ const nodes=new Map(nodesArray.map(node=>[node.id,node]));
 assert.ok(findJourney('ptsc-chaguanas','ptsc-pos-transit-centre',services,nodes),'PTSC Chaguanas must connect to PTSC Port of Spain');
 assert.deepEqual(findJourney('ptsc-chaguanas','ptsc-chaguanas',services,nodes),[],'same-node graph journey should need no transit legs');
 assert.equal(findJourney('ptsc-chaguanas','missing-node',services,nodes),null,'disconnected destination should return null');
+assert.ok(findJourney('ptsc-pos-transit-centre','ptsc-point-fortin',services,nodes),'POS should connect to Point Fortin');
+assert.ok(findJourney('ptsc-point-fortin','ptsc-san-fernando',services,nodes),'Point Fortin should connect back to San Fernando');
+assert.ok(findJourney('ptsc-chaguanas','ptsc-curepe',services,nodes),'official Chaguanas to Curepe direction should route');
+assert.equal(findJourney('ptsc-curepe','ptsc-chaguanas',services,nodes),null,'reverse Curepe to Chaguanas must not be invented without source evidence');
+assert.ok(findJourney('ptsc-san-fernando','ptsc-uwi-st-augustine',services,nodes),'official San Fernando to UWI direction should route');
+assert.equal(findJourney('ptsc-uwi-st-augustine','ptsc-san-fernando',services,nodes),null,'reverse UWI to San Fernando must not be invented without source evidence');
 
 const portOfSpain={lat:10.6500,lng:-61.5140};
 const nearestToPos=nearestNodes(portOfSpain,nodes,{limit:1})[0];
@@ -45,10 +51,10 @@ const weightedNodes=new Map([
   ['far',{id:'far',location:{lat:10.90,lng:-61.00}}]
 ]);
 const weightedServices=[
-  {id:'long-direct',mode:'ptsc',originNodeId:'a',destinationNodeId:'d',estimatedMinutes:90},
-  {id:'short-1',mode:'ptsc',originNodeId:'a',destinationNodeId:'b',estimatedMinutes:8},
-  {id:'short-2',mode:'ptsc',originNodeId:'b',destinationNodeId:'c',estimatedMinutes:8},
-  {id:'short-3',mode:'ptsc',originNodeId:'c',destinationNodeId:'d',estimatedMinutes:8}
+  {id:'long-direct',mode:'ptsc',originNodeId:'a',destinationNodeId:'d',estimatedMinutes:90,bidirectional:true},
+  {id:'short-1',mode:'ptsc',originNodeId:'a',destinationNodeId:'b',estimatedMinutes:8,bidirectional:true},
+  {id:'short-2',mode:'ptsc',originNodeId:'b',destinationNodeId:'c',estimatedMinutes:8,bidirectional:true},
+  {id:'short-3',mode:'ptsc',originNodeId:'c',destinationNodeId:'d',estimatedMinutes:8,bidirectional:true}
 ];
 const weighted=findJourney('a','d',weightedServices,weightedNodes,{transferPenaltyMinutes:5});
 assert.deepEqual(weighted.map(leg=>leg.service.id),['short-1','short-2','short-3'],'weighted routing should prefer a much faster multi-leg path over a slow direct service');
@@ -59,7 +65,7 @@ const sameHubNodes=new Map([
   ['hub',{id:'hub',location:{lat:10.5,lng:-61.4}}],
   ['other',{id:'other',location:{lat:10.7,lng:-61.3}}]
 ]);
-const sameHubServices=[{id:'hub-other',mode:'ptsc',originNodeId:'hub',destinationNodeId:'other'}];
+const sameHubServices=[{id:'hub-other',mode:'ptsc',originNodeId:'hub',destinationNodeId:'other',bidirectional:true}];
 const falseZeroLeg=chooseConnectedJourney({
   fromPlace:{lat:10.40,lng:-61.46},
   toPlace:{lat:10.42,lng:-61.45},
@@ -70,4 +76,4 @@ const falseZeroLeg=chooseConnectedJourney({
 });
 assert.equal(falseZeroLeg,null,'two arbitrary places must not become a fake zero-transit journey merely because they snap to the same hub');
 
-console.log(`routing core tests passed: Couva -> POS via ${journey.fromNear.node.name} -> ${journey.toNear.node.name}`);
+console.log(`routing core tests passed: ${nodesArray.length} nodes, ${services.length} services; Couva -> POS via ${journey.fromNear.node.name} -> ${journey.toNear.node.name}`);
