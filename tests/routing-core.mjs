@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {chooseConnectedJourney,findJourney,nearestNodes,journeyMinutes,estimateAccess,countTransfers} from '../src/routing-core.mjs';
+import {chooseConnectedJourney,chooseJourneyOptions,findJourney,nearestNodes,journeyMinutes,estimateAccess,countTransfers} from '../src/routing-core.mjs';
 
 const nodesArray=JSON.parse(await readFile(new URL('../data/nodes.json',import.meta.url)));
 const services=JSON.parse(await readFile(new URL('../data/services.json',import.meta.url)));
@@ -49,6 +49,11 @@ assert.equal(journey.toNear.node.id,'ptsc-pos-transit-centre','route-aware snapp
 assert.ok(journey.legs.length>=1,'connected journey should include transit');
 assert.ok(Number.isFinite(journey.estimatedMinutes)&&journey.estimatedMinutes>0,'journey should expose an estimated duration for ranking');
 assert.equal(journey.fromAccess.mode,'local','long first-mile access must not be mislabeled/scored as walking');
+
+const couvaOptions=chooseJourneyOptions({fromPlace:couva,toPlace:portOfSpain,nodes,services,transfers,candidateLimit:10,maxOptions:3});
+assert.ok(couvaOptions.length>=2,'Couva to Port of Spain should expose more than one reasonable itinerary');
+assert.ok(couvaOptions.some(option=>option.modes.includes('water_taxi')),'Couva to Port of Spain alternatives should surface the San Fernando Water Taxi option');
+assert.equal(couvaOptions[0].score<=couvaOptions[1].score,true,'best estimate should remain first even when mode-diverse alternatives are surfaced');
 
 const shortAccess=estimateAccess(0.8);
 assert.equal(shortAccess.mode,'walk');
