@@ -2,6 +2,7 @@ export const MODES = new Set(['ptsc','maxi','route_taxi','water_taxi','ferry']);
 export const SERVICE_CONFIDENCE = new Set(['verified_service','community_verified','needs_review']);
 export const GEOMETRY_CONFIDENCE = new Set(['verified_path','partial_path','endpoints_only','unknown']);
 export const CLAIM_CONFIDENCE = new Set(['official_current','official_historical','community_verified','reported','unknown']);
+export const LOCATION_CONFIDENCE = new Set(['verified_station','mapped_station','approximate_area']);
 
 function isNonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -33,6 +34,7 @@ export function validateNode(node) {
   if (!isNonEmpty(node.name)) throw new Error('node.name is required');
   if (!['hub','terminal','stand','stop_zone','ferry_terminal','water_taxi_terminal'].includes(node.kind)) throw new Error(`invalid node.kind for ${node.id}`);
   if (node.location != null && !isLatLng(node.location)) throw new Error(`invalid node.location for ${node.id}`);
+  if (node.locationConfidence != null && !LOCATION_CONFIDENCE.has(node.locationConfidence)) throw new Error(`invalid locationConfidence for ${node.id}`);
   if (!Array.isArray(node.sources) || node.sources.length === 0) throw new Error(`node ${node.id} needs at least one source`);
   node.sources.forEach(validateSource);
   return true;
