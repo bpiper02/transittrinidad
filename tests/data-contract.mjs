@@ -40,5 +40,7 @@ assert.equal(validateSchedule(scheduleBase),true);
 assert.throws(()=>validateSchedule({...scheduleBase,departureTimes:['6:30']}),/departure time/);
 assert.throws(()=>validateSchedule({...scheduleBase,departureTimes:[],status:'published_times'}),/needs departureTimes/);
 assert.throws(()=>validateSchedule({...scheduleBase,departureTimes:['05:00'],status:'times_unavailable'}),/cannot claim departureTimes/);
+assert.equal(validateDataset({nodes:[{id:'a',name:'A',kind:'terminal',sources:scheduleBase.sources},{id:'b',name:'B',kind:'terminal',sources:scheduleBase.sources}],services:[base],schedules:[scheduleBase,{...scheduleBase,id:'schedule-sat',serviceDays:['sat']}]}),true);
+assert.throws(()=>validateDataset({nodes:[{id:'a',name:'A',kind:'terminal',sources:scheduleBase.sources},{id:'b',name:'B',kind:'terminal',sources:scheduleBase.sources}],services:[base],schedules:[scheduleBase,{...scheduleBase,id:'schedule-overlap'}]}),/overlapping schedule day/);
 
 console.log(`data contract tests passed: ${nodes.length} nodes, ${new Set(services.map(service=>service.corridorId)).size} corridors, ${services.length} directed patterns, ${transfers.length} walking transfers, ${schedules.length} schedules`);

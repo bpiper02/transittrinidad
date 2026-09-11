@@ -32,6 +32,8 @@ assert.match(app,/routeOptionLabel/,'route alternatives need rider-facing labels
 assert.match(app,/data-route-option/,'route alternatives must be selectable');
 assert.match(app,/Sailing times are not yet included/,'water routes need a schedule caveat until time-aware routing exists');
 assert.match(app,/nextDepartures/,'published timetables should produce next scheduled departures');
+assert.match(app,/scheduleForDate/,'timetables should select the variant for a chosen date');
+assert.match(app,/type="date"/,'riders should be able to choose a travel date');
 assert.match(app,/Scheduled · not live/,'schedule labels must not imply live tracking');
 assert.doesNotMatch(app,/\bOn time\b/,'static schedules cannot claim real-time punctuality');
 assert.match(app,/let currentTripContext = null/,'resolved trip context must persist independently from a selected route option');

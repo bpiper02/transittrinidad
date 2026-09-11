@@ -93,6 +93,7 @@ export function validateSchedule(schedule) {
   if (schedule.departureTimes.some(time => !/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(time))) throw new Error(`invalid departure time for ${schedule.id}`);
   if ([...schedule.departureTimes].sort().join('|') !== schedule.departureTimes.join('|')) throw new Error(`departureTimes must be sorted for ${schedule.id}`);
   if (new Set(schedule.departureTimes).size !== schedule.departureTimes.length) throw new Error(`duplicate departureTimes for ${schedule.id}`);
+  for (const field of ['activeDates','excludedDates']) if (schedule[field] != null && (!Array.isArray(schedule[field]) || schedule[field].some(date => !isRealDate(date)) || new Set(schedule[field]).size !== schedule[field].length)) throw new Error(`invalid ${field} for ${schedule.id}`);
   if (schedule.status === 'published_times' && schedule.departureTimes.length === 0) throw new Error(`published schedule ${schedule.id} needs departureTimes`);
   if (schedule.status === 'times_unavailable' && schedule.departureTimes.length !== 0) throw new Error(`unavailable schedule ${schedule.id} cannot claim departureTimes`);
   if (!Array.isArray(schedule.sources) || schedule.sources.length === 0) throw new Error(`schedule ${schedule.id} needs at least one source`);
@@ -130,14 +131,22 @@ export function validateDataset({nodes,services,transfers=[],schedules=[]}) {
     transferPairs.add(pair);
   }
   const scheduleIds = new Set();
-  const scheduledServices = new Set();
+  const scheduleCoverage = new Map();
   for (const schedule of schedules) {
     validateSchedule(schedule);
     if (scheduleIds.has(schedule.id)) throw new Error(`duplicate schedule id ${schedule.id}`);
     scheduleIds.add(schedule.id);
     if (!serviceIds.has(schedule.serviceId)) throw new Error(`unknown scheduled service ${schedule.serviceId}`);
-    if (scheduledServices.has(schedule.serviceId)) throw new Error(`duplicate schedule for service ${schedule.serviceId}`);
-    scheduledServices.add(schedule.serviceId);
+    const coverage = scheduleCoverage.get(schedule.serviceId) || {days:new Set(),dates:new Set()};
+    if (!schedule.activeDates?.length) for (const day of schedule.serviceDays) {
+      if (coverage.days.has(day)) throw new Error(`overlapping schedule day ${day} for ${schedule.serviceId}`);
+      coverage.days.add(day);
+    }
+    for (const date of schedule.activeDates || []) {
+      if (coverage.dates.has(date)) throw new Error(`overlapping schedule date ${date} for ${schedule.serviceId}`);
+      coverage.dates.add(date);
+    }
+    scheduleCoverage.set(schedule.serviceId, coverage);
   }
   return true;
 }

@@ -74,7 +74,8 @@ export function buildPTSCCandidates(snapshot, {nodes = [], services = [], schedu
   if (!snapshot || !snapshot.source || !Array.isArray(snapshot.records)) throw new Error('snapshot.source and snapshot.records are required');
   const nodeIds = nodeLookup(nodes);
   const serviceByPair = new Map(services.filter(service => service.mode === 'ptsc').map(service => [`${service.originNodeId}->${service.destinationNodeId}`, service]));
-  const scheduleByService = new Map(schedules.map(schedule => [schedule.serviceId, schedule]));
+  const schedulesByService = new Map();
+  for (const schedule of schedules) schedulesByService.set(schedule.serviceId, [...(schedulesByService.get(schedule.serviceId) || []), schedule]);
 
   return snapshot.records.map(record => {
     const from = normalizeEndpoint(record.from);
@@ -98,11 +99,11 @@ export function buildPTSCCandidates(snapshot, {nodes = [], services = [], schedu
       return {...common, reviewStatus: 'needs_endpoint_mapping', recommendedAction: 'map_endpoints_before_promotion'};
     }
     if (service) {
-      const currentSchedule = scheduleByService.get(service.id);
+      const currentSchedule = (schedulesByService.get(service.id) || []).find(item => item.serviceDays?.join('|') === serviceDays.join('|'));
       return {
         ...common,
         serviceId: service.id,
-        reviewStatus: currentSchedule && Array.isArray(currentSchedule.serviceDays) && currentSchedule.serviceDays.join('|') !== serviceDays.join('|') ? 'schedule_variant_review' : currentSchedule ? 'schedule_upgrade_review' : 'schedule_review',
+        reviewStatus: currentSchedule ? 'schedule_upgrade_review' : 'schedule_variant_review',
         recommendedAction: 'review_before_merge'
       };
     }
