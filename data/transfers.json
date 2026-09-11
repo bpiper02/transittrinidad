@@ -1,0 +1,106 @@
+[
+  {
+    "id":"walk-pos-ptsc-to-ferry",
+    "fromNodeId":"ptsc-pos-transit-centre",
+    "toNodeId":"pos-ferry-terminal",
+    "mode":"walk",
+    "distanceKm":0.391,
+    "estimatedMinutes":6,
+    "confidence":"estimated_walk",
+    "sources":[
+      {"name":"Mapped Port of Spain Transit Centre and Ferry Terminal coordinates","url":"https://www.openstreetmap.org/way/350372094","checkedAt":"2026-09-11"},
+      {"name":"Mapped Port of Spain Ferry Terminal coordinates","url":"https://www.openstreetmap.org/way/175819521","checkedAt":"2026-09-11"}
+    ]
+  },
+  {
+    "id":"walk-pos-ferry-to-ptsc",
+    "fromNodeId":"pos-ferry-terminal",
+    "toNodeId":"ptsc-pos-transit-centre",
+    "mode":"walk",
+    "distanceKm":0.391,
+    "estimatedMinutes":6,
+    "confidence":"estimated_walk",
+    "sources":[
+      {"name":"Mapped Port of Spain Ferry Terminal and Transit Centre coordinates","url":"https://www.openstreetmap.org/way/175819521","checkedAt":"2026-09-11"},
+      {"name":"Mapped Port of Spain Transit Centre coordinates","url":"https://www.openstreetmap.org/way/350372094","checkedAt":"2026-09-11"}
+    ]
+  },
+  {
+    "id":"walk-pos-ptsc-to-water-taxi",
+    "fromNodeId":"ptsc-pos-transit-centre",
+    "toNodeId":"pos-water-taxi-terminal",
+    "mode":"walk",
+    "distanceKm":0.589,
+    "estimatedMinutes":9,
+    "confidence":"estimated_walk",
+    "sources":[
+      {"name":"Mapped Port of Spain Transit Centre coordinates","url":"https://www.openstreetmap.org/way/350372094","checkedAt":"2026-09-11"},
+      {"name":"Mapped Port of Spain Water Taxi Terminal coordinates","url":"https://www.openstreetmap.org/way/390110168","checkedAt":"2026-09-11"}
+    ]
+  },
+  {
+    "id":"walk-pos-water-taxi-to-ptsc",
+    "fromNodeId":"pos-water-taxi-terminal",
+    "toNodeId":"ptsc-pos-transit-centre",
+    "mode":"walk",
+    "distanceKm":0.589,
+    "estimatedMinutes":9,
+    "confidence":"estimated_walk",
+    "sources":[
+      {"name":"Mapped Port of Spain Water Taxi Terminal coordinates","url":"https://www.openstreetmap.org/way/390110168","checkedAt":"2026-09-11"},
+      {"name":"Mapped Port of Spain Transit Centre coordinates","url":"https://www.openstreetmap.org/way/350372094","checkedAt":"2026-09-11"}
+    ]
+  },
+  {
+    "id":"walk-pos-ferry-to-water-taxi",
+    "fromNodeId":"pos-ferry-terminal",
+    "toNodeId":"pos-water-taxi-terminal",
+    "mode":"walk",
+    "distanceKm":0.259,
+    "estimatedMinutes":4,
+    "confidence":"estimated_walk",
+    "sources":[
+      {"name":"Mapped Port of Spain Ferry Terminal coordinates","url":"https://www.openstreetmap.org/way/175819521","checkedAt":"2026-09-11"},
+      {"name":"Mapped Port of Spain Water Taxi Terminal coordinates","url":"https://www.openstreetmap.org/way/390110168","checkedAt":"2026-09-11"}
+    ]
+  },
+  {
+    "id":"walk-pos-water-taxi-to-ferry",
+    "fromNodeId":"pos-water-taxi-terminal",
+    "toNodeId":"pos-ferry-terminal",
+    "mode":"walk",
+    "distanceKm":0.259,
+    "estimatedMinutes":4,
+    "confidence":"estimated_walk",
+    "sources":[
+      {"name":"Mapped Port of Spain Water Taxi Terminal coordinates","url":"https://www.openstreetmap.org/way/390110168","checkedAt":"2026-09-11"},
+      {"name":"Mapped Port of Spain Ferry Terminal coordinates","url":"https://www.openstreetmap.org/way/175819521","checkedAt":"2026-09-11"}
+    ]
+  },
+  {
+    "id":"walk-sando-ptsc-to-water-taxi",
+    "fromNodeId":"ptsc-san-fernando",
+    "toNodeId":"san-fernando-water-taxi-terminal",
+    "mode":"walk",
+    "distanceKm":0.387,
+    "estimatedMinutes":6,
+    "confidence":"estimated_walk",
+    "sources":[
+      {"name":"Mapped San Fernando PTSC Terminus coordinates","url":"https://www.openstreetmap.org/way/835910886","checkedAt":"2026-09-11"},
+      {"name":"Mapped San Fernando Water Taxi Terminal coordinates","url":"https://www.openstreetmap.org/node/8745164784","checkedAt":"2026-09-11"}
+    ]
+  },
+  {
+    "id":"walk-sando-water-taxi-to-ptsc",
+    "fromNodeId":"san-fernando-water-taxi-terminal",
+    "toNodeId":"ptsc-san-fernando",
+    "mode":"walk",
+    "distanceKm":0.387,
+    "estimatedMinutes":6,
+    "confidence":"estimated_walk",
+    "sources":[
+      {"name":"Mapped San Fernando Water Taxi Terminal coordinates","url":"https://www.openstreetmap.org/node/8745164784","checkedAt":"2026-09-11"},
+      {"name":"Mapped San Fernando PTSC Terminus coordinates","url":"https://www.openstreetmap.org/way/835910886","checkedAt":"2026-09-11"}
+    ]
+  }
+]
