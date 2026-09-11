@@ -136,25 +136,129 @@ export function countTransfers(steps){
   return Math.max(0,boardings-1);
 }
 
-export function chooseConnectedJourney({fromPlace,toPlace,nodes,services,transfers=[],knownFrom=null,knownTo=null,candidateLimit=8,maxAccessKm=20,transferPenaltyMinutes=10,accessOptions={}}){
+function compactTransitIds(steps){
+  const ids=[];
+  let last=null;
+  for(const step of steps||[]){
+    if(step.kind!=='transit')continue;
+    if(step.service.id===last)continue;
+    ids.push(step.service.id);
+    last=step.service.id;
+  }
+  return ids;
+}
+
+function modeSequence(steps){
+  const modes=[];
+  let lastServiceId=null;
+  for(const step of steps||[]){
+    if(step.kind!=='transit'||step.service.id===lastServiceId)continue;
+    modes.push(step.service.mode);
+    lastServiceId=step.service.id;
+  }
+  return modes;
+}
+
+function journeySignature(candidate){
+  const transit=compactTransitIds(candidate.steps).join('>');
+  const transferIds=(candidate.steps||[]).filter(step=>step.kind==='transfer').map(step=>step.transfer.id).join('>');
+  return `${transit}|${transferIds}`;
+}
+
+function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions}){
+  const transitSteps=steps.filter(step=>step.kind==='transit');
+  const transferCount=countTransfers(steps);
+  const networkMinutes=journeyMinutes(steps,nodes,{transferPenaltyMinutes});
+  const fromAccess=estimateAccess(start.km,accessOptions);
+  const toAccess=estimateAccess(end.km,accessOptions);
+  const score=networkMinutes+fromAccess.minutes+toAccess.minutes;
+  const modes=modeSequence(steps);
+  return{
+    fromNear:start,
+    toNear:end,
+    fromAccess,
+    toAccess,
+    steps,
+    legs:transitSteps,
+    modes,
+    modeSignature:modes.join('>'),
+    score,
+    transferCount,
+    networkMinutes:Math.round(networkMinutes),
+    estimatedMinutes:Math.round(score)
+  };
+}
+
+export function chooseJourneyOptions({
+  fromPlace,
+  toPlace,
+  nodes,
+  services,
+  transfers=[],
+  knownFrom=null,
+  knownTo=null,
+  candidateLimit=8,
+  maxAccessKm=20,
+  transferPenaltyMinutes=10,
+  accessOptions={},
+  maxOptions=3,
+  maxAlternativeRatio=2.5,
+  maxAlternativeExtraMinutes=120
+}){
   const starts=knownFrom?[{node:knownFrom,km:0}]:nearestNodes(fromPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm});
   const ends=knownTo?[{node:knownTo,km:0}]:nearestNodes(toPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm});
-  let best=null;
+  const unique=new Map();
 
   for(const start of starts){
     for(const end of ends){
       const steps=findJourney(start.node.id,end.node.id,services,nodes,{transferPenaltyMinutes,transfers});
       if(steps===null)continue;
       if(steps.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
-      const transitSteps=steps.filter(step=>step.kind==='transit');
-      const transferCount=countTransfers(steps);
-      const networkMinutes=journeyMinutes(steps,nodes,{transferPenaltyMinutes});
-      const fromAccess=estimateAccess(start.km,accessOptions);
-      const toAccess=estimateAccess(end.km,accessOptions);
-      const score=networkMinutes+fromAccess.minutes+toAccess.minutes;
-      const candidate={fromNear:start,toNear:end,fromAccess,toAccess,steps,legs:transitSteps,score,transferCount,networkMinutes:Math.round(networkMinutes),estimatedMinutes:Math.round(score)};
-      if(!best||candidate.score<best.score)best=candidate;
+      const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions});
+      const signature=journeySignature(candidate);
+      const existing=unique.get(signature);
+      if(!existing||candidate.score<existing.score)unique.set(signature,candidate);
     }
   }
-  return best;
+
+  const sorted=[...unique.values()].sort((a,b)=>a.score-b.score);
+  if(!sorted.length)return[];
+  const best=sorted[0];
+  const ceiling=Math.min(best.score*maxAlternativeRatio,best.score+maxAlternativeExtraMinutes);
+  const eligible=sorted.filter((candidate,index)=>index===0||candidate.score<=ceiling);
+  const chosen=[best];
+  const chosenSignatures=new Set([journeySignature(best)]);
+  const chosenModes=new Set([best.modeSignature]);
+
+  const waterAlternative=eligible.find(candidate=>
+    !chosenSignatures.has(journeySignature(candidate))&&
+    candidate.modes.some(mode=>mode==='water_taxi'||mode==='ferry')&&
+    !best.modes.some(mode=>mode==='water_taxi'||mode==='ferry')
+  );
+  if(waterAlternative&&chosen.length<maxOptions){
+    chosen.push(waterAlternative);
+    chosenSignatures.add(journeySignature(waterAlternative));
+    chosenModes.add(waterAlternative.modeSignature);
+  }
+
+  for(const candidate of eligible){
+    if(chosen.length>=maxOptions)break;
+    const signature=journeySignature(candidate);
+    if(chosenSignatures.has(signature)||chosenModes.has(candidate.modeSignature))continue;
+    chosen.push(candidate);
+    chosenSignatures.add(signature);
+    chosenModes.add(candidate.modeSignature);
+  }
+  for(const candidate of eligible){
+    if(chosen.length>=maxOptions)break;
+    const signature=journeySignature(candidate);
+    if(chosenSignatures.has(signature))continue;
+    chosen.push(candidate);
+    chosenSignatures.add(signature);
+  }
+  return chosen;
+}
+
+export function chooseConnectedJourney(options){
+  return chooseJourneyOptions({...options,maxOptions:1})[0]||null;
 }
