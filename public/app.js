@@ -40,6 +40,15 @@ function routeColor(service){
 }
 function filteredServices(){return services.filter(service=>activeMode==='all'||service.mode===activeMode);}
 function routingServices(){return filteredServices();}
+function corridorGroups(list=filteredServices()){
+  const grouped=new Map();
+  for(const service of list){if(!grouped.has(service.corridorId))grouped.set(service.corridorId,[]);grouped.get(service.corridorId).push(service);}
+  return [...grouped.entries()].map(([corridorId,patterns])=>({corridorId,patterns,representative:patterns[0]}));
+}
+function corridorIsBidirectional(group){
+  return group.patterns.some(a=>group.patterns.some(b=>a.originNodeId===b.destinationNodeId&&a.destinationNodeId===b.originNodeId));
+}
+function backgroundServices(){return corridorGroups().map(group=>group.representative);}
 function hasLocation(node){return node?.location&&Number.isFinite(node.location.lat)&&Number.isFinite(node.location.lng);}
 function serviceNodes(service){return[nodeIndex.get(service.originNodeId),nodeIndex.get(service.destinationNodeId)];}
 function fallbackCoordinates(service){
@@ -56,9 +65,9 @@ function displayPathKind(service){
 function displayPathLabel(service){const kind=displayPathKind(service);return kind==='verified'?'Verified':kind==='estimated'?'Estimated':'Approx.';}
 function serviceFeature(service){
   const coordinates=serviceCoordinates(service);
-  return coordinates?{type:'Feature',properties:{id:service.id,mode:service.mode,pathKind:displayPathKind(service),routeColor:routeColor(service)},geometry:{type:'LineString',coordinates}}:null;
+  return coordinates?{type:'Feature',properties:{id:service.id,corridorId:service.corridorId,mode:service.mode,pathKind:displayPathKind(service),routeColor:routeColor(service)},geometry:{type:'LineString',coordinates}}:null;
 }
-function visibleGeoJson(){return{type:'FeatureCollection',features:filteredServices().map(serviceFeature).filter(Boolean)};}
+function visibleGeoJson(){return{type:'FeatureCollection',features:backgroundServices().map(serviceFeature).filter(Boolean)};}
 function nodeGeoJson(){return{type:'FeatureCollection',features:[...nodeIndex.values()].filter(hasLocation).map(node=>({type:'Feature',properties:{id:node.id,name:node.name},geometry:{type:'Point',coordinates:[node.location.lng,node.location.lat]}}))};}
 function emptyFeatureCollection(){return{type:'FeatureCollection',features:[]};}
 function fitCountry(){map?.fitBounds(TT_BOUNDS,{padding:50,duration:0});}
@@ -90,30 +99,22 @@ async function fetchWithTimeout(url,options={},timeoutMs=7000){
   const controller=new AbortController();
   const external=options.signal;
   const forwardAbort=()=>controller.abort();
-  if(external){
-    if(external.aborted)controller.abort();
-    else external.addEventListener('abort',forwardAbort,{once:true});
-  }
+  if(external){if(external.aborted)controller.abort();else external.addEventListener('abort',forwardAbort,{once:true});}
   let timedOut=false;
   const timer=setTimeout(()=>{timedOut=true;controller.abort();},timeoutMs);
   try{return await fetch(url,{...options,signal:controller.signal});}
-  catch(error){
-    if(timedOut)throw new Error('Request timed out.');
-    throw error;
-  }finally{
-    clearTimeout(timer);
-    external?.removeEventListener('abort',forwardAbort);
-  }
+  catch(error){if(timedOut)throw new Error('Request timed out.');throw error;}
+  finally{clearTimeout(timer);external?.removeEventListener('abort',forwardAbort);}
 }
 async function getJson(url){const response=await fetchWithTimeout(url,{cache:'no-cache'},7000);if(!response.ok)throw new Error(`${url} returned ${response.status}`);return response.json();}
 
 function renderList(){
-  const list=$('#serviceList'),visible=filteredServices();
-  $('#serviceCount').textContent=visible.length;
-  if(!visible.length){list.innerHTML='<p class="loading">No services yet.</p>';return;}
-  list.innerHTML=visible.map(service=>{
-    const[origin,destination]=serviceNodes(service);
-    return`<article class="service-card ${service.id===activeServiceId?'is-active':''}" data-service-id="${escapeHtml(service.id)}" tabindex="0"><span class="route-swatch" style="--route-color:${routeColor(service)}"></span><div><h3>${escapeHtml(origin?.name||service.originNodeId)} → ${escapeHtml(destination?.name||service.destinationNodeId)}</h3><div class="service-meta"><span>${escapeHtml(modeLabel(service.mode))}</span><span>${escapeHtml(displayPathLabel(service))}</span></div></div></article>`;
+  const list=$('#serviceList'),groups=corridorGroups();
+  $('#serviceCount').textContent=groups.length;
+  if(!groups.length){list.innerHTML='<p class="loading">No services yet.</p>';return;}
+  list.innerHTML=groups.map(group=>{
+    const service=group.representative,[origin,destination]=serviceNodes(service),arrow=corridorIsBidirectional(group)?'↔':'→';
+    return`<article class="service-card ${service.id===activeServiceId?'is-active':''}" data-service-id="${escapeHtml(service.id)}" tabindex="0"><span class="route-swatch" style="--route-color:${routeColor(service)}"></span><div><h3>${escapeHtml(origin?.name||service.originNodeId)} ${arrow} ${escapeHtml(destination?.name||service.destinationNodeId)}</h3><div class="service-meta"><span>${escapeHtml(modeLabel(service.mode))}</span><span>${group.patterns.length} direction${group.patterns.length===1?'':'s'}</span></div></div></article>`;
   }).join('');
   list.querySelectorAll('.service-card').forEach(card=>{
     const open=async()=>{const service=services.find(item=>item.id===card.dataset.serviceId);if(!service)return;await estimateRoadGeometry(service);selectService(service.id,true);};
@@ -134,8 +135,7 @@ function selectService(id,zoom=false){
 }
 function setupModeTabs(){
   $('#modeTabs').querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{
-    invalidatePlanner();
-    activeMode=button.dataset.mode;
+    invalidatePlanner();activeMode=button.dataset.mode;
     $('#modeTabs').querySelectorAll('button').forEach(item=>item.classList.toggle('is-active',item===button));
     clearJourney();renderList();refreshMapData();
     $('#plannerStatus').textContent=activeMode==='all'?'All modes':`${modeLabel(activeMode)} only`;
@@ -162,9 +162,7 @@ async function autocompletePlaces(query,signal){
     const key=`${place.name.toLowerCase()}|${place.lat.toFixed(4)}|${place.lng.toFixed(4)}`;if(seen.has(key))return false;seen.add(key);return true;
   });
 }
-function chooseSuggestion(inputId,menu,place){
-  const input=$(`#${inputId}`);input.value=place.name;selectedPlaces.set(inputId,{...place,inputValue:place.name});menu.hidden=true;invalidatePlanner();
-}
+function chooseSuggestion(inputId,menu,place){const input=$(`#${inputId}`);input.value=place.name;selectedPlaces.set(inputId,{...place,inputValue:place.name});menu.hidden=true;invalidatePlanner();}
 function renderSuggestions(inputId,menuId,places){
   const menu=$(`#${menuId}`);if(!places.length){menu.hidden=true;menu.innerHTML='';return;}
   menu.innerHTML=places.map((place,index)=>`<button type="button" role="option" data-index="${index}"><strong>${escapeHtml(place.name.split(',')[0])}</strong><span>${escapeHtml(place.name.split(',').slice(1).join(',').trim()||'Trinidad & Tobago')}</span></button>`).join('');menu.hidden=false;
@@ -177,23 +175,14 @@ function setupAutocomplete(inputId,menuId){
     const query=input.value.trim();if(query.length<2){menu.hidden=true;menu.innerHTML='';return;}
     timer=setTimeout(async()=>{
       const controller=new AbortController();autocompleteControllers.set(inputId,controller);
-      try{
-        const places=await autocompletePlaces(query,controller.signal);
-        if(input.value.trim()!==query)return;
-        currentPlaces=places;renderSuggestions(inputId,menuId,places);
-      }catch(error){if(error.name!=='AbortError'){menu.hidden=true;menu.innerHTML='';}}
+      try{const places=await autocompletePlaces(query,controller.signal);if(input.value.trim()!==query)return;currentPlaces=places;renderSuggestions(inputId,menuId,places);}catch(error){if(error.name!=='AbortError'){menu.hidden=true;menu.innerHTML='';}}
     },350);
   });
   input.addEventListener('keydown',event=>{
     const buttons=[...menu.querySelectorAll('button')];
     if(event.key==='Escape'){menu.hidden=true;activeIndex=-1;return;}
-    if((event.key==='ArrowDown'||event.key==='ArrowUp')&&buttons.length){
-      event.preventDefault();activeIndex=event.key==='ArrowDown'?Math.min(activeIndex+1,buttons.length-1):Math.max(activeIndex-1,0);buttons.forEach((button,index)=>button.classList.toggle('is-keyboard-active',index===activeIndex));buttons[activeIndex]?.scrollIntoView({block:'nearest'});return;
-    }
-    if(event.key==='Enter'){
-      if(!menu.hidden&&activeIndex>=0&&currentPlaces[activeIndex]){event.preventDefault();chooseSuggestion(inputId,menu,currentPlaces[activeIndex]);return;}
-      event.preventDefault();$('#planButton').click();
-    }
+    if((event.key==='ArrowDown'||event.key==='ArrowUp')&&buttons.length){event.preventDefault();activeIndex=event.key==='ArrowDown'?Math.min(activeIndex+1,buttons.length-1):Math.max(activeIndex-1,0);buttons.forEach((button,index)=>button.classList.toggle('is-keyboard-active',index===activeIndex));buttons[activeIndex]?.scrollIntoView({block:'nearest'});return;}
+    if(event.key==='Enter'){if(!menu.hidden&&activeIndex>=0&&currentPlaces[activeIndex]){event.preventDefault();chooseSuggestion(inputId,menu,currentPlaces[activeIndex]);return;}event.preventDefault();$('#planButton').click();}
   });
   input.addEventListener('blur',()=>setTimeout(()=>{menu.hidden=true;activeIndex=-1;},120));
 }
@@ -206,11 +195,7 @@ async function geocodePlace(query){
   const rows=await response.json();if(!rows.length)throw new Error(`Could not find “${cleaned}”.`);
   const place={name:rows[0].display_name,lat:+rows[0].lat,lng:+rows[0].lon};cache[key]=place;writeGeoCache(cache);return place;
 }
-async function resolvePlace(inputId){
-  const input=$(`#${inputId}`),known=findNodeByInput(input.value);if(known)return{name:known.name,...known.location};
-  const selected=selectedPlaces.get(inputId);if(selected&&selected.inputValue===input.value)return selected;
-  return geocodePlace(input.value);
-}
+async function resolvePlace(inputId){const input=$(`#${inputId}`),known=findNodeByInput(input.value);if(known)return{name:known.name,...known.location};const selected=selectedPlaces.get(inputId);if(selected&&selected.inputValue===input.value)return selected;return geocodePlace(input.value);}
 
 async function estimateRoadGeometry(service){
   if(!ROAD_MODES.has(service.mode)||service.geometry?.length)return;
@@ -225,10 +210,9 @@ async function hydrateDisplayGeometry(list){for(const service of [...new Map(lis
 function nearestNode(place){let best=null;for(const node of nodeIndex.values()){if(!hasLocation(node))continue;const km=kmBetween(place,node.location);if(!best||km<best.km)best={node,km};}return best;}
 
 function journeyGeoJson(from,to,connected){
-  const{fromNear,toNear,fromAccess,toAccess,legs}=connected;
-  const features=[];
+  const{fromNear,toNear,fromAccess,toAccess,legs}=connected;const features=[];
   if(fromAccess.mode!=='none')features.push({type:'Feature',properties:{kind:'access',accessMode:fromAccess.mode},geometry:{type:'LineString',coordinates:[[from.lng,from.lat],[fromNear.node.location.lng,fromNear.node.location.lat]]}});
-  for(const leg of legs){const coordinates=serviceCoordinates(leg.service);if(coordinates)features.push({type:'Feature',properties:{kind:'transit',routeColor:routeColor(leg.service),pathKind:displayPathKind(leg.service)},geometry:{type:'LineString',coordinates:leg.service.originNodeId===leg.from?coordinates:[...coordinates].reverse()}});}
+  for(const leg of legs){const coordinates=serviceCoordinates(leg.service);if(coordinates)features.push({type:'Feature',properties:{kind:'transit',routeColor:routeColor(leg.service),pathKind:displayPathKind(leg.service)},geometry:{type:'LineString',coordinates}});}
   if(toAccess.mode!=='none')features.push({type:'Feature',properties:{kind:'access',accessMode:toAccess.mode},geometry:{type:'LineString',coordinates:[[toNear.node.location.lng,toNear.node.location.lat],[to.lng,to.lat]]}});
   return{type:'FeatureCollection',features};
 }
@@ -243,8 +227,7 @@ function showNoRouteMap(from,to){
   const bounds=new maplibregl.LngLatBounds([from.lng,from.lat],[to.lng,to.lat]);map.fitBounds(bounds,{padding:90,maxZoom:12,duration:350});
 }
 function renderJourney(connected){
-  const{fromNear,toNear,fromAccess,toAccess,legs,estimatedMinutes}=connected;
-  const panel=$('#detailPanel');panel.hidden=false;
+  const{fromNear,toNear,fromAccess,toAccess,legs,estimatedMinutes}=connected;const panel=$('#detailPanel');panel.hidden=false;
   const knownFare=legs.reduce((sum,leg)=>sum+(Number.isFinite(leg.service.fareTTD)?leg.service.fareTTD:0),0),allFaresKnown=legs.length>0&&legs.every(leg=>Number.isFinite(leg.service.fareTTD)),transfers=Math.max(0,legs.length-1);
   let html=`<div class="journey-summary"><p class="eyebrow">Route</p><h2>${escapeHtml($('#fromInput').value)} → ${escapeHtml($('#toInput').value)}</h2><div class="journey-kpis"><div><strong>${formatMinutes(estimatedMinutes)}</strong><span>est. trip</span></div><div><strong>${transfers}</strong><span>transfer${transfers===1?'':'s'}</span></div><div><strong>${allFaresKnown?`TT$${knownFare}`:'—'}</strong><span>transit fare</span></div></div></div>`;
   const first=accessCopy(fromAccess,fromNear.node.name,false);if(first)html+=`<div class="journey-leg access-leg"><span class="leg-icon">${fromAccess.mode==='walk'?'↟':'●'}</span><div><h3>${escapeHtml(first.title)}</h3><p>${escapeHtml(first.detail)}</p></div></div>`;
@@ -260,17 +243,14 @@ function setupPlanner(){
     const status=$('#plannerStatus'),button=$('#planButton'),requestId=++plannerRequestId;button.disabled=true;status.textContent='Finding route…';
     try{
       const knownFrom=findNodeByInput($('#fromInput').value),knownTo=findNodeByInput($('#toInput').value);
-      const from=await resolvePlace('fromInput');ensureCurrent(requestId);
-      const to=await resolvePlace('toInput');ensureCurrent(requestId);
+      const from=await resolvePlace('fromInput');ensureCurrent(requestId);const to=await resolvePlace('toInput');ensureCurrent(requestId);
       if(kmBetween(from,to)<0.03){clearJourney();status.textContent='Start and destination are the same place.';return;}
-      const usableServices=routingServices();
-      const connected=chooseConnectedJourney({fromPlace:from,toPlace:to,nodes:nodeIndex,services:usableServices,knownFrom,knownTo,candidateLimit:10,maxAccessKm:20,transferPenaltyMinutes:10});
-      ensureCurrent(requestId);
+      const connected=chooseConnectedJourney({fromPlace:from,toPlace:to,nodes:nodeIndex,services:routingServices(),knownFrom,knownTo,candidateLimit:10,maxAccessKm:20,transferPenaltyMinutes:10});ensureCurrent(requestId);
       if(!connected){showNoRouteMap(from,to);status.textContent='No route in the current network.';return;}
       await hydrateDisplayGeometry(connected.legs.map(leg=>leg.service));ensureCurrent(requestId);
       showJourneyMap(from,to,connected);renderJourney(connected);status.textContent=`${formatMinutes(connected.estimatedMinutes)} · ${connected.legs.length} leg${connected.legs.length===1?'':'s'}`;
     }catch(error){if(error.name!=='AbortError'){console.error(error);status.textContent=error.message;}}
-    finally{if(requestId===plannerRequestId)button.disabled=false;else button.disabled=false;}
+    finally{button.disabled=false;}
   });
 }
 
