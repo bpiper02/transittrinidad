@@ -1,9 +1,11 @@
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-gl.mjs';
 import { chooseJourneyOptions, kmBetween } from './src/routing-core.mjs';
+import { formatServiceDays, nextDepartures } from './src/schedule-core.mjs';
 
 const nodeIndex = new Map();
 let services = [];
 let transfers = [];
+let schedules = [];
 let activeMode = 'all';
 let activeServiceId = null;
 let map;
@@ -66,6 +68,17 @@ function corridorIsBidirectional(group){
 function backgroundServices(){ return corridorGroups().map(group=>group.representative); }
 function hasLocation(node){ return node?.location&&Number.isFinite(node.location.lat)&&Number.isFinite(node.location.lng); }
 function serviceNodes(service){ return [nodeIndex.get(service.originNodeId),nodeIndex.get(service.destinationNodeId)]; }
+function serviceSchedule(serviceId){ return schedules.find(schedule=>schedule.serviceId===serviceId)||null; }
+function scheduleHtml(service){
+  const schedule=serviceSchedule(service.id);
+  if(!schedule)return'';
+  const days=formatServiceDays(schedule.serviceDays);
+  const departures=nextDepartures(schedule,new Date(),3);
+  if(!departures.length){
+    return `<section class="schedule-block"><p class="eyebrow">Schedule</p><strong>Runs ${escapeHtml(days)}</strong><p>Exact departure times are unavailable from PTSC.</p><span class="schedule-badge">Scheduled · not live</span></section>`;
+  }
+  return `<section class="schedule-block"><p class="eyebrow">Next scheduled departures</p><div class="departure-times">${departures.map(item=>`<strong>${escapeHtml(item.label)}</strong>`).join('')}</div><p>Published timetable for ${escapeHtml(days)}. Confirm before travelling.</p><span class="schedule-badge">Scheduled · not live</span></section>`;
+}
 function nodeCoordinates(id){
   const node=nodeIndex.get(id);
   return hasLocation(node)?[node.location.lng,node.location.lat]:null;
@@ -207,7 +220,7 @@ function renderDetail(service){
   const panel=$('#detailPanel'),[origin,destination]=serviceNodes(service);
   const fare=Number.isFinite(service.fareTTD)?`TT$${service.fareTTD}`:'Fare unavailable';
   panel.hidden=false;
-  panel.innerHTML=`<div class="journey-summary"><div class="route-title-row"><span class="route-swatch large" style="--route-color:${routeColor(service)}"></span><div><p class="eyebrow">${escapeHtml(modeLabel(service.mode))}</p><h2>${escapeHtml(origin?.name)} → ${escapeHtml(destination?.name)}</h2></div></div><p class="service-line">${fare} · ${escapeHtml(displayPathLabel(service))}</p></div>`;
+  panel.innerHTML=`<div class="journey-summary"><div class="route-title-row"><span class="route-swatch large" style="--route-color:${routeColor(service)}"></span><div><p class="eyebrow">${escapeHtml(modeLabel(service.mode))}</p><h2>${escapeHtml(origin?.name)} → ${escapeHtml(destination?.name)}</h2></div></div><p class="service-line">${fare} · ${escapeHtml(displayPathLabel(service))}</p></div>${scheduleHtml(service)}`;
 }
 function selectService(id,zoom=false){
   const service=services.find(item=>item.id===id);
@@ -474,7 +487,9 @@ function renderJourney(connected,options=[],selectedIndex=0){
       continue;
     }
     const fare=Number.isFinite(step.service.fareTTD)?` · TT$${step.service.fareTTD}`:'';
-    html+=`<div class="journey-leg"><span class="leg-route" style="--route-color:${routeColor(step.service)}"></span><div><h3>${escapeHtml(origin?.name||step.from)} → ${escapeHtml(destination?.name||step.to)}</h3><p>${escapeHtml(modeLabel(step.service.mode))}${fare}</p></div></div>`;
+    const schedule=serviceSchedule(step.service.id),departures=nextDepartures(schedule,new Date(),1);
+    const scheduleCopy=departures.length?` · Next scheduled ${departures[0].label}`:schedule?` · Runs ${formatServiceDays(schedule.serviceDays)}`:'';
+    html+=`<div class="journey-leg"><span class="leg-route" style="--route-color:${routeColor(step.service)}"></span><div><h3>${escapeHtml(origin?.name||step.from)} → ${escapeHtml(destination?.name||step.to)}</h3><p>${escapeHtml(modeLabel(step.service.mode))}${fare}${escapeHtml(scheduleCopy)}</p></div></div>`;
   }
 
   const last=accessCopy(toAccess,toNear.node.name,true);
@@ -613,14 +628,16 @@ function addMapLayers(){
 
 async function start(){
   try{
-    const [nodesData,servicesData,transfersData]=await Promise.all([
+    const [nodesData,servicesData,transfersData,schedulesData]=await Promise.all([
       getJson('./data/nodes.json'),
       getJson('./data/services.json'),
-      getJson('./data/transfers.json')
+      getJson('./data/transfers.json'),
+      getJson('./data/schedules.json')
     ]);
     nodesData.forEach(node=>nodeIndex.set(node.id,node));
     services=servicesData;
     transfers=transfersData;
+    schedules=schedulesData;
     renderList();
     setupModeTabs();
     setupTray();

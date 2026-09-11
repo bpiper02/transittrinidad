@@ -4,6 +4,8 @@ export const GEOMETRY_CONFIDENCE = new Set(['verified_path','partial_path','endp
 export const CLAIM_CONFIDENCE = new Set(['official_current','official_historical','community_verified','reported','unknown']);
 export const LOCATION_CONFIDENCE = new Set(['verified_station','mapped_station','approximate_area']);
 export const TRANSFER_CONFIDENCE = new Set(['verified_walk','estimated_walk']);
+export const SCHEDULE_STATUS = new Set(['published_times','times_unavailable']);
+export const SERVICE_DAYS = new Set(['mon','tue','wed','thu','fri','sat','sun']);
 
 function isNonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -78,8 +80,28 @@ export function validateTransfer(transfer) {
   return true;
 }
 
-export function validateDataset({nodes,services,transfers=[]}) {
-  if (!Array.isArray(nodes) || !Array.isArray(services) || !Array.isArray(transfers)) throw new Error('nodes, services and transfers must be arrays');
+export function validateSchedule(schedule) {
+  if (!schedule || typeof schedule !== 'object') throw new Error('schedule is required');
+  if (!isNonEmpty(schedule.id)) throw new Error('schedule.id is required');
+  if (!isNonEmpty(schedule.serviceId)) throw new Error(`schedule ${schedule.id} needs serviceId`);
+  if (!isNonEmpty(schedule.timezone)) throw new Error(`schedule ${schedule.id} needs timezone`);
+  if (!SCHEDULE_STATUS.has(schedule.status)) throw new Error(`invalid schedule status for ${schedule.id}`);
+  if (!CLAIM_CONFIDENCE.has(schedule.confidence)) throw new Error(`invalid schedule confidence for ${schedule.id}`);
+  if (!Array.isArray(schedule.serviceDays) || schedule.serviceDays.length === 0 || schedule.serviceDays.some(day => !SERVICE_DAYS.has(day))) throw new Error(`invalid serviceDays for ${schedule.id}`);
+  if (new Set(schedule.serviceDays).size !== schedule.serviceDays.length) throw new Error(`duplicate serviceDays for ${schedule.id}`);
+  if (!Array.isArray(schedule.departureTimes)) throw new Error(`schedule ${schedule.id} needs departureTimes`);
+  if (schedule.departureTimes.some(time => !/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(time))) throw new Error(`invalid departure time for ${schedule.id}`);
+  if ([...schedule.departureTimes].sort().join('|') !== schedule.departureTimes.join('|')) throw new Error(`departureTimes must be sorted for ${schedule.id}`);
+  if (new Set(schedule.departureTimes).size !== schedule.departureTimes.length) throw new Error(`duplicate departureTimes for ${schedule.id}`);
+  if (schedule.status === 'published_times' && schedule.departureTimes.length === 0) throw new Error(`published schedule ${schedule.id} needs departureTimes`);
+  if (schedule.status === 'times_unavailable' && schedule.departureTimes.length !== 0) throw new Error(`unavailable schedule ${schedule.id} cannot claim departureTimes`);
+  if (!Array.isArray(schedule.sources) || schedule.sources.length === 0) throw new Error(`schedule ${schedule.id} needs at least one source`);
+  schedule.sources.forEach(validateSource);
+  return true;
+}
+
+export function validateDataset({nodes,services,transfers=[],schedules=[]}) {
+  if (!Array.isArray(nodes) || !Array.isArray(services) || !Array.isArray(transfers) || !Array.isArray(schedules)) throw new Error('nodes, services, transfers and schedules must be arrays');
   const nodeIds = new Set();
   for (const node of nodes) {
     validateNode(node);
@@ -106,6 +128,16 @@ export function validateDataset({nodes,services,transfers=[]}) {
     const pair=`${transfer.fromNodeId}->${transfer.toNodeId}`;
     if (transferPairs.has(pair)) throw new Error(`duplicate transfer pair ${pair}`);
     transferPairs.add(pair);
+  }
+  const scheduleIds = new Set();
+  const scheduledServices = new Set();
+  for (const schedule of schedules) {
+    validateSchedule(schedule);
+    if (scheduleIds.has(schedule.id)) throw new Error(`duplicate schedule id ${schedule.id}`);
+    scheduleIds.add(schedule.id);
+    if (!serviceIds.has(schedule.serviceId)) throw new Error(`unknown scheduled service ${schedule.serviceId}`);
+    if (scheduledServices.has(schedule.serviceId)) throw new Error(`duplicate schedule for service ${schedule.serviceId}`);
+    scheduledServices.add(schedule.serviceId);
   }
   return true;
 }

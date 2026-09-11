@@ -130,5 +130,29 @@
     "originNodeId":"ptsc-san-fernando","destinationNodeId":"ptsc-uwi-st-augustine","stopNodeIds":["ptsc-san-fernando","ptsc-uwi-st-augustine"],
     "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown",
     "sources":[{"name":"PTSC San Fernando / UWI route","url":"https://ptsc.co.tt/route/san-fernando-uwi/","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"ptsc-arima-to-la-horquetta","corridorId":"ptsc-arima-la-horquetta","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-arima","destinationNodeId":"ptsc-la-horquetta","stopNodeIds":["ptsc-arima","ptsc-la-horquetta"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":3,"fareConfidence":"official_historical","scheduleConfidence":"official_current",
+    "sources":[{"name":"PTSC Arima / La Horquetta route","url":"https://ptsc.co.tt/routes/arima-la-horquetta/","checkedAt":"2026-09-11"},{"name":"Official PTSC Arima services notice","url":"https://www.facebook.com/PTSCTT/posts/211583190397634/","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"ptsc-arima-to-st-helena-carapo","corridorId":"ptsc-arima-st-helena-carapo","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-arima","destinationNodeId":"ptsc-st-helena-carapo","stopNodeIds":["ptsc-arima","ptsc-st-helena-carapo"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":3,"fareConfidence":"official_historical","scheduleConfidence":"official_current",
+    "sources":[{"name":"PTSC Arima / St Helena via Carapo route","url":"https://ptsc.co.tt/routes/arima-carapo/","checkedAt":"2026-09-11"},{"name":"Official PTSC Arima services notice","url":"https://www.facebook.com/PTSCTT/posts/211583190397634/","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"ptsc-arima-to-aripo","corridorId":"ptsc-arima-aripo","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-arima","destinationNodeId":"ptsc-aripo","stopNodeIds":["ptsc-arima","ptsc-aripo"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":3,"fareConfidence":"official_historical","scheduleConfidence":"official_current",
+    "sources":[{"name":"PTSC Arima / Aripo route","url":"https://ptsc.co.tt/routes/arima-aripo/","checkedAt":"2026-09-11"},{"name":"Official PTSC Arima services notice","url":"https://www.facebook.com/PTSCTT/posts/211583190397634/","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"ptsc-arima-to-wallerfield","corridorId":"ptsc-arima-wallerfield","mode":"ptsc","operator":"PTSC",
+    "originNodeId":"ptsc-arima","destinationNodeId":"ptsc-wallerfield","stopNodeIds":["ptsc-arima","ptsc-wallerfield"],
+    "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":3,"fareConfidence":"official_historical","scheduleConfidence":"official_current",
+    "sources":[{"name":"PTSC Arima / Wallerfield route","url":"https://ptsc.co.tt/routes/arima-wallerfield/","checkedAt":"2026-09-11"},{"name":"Official PTSC Arima services notice","url":"https://www.facebook.com/PTSCTT/posts/211583190397634/","checkedAt":"2026-09-11"}]
   }
 ]

@@ -110,8 +110,8 @@ const falseZeroLeg=chooseConnectedJourney({fromPlace:{lat:10.40,lng:-61.46},toPl
 assert.equal(falseZeroLeg,null,'two arbitrary places must not become a fake zero-transit journey merely because they snap to the same hub');
 
 const corridorIds=new Set(services.map(service=>service.corridorId));
-assert.equal(corridorIds.size,12,'current dataset should represent 12 human-facing corridors');
-assert.equal(services.length,22,'current dataset should represent 22 directed service patterns');
+assert.equal(corridorIds.size,16,'current dataset should represent 16 human-facing corridors');
+assert.equal(services.length,26,'current dataset should represent 26 directed service patterns');
 assert.equal(transfers.length,8,'current transfer dataset should contain the approved directional terminal walks');
 
 console.log(`routing core tests passed: ${nodesArray.length} nodes, ${corridorIds.size} corridors, ${services.length} directed patterns, ${transfers.length} transfers`);

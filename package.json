@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --check public/app.js && node tests/data-contract.mjs && node tests/routing-core.mjs && node tests/ui-contract.mjs && node tests/atlas-ui.mjs"
+    "test": "node --check public/app.js && node tests/data-contract.mjs && node tests/schedule-core.mjs && node tests/routing-core.mjs && node tests/ui-contract.mjs && node tests/atlas-ui.mjs"
   }
 }

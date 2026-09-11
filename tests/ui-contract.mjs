@@ -31,6 +31,9 @@ assert.match(app,/if\(options\.length>1\)/,'route chooser must stay hidden when 
 assert.match(app,/routeOptionLabel/,'route alternatives need rider-facing labels');
 assert.match(app,/data-route-option/,'route alternatives must be selectable');
 assert.match(app,/Sailing times are not yet included/,'water routes need a schedule caveat until time-aware routing exists');
+assert.match(app,/nextDepartures/,'published timetables should produce next scheduled departures');
+assert.match(app,/Scheduled · not live/,'schedule labels must not imply live tracking');
+assert.doesNotMatch(app,/\bOn time\b/,'static schedules cannot claim real-time punctuality');
 assert.match(app,/let currentTripContext = null/,'resolved trip context must persist independently from a selected route option');
 assert.match(app,/async function planCurrentTrip/,'route calculation should be reusable outside the Route button handler');
 assert.match(app,/planCurrentTrip\(\{reuseContext:true\}\)/,'mode changes must immediately re-plan an already resolved trip');
