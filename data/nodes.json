@@ -88,5 +88,36 @@
       {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-10"},
       {"name":"OpenStreetMap-derived terminal coordinates","url":"https://www.openstreetmap.org/way/489636163","checkedAt":"2026-09-10"}
     ]
+  },
+  {
+    "id": "ptsc-point-fortin",
+    "name": "Point Fortin PTSC",
+    "kind": "terminal",
+    "location": {"lat":10.1775,"lng":-61.68623},
+    "sources": [
+      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-11"},
+      {"name":"OpenStreetMap-derived Point Fortin bus stop","url":"https://www.openstreetmap.org/node/3455531273","checkedAt":"2026-09-11"}
+    ]
+  },
+  {
+    "id": "ptsc-curepe",
+    "name": "Curepe Transit Mall",
+    "kind": "terminal",
+    "location": {"lat":10.65003,"lng":-61.40998},
+    "sources": [
+      {"name":"PTSC Bus Stops and Schedules","url":"https://ptsc.co.tt/routes-and-schedules-2/schedules/","checkedAt":"2026-09-11"},
+      {"name":"OpenStreetMap-derived Curepe Priority Mall","url":"https://www.openstreetmap.org/way/129752535","checkedAt":"2026-09-11"}
+    ]
+  },
+  {
+    "id": "ptsc-uwi-st-augustine",
+    "name": "UWI St. Augustine",
+    "kind": "stop_zone",
+    "location": {"lat":10.64228,"lng":-61.39944},
+    "locationConfidence": "approximate_area",
+    "sources": [
+      {"name":"PTSC San Fernando / UWI route","url":"https://ptsc.co.tt/route/san-fernando-uwi/","checkedAt":"2026-09-11"},
+      {"name":"OpenStreetMap-derived UWI St. Augustine campus","url":"https://www.openstreetmap.org/way/100856792","checkedAt":"2026-09-11"}
+    ]
   }
 ]
