@@ -6,6 +6,7 @@ const nodesArray=JSON.parse(await readFile(new URL('../data/nodes.json',import.m
 const services=JSON.parse(await readFile(new URL('../data/services.json',import.meta.url)));
 const transfers=JSON.parse(await readFile(new URL('../data/transfers.json',import.meta.url)));
 const nodes=new Map(nodesArray.map(node=>[node.id,node]));
+const ptscServices=services.filter(service=>service.mode==='ptsc');
 
 assert.ok(findJourney('ptsc-chaguanas','ptsc-pos-transit-centre',services,nodes),'Chaguanas must connect to Port of Spain through a directed pattern');
 assert.ok(findJourney('ptsc-pos-transit-centre','ptsc-chaguanas',services,nodes),'Port of Spain must connect back through its own directed pattern');
@@ -14,9 +15,16 @@ assert.equal(findJourney('ptsc-chaguanas','missing-node',services,nodes),null,'d
 assert.ok(findJourney('ptsc-pos-transit-centre','ptsc-point-fortin',services,nodes),'POS should connect to Point Fortin');
 assert.ok(findJourney('ptsc-point-fortin','ptsc-san-fernando',services,nodes),'Point Fortin should connect back to San Fernando');
 assert.ok(findJourney('ptsc-chaguanas','ptsc-curepe',services,nodes),'official Chaguanas to Curepe direction should route');
-assert.equal(findJourney('ptsc-curepe','ptsc-chaguanas',services,nodes),null,'reverse Curepe to Chaguanas must not be invented without a reverse pattern');
+assert.equal(findJourney('ptsc-curepe','ptsc-chaguanas',ptscServices,nodes),null,'reverse Curepe to Chaguanas must not be invented within the PTSC data without a reverse pattern');
 assert.ok(findJourney('ptsc-san-fernando','ptsc-uwi-st-augustine',services,nodes),'official San Fernando to UWI direction should route');
 assert.equal(findJourney('ptsc-uwi-st-augustine','ptsc-san-fernando',services,nodes),null,'reverse UWI to San Fernando must not be invented without a reverse pattern');
+
+const maxiOnly=services.filter(service=>service.mode==='maxi');
+const eastMaxiJourney=findJourney('ptsc-pos-transit-centre','ptsc-sangre-grande',maxiOnly,nodes);
+assert.ok(eastMaxiJourney,'the Red Band corridor must be usable as a transit journey');
+assert.ok(eastMaxiJourney.every(step=>step.service.mode==='maxi'));
+assert.ok(findJourney('maxi-diego-martin','ptsc-pos-transit-centre',maxiOnly,nodes,{transfers}),'the Yellow Band hub must connect into the wider network through its walking transfer');
+assert.ok(findJourney('maxi-mayaro','ptsc-san-fernando',maxiOnly,nodes),'the Black Band corridor must be traversable through Princes Town');
 
 const noTransferFerry=findJourney('ptsc-chaguanas','scarborough-ferry-terminal',services,nodes);
 assert.equal(noTransferFerry,null,'ferry should remain disconnected from PTSC if walking transfer links are absent');
@@ -110,8 +118,8 @@ const falseZeroLeg=chooseConnectedJourney({fromPlace:{lat:10.40,lng:-61.46},toPl
 assert.equal(falseZeroLeg,null,'two arbitrary places must not become a fake zero-transit journey merely because they snap to the same hub');
 
 const corridorIds=new Set(services.map(service=>service.corridorId));
-assert.equal(corridorIds.size,16,'current dataset should represent 16 human-facing corridors');
-assert.equal(services.length,26,'current dataset should represent 26 directed service patterns');
-assert.equal(transfers.length,8,'current transfer dataset should contain the approved directional terminal walks');
+assert.equal(corridorIds.size,23,'current dataset should represent 23 human-facing corridors');
+assert.equal(services.length,40,'current dataset should represent 40 directed service patterns');
+assert.equal(transfers.length,10,'current transfer dataset should contain the approved directional terminal walks');
 
 console.log(`routing core tests passed: ${nodesArray.length} nodes, ${corridorIds.size} corridors, ${services.length} directed patterns, ${transfers.length} transfers`);

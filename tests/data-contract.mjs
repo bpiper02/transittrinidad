@@ -20,6 +20,7 @@ assert.throws(()=>validateService({...base,corridorId:''}),/corridorId/);
 assert.throws(()=>validateService({...base,bidirectional:true}),/bidirectional is not allowed/);
 assert.throws(()=>validateService({...base,stopNodeIds:['b','a']}),/must start at origin and end at destination/);
 assert.throws(()=>validateService({...base,geometryConfidence:'verified_path',geometry:null}),/must include geometry/);
+assert.throws(()=>validateService({...base,availability:{kind:'scheduled',note:'x'}}),/invalid availability/);
 assert.throws(() => validateSource({name:'x',url:'https://example.com',checkedAt:'2026-02-31'}), /real YYYY-MM-DD date/);
 
 const transferBase={

@@ -154,5 +154,89 @@
     "originNodeId":"ptsc-arima","destinationNodeId":"ptsc-wallerfield","stopNodeIds":["ptsc-arima","ptsc-wallerfield"],
     "serviceConfidence":"verified_service","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":3,"fareConfidence":"official_historical","scheduleConfidence":"official_current",
     "sources":[{"name":"PTSC Arima / Wallerfield route","url":"https://ptsc.co.tt/routes/arima-wallerfield/","checkedAt":"2026-09-11"},{"name":"Official PTSC Arima services notice","url":"https://www.facebook.com/PTSCTT/posts/211583190397634/","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-red-pos-to-sangre-grande","corridorId":"maxi-red-pos-sangre-grande","mode":"maxi","operator":"Route 2 Red Band Maxi Taxi",
+    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-sangre-grande","stopNodeIds":["ptsc-pos-transit-centre","ptsc-arima","ptsc-sangre-grande"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
+    "sources":[{"name":"Maxi-Taxi Act route area 2","url":"https://laws.gov.tt/","checkedAt":"2026-09-11"},{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-red-sangre-grande-to-pos","corridorId":"maxi-red-pos-sangre-grande","mode":"maxi","operator":"Route 2 Red Band Maxi Taxi",
+    "originNodeId":"ptsc-sangre-grande","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-sangre-grande","ptsc-arima","ptsc-pos-transit-centre"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
+    "sources":[{"name":"Maxi-Taxi Act route area 2","url":"https://laws.gov.tt/","checkedAt":"2026-09-11"},{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-green-pos-to-san-fernando","corridorId":"maxi-green-pos-san-fernando","mode":"maxi","operator":"Route 3 Green Band Maxi Taxi",
+    "originNodeId":"ptsc-pos-transit-centre","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["ptsc-pos-transit-centre","ptsc-curepe","ptsc-chaguanas","ptsc-san-fernando"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
+    "sources":[{"name":"Maxi-Taxi Act route area 3","url":"https://laws.gov.tt/","checkedAt":"2026-09-11"},{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-green-san-fernando-to-pos","corridorId":"maxi-green-pos-san-fernando","mode":"maxi","operator":"Route 3 Green Band Maxi Taxi",
+    "originNodeId":"ptsc-san-fernando","destinationNodeId":"ptsc-pos-transit-centre","stopNodeIds":["ptsc-san-fernando","ptsc-chaguanas","ptsc-curepe","ptsc-pos-transit-centre"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
+    "sources":[{"name":"Maxi-Taxi Act route area 3","url":"https://laws.gov.tt/","checkedAt":"2026-09-11"},{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-yellow-pos-to-diego-martin","corridorId":"maxi-yellow-pos-diego-martin","mode":"maxi","operator":"Route 1 Yellow Band Maxi Taxi",
+    "originNodeId":"maxi-pos-western-hub","destinationNodeId":"maxi-diego-martin","stopNodeIds":["maxi-pos-western-hub","maxi-diego-martin"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"Destination Trinidad transport guide","url":"https://www.destinationtnt.com/","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-yellow-diego-martin-to-pos","corridorId":"maxi-yellow-pos-diego-martin","mode":"maxi","operator":"Route 1 Yellow Band Maxi Taxi",
+    "originNodeId":"maxi-diego-martin","destinationNodeId":"maxi-pos-western-hub","stopNodeIds":["maxi-diego-martin","maxi-pos-western-hub"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"Destination Trinidad transport guide","url":"https://www.destinationtnt.com/","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-black-san-fernando-to-princes-town","corridorId":"maxi-black-san-fernando-princes-town","mode":"maxi","operator":"Route 4 Black Band Maxi Taxi",
+    "originNodeId":"ptsc-san-fernando","destinationNodeId":"maxi-princes-town","stopNodeIds":["ptsc-san-fernando","maxi-princes-town"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-black-princes-town-to-san-fernando","corridorId":"maxi-black-san-fernando-princes-town","mode":"maxi","operator":"Route 4 Black Band Maxi Taxi",
+    "originNodeId":"maxi-princes-town","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["maxi-princes-town","ptsc-san-fernando"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-black-princes-town-to-mayaro","corridorId":"maxi-black-princes-town-mayaro","mode":"maxi","operator":"Route 4 Black Band Maxi Taxi",
+    "originNodeId":"maxi-princes-town","destinationNodeId":"maxi-mayaro","stopNodeIds":["maxi-princes-town","maxi-mayaro"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-black-mayaro-to-princes-town","corridorId":"maxi-black-princes-town-mayaro","mode":"maxi","operator":"Route 4 Black Band Maxi Taxi",
+    "originNodeId":"maxi-mayaro","destinationNodeId":"maxi-princes-town","stopNodeIds":["maxi-mayaro","maxi-princes-town"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-brown-san-fernando-to-point-fortin","corridorId":"maxi-brown-san-fernando-point-fortin","mode":"maxi","operator":"Route 5 Brown Band Maxi Taxi",
+    "originNodeId":"ptsc-san-fernando","destinationNodeId":"ptsc-point-fortin","stopNodeIds":["ptsc-san-fernando","ptsc-point-fortin"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-brown-point-fortin-to-san-fernando","corridorId":"maxi-brown-san-fernando-point-fortin","mode":"maxi","operator":"Route 5 Brown Band Maxi Taxi",
+    "originNodeId":"ptsc-point-fortin","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["ptsc-point-fortin","ptsc-san-fernando"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Confirm current fare and boarding point before travel."},
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-brown-san-fernando-to-siparia","corridorId":"maxi-brown-san-fernando-siparia","mode":"maxi","operator":"Route 5 Brown Band Maxi Taxi",
+    "originNodeId":"ptsc-san-fernando","destinationNodeId":"maxi-siparia","stopNodeIds":["ptsc-san-fernando","maxi-siparia"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-brown-siparia-to-san-fernando","corridorId":"maxi-brown-san-fernando-siparia","mode":"maxi","operator":"Route 5 Brown Band Maxi Taxi",
+    "originNodeId":"maxi-siparia","destinationNodeId":"ptsc-san-fernando","stopNodeIds":["maxi-siparia","ptsc-san-fernando"],
+    "serviceConfidence":"community_verified","geometryConfidence":"endpoints_only","geometry":null,"fareTTD":null,"fareConfidence":"unknown","scheduleConfidence":"unknown","availability":{"kind":"frequency_based","note":"No published timetable. Boarding zone is approximate."},
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"}]
   }
 ]

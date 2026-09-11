@@ -61,6 +61,7 @@ export function validateService(service) {
   if (service.estimatedMinutes != null && (!Number.isFinite(service.estimatedMinutes) || service.estimatedMinutes <= 0)) throw new Error(`invalid estimatedMinutes for ${service.id}`);
   if (service.geometry != null && (!Array.isArray(service.geometry) || service.geometry.length < 2 || service.geometry.some(point => !isLatLng(point)))) throw new Error(`invalid geometry for ${service.id}`);
   if (service.geometryConfidence === 'verified_path' && !service.geometry) throw new Error(`verified path ${service.id} must include geometry`);
+  if (service.availability != null && (!service.availability || typeof service.availability !== 'object' || !['frequency_based'].includes(service.availability.kind) || !isNonEmpty(service.availability.note))) throw new Error(`invalid availability for ${service.id}`);
   if (!Array.isArray(service.sources) || service.sources.length === 0) throw new Error(`service ${service.id} needs at least one source`);
   service.sources.forEach(validateSource);
   return true;

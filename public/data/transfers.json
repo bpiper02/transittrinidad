@@ -102,6 +102,13 @@
       {"name":"Mapped San Fernando Water Taxi Terminal coordinates","url":"https://www.openstreetmap.org/node/8745164784","checkedAt":"2026-09-11"},
       {"name":"Mapped San Fernando PTSC Terminus coordinates","url":"https://www.openstreetmap.org/way/835910886","checkedAt":"2026-09-11"}
     ]
+  },
+  {
+    "id":"walk-pos-transit-to-western-maxi","fromNodeId":"ptsc-pos-transit-centre","toNodeId":"maxi-pos-western-hub","mode":"walk","distanceKm":0.3,"estimatedMinutes":5,"confidence":"estimated_walk",
+    "sources":[{"name":"Trinidad transport overview","url":"https://en.wikipedia.org/wiki/Transport_in_Trinidad_and_Tobago","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"walk-western-maxi-to-pos-transit","fromNodeId":"maxi-pos-western-hub","toNodeId":"ptsc-pos-transit-centre","mode":"walk","distanceKm":0.3,"estimatedMinutes":5,"confidence":"estimated_walk",
+    "sources":[{"name":"Trinidad transport overview","url":"https://en.wikipedia.org/wiki/Transport_in_Trinidad_and_Tobago","checkedAt":"2026-09-11"}]
   }
 ]
-

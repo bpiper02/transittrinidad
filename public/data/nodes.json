@@ -163,5 +163,25 @@
       {"name":"PTSC Arima / Wallerfield route","url":"https://ptsc.co.tt/routes/arima-wallerfield/","checkedAt":"2026-09-11"},
       {"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Wallerfield%2C%20Trinidad","checkedAt":"2026-09-11"}
     ]
+  },
+  {
+    "id":"maxi-pos-western-hub","name":"Port of Spain Western Maxi Hub","kind":"stand","location":{"lat":10.6481,"lng":-61.5114},"locationConfidence":"approximate_area",
+    "sources":[{"name":"OpenStreetMap Port of Spain place search","url":"https://www.openstreetmap.org/search?query=Port%20of%20Spain%2C%20Trinidad","checkedAt":"2026-09-11"},{"name":"Trinidad transport overview","url":"https://en.wikipedia.org/wiki/Transport_in_Trinidad_and_Tobago","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-diego-martin","name":"Diego Martin Maxi Zone","kind":"stop_zone","location":{"lat":10.7208,"lng":-61.5548},"locationConfidence":"approximate_area",
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Diego%20Martin%2C%20Trinidad","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-princes-town","name":"Princes Town Maxi Zone","kind":"stop_zone","location":{"lat":10.2715,"lng":-61.3764},"locationConfidence":"approximate_area",
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Princes%20Town%2C%20Trinidad","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-mayaro","name":"Mayaro Maxi Zone","kind":"stop_zone","location":{"lat":10.2941,"lng":-61.1646},"locationConfidence":"approximate_area",
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Mayaro%2C%20Trinidad","checkedAt":"2026-09-11"}]
+  },
+  {
+    "id":"maxi-siparia","name":"Siparia Maxi Zone","kind":"stop_zone","location":{"lat":10.1454,"lng":-61.5075},"locationConfidence":"approximate_area",
+    "sources":[{"name":"Trinidad maxi route bands","url":"https://en.wikipedia.org/wiki/Maxi_taxi","checkedAt":"2026-09-11"},{"name":"OpenStreetMap place search","url":"https://www.openstreetmap.org/search?query=Siparia%2C%20Trinidad","checkedAt":"2026-09-11"}]
   }
 ]

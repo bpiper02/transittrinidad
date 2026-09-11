@@ -84,6 +84,10 @@ function scheduleHtml(service){
   }
   return `<section class="schedule-block"><p class="eyebrow">Scheduled departures</p>${picker}<div class="departure-times">${schedule.departureTimes.map(time=>`<strong>${escapeHtml(formatClock(time))}</strong>`).join('')}</div><p>Published timetable for ${escapeHtml(days)}. Confirm before travelling.</p><span class="schedule-badge">Scheduled · not live</span></section>`;
 }
+function availabilityHtml(service){
+  if(service.availability?.kind!=='frequency_based')return'';
+  return `<section class="schedule-block"><p class="eyebrow">Service pattern</p><strong>Frequency-based service</strong><p>${escapeHtml(service.availability.note||'No published timetable is available for this route.')}</p><span class="schedule-badge">No live vehicle tracking</span></section>`;
+}
 function nodeCoordinates(id){
   const node=nodeIndex.get(id);
   return hasLocation(node)?[node.location.lng,node.location.lat]:null;
@@ -225,7 +229,7 @@ function renderDetail(service){
   const panel=$('#detailPanel'),[origin,destination]=serviceNodes(service);
   const fare=Number.isFinite(service.fareTTD)?`TT$${service.fareTTD}`:'Fare unavailable';
   panel.hidden=false;
-  panel.innerHTML=`<div class="journey-summary"><div class="route-title-row"><span class="route-swatch large" style="--route-color:${routeColor(service)}"></span><div><p class="eyebrow">${escapeHtml(modeLabel(service.mode))}</p><h2>${escapeHtml(origin?.name)} → ${escapeHtml(destination?.name)}</h2></div></div><p class="service-line">${fare} · ${escapeHtml(displayPathLabel(service))}</p></div>${scheduleHtml(service)}`;
+  panel.innerHTML=`<div class="journey-summary"><div class="route-title-row"><span class="route-swatch large" style="--route-color:${routeColor(service)}"></span><div><p class="eyebrow">${escapeHtml(modeLabel(service.mode))}</p><h2>${escapeHtml(origin?.name)} → ${escapeHtml(destination?.name)}</h2></div></div><p class="service-line">${fare} · ${escapeHtml(displayPathLabel(service))}</p></div>${scheduleHtml(service)||availabilityHtml(service)}`;
   $('#scheduleDate')?.addEventListener('change',event=>{ selectedScheduleDate=scheduleDateFromInput(event.target.value); renderDetail(service); });
 }
 function selectService(id,zoom=false){

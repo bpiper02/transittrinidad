@@ -35,6 +35,7 @@ assert.match(app,/nextDepartures/,'published timetables should produce next sche
 assert.match(app,/scheduleForDate/,'timetables should select the variant for a chosen date');
 assert.match(app,/type="date"/,'riders should be able to choose a travel date');
 assert.match(app,/Scheduled · not live/,'schedule labels must not imply live tracking');
+assert.match(app,/Frequency-based service/,'maxi routes should disclose their non-timetabled service pattern');
 assert.doesNotMatch(app,/\bOn time\b/,'static schedules cannot claim real-time punctuality');
 assert.match(app,/let currentTripContext = null/,'resolved trip context must persist independently from a selected route option');
 assert.match(app,/async function planCurrentTrip/,'route calculation should be reusable outside the Route button handler');
