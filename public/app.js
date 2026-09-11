@@ -1,5 +1,5 @@
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-gl.mjs';
-import { chooseConnectedJourney, kmBetween } from './src/routing-core.mjs';
+import { chooseJourneyOptions, kmBetween } from './src/routing-core.mjs';
 
 const nodeIndex = new Map();
 let services = [];
@@ -8,6 +8,7 @@ let activeMode = 'all';
 let activeServiceId = null;
 let map;
 let plannerRequestId = 0;
+let currentRoutePlan = null;
 
 const displayGeometry = new Map();
 const selectedPlaces = new Map();
@@ -110,6 +111,7 @@ function refreshMapData(){ if(map?.isStyleLoaded()) map.getSource('services')?.s
 function invalidatePlanner(){ plannerRequestId+=1; }
 function ensureCurrent(requestId){ if(requestId!==plannerRequestId) throw new DOMException('Superseded','AbortError'); }
 function clearJourney(){
+  currentRoutePlan=null;
   if(map?.isStyleLoaded()){
     map.getSource('journey')?.setData(emptyFeatureCollection());
     map.getSource('search-points')?.setData(emptyFeatureCollection());
@@ -144,6 +146,21 @@ function compactJourneySteps(steps=[]){
   return compact;
 }
 function rideSteps(steps=[]){ return compactJourneySteps(steps).filter(step=>step.kind==='transit'); }
+function routeOptionLabel(option,index){
+  const waterMode=option.modes.find(mode=>mode==='water_taxi'||mode==='ferry');
+  if(index===0) return waterMode?`Best · ${modeLabel(waterMode)}`:'Best';
+  if(waterMode) return modeLabel(waterMode);
+  return 'Alternative';
+}
+function routeOptionModes(option){
+  const seen=[];
+  for(const mode of option.modes) if(!seen.includes(mode)) seen.push(mode);
+  return seen.map(modeLabel).join(' + ');
+}
+function routeStatus(option){
+  const rides=rideSteps(option.steps);
+  return `${formatMinutes(option.estimatedMinutes)} · ${rides.length} ride${rides.length===1?'':'s'}${option.transferCount?` · ${option.transferCount} transfer${option.transferCount===1?'':'s'}`:''}`;
+}
 
 async function fetchWithTimeout(url,options={},timeoutMs=7000){
   const controller=new AbortController();
@@ -193,6 +210,7 @@ function renderDetail(service){
 function selectService(id,zoom=false){
   const service=services.find(item=>item.id===id);
   if(!service) return;
+  currentRoutePlan=null;
   activeServiceId=id;
   renderList();
   renderDetail(service);
@@ -422,7 +440,7 @@ function showNoRouteMap(from,to){
   const bounds=new maplibregl.LngLatBounds([from.lng,from.lat],[to.lng,to.lat]);
   map.fitBounds(bounds,{padding:90,maxZoom:12,duration:350});
 }
-function renderJourney(connected){
+function renderJourney(connected,options=[],selectedIndex=0){
   const {fromNear,toNear,fromAccess,toAccess,estimatedMinutes,transferCount}=connected;
   const steps=compactJourneySteps(connected.steps);
   const rides=steps.filter(step=>step.kind==='transit');
@@ -431,6 +449,10 @@ function renderJourney(connected){
   const knownFare=rides.reduce((sum,step)=>sum+(Number.isFinite(step.service.fareTTD)?step.service.fareTTD:0),0);
   const allFaresKnown=rides.length>0&&rides.every(step=>Number.isFinite(step.service.fareTTD));
   let html=`<div class="journey-summary"><p class="eyebrow">Route</p><h2>${escapeHtml($('#fromInput').value)} → ${escapeHtml($('#toInput').value)}</h2><div class="journey-kpis"><div><strong>${formatMinutes(estimatedMinutes)}</strong><span>est. trip</span></div><div><strong>${transferCount}</strong><span>transfer${transferCount===1?'':'s'}</span></div><div><strong>${allFaresKnown?`TT$${knownFare}`:'—'}</strong><span>transit fare</span></div></div></div>`;
+
+  if(options.length>1){
+    html+=`<div class="route-options" aria-label="Route alternatives">${options.map((option,index)=>`<button type="button" class="route-option ${index===selectedIndex?'is-active':''}" data-route-option="${index}"><strong>${escapeHtml(routeOptionLabel(option,index))}</strong><span>${escapeHtml(formatMinutes(option.estimatedMinutes))}</span><small>${escapeHtml(routeOptionModes(option)||'Transit')}</small></button>`).join('')}</div>`;
+  }
 
   const first=accessCopy(fromAccess,fromNear.node.name,false);
   if(first) html+=`<div class="journey-leg access-leg"><span class="leg-icon">${fromAccess.mode==='walk'?'↟':'●'}</span><div><h3>${escapeHtml(first.title)}</h3><p>${escapeHtml(first.detail)}</p></div></div>`;
@@ -448,7 +470,25 @@ function renderJourney(connected){
   const last=accessCopy(toAccess,toNear.node.name,true);
   if(last) html+=`<div class="journey-leg access-leg"><span class="leg-icon">${toAccess.mode==='walk'?'↟':'◆'}</span><div><h3>${escapeHtml(last.title)}</h3><p>${escapeHtml(last.detail)}</p></div></div>`;
   if(rides.some(step=>displayPathKind(step.service)!=='verified')) html+='<p class="route-note">Route geometry is estimated.</p>';
+  if(connected.modes.some(mode=>mode==='water_taxi'||mode==='ferry')) html+='<p class="route-note">Sailing times are not yet included in this estimate.</p>';
   panel.innerHTML=html;
+  panel.querySelectorAll('[data-route-option]').forEach(button=>button.addEventListener('click',()=>selectRouteOption(Number(button.dataset.routeOption))));
+}
+async function selectRouteOption(index){
+  if(!currentRoutePlan||!currentRoutePlan.options[index]) return;
+  const requestId=++plannerRequestId;
+  const option=currentRoutePlan.options[index];
+  currentRoutePlan.selectedIndex=index;
+  $('#plannerStatus').textContent='Loading route…';
+  try{
+    await hydrateDisplayGeometry(rideSteps(option.steps).map(step=>step.service));
+    ensureCurrent(requestId);
+    showJourneyMap(currentRoutePlan.from,currentRoutePlan.to,option);
+    renderJourney(option,currentRoutePlan.options,index);
+    $('#plannerStatus').textContent=routeStatus(option);
+  }catch(error){
+    if(error.name!=='AbortError') $('#plannerStatus').textContent=error.message;
+  }
 }
 
 function setupPlanner(){
@@ -468,7 +508,7 @@ function setupPlanner(){
   $('#planButton').addEventListener('click',async()=>{
     const status=$('#plannerStatus'),button=$('#planButton'),requestId=++plannerRequestId;
     button.disabled=true;
-    status.textContent='Finding route…';
+    status.textContent='Finding routes…';
     try{
       const knownFrom=findNodeByInput($('#fromInput').value),knownTo=findNodeByInput($('#toInput').value);
       const from=await resolvePlace('fromInput');
@@ -476,7 +516,7 @@ function setupPlanner(){
       const to=await resolvePlace('toInput');
       ensureCurrent(requestId);
       if(kmBetween(from,to)<0.03){clearJourney();status.textContent='Start and destination are the same place.';return;}
-      const connected=chooseConnectedJourney({
+      const options=chooseJourneyOptions({
         fromPlace:from,
         toPlace:to,
         nodes:nodeIndex,
@@ -486,16 +526,18 @@ function setupPlanner(){
         knownTo,
         candidateLimit:10,
         maxAccessKm:20,
-        transferPenaltyMinutes:10
+        transferPenaltyMinutes:10,
+        maxOptions:3
       });
       ensureCurrent(requestId);
-      if(!connected){showNoRouteMap(from,to);status.textContent='No route in the current network.';return;}
+      if(!options.length){currentRoutePlan=null;showNoRouteMap(from,to);status.textContent='No route in the current network.';return;}
+      const connected=options[0];
+      currentRoutePlan={from,to,options,selectedIndex:0};
       await hydrateDisplayGeometry(rideSteps(connected.steps).map(step=>step.service));
       ensureCurrent(requestId);
       showJourneyMap(from,to,connected);
-      renderJourney(connected);
-      const rides=rideSteps(connected.steps);
-      status.textContent=`${formatMinutes(connected.estimatedMinutes)} · ${rides.length} ride${rides.length===1?'':'s'}${connected.transferCount?` · ${connected.transferCount} transfer${connected.transferCount===1?'':'s'}`:''}`;
+      renderJourney(connected,options,0);
+      status.textContent=routeStatus(connected);
     }catch(error){
       if(error.name!=='AbortError'){console.error(error);status.textContent=error.message;}
     }finally{button.disabled=false;}
