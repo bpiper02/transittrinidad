@@ -25,7 +25,11 @@ assert.match(app,/transfers,\s*knownFrom/,'transfer graph must be passed into jo
 assert.match(app,/compactJourneySteps/,'stop-to-stop segments should be compacted for rider-facing instructions');
 assert.match(app,/step\.kind==='transfer'/,'transfer steps must render explicitly');
 assert.match(app,/journey-transfer/,'transfer walks need a visible map layer');
-assert.match(app,/chooseConnectedJourney/);
+assert.match(app,/chooseJourneyOptions/,'planner must generate multiple ranked journey options');
+assert.match(app,/maxOptions:3/,'planner should surface a compact set of route alternatives');
+assert.match(app,/routeOptionLabel/,'route alternatives need rider-facing labels');
+assert.match(app,/data-route-option/,'route alternatives must be selectable');
+assert.match(app,/Sailing times are not yet included/,'water routes need a schedule caveat until time-aware routing exists');
 assert.match(app,/candidateLimit:10/);
 assert.match(app,/maxAccessKm:20/);
 assert.doesNotMatch(app,/walkKph:18/);
@@ -46,5 +50,7 @@ assert.match(css,/\.directions-shell\{[^}]*width:390px/);
 assert.match(css,/\.map\{[^}]*left:390px/);
 assert.match(css,/-apple-system/);
 assert.match(css,/\.suggestions\{/);
+assert.match(css,/\.route-options\{/,'alternative routes need a dedicated compact selector');
+assert.match(css,/\.route-option\.is-active/,'selected route option should be visually distinct');
 
 console.log('ui contract tests passed');
