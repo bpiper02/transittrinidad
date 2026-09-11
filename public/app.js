@@ -8,6 +8,7 @@ let activeMode = 'all';
 let activeServiceId = null;
 let map;
 let plannerRequestId = 0;
+let currentTripContext = null;
 let currentRoutePlan = null;
 
 const displayGeometry = new Map();
@@ -110,8 +111,9 @@ function fitCountry(){ map?.fitBounds(TT_BOUNDS,{padding:50,duration:0}); }
 function refreshMapData(){ if(map?.isStyleLoaded()) map.getSource('services')?.setData(visibleGeoJson()); }
 function invalidatePlanner(){ plannerRequestId+=1; }
 function ensureCurrent(requestId){ if(requestId!==plannerRequestId) throw new DOMException('Superseded','AbortError'); }
-function clearJourney(){
+function clearJourney({clearTrip=false}={}){
   currentRoutePlan=null;
+  if(clearTrip) currentTripContext=null;
   if(map?.isStyleLoaded()){
     map.getSource('journey')?.setData(emptyFeatureCollection());
     map.getSource('search-points')?.setData(emptyFeatureCollection());
@@ -210,6 +212,7 @@ function renderDetail(service){
 function selectService(id,zoom=false){
   const service=services.find(item=>item.id===id);
   if(!service) return;
+  currentTripContext=null;
   currentRoutePlan=null;
   activeServiceId=id;
   renderList();
@@ -222,13 +225,18 @@ function selectService(id,zoom=false){
   }
 }
 function setupModeTabs(){
-  $('#modeTabs').querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{
+  $('#modeTabs').querySelectorAll('button').forEach(button=>button.addEventListener('click',async()=>{
+    const shouldReplan=Boolean(currentTripContext);
     invalidatePlanner();
     activeMode=button.dataset.mode;
     $('#modeTabs').querySelectorAll('button').forEach(item=>item.classList.toggle('is-active',item===button));
     clearJourney();
     renderList();
     refreshMapData();
+    if(shouldReplan){
+      await planCurrentTrip({reuseContext:true});
+      return;
+    }
     $('#plannerStatus').textContent=activeMode==='all'?'All modes':`${modeLabel(activeMode)} only`;
   }));
 }
@@ -292,6 +300,8 @@ function setupAutocomplete(inputId,menuId){
   let timer,activeIndex=-1,currentPlaces=[];
   input.addEventListener('input',()=>{
     invalidatePlanner();
+    currentTripContext=null;
+    currentRoutePlan=null;
     selectedPlaces.delete(inputId);
     clearTimeout(timer);
     autocompleteControllers.get(inputId)?.abort();
@@ -491,11 +501,73 @@ async function selectRouteOption(index){
   }
 }
 
+async function planCurrentTrip({reuseContext=false}={}){
+  const status=$('#plannerStatus'),button=$('#planButton'),requestId=++plannerRequestId;
+  button.disabled=true;
+  status.textContent=activeMode==='all'?'Finding routes…':`Finding ${modeLabel(activeMode)} routes…`;
+  try{
+    let knownFrom,knownTo,from,to;
+    if(reuseContext&&currentTripContext){
+      ({knownFrom,knownTo,from,to}=currentTripContext);
+    }else{
+      knownFrom=findNodeByInput($('#fromInput').value);
+      knownTo=findNodeByInput($('#toInput').value);
+      from=await resolvePlace('fromInput');
+      ensureCurrent(requestId);
+      to=await resolvePlace('toInput');
+      ensureCurrent(requestId);
+      if(kmBetween(from,to)<0.03){
+        clearJourney({clearTrip:true});
+        status.textContent='Start and destination are the same place.';
+        return;
+      }
+      currentTripContext={from,to,knownFrom,knownTo};
+    }
+
+    const options=chooseJourneyOptions({
+      fromPlace:from,
+      toPlace:to,
+      nodes:nodeIndex,
+      services:routingServices(),
+      transfers,
+      knownFrom,
+      knownTo,
+      candidateLimit:10,
+      maxAccessKm:20,
+      transferPenaltyMinutes:10,
+      maxOptions:3
+    });
+    ensureCurrent(requestId);
+    if(!options.length){
+      currentRoutePlan=null;
+      showNoRouteMap(from,to);
+      $('#detailPanel').hidden=true;
+      $('#detailPanel').innerHTML='';
+      status.textContent=activeMode==='all'?'No route in the current network.':`No ${modeLabel(activeMode)} route for this trip.`;
+      return;
+    }
+
+    const connected=options[0];
+    currentRoutePlan={from,to,knownFrom,knownTo,options,selectedIndex:0};
+    await hydrateDisplayGeometry(rideSteps(connected.steps).map(step=>step.service));
+    ensureCurrent(requestId);
+    showJourneyMap(from,to,connected);
+    renderJourney(connected,options,0);
+    status.textContent=routeStatus(connected);
+  }catch(error){
+    if(error.name!=='AbortError'){console.error(error);status.textContent=error.message;}
+  }finally{
+    if(requestId===plannerRequestId) button.disabled=false;
+  }
+}
+
 function setupPlanner(){
   setupAutocomplete('fromInput','fromSuggestions');
   setupAutocomplete('toInput','toSuggestions');
   $('#swapButton').addEventListener('click',()=>{
     invalidatePlanner();
+    currentTripContext=null;
+    currentRoutePlan=null;
     const fromInput=$('#fromInput'),toInput=$('#toInput');
     const fromValue=fromInput.value,fromSelected=selectedPlaces.get('fromInput'),toSelected=selectedPlaces.get('toInput');
     fromInput.value=toInput.value;
@@ -505,43 +577,7 @@ function setupPlanner(){
     if(toSelected) selectedPlaces.set('fromInput',{...toSelected,inputValue:fromInput.value});
     if(fromSelected) selectedPlaces.set('toInput',{...fromSelected,inputValue:toInput.value});
   });
-  $('#planButton').addEventListener('click',async()=>{
-    const status=$('#plannerStatus'),button=$('#planButton'),requestId=++plannerRequestId;
-    button.disabled=true;
-    status.textContent='Finding routes…';
-    try{
-      const knownFrom=findNodeByInput($('#fromInput').value),knownTo=findNodeByInput($('#toInput').value);
-      const from=await resolvePlace('fromInput');
-      ensureCurrent(requestId);
-      const to=await resolvePlace('toInput');
-      ensureCurrent(requestId);
-      if(kmBetween(from,to)<0.03){clearJourney();status.textContent='Start and destination are the same place.';return;}
-      const options=chooseJourneyOptions({
-        fromPlace:from,
-        toPlace:to,
-        nodes:nodeIndex,
-        services:routingServices(),
-        transfers,
-        knownFrom,
-        knownTo,
-        candidateLimit:10,
-        maxAccessKm:20,
-        transferPenaltyMinutes:10,
-        maxOptions:3
-      });
-      ensureCurrent(requestId);
-      if(!options.length){currentRoutePlan=null;showNoRouteMap(from,to);status.textContent='No route in the current network.';return;}
-      const connected=options[0];
-      currentRoutePlan={from,to,options,selectedIndex:0};
-      await hydrateDisplayGeometry(rideSteps(connected.steps).map(step=>step.service));
-      ensureCurrent(requestId);
-      showJourneyMap(from,to,connected);
-      renderJourney(connected,options,0);
-      status.textContent=routeStatus(connected);
-    }catch(error){
-      if(error.name!=='AbortError'){console.error(error);status.textContent=error.message;}
-    }finally{button.disabled=false;}
-  });
+  $('#planButton').addEventListener('click',()=>planCurrentTrip());
 }
 
 function addMapLayers(){
