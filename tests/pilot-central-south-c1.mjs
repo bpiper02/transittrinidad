@@ -18,6 +18,14 @@ const nodes=new Map(nodesArray.map(node=>[node.id,node]));
 const services=servicesAll.filter(service=>service.serviceConfidence!=='needs_review');
 const expectedSouthboundService='maxi-chag-san-fernando-out';
 
+function assertTransitDirection(option,fixtureId){
+  for(const step of option.steps.filter(step=>step.kind==='transit')){
+    const stops=step.service?.stopNodeIds||[];
+    const fromIndex=stops.indexOf(step.from),toIndex=stops.indexOf(step.to);
+    assert.ok(fromIndex>=0&&toIndex>fromIndex,`${fixtureId}: ${step.service?.id} transit step must follow the service's stored direction`);
+  }
+}
+
 for(const fixture of pilot.journeys){
   assert.ok(nodes.has(fixture.fromNodeId),`${fixture.id}: missing origin node`);
   assert.ok(nodes.has(fixture.toNodeId),`${fixture.id}: missing destination node`);
@@ -27,13 +35,8 @@ for(const fixture of pilot.journeys){
     nodes,services,transfers,candidateLimit:14,maxAccessKm:4,transferPenaltyMinutes:10,
     accessOptions:{localWaitMinutes:30,localKph:18},maxOptions:3,requiredMode:'maxi'
   });
-  if(fixture.reverseProbe){
-    for(const option of options){
-      const impossible=option.steps.some(step=>step.kind==='transit'&&step.service?.id===expectedSouthboundService);
-      assert.equal(impossible,false,`${fixture.id}: southbound service must never be reused as a fake northbound service`);
-    }
-    continue;
-  }
+  for(const option of options)assertTransitDirection(option,fixture.id);
+  if(fixture.reverseProbe)continue;
   assert.ok(options.length,`${fixture.id}: core pilot journey must route`);
   const option=options[0];
   assert.equal(option.transferCount,0,`${fixture.id}: core pilot journey should stay on one vehicle`);
