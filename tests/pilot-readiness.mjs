@@ -21,9 +21,10 @@ assert.equal(centralSouth.alightingPolicy,'corridor_request');
 for(const nodeId of ['chase-village-area','maxi-couva','california-area','claxton-bay-area','marabella-area'])assert.ok(centralSouth.stopNodeIds.includes(nodeId),`Central–South pilot pattern missing ${nodeId}`);
 
 const eastOut=byId.get('maxi-pos-arima-out');
-const eastBack=byId.get('maxi-arima-pos-back');
+const eastBack=byId.get('maxi-pos-arima-back');
 assert.ok(eastOut&&eastBack,'pilot gate requires separately modeled East-corridor directions');
-assert.notDeepEqual(eastOut.stopNodeIds,eastBack.stopNodeIds,'East directions must remain separate patterns');
+assert.equal(eastOut.originNodeId,eastBack.destinationNodeId,'East reverse direction must terminate where eastbound starts');
+assert.equal(eastOut.destinationNodeId,eastBack.originNodeId,'East reverse direction must start where eastbound terminates');
 
 const southwest=services.filter(service=>/point-fortin/i.test(service.id)&&service.serviceConfidence!=='needs_review');
 for(const service of southwest){
