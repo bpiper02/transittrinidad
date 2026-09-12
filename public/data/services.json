@@ -288,6 +288,11 @@
     "scheduleConfidence": "unknown",
     "sources": [
       {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
+      {
         "name": "PTSC Port of Spain routes",
         "url": "https://ptsc.co.tt/from/pos/",
         "checkedAt": "2026-09-10"
@@ -317,6 +322,11 @@
     "fareConfidence": "unknown",
     "scheduleConfidence": "unknown",
     "sources": [
+      {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
       {
         "name": "PTSC Port of Spain routes",
         "url": "https://ptsc.co.tt/from/pos/",
@@ -348,6 +358,11 @@
     "scheduleConfidence": "unknown",
     "sources": [
       {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
+      {
         "name": "PTSC Sangre Grande routes",
         "url": "https://ptsc.co.tt/from/sangre-grande/",
         "checkedAt": "2026-09-10"
@@ -377,6 +392,11 @@
     "fareConfidence": "unknown",
     "scheduleConfidence": "unknown",
     "sources": [
+      {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
       {
         "name": "PTSC Sangre Grande routes",
         "url": "https://ptsc.co.tt/from/sangre-grande/",
@@ -765,17 +785,28 @@
       "ptsc-pos-transit-centre",
       "grande-maxi-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 15,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
       "note": "No published timetable. Confirm current fare and boarding point before travel."
     },
     "sources": [
+      {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "Newsday: PTSC passengers compare Grande public-transport fares",
+        "url": "https://newsday.co.tt/2022/10/11/ptsc-passengers-want-more-than-a-cheaper-service/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-10-11"
+      },
       {
         "name": "Guardian: Sangre Grande maxi hub operating from Brierley Street",
         "url": "https://www.guardian.co.tt/news/maxi-taxi-shut-down-leaves-sangre-grande-commuters-scrambling-6.2.2596990.938df5d0a9",
@@ -809,17 +840,28 @@
       "grande-maxi-area",
       "ptsc-pos-transit-centre"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 15,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
       "note": "No published timetable. Confirm current fare and boarding point before travel."
     },
     "sources": [
+      {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "Newsday: PTSC passengers compare Grande public-transport fares",
+        "url": "https://newsday.co.tt/2022/10/11/ptsc-passengers-want-more-than-a-cheaper-service/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-10-11"
+      },
       {
         "name": "Guardian: Sangre Grande maxi hub operating from Brierley Street",
         "url": "https://www.guardian.co.tt/news/maxi-taxi-shut-down-leaves-sangre-grande-commuters-scrambling-6.2.2596990.938df5d0a9",
@@ -939,6 +981,12 @@
     },
     "sources": [
       {
+        "name": "Newsday: Diego Martin/Petit Valley taxi fare adjustment",
+        "url": "https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-10-14"
+      },
+      {
         "name": "Trinidad maxi route bands",
         "url": "https://en.wikipedia.org/wiki/Maxi_taxi",
         "checkedAt": "2026-09-11"
@@ -969,6 +1017,12 @@
       "note": "No published timetable. Boarding zone is approximate."
     },
     "sources": [
+      {
+        "name": "Newsday: Diego Martin/Petit Valley taxi fare adjustment",
+        "url": "https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-10-14"
+      },
       {
         "name": "Trinidad maxi route bands",
         "url": "https://en.wikipedia.org/wiki/Maxi_taxi",
@@ -1605,11 +1659,11 @@
       "chag-maxi-area",
       "ptsc-pos-transit-centre"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 9,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -1617,6 +1671,12 @@
     },
     "boardingNote": "Historical Eleanor Street service report; confirm operation. POS destination is the transit-centre area, not a confirmed reverse Maxi bay.",
     "sources": [
+      {
+        "name": "Newsday: Route 3 Maxi fares after May 2022 adjustment",
+        "url": "https://newsday.co.tt/2022/05/09/green-band-maxi-fares-increase-2/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-05-09"
+      },
       {
         "name": "Historical Central transport guide; confirm present boarding",
         "url": "https://archives.newsday.co.tt/2007/04/21/visiting-the-heartlands-towns-and-villages/",
@@ -2129,11 +2189,11 @@
       "penal-sf-taxi",
       "ptsc-san-fernando"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 15,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -2141,6 +2201,12 @@
     },
     "boardingNote": "San Fernando destination area only; Penal taxi return bay not resolved.",
     "sources": [
+      {
+        "name": "Guardian: San Fernando to Penal taxi fare TT$15",
+        "url": "https://www.guardian.co.tt/news/penal-to-sando-drivers-criminals-coming-on-taxi-stand-6.2.2025186.1252bc1d8e",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2024-05-01"
+      },
       {
         "name": "OpenStreetMap contributors: Penal-San Fernando Taxi Stand",
         "url": "https://www.openstreetmap.org/node/1772894772",
@@ -2209,11 +2275,11 @@
       "point-sf-taxi",
       "sf-point-taxi"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 20,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -2221,6 +2287,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Newsday: Point Fortin/San Fernando taxi fare remains TT$20",
+        "url": "https://newsday.co.tt/2023/10/16/pointt-fortin-san-fernando-taxis-glad-for-highway-but-fare-remains-20/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2023-10-16"
+      },
       {
         "name": "OpenStreetMap contributors: San Fernando Taxi Stand",
         "url": "https://www.openstreetmap.org/node/2403701177",
@@ -2244,11 +2316,11 @@
       "sf-point-taxi",
       "point-sf-taxi"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 20,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -2256,6 +2328,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Newsday: Point Fortin/San Fernando taxi fare remains TT$20",
+        "url": "https://newsday.co.tt/2023/10/16/pointt-fortin-san-fernando-taxis-glad-for-highway-but-fare-remains-20/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2023-10-16"
+      },
       {
         "name": "OpenStreetMap contributors: San Fernando-Point Fortin Taxi Stand",
         "url": "https://www.openstreetmap.org/node/1761221852",
@@ -2436,6 +2514,11 @@
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
       {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
+      {
         "name": "Passenger report: direct Grande maxis and separate Arima services",
         "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
         "checkedAt": "2026-09-11",
@@ -2472,6 +2555,11 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
       {
         "name": "Passenger report: direct Grande maxis and separate Arima services",
         "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
@@ -2574,6 +2662,11 @@
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
       {
+        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-11"
+      },
+      {
         "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
         "url": "https://www.openstreetmap.org/way/479527533",
         "checkedAt": "2026-09-11"
@@ -2581,11 +2674,6 @@
       {
         "name": "OpenStreetMap contributors: Rio Claro",
         "url": "https://www.openstreetmap.org/node/1174919917",
-        "checkedAt": "2026-09-11"
-      },
-      {
-        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
-        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
         "checkedAt": "2026-09-11"
       }
     ],
@@ -2615,6 +2703,11 @@
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
       {
+        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-11"
+      },
+      {
         "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
         "url": "https://www.openstreetmap.org/way/479527533",
         "checkedAt": "2026-09-11"
@@ -2622,11 +2715,6 @@
       {
         "name": "OpenStreetMap contributors: Rio Claro",
         "url": "https://www.openstreetmap.org/node/1174919917",
-        "checkedAt": "2026-09-11"
-      },
-      {
-        "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
-        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
         "checkedAt": "2026-09-11"
       }
     ]
@@ -2726,6 +2814,11 @@
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
       {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
+      {
         "name": "MOWT Traffic Control (Sangre Grande): Toco and Mayaro Maxi stands",
         "url": "https://mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
         "checkedAt": "2026-09-12"
@@ -2778,6 +2871,11 @@
     "boardingNote": "Mapped mixed stand reports very few maxis. No frequency guarantee; taxi may be the available option.",
     "sources": [
       {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
+      {
         "name": "MOWT Traffic Control (Sangre Grande): Toco and Mayaro Maxi stands",
         "url": "https://mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
         "checkedAt": "2026-09-12"
@@ -2829,6 +2927,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Guardian: Maraval regular-route taxi fare TT$7",
+        "url": "https://www.guardian.co.tt/news/higher-maraval-taxi-fares-from-monday-6.2.1653701.43930db90e",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2023-03-10"
+      },
       {
         "name": "OpenStreetMap contributors: Maraval Taxi Stand",
         "url": "https://www.openstreetmap.org/node/1447592867",
@@ -2935,6 +3039,11 @@
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
       {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
+      {
         "name": "OpenStreetMap contributors: Sangre Grande Taxi Stand",
         "url": "https://www.openstreetmap.org/node/1809362903",
         "checkedAt": "2026-09-11"
@@ -2963,7 +3072,7 @@
       "san-juan-santa-cruz-taxi",
       "santa-cruz-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
     "fareTTD": null,
@@ -2973,8 +3082,14 @@
       "kind": "frequency_based",
       "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
     },
-    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "boardingNote": "San Juan to Santa Cruz association route. Fare varies by destination within Santa Cruz; use the displayed fare only when a specific segment is confirmed.",
     "sources": [
+      {
+        "name": "Newsday: Santa Cruz Taxi Drivers Association fare schedule",
+        "url": "https://newsday.co.tt/2020/06/02/santa-cruz-taxi-fares-raised/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2020-06-02"
+      },
       {
         "name": "OpenStreetMap contributors: Santa Cruz Taxi Stand",
         "url": "https://www.openstreetmap.org/way/840268930",
@@ -2998,11 +3113,11 @@
       "scarborough-crown-point-taxi",
       "crown-point-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 10,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -3010,6 +3125,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Newsday: West-End Taxi Association Crown Point fare increase",
+        "url": "https://newsday.co.tt/2022/02/24/tobago-taxi-fares-to-increase-by-1-from-march-15/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-02-24"
+      },
       {
         "name": "OpenStreetMap contributors: Scarborough-Crown Point Taxt Stand",
         "url": "https://www.openstreetmap.org/node/1745991289",
@@ -3103,11 +3224,11 @@
       "sf-la-brea-area",
       "la-brea-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 15,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -3115,6 +3236,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Newsday: Point Fortin/San Fernando taxi fare remains TT$20",
+        "url": "https://newsday.co.tt/2023/10/16/pointt-fortin-san-fernando-taxis-glad-for-highway-but-fare-remains-20/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2023-10-16"
+      },
       {
         "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
         "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
@@ -3139,11 +3266,11 @@
       "la-brea-area",
       "sf-la-brea-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 15,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -3151,6 +3278,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Newsday: Point Fortin/San Fernando taxi fare remains TT$20",
+        "url": "https://newsday.co.tt/2023/10/16/pointt-fortin-san-fernando-taxis-glad-for-highway-but-fare-remains-20/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2023-10-16"
+      },
       {
         "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
         "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
@@ -3175,11 +3308,11 @@
       "princes-town-local-area",
       "new-grant-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 8,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -3187,6 +3320,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Newsday: Route 4 Black Band fare adjustment",
+        "url": "https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-10-14"
+      },
       {
         "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
         "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
@@ -3236,11 +3375,11 @@
       "rio-claro-hub",
       "maxi-mayaro"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 10,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -3252,6 +3391,17 @@
         "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
         "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
         "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "MOWT Route Area 4 Mayaro Transport Hub lane assignments",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-No-165-of-2015",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "Newsday: Route 4 Black Band fare adjustment",
+        "url": "https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-10-14"
       },
       {
         "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
@@ -3368,11 +3518,11 @@
       "princes-town-local-area",
       "rio-claro-hub"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 12,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -3380,6 +3530,17 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "TriniGo: Rio Claro Transport Hub lane assignments",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "Newsday: Route 4 Black Band fare adjustment",
+        "url": "https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-10-14"
+      },
       {
         "name": "Reported passengers travelling Princes Town to Rio Claro in a Maxi",
         "url": "https://newsday.co.tt/2024/05/07/tick-from-moruga-jailed-for-taxi-robberies/",
@@ -3400,11 +3561,11 @@
       "princes-town-local-area",
       "moruga-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 13,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -3412,6 +3573,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Newsday: Route 4 Black Band fare adjustment",
+        "url": "https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-10-14"
+      },
       {
         "name": "Route 4 association report; proposed hub not assumed built",
         "url": "https://archives.newsday.co.tt/2013/09/05/transport-hub-for-south-taxi-drivers-coming-soon/",
@@ -3633,6 +3800,11 @@
     ],
     "sources": [
       {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
+      {
         "name": "PTSC Sangre Grande current routes",
         "url": "https://ptsc.co.tt/from/sangre-grande/",
         "checkedAt": "2026-09-12"
@@ -3690,6 +3862,11 @@
     ],
     "sources": [
       {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
+      {
         "name": "PTSC Sangre Grande current routes",
         "url": "https://ptsc.co.tt/from/sangre-grande/",
         "checkedAt": "2026-09-12"
@@ -3715,6 +3892,16 @@
       "rio-claro-hub"
     ],
     "sources": [
+      {
+        "name": "MOWT Traffic Control Sangre Grande taxi and maxi stands",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "TriniGo: Rio Claro Transport Hub lane assignments",
+        "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
+        "checkedAt": "2026-09-12"
+      },
       {
         "name": "PTSC Sangre Grande current routes",
         "url": "https://ptsc.co.tt/from/sangre-grande/",
@@ -3748,5 +3935,113 @@
       }
     ],
     "boardingNote": "PTSC currently lists POS / Chaguaramas weekend service. Reverse is not inferred."
+  },
+  {
+    "id": "taxi-pos-to-carenage",
+    "corridorId": "taxi-pos-carenage",
+    "mode": "route_taxi",
+    "operator": "Carenage Taxi Drivers Association / local route taxis",
+    "originNodeId": "maxi-pos-western-hub",
+    "destinationNodeId": "carenage-route-taxi-area",
+    "stopNodeIds": [
+      "maxi-pos-western-hub",
+      "carenage-route-taxi-area"
+    ],
+    "serviceConfidence": "community_verified",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "Guardian: Carenage Taxi Drivers Association confirms POS/Carenage service in both directions",
+        "url": "https://www.guardian.co.tt/news/pos-to-carenage-taxi-fare-to-rise-diego-martin-drivers-feel-unsafe-6.2.1842043.43be95556c",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2023-11-02"
+      },
+      {
+        "name": "TnTIsland: Port of Spain route-taxi stands including Carenage",
+        "url": "https://www.tntisland.com/routetaxis.html",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "Government legal notice: Carenage taxi stand in Port of Spain",
+        "url": "https://www.news.gov.tt/archive/E-Gazette/Gazette%202011/Legal%20Notice/Legal%20Notice%20No.%2032%20of%202011.pdf",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2011-03-04"
+      }
+    ],
+    "boardingNote": "Carenage Taxi Drivers Association evidence confirms service in both directions. Exact Carenage-side stand and current 2026 fare still need confirmation."
+  },
+  {
+    "id": "taxi-carenage-to-pos",
+    "corridorId": "taxi-pos-carenage",
+    "mode": "route_taxi",
+    "operator": "Carenage Taxi Drivers Association / local route taxis",
+    "originNodeId": "carenage-route-taxi-area",
+    "destinationNodeId": "maxi-pos-western-hub",
+    "stopNodeIds": [
+      "carenage-route-taxi-area",
+      "maxi-pos-western-hub"
+    ],
+    "serviceConfidence": "community_verified",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "Guardian: Carenage Taxi Drivers Association confirms POS/Carenage service in both directions",
+        "url": "https://www.guardian.co.tt/news/pos-to-carenage-taxi-fare-to-rise-diego-martin-drivers-feel-unsafe-6.2.1842043.43be95556c",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2023-11-02"
+      },
+      {
+        "name": "TnTIsland: Port of Spain route-taxi stands including Carenage",
+        "url": "https://www.tntisland.com/routetaxis.html",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "Government legal notice: Carenage taxi stand in Port of Spain",
+        "url": "https://www.news.gov.tt/archive/E-Gazette/Gazette%202011/Legal%20Notice/Legal%20Notice%20No.%2032%20of%202011.pdf",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2011-03-04"
+      }
+    ],
+    "boardingNote": "Carenage Taxi Drivers Association evidence confirms service in both directions. Exact Carenage-side stand and current 2026 fare still need confirmation."
+  },
+  {
+    "id": "taxi-mayaro-to-mafeking",
+    "corridorId": "taxi-mayaro-mafeking",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "maxi-mayaro",
+    "destinationNodeId": "mafeking-area",
+    "stopNodeIds": [
+      "maxi-mayaro",
+      "mafeking-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "MOWT Traffic Control Mayaro/Mafeking Taxi Stand Order",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-263",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2021-10-21"
+      },
+      {
+        "name": "OpenStreetMap-derived Mafeking community location",
+        "url": "https://www.openstreetmap.org/node/7824185572",
+        "checkedAt": "2026-09-12"
+      }
+    ],
+    "boardingNote": "MOWT formally designates a Mayaro/Mafeking taxi stand. Mafeking endpoint is approximate until the village-side stand is confirmed. Reverse service is not inferred."
   }
 ]

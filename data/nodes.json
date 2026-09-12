@@ -1782,5 +1782,64 @@
         "checkedAt": "2026-09-12"
       }
     ]
+  },
+  {
+    "id": "carenage-route-taxi-area",
+    "name": "Carenage route-taxi service area",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.6881668,
+      "lng": -61.5928155
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Carenage town-area endpoint for the documented Port of Spain/Carenage route. Exact Carenage-side stand or turnaround still needs local confirmation.",
+    "sources": [
+      {
+        "name": "Guardian: Carenage Taxi Drivers Association confirms POS/Carenage service in both directions",
+        "url": "https://www.guardian.co.tt/news/pos-to-carenage-taxi-fare-to-rise-diego-martin-drivers-feel-unsafe-6.2.1842043.43be95556c",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2023-11-02"
+      },
+      {
+        "name": "TnTIsland: Port of Spain route-taxi stands including Carenage",
+        "url": "https://www.tntisland.com/routetaxis.html",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "Government legal notice: Carenage taxi stand in Port of Spain",
+        "url": "https://www.news.gov.tt/archive/E-Gazette/Gazette%202011/Legal%20Notice/Legal%20Notice%20No.%2032%20of%202011.pdf",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2011-03-04"
+      },
+      {
+        "name": "OpenStreetMap contributors: Carenage",
+        "url": "https://www.openstreetmap.org/node/1822868093",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "mafeking-area",
+    "name": "Mafeking route-taxi area",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.30345,
+      "lng": -61.02082
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Approximate Mafeking village area derived from the mapped community centre; exact taxi turnaround/stand needs local confirmation.",
+    "sources": [
+      {
+        "name": "MOWT Traffic Control Mayaro/Mafeking Taxi Stand Order",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-263",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2021-10-21"
+      },
+      {
+        "name": "OpenStreetMap-derived Mafeking community location",
+        "url": "https://www.openstreetmap.org/node/7824185572",
+        "checkedAt": "2026-09-12"
+      }
+    ]
   }
 ]
