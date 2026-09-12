@@ -23,43 +23,47 @@ A service can therefore have, for example, confirmed existence but reported boar
 
 Unknown fare, timetable, exact path, or exact bay **does not by itself exclude a service**.
 
-## Batch A — routes needing local sanity check
+## Batch A — local review outcomes
 
-These are currently among the weakest canonical corridors because they combine reported-service confidence with missing fares, endpoint-only geometry, approximate boarding, and/or an unconfirmed reverse direction. They are not automatically suspected of being fake.
-
-| Corridor | Mode | Current concern | Local answer that would strengthen it |
+| Corridor | Mode | Local review outcome | Remaining uncertainty |
 |---|---|---|---|
-| Chaguanas → Couva | Route taxi | Service reported; exact stands/return direction unresolved | Does this run directly today? Where do you board in Chaguanas and Couva? Does Couva → Chaguanas also run? |
-| Chaguanas → California | Route taxi | Service reported; boarding point/reverse unresolved | Direct taxi? Where in Chaguanas? Main road or dedicated stand in California? Reverse? |
-| Chaguanas → Chase Village | Route taxi | Service reported; boarding point/reverse unresolved | Direct taxi? Exact Chaguanas side and Chase Village pickup? Reverse? |
-| Rio Claro → Princes Town | Route taxi | Service reported; weak current operating detail | Direct today? Where are the two stands? Reverse? |
-| Rio Claro → Guayaguayare | Route taxi | Service reported; fare/stand/reverse incomplete | Direct taxi? Current boarding points? Reverse? |
-| Rio Claro → Libertville | Route taxi | Service reported; endpoint/boarding detail incomplete | Direct taxi? Is Libertville a terminus or roadside pickup? Reverse? |
-| Rio Claro → Poole | Route taxi | Service reported; endpoint/boarding detail incomplete | Direct taxi? Is Poole a terminus or roadside pickup? Reverse? |
-| Mayaro → Guayaguayare | Maxi | Mayaro hub evidence exists; exact current operation/reverse incomplete | Does the maxi still run direct? Is Lane 5/current hub correct? Reverse from Guayaguayare? |
-| Mayaro → Guayaguayare | Route taxi | Reported service; exact current stand/reverse incomplete | Separate route taxi service from the maxi? Where board at each end? |
-| Port of Spain → Chaguaramas | Route taxi | Reported service; destination-side stand/reverse incomplete | Direct route taxi today? Where exactly in Chaguaramas does it terminate/pick up? Reverse? |
-| Port of Spain → San Juan | Route taxi | Reported service; boarding/return details incomplete | Direct route taxi? POS stand and San Juan return stand? |
-| San Fernando → Curepe | Route taxi | Reported service; unusually long corridor so needs local confirmation | Is this a genuine direct shared-taxi route, or does normal travel require a change? Where does it board? |
+| Chaguanas ↔ Couva | Route taxi | **Locally confirmed as a normal taxi connection from memory.** Keep routable as locally reported. | Exact stands, fare, and current operation window. |
+| Chaguanas ↔ California | Route taxi | **Locally confirmed as a normal taxi connection from memory.** Keep routable as locally reported. | Exact California pickup/terminus, fare, operation window. |
+| Chaguanas → San Fernando trunk via California/Chase Village | Maxi | **Locally corroborated:** Chaguanas/San Fernando maxis run through these main-road communities, so California/Chase Village can function as corridor pickup/drop areas rather than requiring separate terminal claims. | Exact legal/association pickup rules and current fare segmentation. |
+| Chaguanas ↔ Chase Village | Route taxi | Local reviewer says this looks/seems correct, but did not claim strong personal certainty. Keep as locally reported. | Exact stand/pickup and reverse details. |
+| Rio Claro ↔ Princes Town | Route taxi | Local reviewer says this looks/seems correct. Keep as locally reported. | Exact stands, fare, operation window. |
+| Rio Claro ↔ Guayaguayare | Route taxi | Local reviewer says this looks/seems correct. Keep as locally reported. | Exact stands, fare, reverse details. |
+| Rio Claro ↔ Libertville | Route taxi | Local reviewer says this looks/seems correct. Keep as locally reported. | Whether Libertville is a terminus or roadside pickup. |
+| Rio Claro ↔ Poole | Route taxi | Local reviewer says this looks/seems correct. Keep as locally reported. | Whether Poole is a terminus or roadside pickup. |
+| Mayaro ↔ Guayaguayare | Maxi | Local reviewer says this looks/seems correct. Existing official historical hub evidence also supports the corridor. | Current lane/operation/reverse confirmation. |
+| Mayaro ↔ Guayaguayare | Route taxi | Local reviewer says this looks/seems correct. Keep as locally reported. | Separate current taxi operation vs maxi, exact stands. |
+| Port of Spain ↔ Chaguaramas | Route taxi | Local reviewer says this looks/seems correct. Keep as locally reported. | Chaguaramas-side terminal/pickup and reverse details. |
+| Port of Spain ↔ San Juan | Route taxi | Local reviewer says this looks/seems correct. Keep as locally reported. | Exact return stand and fare. |
+| San Fernando ↔ Curepe | Route taxi | Local reviewer says this looks/seems correct, but this remains the least certain because it is an unusually long direct shared-taxi corridor. Keep as locally reported until strengthened. | Direct-vs-transfer behavior, exact stands, current operation. |
 
-## Batch B — direction questions that should not be auto-filled
+### Reviewer basis
 
-A reverse direction is promoted only when independently supported or locally confirmed. Do not assume symmetry.
+Local reviewer is Trinidadian and familiar with the network; explicit memory was strongest for Chaguanas↔Couva and Chaguanas↔California. Other Batch A routes were endorsed as seeming correct, which is useful corroboration but is intentionally recorded at lower certainty than a personally used/regularly observed route.
 
-Priority questions:
+## Batch B — next local sanity-check targets
 
-- Couva → Chaguanas
-- California → Chaguanas
-- Chase Village → Chaguanas
-- Princes Town → Rio Claro
-- Guayaguayare → Rio Claro
-- Libertville → Rio Claro
-- Poole → Rio Claro
-- Guayaguayare → Mayaro (Maxi)
-- Guayaguayare → Mayaro (route taxi)
-- Chaguaramas → Port of Spain
-- San Juan → Port of Spain
-- Curepe → San Fernando
+These should be reviewed next because they remain weak on service/direction/stand detail and are high-value for network usefulness:
+
+1. San Fernando ↔ Princes Town — route taxi / maxi distinction, both directions, exact stands.
+2. San Fernando ↔ Penal — direct route taxi? exact stand at each end? both directions?
+3. Penal ↔ Siparia — direct route taxi? both directions? main-road pickup vs stand?
+4. San Fernando ↔ Point Fortin — maxi vs route taxi options, exact stands, both directions.
+5. San Fernando ↔ La Brea — direct route taxi/maxi? both directions? exact boarding.
+6. Couva ↔ San Fernando — direct taxi/maxi? or normally via Chaguanas? exact pickup pattern.
+7. Couva ↔ California — dedicated taxi route or simply through-service on the Southern Main Road?
+8. Chaguanas ↔ San Fernando — direct maxi is locally corroborated; is there also a normal direct route-taxi service?
+9. San Fernando ↔ C3 / Gulf City — what is the normal public-transport pattern: taxi, maxi, roadside pickup, or transfer?
+10. Arima ↔ Sangre Grande — maxi/taxi both? both directions? where in each town?
+11. Arima ↔ Valencia — direct route taxi/maxi? both directions? main-road pickup or stand?
+12. Sangre Grande ↔ Toco — maxi/taxi current service? both directions? Brierley Street for outbound?
+13. Sangre Grande ↔ Mayaro — maxi/taxi current service? both directions? direct today?
+14. Scarborough ↔ Crown Point — route taxi current? exact Scarborough stand and Crown Point pickup?
+15. Scarborough ↔ Buccoo — route taxi separate from PTSC? both directions?
 
 ## Suggested community confirmation format
 
