@@ -34,13 +34,15 @@ patchMatching('POS-La Horquetta maxi fare',pair('pos','la-horquetta',['maxi']),{
 patchIfPresent('POS-Chaguaramas maxi fare',pair('pos','chaguaramas',['maxi']),{fareTTD:7,fareConfidence:'community_verified',serviceConfidence:'community_verified'},route1);
 for(const west of ['diego-martin','petit-valley']) patchIfPresent(`POS-${west} maxi fare`,pair('pos',west,['maxi']),{fareTTD:6,fareConfidence:'community_verified',serviceConfidence:'community_verified'},route1);
 
-patchMatching('Chaguanas-San Fernando maxi fare',pair('chaguanas','san-fernando',['maxi']),{fareTTD:11,fareConfidence:'community_verified',serviceConfidence:'community_verified'},route3,{min:1,max:4});
-patchMatching('POS-San Fernando maxi fare',pair('pos','san-fernando',['maxi']),{fareTTD:12,fareConfidence:'community_verified',serviceConfidence:'community_verified'},route3,{min:1,max:4});
-patchMatching('Chaguanas-Curepe maxi fare',pair('chaguanas','curepe',['maxi']),{fareTTD:10,fareConfidence:'community_verified',serviceConfidence:'community_verified'},route3,{min:1,max:4});
+for(const [label,a,b,fare] of [
+  ['Chaguanas-San Fernando maxi fare','chaguanas','san-fernando',11],
+  ['POS-San Fernando maxi fare','pos','san-fernando',12],
+  ['Chaguanas-Curepe maxi fare','chaguanas','curepe',10],
+]) patchIfPresent(label,pair(a,b,['maxi']),{fareTTD:fare,fareConfidence:'community_verified',serviceConfidence:'community_verified'},route3);
 
-patchMatching('San Fernando-Princes Town maxi fare',pair('san-fernando','princes-town',['maxi']),{fareTTD:9,fareConfidence:'community_verified',serviceConfidence:'community_verified'},blackBand,{min:1,max:4});
+patchIfPresent('San Fernando-Princes Town maxi fare',pair('san-fernando','princes-town',['maxi']),{fareTTD:9,fareConfidence:'community_verified',serviceConfidence:'community_verified'},blackBand);
 
-patchMatching('POS-Maraval route taxi fare',pair('pos','maraval',['route_taxi']),{fareTTD:7,fareConfidence:'community_verified',serviceConfidence:'community_verified'},maraval,{min:1,max:4});
+patchIfPresent('POS-Maraval route taxi fare',pair('pos','maraval',['route_taxi']),{fareTTD:7,fareConfidence:'community_verified',serviceConfidence:'community_verified'},maraval);
 patchMatching('POS-Carenage route taxi fare',pair('pos','carenage',['route_taxi']),{fareTTD:7,fareConfidence:'community_verified',serviceConfidence:'community_verified'},carenage,{min:1,max:4});
 patchIfPresent('Sangre Grande-Toco route taxi fare',pair('sangre-grande','toco',['route_taxi']),{fareTTD:18,fareConfidence:'community_verified',serviceConfidence:'community_verified'},ptscCompare);
 
