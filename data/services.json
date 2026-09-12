@@ -907,6 +907,11 @@
     },
     "sources": [
       {
+        "name": "Motor Vehicles and Road Traffic Act: Port-of-Spain Transit Centre Taxi Stand Order",
+        "url": "https://www.mowt.gov.tt/MOWT/media/General/Legislation/48-50.pdf",
+        "checkedAt": "2026-09-12"
+      },
+      {
         "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
         "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
         "checkedAt": "2026-09-12",
@@ -930,7 +935,7 @@
         "publishedAt": "2019-02-25"
       }
     ],
-    "boardingNote": "Confirm the current boarding location, fare and operation. Mapped areas are not verified bays.",
+    "boardingNote": "At the Port of Spain Transit Centre Maxi-Taxi facility, use Platform 3, Bays A–B for the San Fernando service.",
     "routeArea": 3
   },
   {
@@ -2569,8 +2574,13 @@
       "kind": "frequency_based",
       "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
     },
-    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "boardingNote": "At the Port of Spain Transit Centre Maxi-Taxi facility, use Platform 2, Bays A–D for the Arima Priority Bus Route service.",
     "sources": [
+      {
+        "name": "Motor Vehicles and Road Traffic Act: Port-of-Spain Transit Centre Taxi Stand Order",
+        "url": "https://www.mowt.gov.tt/MOWT/media/General/Legislation/48-50.pdf",
+        "checkedAt": "2026-09-12"
+      },
       {
         "name": "Newsday: Route Two maxi fares effective November 2021",
         "url": "https://newsday.co.tt/2021/11/01/busy-monday-in-tt-as-bars-reopen-full-public-service-back-out-to-work/",
@@ -2815,8 +2825,14 @@
       "kind": "frequency_based",
       "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
     },
-    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "boardingNote": "Use the Mayaro Transport Hub. The published stand scheme assigns Rio Claro maxis to Lane 4 and Guayaguayare maxis to Lane 5; verify the current lane on arrival.",
     "sources": [
+      {
+        "name": "Traffic Control (Experimental Scheme) Route Area 4 Maxi-Taxi and Taxi Stand (Mayaro) Regulations, 2016",
+        "url": "https://news.gov.tt/sites/default/files/E-Gazette/Gazette%202016/Legal%20Notice/Legal%20Notice%20No.%2035%20of%202016.pdf",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2016-03-11"
+      },
       {
         "name": "Rio Claro Transport Hub directory: distinct Maxi and taxi lanes",
         "url": "https://www.trinigo.com/trinidad-tobago/transport/rio-claro-mayaro/rio-claro/maxi-taxi-stand/rio-claro-transport-hub-rio-claro/",
@@ -2896,8 +2912,14 @@
       "kind": "frequency_based",
       "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
     },
-    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "boardingNote": "Use the Mayaro Transport Hub. The published stand scheme assigns Rio Claro maxis to Lane 4 and Guayaguayare maxis to Lane 5; verify the current lane on arrival.",
     "sources": [
+      {
+        "name": "Traffic Control (Experimental Scheme) Route Area 4 Maxi-Taxi and Taxi Stand (Mayaro) Regulations, 2016",
+        "url": "https://news.gov.tt/sites/default/files/E-Gazette/Gazette%202016/Legal%20Notice/Legal%20Notice%20No.%2035%20of%202016.pdf",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2016-03-11"
+      },
       {
         "name": "OpenStreetMap contributors: Mayaro Junction Maxi and Taxi Stand",
         "url": "https://www.openstreetmap.org/way/479527533",
@@ -4210,6 +4232,6 @@
         "checkedAt": "2026-09-12"
       }
     ],
-    "boardingNote": "MOWT formally designates a Mayaro/Mafeking taxi stand. Mafeking endpoint is approximate until the village-side stand is confirmed. Reverse service is not inferred."
+    "boardingNote": "The Mayaro/Mafeking taxi stand is on the southern side of Naparima-Mayaro Road, beginning about 15 m west of the Guayaguayare-Mayaro Road intersection, with taxis facing west."
   }
 ]

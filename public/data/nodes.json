@@ -1388,25 +1388,25 @@
   },
   {
     "id": "grande-maxi-area",
-    "name": "Sangre Grande Maxi hub — Brierley Street",
-    "kind": "stop_zone",
+    "name": "Sangre Grande Maxi-Taxi Hub — Brierley Street",
+    "kind": "stand",
     "location": {
       "lat": 10.5862654,
       "lng": -61.130158
     },
-    "locationConfidence": "approximate_area",
-    "boardingNote": "Brierley Street Maxi hub. MOWT places Toco and Mayaro route maxis on the southern side of Brierley Street facing east toward Railway Road No. 1. Individual bays can change.",
+    "locationConfidence": "mapped_station",
+    "boardingNote": "Board at the Brierley Street Maxi-Taxi Hub. MOWT designates Toco/Mayaro maxis on the southern side of Brierley Street facing east toward Railway Road No. 1; confirm the individual bay for Port of Spain/Arima services.",
     "sources": [
+      {
+        "name": "MOWT Traffic Control (Sangre Grande): Toco and Mayaro Maxi stands",
+        "url": "https://mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
       {
         "name": "Guardian: Sangre Grande maxi hub operating from Brierley Street",
         "url": "https://www.guardian.co.tt/news/maxi-taxi-shut-down-leaves-sangre-grande-commuters-scrambling-6.2.2596990.938df5d0a9",
         "checkedAt": "2026-09-12",
         "publishedAt": "2026-06-02"
-      },
-      {
-        "name": "MOWT Traffic Control (Sangre Grande): Toco and Mayaro Maxi stands",
-        "url": "https://mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
-        "checkedAt": "2026-09-12"
       },
       {
         "name": "Passenger report: direct Grande maxis and separate Arima services",
