@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Transit Trinidad — Network QA</title>
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#171717;background:#f3efe4}*{box-sizing:border-box}body{margin:0}.shell{max-width:1280px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:20px}h1{font-family:Georgia,serif;font-size:34px;margin:0}.muted{color:#666}.cards{display:grid;grid-template-columns:repeat(6,minmax(120px,1fr));gap:10px}.metric{background:#fff;border:1px solid #c8c0b3;padding:14px}.metric strong{display:block;font-size:25px}.toolbar{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:10px;margin:18px 0}.toolbar input,.toolbar select{width:100%;padding:10px;border:1px solid #aaa;background:#fff}.grid{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}.panel{background:#fff;border:1px solid #c8c0b3;padding:16px}.panel h2{margin-top:0}.row{border-top:1px solid #e1ddd4;padding:11px 0}.row:first-child{border-top:0}.row-top{display:flex;justify-content:space-between;gap:12px}.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}.chip{font-size:12px;border:1px solid #bbb;padding:3px 6px}.critical{border-color:#8e1b1b}.high{border-color:#bb5a00}.medium{border-color:#9b8118}.low{border-color:#777}.score{font-variant-numeric:tabular-nums}.empty{padding:25px 0;color:#777}@media(max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}.toolbar{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}}@media(max-width:520px){.shell{padding:14px}.toolbar{grid-template-columns:1fr}.cards{grid-template-columns:1fr 1fr}h1{font-size:28px}}
+</style>
+</head>
+<body><main class="shell">
+<header><div><h1>Network QA</h1><div class="muted">Live analysis of the canonical Transit Trinidad graph.</div></div><a href="./index.html">← Planner</a></header>
+<section id="metrics" class="cards"></section>
+<section class="toolbar">
+<input id="search" placeholder="Search service, corridor, place or node">
+<select id="severity"><option value="all">All severities</option><option>critical</option><option>high</option><option>medium</option><option>low</option></select>
+<select id="mode"><option value="all">All modes</option><option value="maxi">Maxi</option><option value="route_taxi">Route taxi</option><option value="ptsc">PTSC</option><option value="water_taxi">Water Taxi</option><option value="ferry">Ferry</option></select>
+<select id="view"><option value="issues">Priority issues</option><option value="corridors">Corridors</option><option value="places">Places</option></select>
+</section>
+<div class="grid"><section class="panel"><h2 id="mainTitle">Priority issues</h2><div id="mainList"></div></section><aside class="panel"><h2>What to fix first</h2><div id="priorityList"></div></aside></div>
+</main>
+<script type="module">
+import {buildNetworkQA} from './src/network-qa-core.mjs';
+const get=path=>fetch(`./data/${path}`,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(`${path}: ${r.status}`);return r.json();});
+const [nodes,services,transfers,schedules,places]=await Promise.all(['nodes.json','services.json','transfers.json','schedules.json','places.json'].map(get));
+const report=buildNetworkQA({nodes,services,transfers,schedules,places});
+const $=id=>document.getElementById(id),esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+function metrics(){const s=report.summary;$('metrics').innerHTML=[['Routable',`${s.routableServices}/${s.services}`],['Corridors',s.corridors],['Fare coverage',`${s.fareCoveragePct}%`],['Geometry',`${s.geometryCoveragePct}%`],['Operations',`${s.operationCoveragePct}%`],['Disconnected places',s.disconnectedPlaces]].map(([k,v])=>`<div class="metric"><span class="muted">${k}</span><strong>${v}</strong></div>`).join('');}
+function chips(types){return types.map(type=>{const meta=report.issueCatalog[type];return `<span class="chip ${meta?.severity||''}">${esc(meta?.label||type)}</span>`}).join('');}
+function render(){const q=$('search').value.toLowerCase(),sev=$('severity').value,mode=$('mode').value,view=$('view').value;let rows=[];
+ if(view==='issues'){rows=report.issues.filter(x=>(sev==='all'||x.severity===sev)&&(!q||`${x.entityId} ${x.label} ${x.type} ${x.name||''}`.toLowerCase().includes(q))).filter(x=>mode==='all'||report.services.find(s=>s.id===x.entityId)?.mode===mode);$('mainTitle').textContent='Priority issues';$('mainList').innerHTML=rows.length?rows.map(x=>`<div class="row"><div class="row-top"><strong>${esc(x.label)}</strong><span class="chip ${x.severity}">${x.severity}</span></div><div class="muted">${esc(x.entityType)} · ${esc(x.entityId)}</div></div>`).join(''):'<div class="empty">No matching issues.</div>';}
+ else if(view==='corridors'){rows=report.corridors.filter(x=>(mode==='all'||x.modes.includes(mode))&&(!q||`${x.corridorId} ${x.serviceIds.join(' ')}`.toLowerCase().includes(q)));$('mainTitle').textContent='Corridors';$('mainList').innerHTML=rows.map(x=>`<div class="row"><div class="row-top"><strong>${esc(x.corridorId)}</strong><span class="score">${x.score}/100</span></div><div class="muted">${x.directionCount} direction(s) · ${x.modes.join(', ')} · reverse ${x.reverseComplete?'represented':'unconfirmed'}</div><div class="chips">${chips(x.issues)}</div></div>`).join('')||'<div class="empty">No matching corridors.</div>';}
+ else{rows=report.places.filter(x=>!q||`${x.name} ${x.id}`.toLowerCase().includes(q));$('mainTitle').textContent='Places';$('mainList').innerHTML=rows.map(x=>`<div class="row"><div class="row-top"><strong>${esc(x.name)}</strong><span>${x.nearbyNodeCount} nearby node(s)</span></div><div class="muted">radius ${x.routingRadiusKm} km · ${x.modes.join(', ')||'no routable mode'}</div><div class="chips">${chips(x.issues)}</div></div>`).join('')||'<div class="empty">No matching places.</div>';}
+}
+function priority(){const top=report.corridors.filter(c=>c.issues.length).slice(0,12);$('priorityList').innerHTML=top.map(c=>`<div class="row"><div class="row-top"><strong>${esc(c.corridorId)}</strong><span class="score">${c.score}/100</span></div><div class="chips">${chips(c.issues)}</div></div>`).join('')||'<div class="empty">No corridor issues.</div>';}
+for(const id of ['search','severity','mode','view'])$(id).addEventListener(id==='search'?'input':'change',render);metrics();priority();render();
+</script></body></html>
