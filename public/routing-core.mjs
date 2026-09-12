@@ -295,8 +295,10 @@ export function chooseJourneyOptions({
   rankingOptions={}
 }){
   const eligibleNodeIds=routableNodeIds(services,transfers);
-  const starts=knownFrom?[{node:knownFrom,km:0}]:nearestNodes(fromPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm,allowedNodeIds:eligibleNodeIds});
-  const ends=knownTo?[{node:knownTo,km:0}]:nearestNodes(toPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm,allowedNodeIds:eligibleNodeIds});
+  const fromAccessLimit=Number.isFinite(fromPlace?.routingRadiusKm)?fromPlace.routingRadiusKm:maxAccessKm;
+  const toAccessLimit=Number.isFinite(toPlace?.routingRadiusKm)?toPlace.routingRadiusKm:maxAccessKm;
+  const starts=knownFrom?[{node:knownFrom,km:0}]:nearestNodes(fromPlace,nodes,{limit:candidateLimit,maxKm:fromAccessLimit,allowedNodeIds:eligibleNodeIds});
+  const ends=knownTo?[{node:knownTo,km:0}]:nearestNodes(toPlace,nodes,{limit:candidateLimit,maxKm:toAccessLimit,allowedNodeIds:eligibleNodeIds});
   const unique=new Map();
   const availableModes=[...new Set(services.filter(service=>service.serviceConfidence!=='needs_review').map(service=>service.mode))];
   const directKm=fromPlace&&toPlace?kmBetween(fromPlace,toPlace):0;
