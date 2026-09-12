@@ -6,6 +6,7 @@ export const LOCATION_CONFIDENCE = new Set(['verified_station','mapped_station',
 export const TRANSFER_CONFIDENCE = new Set(['verified_walk','estimated_walk']);
 export const SCHEDULE_STATUS = new Set(['published_times','times_unavailable']);
 export const SERVICE_DAYS = new Set(['mon','tue','wed','thu','fri','sat','sun']);
+export const SOURCE_KINDS = new Set(['web','association_contact']);
 
 function isNonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -25,9 +26,14 @@ function isRealDate(value) {
 export function validateSource(source) {
   if (!source || typeof source !== 'object') throw new Error('source is required');
   if (!isNonEmpty(source.name)) throw new Error('source.name is required');
-  if (!isNonEmpty(source.url)) throw new Error('source.url is required');
-  if (!/^https?:\/\//i.test(source.url)) throw new Error('source.url must be http(s)');
   if (!isRealDate(source.checkedAt)) throw new Error('source.checkedAt must be a real YYYY-MM-DD date');
+  const kind=source.kind||'web';
+  if(!SOURCE_KINDS.has(kind))throw new Error(`invalid source.kind ${kind}`);
+  if(kind==='web'){
+    if (!isNonEmpty(source.url)) throw new Error('source.url is required');
+    if (!/^https?:\/\//i.test(source.url)) throw new Error('source.url must be http(s)');
+  }
+  if(kind==='association_contact'&&!isNonEmpty(source.referenceId))throw new Error('association_contact source.referenceId is required');
   return true;
 }
 
