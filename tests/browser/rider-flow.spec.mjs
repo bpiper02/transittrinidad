@@ -7,7 +7,7 @@ export class LngLatBounds {
 }
 export class NavigationControl { constructor(){} }
 export class Map {
-  constructor(){this.handlers=new Map();this.sources=new Map();this.canvas={style:{}};queueMicrotask(()=>this.handlers.get('load')?.forEach(fn=>fn()));}
+  constructor(){this.handlers=new globalThis.Map();this.sources=new globalThis.Map();this.canvas={style:{}};queueMicrotask(()=>this.handlers.get('load')?.forEach(fn=>fn()));}
   addControl(){}
   addSource(id,source){this.sources.set(id,{...source,setData(data){this.data=data;}});}
   addLayer(){}
@@ -51,7 +51,6 @@ test.beforeEach(async({page})=>{await primeNetwork(page);await page.goto('/');aw
 test('loads the canonical network and plans a local-place journey',async({page})=>{
   await expect(page.locator('#serviceCount')).toHaveText('70');
   await planCouvaToChaguanas(page);
-  await expect(page.locator('.journey-leg')).toHaveCount(await page.locator('.journey-leg').count());
   expect(await page.locator('.journey-leg').count()).toBeGreaterThan(0);
 });
 
