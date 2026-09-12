@@ -126,11 +126,27 @@ const corridorIds=new Set(services.map(service=>service.corridorId));
 assert.ok(corridorIds.size>26,'regional sprint must expand the original 26 corridors');
 const chagCouva=findJourney('chag-maxi-area','maxi-couva',maxiOnly,nodes,{transfers});
 assert.equal(chagCouva.filter(step=>step.kind==='transit').length,1,'Chaguanas–Couva must be a direct Maxi leg');
+const couvaChag=findJourney('maxi-couva','chag-maxi-area',maxiOnly,nodes,{transfers});
+assert.equal(couvaChag.filter(step=>step.kind==='transit').length,1,'northbound SF–Chaguanas Maxi must serve Couva directly');
 const chagC3=findJourney('chag-maxi-area','c3-centre',services.filter(s=>s.mode==='maxi'||s.id==='route-taxi-san-fernando-to-c3'),nodes,{transfers});
 assert.ok(chagC3.some(step=>step.kind==='transit'&&step.service.mode==='maxi'));
 assert.ok(chagC3.some(step=>step.kind==='transit'&&step.service.mode==='route_taxi'));
 assert.ok(chagC3.some(step=>step.kind==='transfer'),'Maxi to C3 taxi must include an explicit stand transfer');
+const couvaToC3Options=chooseJourneyOptions({fromPlace:nodes.get('maxi-couva').location,toPlace:nodes.get('c3-centre').location,nodes,services,transfers,candidateLimit:10,maxAccessKm:4,accessOptions:{localWaitMinutes:30,localKph:18}});
+assert.deepEqual(couvaToC3Options[0].modes,['maxi','route_taxi'],'a known taxi connection from the Maxi stand must rank ahead of an unsourced final access gap');
 assert.equal(findJourney('a','b',[{...oneWay[0],serviceConfidence:'needs_review'}],oneWayNodes),null,'held service must never enter the graph');
+const requiredModeNodes=new Map([
+  ['a',{id:'a',location:{lat:10,lng:-61}}],['b',{id:'b',location:{lat:10.01,lng:-61}}],['c',{id:'c',location:{lat:10.02,lng:-61}}]
+]);
+const requiredModeServices=[
+  {id:'taxi-a-b',corridorId:'taxi-a-b',mode:'route_taxi',originNodeId:'a',destinationNodeId:'b',stopNodeIds:['a','b'],estimatedMinutes:5},
+  {id:'maxi-b-c',corridorId:'maxi-b-c',mode:'maxi',originNodeId:'b',destinationNodeId:'c',stopNodeIds:['b','c'],estimatedMinutes:5},
+  {id:'taxi-a-c',corridorId:'taxi-a-c',mode:'route_taxi',originNodeId:'a',destinationNodeId:'c',stopNodeIds:['a','c'],estimatedMinutes:4}
+];
+const requiredMaxi=findJourney('a','c',requiredModeServices,requiredModeNodes,{requiredMode:'maxi',transferPenaltyMinutes:1});
+assert.deepEqual(requiredMaxi.filter(step=>step.kind==='transit').map(step=>step.service.mode),['route_taxi','maxi'],'a Maxi-filtered journey may use a taxi connector but must include a Maxi leg');
+const noLoopOption=chooseJourneyOptions({fromPlace:requiredModeNodes.get('a').location,toPlace:requiredModeNodes.get('c').location,nodes:requiredModeNodes,services:requiredModeServices,knownFrom:requiredModeNodes.get('a'),knownTo:requiredModeNodes.get('c'),requiredMode:'maxi'});
+assert.ok(noLoopOption.every(option=>new Set([option.fromNear.node.id,...option.steps.map(step=>step.to)]).size===option.steps.length+1),'mode filtering must reject routes that loop back through a visited node');
 assert.ok(findJourney('penal-siparia-taxi','siparia-penal-taxi',localSouthOnly,nodes));
 assert.ok(findJourney('maxi-mayaro','guayaguayare-area',maxiOnly,nodes));
 assert.equal(findJourney('guayaguayare-area','maxi-mayaro',maxiOnly,nodes),null,'a destination label must not invent a return service');

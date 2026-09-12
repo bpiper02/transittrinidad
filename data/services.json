@@ -1446,6 +1446,7 @@
     "destinationNodeId": "chag-maxi-area",
     "stopNodeIds": [
       "sf-chag-maxi",
+      "maxi-couva",
       "chag-maxi-area"
     ],
     "serviceConfidence": "reported_service",
@@ -1458,7 +1459,7 @@
       "kind": "frequency_based",
       "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
     },
-    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "boardingNote": "Board at the San Fernando–Chaguanas Maxi stand. The Couva stage is the approximate Exchange area; confirm the roadside stop with the driver.",
     "sources": [
       {
         "name": "Reported Route 3 association fare stages (2022; fares not adopted)",

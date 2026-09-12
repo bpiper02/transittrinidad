@@ -54,7 +54,7 @@ function routeColor(service){
   return OPERATOR_COLORS[service.mode] || '#6E6E73';
 }
 function filteredServices(){ return services.filter(service=>service.serviceConfidence!=='needs_review'&&(activeMode==='all'||service.mode===activeMode)); }
-function routingServices(){ return filteredServices(); }
+function routingServices(){ return services.filter(service=>service.serviceConfidence!=='needs_review'); }
 function corridorGroups(list=filteredServices()){
   const grouped=new Map();
   for(const service of list){
@@ -160,7 +160,7 @@ function accessCopy(access,nodeName,isDestination=false){
   if(!access||access.mode==='none') return null;
   const time=formatMinutes(access.minutes).replace('~','');
   if(access.mode==='walk') return {title:isDestination?'Walk to destination':`Walk to ${nodeName}`,detail:`${access.km.toFixed(1)} km · ${time}`};
-  return {title:isDestination?'Local connection to destination':`Local connection to ${nodeName}`,detail:`${access.km.toFixed(1)} km · ~${time}`};
+  return {title:isDestination?'Get from final stop to destination':`Get to ${nodeName}`,detail:`${access.km.toFixed(1)} km · access method unconfirmed`};
 }
 function compactJourneySteps(steps=[]){
   const compact=[];
@@ -178,7 +178,7 @@ function compactJourneySteps(steps=[]){
 function rideSteps(steps=[]){ return compactJourneySteps(steps).filter(step=>step.kind==='transit'); }
 function routeOptionLabel(option,index){
   const waterMode=option.modes.find(mode=>mode==='water_taxi'||mode==='ferry');
-  if(index===0) return waterMode?`Best · ${modeLabel(waterMode)}`:'Best';
+  if(index===0) return waterMode?`Fastest est. · ${modeLabel(waterMode)}`:'Fastest est.';
   if(waterMode) return modeLabel(waterMode);
   return 'Alternative';
 }
@@ -266,7 +266,7 @@ function setupModeTabs(){
       await planCurrentTrip({reuseContext:true});
       return;
     }
-    $('#plannerStatus').textContent=activeMode==='all'?'All modes':`${modeLabel(activeMode)} only`;
+    $('#plannerStatus').textContent=activeMode==='all'?'All modes':`Routes using ${modeLabel(activeMode)}`;
   }));
 }
 function setupTray(){
@@ -536,7 +536,7 @@ async function selectRouteOption(index){
 async function planCurrentTrip({reuseContext=false}={}){
   const status=$('#plannerStatus'),button=$('#planButton'),requestId=++plannerRequestId;
   button.disabled=true;
-  status.textContent=activeMode==='all'?'Finding routes…':`Finding ${modeLabel(activeMode)} routes…`;
+  status.textContent=activeMode==='all'?'Finding routes…':`Finding routes using ${modeLabel(activeMode)}…`;
   try{
     let knownFrom,knownTo,from,to;
     if(reuseContext&&currentTripContext){
@@ -565,9 +565,11 @@ async function planCurrentTrip({reuseContext=false}={}){
       knownFrom,
       knownTo,
       candidateLimit:10,
-      maxAccessKm:20,
+      maxAccessKm:4,
       transferPenaltyMinutes:10,
-      maxOptions:3
+      accessOptions:{localWaitMinutes:30,localKph:18},
+      maxOptions:3,
+      requiredMode:activeMode==='all'?null:activeMode
     });
     ensureCurrent(requestId);
     if(!options.length){
@@ -575,7 +577,7 @@ async function planCurrentTrip({reuseContext=false}={}){
       showNoRouteMap(from,to);
       $('#detailPanel').hidden=true;
       $('#detailPanel').innerHTML='';
-      status.textContent=activeMode==='all'?'No route in the current network.':`No ${modeLabel(activeMode)} route for this trip.`;
+      status.textContent=activeMode==='all'?'No route in the current network.':`No route using ${modeLabel(activeMode)} for this trip.`;
       return;
     }
 

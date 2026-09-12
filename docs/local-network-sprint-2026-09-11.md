@@ -50,6 +50,10 @@ Durations remain estimates; waiting times, traffic and actual daily operation ar
 
 The application already uses external geocoding and road-routing services and browser-local caches. This sprint adds public route evidence, not passenger tracking. It does not justify a claim that all journey data stays on the device or that privacy has been independently audited.
 
+### Routing correction — 12 September 2026
+
+Journey search now limits unsourced endpoint access to four kilometres, preventing the planner from travelling to the destination first merely to board a nominal route. The San Fernando → Chaguanas Maxi pattern now includes its documented Couva/Exchange stage in the northbound direction. Mode tabs mean “journeys using this mode”: a Maxi journey can therefore include a route taxi, PTSC leg or explicit stand walk needed to reach the Maxi. The All tab ranks the same combined graph by estimated total time and labels the first result “Fastest est.” because waiting and traffic remain unknown.
+
 ## Review queue and maintenance
 
 `data/source/local-network-review-2026-09-11.json` records each informal pattern's decision and a separate unresolved candidate queue. `local-route-inventory-2026-09-11.md` lists the integrated corridors and directional patterns. The queue is not counted as active coverage.

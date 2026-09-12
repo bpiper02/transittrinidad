@@ -76,36 +76,38 @@ function buildGraph(services,nodes,transfers=[]){
   return graph;
 }
 
-function stateKey(node,lastServiceId){return`${node}::${lastServiceId||''}`;}
+function stateKey(node,lastServiceId,usedRequiredMode=false){return`${node}::${lastServiceId||''}::${usedRequiredMode?'1':'0'}`;}
 
-export function findJourney(startId,endId,services,nodes=new Map(),{transferPenaltyMinutes=10,transfers=[]}={}){
+export function findJourney(startId,endId,services,nodes=new Map(),{transferPenaltyMinutes=10,transfers=[],requiredMode=null}={}){
   if(startId===endId)return[];
   const graph=buildGraph(services,nodes,transfers);
-  const start={node:startId,lastServiceId:null,cost:0,steps:[]};
-  const best=new Map([[stateKey(startId,null),0]]);
+  const start={node:startId,lastServiceId:null,usedRequiredMode:false,cost:0,steps:[]};
+  const best=new Map([[stateKey(startId,null,false),0]]);
   const queue=[start];
 
   while(queue.length){
     queue.sort((a,b)=>a.cost-b.cost);
     const current=queue.shift();
-    if(current.cost!==best.get(stateKey(current.node,current.lastServiceId)))continue;
-    if(current.node===endId)return current.steps;
+    if(current.cost!==best.get(stateKey(current.node,current.lastServiceId,current.usedRequiredMode)))continue;
+    if(current.node===endId&&(!requiredMode||current.usedRequiredMode))return current.steps;
 
     for(const edge of graph.get(current.node)||[]){
       let nextLastServiceId=current.lastServiceId;
+      let usedRequiredMode=current.usedRequiredMode;
       let edgeCost=edge.minutes;
       if(edge.kind==='transit'){
         if(current.lastServiceId&&current.lastServiceId!==edge.service.id)edgeCost+=transferPenaltyMinutes;
         nextLastServiceId=edge.service.id;
+        if(edge.service.mode===requiredMode)usedRequiredMode=true;
       }
-      const nextKey=stateKey(edge.next,nextLastServiceId);
+      const nextKey=stateKey(edge.next,nextLastServiceId,usedRequiredMode);
       const nextCost=current.cost+edgeCost;
       if(nextCost>=(best.get(nextKey)??Infinity))continue;
       const step=edge.kind==='transit'
         ? {kind:'transit',from:current.node,to:edge.next,service:edge.service,minutes:edge.minutes}
         : {kind:'transfer',from:current.node,to:edge.next,transfer:edge.transfer,minutes:edge.minutes};
       best.set(nextKey,nextCost);
-      queue.push({node:edge.next,lastServiceId:nextLastServiceId,cost:nextCost,steps:[...current.steps,step]});
+      queue.push({node:edge.next,lastServiceId:nextLastServiceId,usedRequiredMode,cost:nextCost,steps:[...current.steps,step]});
     }
   }
   return null;
@@ -166,6 +168,15 @@ function journeySignature(candidate){
   return compactTransitIds(candidate.steps).join('>');
 }
 
+function hasJourneyLoop(startId,steps){
+  const visited=new Set([startId]);
+  for(const step of steps||[]){
+    if(visited.has(step.to))return true;
+    visited.add(step.to);
+  }
+  return false;
+}
+
 function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions}){
   const transitSteps=steps.filter(step=>step.kind==='transit');
   const transferCount=countTransfers(steps);
@@ -200,6 +211,7 @@ export function chooseJourneyOptions({
   knownTo=null,
   candidateLimit=8,
   maxAccessKm=20,
+  requiredMode=null,
   transferPenaltyMinutes=10,
   accessOptions={},
   maxOptions=3,
@@ -209,17 +221,21 @@ export function chooseJourneyOptions({
   const starts=knownFrom?[{node:knownFrom,km:0}]:nearestNodes(fromPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm});
   const ends=knownTo?[{node:knownTo,km:0}]:nearestNodes(toPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm});
   const unique=new Map();
+  const availableModes=[...new Set(services.map(service=>service.mode))];
 
   for(const start of starts){
     for(const end of ends){
-      const steps=findJourney(start.node.id,end.node.id,services,nodes,{transferPenaltyMinutes,transfers});
-      if(steps===null)continue;
-      if(steps.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
-      const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions});
-      const signature=journeySignature(candidate);
-      if(!signature)continue;
-      const existing=unique.get(signature);
-      if(!existing||candidate.score<existing.score)unique.set(signature,candidate);
+      const modeVariants=requiredMode?[requiredMode]:[null,...availableModes];
+      for(const routeMode of modeVariants){
+        const steps=findJourney(start.node.id,end.node.id,services,nodes,{transferPenaltyMinutes,transfers,requiredMode:routeMode});
+        if(steps===null||hasJourneyLoop(start.node.id,steps))continue;
+        if(steps.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
+        const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions});
+        const signature=journeySignature(candidate);
+        if(!signature)continue;
+        const existing=unique.get(signature);
+        if(!existing||candidate.score<existing.score)unique.set(signature,candidate);
+      }
     }
   }
 
