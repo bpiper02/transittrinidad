@@ -634,9 +634,14 @@
     "geometryConfidence": "endpoints_only",
     "geometry": null,
     "fareTTD": 3,
-    "fareConfidence": "official_historical",
+    "fareConfidence": "official_current",
     "scheduleConfidence": "official_current",
     "sources": [
+      {
+        "name": "PTSC current Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-12"
+      },
       {
         "name": "PTSC Arima / La Horquetta route",
         "url": "https://ptsc.co.tt/routes/arima-la-horquetta/",
@@ -664,9 +669,14 @@
     "geometryConfidence": "endpoints_only",
     "geometry": null,
     "fareTTD": 3,
-    "fareConfidence": "official_historical",
+    "fareConfidence": "official_current",
     "scheduleConfidence": "official_current",
     "sources": [
+      {
+        "name": "PTSC current Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-12"
+      },
       {
         "name": "PTSC Arima / St Helena via Carapo route",
         "url": "https://ptsc.co.tt/routes/arima-carapo/",
@@ -694,9 +704,14 @@
     "geometryConfidence": "endpoints_only",
     "geometry": null,
     "fareTTD": 3,
-    "fareConfidence": "official_historical",
+    "fareConfidence": "official_current",
     "scheduleConfidence": "official_current",
     "sources": [
+      {
+        "name": "PTSC current Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-12"
+      },
       {
         "name": "PTSC Arima / Aripo route",
         "url": "https://ptsc.co.tt/routes/arima-aripo/",
@@ -762,6 +777,18 @@
     },
     "sources": [
       {
+        "name": "Guardian: Sangre Grande maxi hub operating from Brierley Street",
+        "url": "https://www.guardian.co.tt/news/maxi-taxi-shut-down-leaves-sangre-grande-commuters-scrambling-6.2.2596990.938df5d0a9",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2026-06-02"
+      },
+      {
+        "name": "Newsday: Route 2 association reported no fare increase planned",
+        "url": "https://newsday.co.tt/2026/01/04/ministry-toll-increase-will-not-affect-maxi-taxis-immediately/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2026-01-04"
+      },
+      {
         "name": "Passenger report: direct Grande maxis and separate Arima services",
         "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
         "checkedAt": "2026-09-11",
@@ -793,6 +820,18 @@
       "note": "No published timetable. Confirm current fare and boarding point before travel."
     },
     "sources": [
+      {
+        "name": "Guardian: Sangre Grande maxi hub operating from Brierley Street",
+        "url": "https://www.guardian.co.tt/news/maxi-taxi-shut-down-leaves-sangre-grande-commuters-scrambling-6.2.2596990.938df5d0a9",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2026-06-02"
+      },
+      {
+        "name": "Newsday: Route 2 association reported no fare increase planned",
+        "url": "https://newsday.co.tt/2026/01/04/ministry-toll-increase-will-not-affect-maxi-taxis-immediately/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2026-01-04"
+      },
       {
         "name": "Passenger report: direct Grande maxis and separate Arima services",
         "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
@@ -2687,6 +2726,17 @@
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
       {
+        "name": "MOWT Traffic Control (Sangre Grande): Toco and Mayaro Maxi stands",
+        "url": "https://mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "Guardian: Sangre Grande maxi hub operating from Brierley Street",
+        "url": "https://www.guardian.co.tt/news/maxi-taxi-shut-down-leaves-sangre-grande-commuters-scrambling-6.2.2596990.938df5d0a9",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2026-06-02"
+      },
+      {
         "name": "OpenStreetMap contributors: Mayaro/Sangre Grande Taxi Stand",
         "url": "https://www.openstreetmap.org/way/479527532",
         "checkedAt": "2026-09-11"
@@ -2727,6 +2777,17 @@
     },
     "boardingNote": "Mapped mixed stand reports very few maxis. No frequency guarantee; taxi may be the available option.",
     "sources": [
+      {
+        "name": "MOWT Traffic Control (Sangre Grande): Toco and Mayaro Maxi stands",
+        "url": "https://mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "Guardian: Sangre Grande maxi hub operating from Brierley Street",
+        "url": "https://www.guardian.co.tt/news/maxi-taxi-shut-down-leaves-sangre-grande-commuters-scrambling-6.2.2596990.938df5d0a9",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2026-06-02"
+      },
       {
         "name": "OpenStreetMap contributors: Mayaro/Sangre Grande Taxi Stand",
         "url": "https://www.openstreetmap.org/way/479527532",
@@ -3449,5 +3510,243 @@
         "checkedAt": "2026-09-11"
       }
     ]
+  },
+  {
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "id": "ptsc-scarborough-to-charlotteville",
+    "corridorId": "ptsc-scarborough-charlotteville",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-scarborough-shaw-park",
+    "destinationNodeId": "ptsc-charlotteville-area",
+    "stopNodeIds": [
+      "ptsc-scarborough-shaw-park",
+      "ptsc-charlotteville-area"
+    ],
+    "sources": [
+      {
+        "name": "PTSC Scarborough current routes",
+        "url": "https://ptsc.co.tt/from/scarborough/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "PTSC Saturday routes",
+        "url": "https://ptsc.co.tt/periodical/saturday/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "PTSC Sunday routes",
+        "url": "https://ptsc.co.tt/periodical/sunday/",
+        "checkedAt": "2026-09-12"
+      }
+    ],
+    "boardingNote": "Official current PTSC route. Exact Charlotteville stop and departure times are not claimed until published route details are captured."
+  },
+  {
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "id": "ptsc-charlotteville-to-scarborough",
+    "corridorId": "ptsc-scarborough-charlotteville",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-charlotteville-area",
+    "destinationNodeId": "ptsc-scarborough-shaw-park",
+    "stopNodeIds": [
+      "ptsc-charlotteville-area",
+      "ptsc-scarborough-shaw-park"
+    ],
+    "sources": [
+      {
+        "name": "PTSC Saturday routes",
+        "url": "https://ptsc.co.tt/periodical/saturday/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "PTSC Sunday routes",
+        "url": "https://ptsc.co.tt/periodical/sunday/",
+        "checkedAt": "2026-09-12"
+      }
+    ],
+    "boardingNote": "PTSC currently lists Charlotteville / Scarborough weekend service. Exact departure times are not claimed."
+  },
+  {
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "id": "ptsc-scarborough-to-lanse-fourmi",
+    "corridorId": "ptsc-scarborough-lanse-fourmi",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-scarborough-shaw-park",
+    "destinationNodeId": "ptsc-lanse-fourmi-area",
+    "stopNodeIds": [
+      "ptsc-scarborough-shaw-park",
+      "ptsc-lanse-fourmi-area"
+    ],
+    "sources": [
+      {
+        "name": "PTSC Scarborough current routes",
+        "url": "https://ptsc.co.tt/from/scarborough/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "PTSC Saturday routes",
+        "url": "https://ptsc.co.tt/periodical/saturday/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "PTSC Sunday routes",
+        "url": "https://ptsc.co.tt/periodical/sunday/",
+        "checkedAt": "2026-09-12"
+      }
+    ],
+    "boardingNote": "Official current PTSC Scarborough / L'Anse Fourmi service. Reverse service is not synthesized without independent directional evidence."
+  },
+  {
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "id": "ptsc-sangre-grande-to-toco",
+    "corridorId": "ptsc-sangre-grande-toco",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-sangre-grande",
+    "destinationNodeId": "ptsc-toco-area",
+    "stopNodeIds": [
+      "ptsc-sangre-grande",
+      "ptsc-toco-area"
+    ],
+    "sources": [
+      {
+        "name": "PTSC Sangre Grande current routes",
+        "url": "https://ptsc.co.tt/from/sangre-grande/",
+        "checkedAt": "2026-09-12"
+      }
+    ],
+    "boardingNote": "Toco is explicitly named on PTSC’s current Sangre Grande / Toco / Matelot coach route. This models the Sangre Grande → Toco usable segment only; no reverse is inferred."
+  },
+  {
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "unknown",
+    "id": "ptsc-scarborough-to-buccoo",
+    "corridorId": "ptsc-scarborough-buccoo",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-scarborough-shaw-park",
+    "destinationNodeId": "buccoo-area",
+    "stopNodeIds": [
+      "ptsc-scarborough-shaw-park",
+      "buccoo-area"
+    ],
+    "sources": [
+      {
+        "name": "PTSC Scarborough current routes",
+        "url": "https://ptsc.co.tt/from/scarborough/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "PTSC current homepage: Scarborough to Buccoo TT$3",
+        "url": "https://ptsc.co.tt/",
+        "checkedAt": "2026-09-12"
+      }
+    ],
+    "boardingNote": "PTSC currently advertises Scarborough → Buccoo for TT$3. Reverse is not inferred."
+  },
+  {
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "id": "ptsc-sangre-grande-to-guayaguayare",
+    "corridorId": "ptsc-sangre-grande-guayaguayare",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-sangre-grande",
+    "destinationNodeId": "guayaguayare-area",
+    "stopNodeIds": [
+      "ptsc-sangre-grande",
+      "guayaguayare-area"
+    ],
+    "sources": [
+      {
+        "name": "PTSC Sangre Grande current routes",
+        "url": "https://ptsc.co.tt/from/sangre-grande/",
+        "checkedAt": "2026-09-12"
+      }
+    ],
+    "boardingNote": "Official current PTSC directional route listing; exact times/fare not claimed here."
+  },
+  {
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "id": "ptsc-sangre-grande-to-rio-claro",
+    "corridorId": "ptsc-sangre-grande-rio-claro",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-sangre-grande",
+    "destinationNodeId": "rio-claro-hub",
+    "stopNodeIds": [
+      "ptsc-sangre-grande",
+      "rio-claro-hub"
+    ],
+    "sources": [
+      {
+        "name": "PTSC Sangre Grande current routes",
+        "url": "https://ptsc.co.tt/from/sangre-grande/",
+        "checkedAt": "2026-09-12"
+      }
+    ],
+    "boardingNote": "Official current PTSC directional route listing; exact times/fare not claimed here."
+  },
+  {
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "id": "ptsc-pos-to-chaguaramas",
+    "corridorId": "ptsc-pos-chaguaramas",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "chaguaramas-area",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "chaguaramas-area"
+    ],
+    "sources": [
+      {
+        "name": "PTSC Saturday routes",
+        "url": "https://ptsc.co.tt/periodical/saturday/",
+        "checkedAt": "2026-09-12"
+      }
+    ],
+    "boardingNote": "PTSC currently lists POS / Chaguaramas weekend service. Reverse is not inferred."
   }
 ]

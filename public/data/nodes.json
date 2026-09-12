@@ -348,14 +348,19 @@
   },
   {
     "id": "maxi-pos-western-hub",
-    "name": "Port of Spain Western Maxi Hub",
+    "name": "Port of Spain Route 1 Maxi-Taxi Association stand",
     "kind": "stand",
     "location": {
-      "lat": 10.6481,
-      "lng": -61.5114
+      "lat": 10.64785,
+      "lng": -61.51115
     },
-    "locationConfidence": "approximate_area",
+    "locationConfidence": "mapped_station",
     "sources": [
+      {
+        "name": "OpenStreetMap contributors: Route 1 Maxi-Taxi Association",
+        "url": "https://www.openstreetmap.org/way/349610834",
+        "checkedAt": "2026-09-12"
+      },
       {
         "name": "OpenStreetMap Port of Spain place search",
         "url": "https://www.openstreetmap.org/search?query=Port%20of%20Spain%2C%20Trinidad",
@@ -366,7 +371,8 @@
         "url": "https://en.wikipedia.org/wiki/Transport_in_Trinidad_and_Tobago",
         "checkedAt": "2026-09-11"
       }
-    ]
+    ],
+    "boardingNote": "Mapped Route 1 Maxi-Taxi Association stand on Wrightson Road. Confirm the exact bay for your destination."
   },
   {
     "id": "maxi-diego-martin",
@@ -1382,15 +1388,26 @@
   },
   {
     "id": "grande-maxi-area",
-    "name": "Sangre Grande Maxi hub area — confirm stand",
+    "name": "Sangre Grande Maxi hub — Brierley Street",
     "kind": "stop_zone",
     "location": {
       "lat": 10.5862654,
       "lng": -61.130158
     },
     "locationConfidence": "approximate_area",
-    "boardingNote": "Area only. Confirm Brierley Street hub and route bay; Toco relocation remains unresolved.",
+    "boardingNote": "Brierley Street Maxi hub. MOWT places Toco and Mayaro route maxis on the southern side of Brierley Street facing east toward Railway Road No. 1. Individual bays can change.",
     "sources": [
+      {
+        "name": "Guardian: Sangre Grande maxi hub operating from Brierley Street",
+        "url": "https://www.guardian.co.tt/news/maxi-taxi-shut-down-leaves-sangre-grande-commuters-scrambling-6.2.2596990.938df5d0a9",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2026-06-02"
+      },
+      {
+        "name": "MOWT Traffic Control (Sangre Grande): Toco and Mayaro Maxi stands",
+        "url": "https://mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29",
+        "checkedAt": "2026-09-12"
+      },
       {
         "name": "Passenger report: direct Grande maxis and separate Arima services",
         "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
@@ -1651,6 +1668,118 @@
         "name": "OpenStreetMap contributors: Port of Spain and Chagunas taxi stand",
         "url": "https://www.openstreetmap.org/node/1761221840",
         "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-scarborough-shaw-park",
+    "name": "PTSC Scarborough depot area — Shaw Park",
+    "kind": "terminal",
+    "location": {
+      "lat": 11.1776,
+      "lng": -60.7475
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "PTSC lists its Scarborough depot at Old Government Farm Road, Shaw Park. Coordinate is a Shaw Park area anchor, not a surveyed bus bay.",
+    "sources": [
+      {
+        "name": "PTSC Bus Stops and Depots",
+        "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "Tobago public infrastructure address: Old Government Farm Road, Shaw Park",
+        "url": "https://www.infrastructuretha.gov.tt/contact/",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-charlotteville-area",
+    "name": "Charlotteville PTSC service area",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 11.3223399,
+      "lng": -60.5473352
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Town-area endpoint for the official PTSC Charlotteville service; exact boarding point requires local confirmation.",
+    "sources": [
+      {
+        "name": "PTSC Scarborough current routes",
+        "url": "https://ptsc.co.tt/from/scarborough/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "PTSC Saturday routes",
+        "url": "https://ptsc.co.tt/periodical/saturday/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "PTSC Sunday routes",
+        "url": "https://ptsc.co.tt/periodical/sunday/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "OpenStreetMap contributors: Charlotteville",
+        "url": "https://www.openstreetmap.org/node/1816584141",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-lanse-fourmi-area",
+    "name": "L'Anse Fourmi PTSC service area",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 11.3106249,
+      "lng": -60.6159008
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Village-area endpoint for the official PTSC L'Anse Fourmi service; exact boarding point requires local confirmation.",
+    "sources": [
+      {
+        "name": "PTSC Scarborough current routes",
+        "url": "https://ptsc.co.tt/from/scarborough/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "PTSC Saturday routes",
+        "url": "https://ptsc.co.tt/periodical/saturday/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "PTSC Sunday routes",
+        "url": "https://ptsc.co.tt/periodical/sunday/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "OpenStreetMap contributors: L'Anse Fourmi",
+        "url": "https://www.openstreetmap.org/node/1816584200",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-toco-area",
+    "name": "Toco PTSC service area",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.8368357,
+      "lng": -60.9376753
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Town-area waypoint/end point on PTSC’s current Sangre Grande / Toco / Matelot coach service; exact Toco boarding point requires local confirmation.",
+    "sources": [
+      {
+        "name": "PTSC Sangre Grande current routes",
+        "url": "https://ptsc.co.tt/from/sangre-grande/",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "OpenStreetMap contributors: Toco",
+        "url": "https://www.openstreetmap.org/node/1128895911",
+        "checkedAt": "2026-09-12"
       }
     ]
   }

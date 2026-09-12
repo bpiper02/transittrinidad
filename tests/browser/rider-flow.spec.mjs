@@ -49,7 +49,7 @@ async function planCouvaToChaguanas(page){
 test.beforeEach(async({page})=>{await primeNetwork(page);await page.goto('/');await expect(page.locator('#serviceCount')).not.toHaveText('0');});
 
 test('loads the canonical network and plans a local-place journey',async({page})=>{
-  await expect(page.locator('#serviceCount')).toHaveText('70');
+  await expect(page.locator('#serviceCount')).toHaveText('77');
   await planCouvaToChaguanas(page);
   expect(await page.locator('.journey-leg').count()).toBeGreaterThan(0);
 });
@@ -71,9 +71,9 @@ test('swap preserves selected local places',async({page})=>{
   await expect(page.locator('#toInput')).toHaveValue(/Couva/i);
 });
 
-test('disconnected tracked place fails clearly instead of inventing a route',async({page})=>{
+test('remaining disconnected tracked place fails clearly instead of inventing a route',async({page})=>{
   await chooseLocalPlace(page,'fromInput','Couva');
-  await chooseLocalPlace(page,'toInput','Toco');
+  await chooseLocalPlace(page,'toInput','Carenage');
   await page.locator('#planButton').click();
   await expect(page.locator('#plannerStatus')).toHaveText('No route in the current network.');
   await expect(page.locator('#detailPanel')).toBeHidden();
