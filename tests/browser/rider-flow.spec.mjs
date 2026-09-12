@@ -54,6 +54,13 @@ test('loads the canonical network and plans a local-place journey',async({page})
   expect(await page.locator('.journey-leg').count()).toBeGreaterThan(0);
 });
 
+test('every planned transit journey displays a fare or explicit estimate',async({page})=>{
+  await planCouvaToChaguanas(page);
+  await expect(page.locator('#detailPanel')).toContainText(/TT\$/);
+  await expect(page.locator('#plannerStatus')).toContainText(/TT\$/);
+  await expect(page.locator('#detailPanel')).not.toContainText(/Fare unknown|fare not in dataset/i);
+});
+
 test('mode tabs re-plan the current trip without losing endpoints',async({page})=>{
   await planCouvaToChaguanas(page);
   await page.getByRole('button',{name:'Maxi',exact:true}).click();

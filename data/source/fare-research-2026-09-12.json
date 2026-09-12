@@ -1,0 +1,100 @@
+{
+  "checkedAt": "2026-09-12",
+  "purpose": "Fare research anchors for confirmed values and conservative estimate calibration. Older values do not become current exact fares without current corroboration.",
+  "rules": [
+    "Current official or association-confirmed fares may be stored as exact values.",
+    "Older published fares may calibrate an estimated range but must not silently become current exact fares.",
+    "Directional fare records remain directional unless both directions are supported.",
+    "Exact fare records override estimates.",
+    "Intermediate trips never inherit a full endpoint fare without segment-aware logic."
+  ],
+  "anchors": [
+    {
+      "market": "Port of Spain - San Fernando Water Taxi",
+      "valueTTD": 15,
+      "status": "official_current",
+      "source": "https://www.nidco.co.tt/water-taxi-service/"
+    },
+    {
+      "market": "Port of Spain - Scarborough ferry adult economy",
+      "valueTTD": 75,
+      "status": "official_current",
+      "source": "https://www.ttitferry.com/fares/"
+    },
+    {
+      "market": "PTSC Arima - Aripo / La Horquetta / St Helena examples",
+      "valueTTD": 3,
+      "status": "official_current_examples",
+      "source": "https://ptsc.co.tt/routes-and-schedules/"
+    },
+    {
+      "market": "PTSC Port of Spain All Stop example",
+      "valueTTD": 2.5,
+      "status": "official_current_example",
+      "source": "https://ptsc.co.tt/routes-and-schedules/"
+    },
+    {
+      "market": "Chaguanas - San Fernando Route 3 maxi",
+      "valueTTD": 11,
+      "status": "published_2022_calibration",
+      "recommendedRangeTTD": [11,13],
+      "source": "https://newsday.co.tt/2022/05/09/green-band-maxi-fares-increase-2/"
+    },
+    {
+      "market": "Port of Spain - Sangre Grande PTSC",
+      "valueTTD": 6,
+      "status": "published_2022_calibration",
+      "recommendedRangeTTD": [6,8],
+      "source": "https://newsday.co.tt/2022/10/11/ptsc-passengers-want-more-than-a-cheaper-service/"
+    },
+    {
+      "market": "Port of Spain - Point Fortin PTSC",
+      "valueTTD": 12,
+      "status": "published_2022_calibration",
+      "recommendedRangeTTD": [12,15],
+      "source": "https://newsday.co.tt/2022/10/11/ptsc-passengers-want-more-than-a-cheaper-service/"
+    },
+    {
+      "market": "San Fernando - Point Fortin route taxi",
+      "valueTTD": 20,
+      "status": "published_2023_calibration",
+      "recommendedRangeTTD": [20,23],
+      "source": "https://newsday.co.tt/2023/10/16/pointt-fortin-san-fernando-taxis-glad-for-highway-but-fare-remains-20/"
+    },
+    {
+      "market": "La Brea - San Fernando route taxi",
+      "valueTTD": 15,
+      "status": "published_2023_calibration",
+      "recommendedRangeTTD": [15,18],
+      "source": "https://newsday.co.tt/2023/10/16/pointt-fortin-san-fernando-taxis-glad-for-highway-but-fare-remains-20/"
+    },
+    {
+      "market": "Scarborough - Crown Point route taxi",
+      "valueTTD": 10,
+      "status": "published_2022_calibration",
+      "recommendedRangeTTD": [10,12],
+      "source": "https://newsday.co.tt/2022/02/24/tobago-taxi-fares-to-increase-by-1-from-march-15/"
+    },
+    {
+      "market": "Lowlands/Gulf City - Scarborough route taxi",
+      "valueTTD": 8,
+      "status": "published_2022_calibration",
+      "recommendedRangeTTD": [8,10],
+      "source": "https://newsday.co.tt/2022/02/24/tobago-taxi-fares-to-increase-by-1-from-march-15/"
+    },
+    {
+      "market": "Rio Claro - Mayaro Route 4",
+      "valueTTD": 10,
+      "status": "published_2022_calibration",
+      "recommendedRangeTTD": [10,12],
+      "source": "https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/"
+    },
+    {
+      "market": "Mayaro - Guayaguayare Route 4",
+      "valueTTD": 9,
+      "status": "published_2022_calibration",
+      "recommendedRangeTTD": [9,11],
+      "source": "https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+[
+  {
+    "id": "water-taxi-pos-sf-official-2026",
+    "serviceId": "water-taxi-pos-to-san-fernando",
+    "fromNodeId": "pos-water-taxi-terminal",
+    "toNodeId": "san-fernando-water-taxi-terminal",
+    "minTTD": 15,
+    "maxTTD": 15,
+    "confidence": "official_current",
+    "method": "published_fare",
+    "sources": [{"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "water-taxi-sf-pos-official-2026",
+    "serviceId": "water-taxi-san-fernando-to-pos",
+    "fromNodeId": "san-fernando-water-taxi-terminal",
+    "toNodeId": "pos-water-taxi-terminal",
+    "minTTD": 15,
+    "maxTTD": 15,
+    "confidence": "official_current",
+    "method": "published_fare",
+    "sources": [{"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "ferry-pos-scarborough-adult-economy-2026",
+    "serviceId": "ferry-pos-to-scarborough",
+    "fromNodeId": "pos-ferry-terminal",
+    "toNodeId": "scarborough-ferry-terminal",
+    "minTTD": 75,
+    "maxTTD": 75,
+    "confidence": "official_current",
+    "method": "adult_economy_published_fare",
+    "sources": [{"name":"TTIT Ferry Fares and Ticket Costs","url":"https://www.ttitferry.com/fares/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "ferry-scarborough-pos-adult-economy-2026",
+    "serviceId": "ferry-scarborough-to-pos",
+    "fromNodeId": "scarborough-ferry-terminal",
+    "toNodeId": "pos-ferry-terminal",
+    "minTTD": 75,
+    "maxTTD": 75,
+    "confidence": "official_current",
+    "method": "adult_economy_published_fare",
+    "sources": [{"name":"TTIT Ferry Fares and Ticket Costs","url":"https://www.ttitferry.com/fares/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "route3-chaguanas-sando-calibrated",
+    "serviceId": "maxi-chag-san-fernando-out",
+    "fromNodeId": "chag-maxi-area",
+    "toNodeId": "sf-chag-maxi",
+    "minTTD": 11,
+    "maxTTD": 13,
+    "confidence": "estimated",
+    "method": "historical_fare_calibrated_range",
+    "sources": [{"name":"Newsday Route 3 fare report","url":"https://newsday.co.tt/2022/05/09/green-band-maxi-fares-increase-2/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "route3-sando-chaguanas-calibrated",
+    "serviceId": "maxi-chag-san-fernando-back",
+    "fromNodeId": "sf-chag-maxi",
+    "toNodeId": "chag-maxi-area",
+    "minTTD": 11,
+    "maxTTD": 13,
+    "confidence": "estimated",
+    "method": "historical_fare_calibrated_range",
+    "sources": [{"name":"Newsday Route 3 fare report","url":"https://newsday.co.tt/2022/05/09/green-band-maxi-fares-increase-2/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "ptsc-pos-grande-calibrated",
+    "serviceId": "ptsc-pos-to-sangre-grande",
+    "fromNodeId": "ptsc-pos-transit-centre",
+    "toNodeId": "ptsc-sangre-grande",
+    "minTTD": 6,
+    "maxTTD": 8,
+    "confidence": "estimated",
+    "method": "historical_fare_calibrated_range",
+    "sources": [{"name":"Newsday PTSC fare comparison","url":"https://newsday.co.tt/2022/10/11/ptsc-passengers-want-more-than-a-cheaper-service/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "ptsc-grande-pos-calibrated",
+    "serviceId": "ptsc-sangre-grande-to-pos",
+    "fromNodeId": "ptsc-sangre-grande",
+    "toNodeId": "ptsc-pos-transit-centre",
+    "minTTD": 6,
+    "maxTTD": 8,
+    "confidence": "estimated",
+    "method": "historical_fare_calibrated_range",
+    "sources": [{"name":"Newsday PTSC fare comparison","url":"https://newsday.co.tt/2022/10/11/ptsc-passengers-want-more-than-a-cheaper-service/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "ptsc-pos-point-fortin-calibrated",
+    "serviceId": "ptsc-pos-to-point-fortin",
+    "fromNodeId": "ptsc-pos-transit-centre",
+    "toNodeId": "ptsc-point-fortin",
+    "minTTD": 12,
+    "maxTTD": 15,
+    "confidence": "estimated",
+    "method": "historical_fare_calibrated_range",
+    "sources": [{"name":"Newsday PTSC fare comparison","url":"https://newsday.co.tt/2022/10/11/ptsc-passengers-want-more-than-a-cheaper-service/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "ptsc-point-fortin-pos-calibrated",
+    "serviceId": "ptsc-point-fortin-to-pos",
+    "fromNodeId": "ptsc-point-fortin",
+    "toNodeId": "ptsc-pos-transit-centre",
+    "minTTD": 12,
+    "maxTTD": 15,
+    "confidence": "estimated",
+    "method": "historical_fare_calibrated_range",
+    "sources": [{"name":"Newsday PTSC fare comparison","url":"https://newsday.co.tt/2022/10/11/ptsc-passengers-want-more-than-a-cheaper-service/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "maxi-mayaro-rio-claro-calibrated",
+    "serviceId": "maxi-mayaro-to-rio-claro-area",
+    "fromNodeId": "maxi-mayaro",
+    "toNodeId": "rio-claro-hub",
+    "minTTD": 10,
+    "maxTTD": 12,
+    "confidence": "estimated",
+    "method": "historical_fare_calibrated_range",
+    "sources": [{"name":"Newsday Route 4 fare report","url":"https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "maxi-mayaro-guayaguayare-calibrated",
+    "serviceId": "maxi-mayaro-to-guayaguayare-area",
+    "fromNodeId": "maxi-mayaro",
+    "toNodeId": "guayaguayare-area",
+    "minTTD": 9,
+    "maxTTD": 11,
+    "confidence": "estimated",
+    "method": "historical_fare_calibrated_range",
+    "sources": [{"name":"Newsday Route 4 fare report","url":"https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/","checkedAt":"2026-09-12"}]
+  }
+]

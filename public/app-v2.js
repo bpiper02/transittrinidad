@@ -2,12 +2,14 @@ import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-g
 import {chooseJourneyOptions,kmBetween} from './src/routing-core.mjs';
 import {exactPlace,explicitNetworkNode,matchPlaces,mergePlaceSuggestions,placeToPoint} from './src/place-core.mjs';
 import {formatClock,formatServiceDays,nextDepartures,scheduleForDate} from './src/schedule-core.mjs';
+import {fareForJourney,fareForSegment,formatFare} from './src/fare-core.mjs';
 
 const nodeIndex=new Map();
 let services=[];
 let transfers=[];
 let schedules=[];
 let places=[];
+let fares=[];
 let activeMode='all';
 let activeServiceId=null;
 let selectedScheduleDate=new Date();
@@ -77,6 +79,8 @@ function nodeCoordinates(id){const node=nodeIndex.get(id);return hasLocation(nod
 function emptyFeatureCollection(){return{type:'FeatureCollection',features:[]};}
 function localDateValue(date=selectedScheduleDate){return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Port_of_Spain',year:'numeric',month:'2-digit',day:'2-digit'}).format(date);}
 function scheduleDateFromInput(value){return new Date(`${value}T12:00:00-04:00`);}
+function fareForService(service,fromNodeId=service.originNodeId,toNodeId=service.destinationNodeId){return fareForSegment({service,fromNodeId,toNodeId,fares,nodes:[...nodeIndex.values()]});}
+function journeyFareLabel(journeyFare){if(!journeyFare)return'Fare unavailable';return formatFare({...journeyFare,confidence:journeyFare.confidence==='includes_estimate'?'estimated':'community_verified'});}
 
 function scheduleHtml(service){
   const variants=serviceSchedules(service.id);
@@ -107,9 +111,9 @@ function serviceConfidenceLabel(service){
   if(service.serviceConfidence==='reported_service')return'Reported route';
   return'Route';
 }
-function serviceBadges(service){
-  const badges=[serviceConfidenceLabel(service)];
-  if(Number.isFinite(service.fareTTD))badges.push(`TT$${service.fareTTD}`);else badges.push('Fare unknown');
+function serviceBadges(service,fromNodeId=service.originNodeId,toNodeId=service.destinationNodeId){
+  const fare=fareForService(service,fromNodeId,toNodeId);
+  const badges=[serviceConfidenceLabel(service),formatFare(fare)];
   if(serviceSchedules(service.id).length)badges.push('Timetable');else badges.push('No timetable');
   return badges.map(label=>`<span class="data-chip">${escapeHtml(label)}</span>`).join('');
 }
@@ -178,7 +182,7 @@ function routeOptionLabel(option,index){
   return'Alternative';
 }
 function routeOptionModes(option){const seen=[];for(const mode of option.modes)if(!seen.includes(mode))seen.push(mode);return seen.map(modeLabel).join(' + ');}
-function routeStatus(option){const rides=rideSteps(option.steps);return`${formatMinutes(option.estimatedMinutes)} · ${rides.length} ride${rides.length===1?'':'s'}${option.transferCount?` · ${option.transferCount} transfer${option.transferCount===1?'':'s'}`:''}`;}
+function routeStatus(option){const rides=rideSteps(option.steps);const fare=fareForJourney(compactJourneySteps(option.steps),{fares,nodes:[...nodeIndex.values()]});return`${formatMinutes(option.estimatedMinutes)} · ${journeyFareLabel(fare)} · ${rides.length} ride${rides.length===1?'':'s'}${option.transferCount?` · ${option.transferCount} transfer${option.transferCount===1?'':'s'}`:''}`;}
 function transitInstruction(step){
   const destination=nodeIndex.get(step.to);
   const toward=destination?.name||step.to;
@@ -191,8 +195,8 @@ function transitInstruction(step){
 }
 function boardingDetail(step){
   const origin=nodeIndex.get(step.from);
-  const parts=[`Board at ${origin?.name||step.from}`];
-  if(Number.isFinite(step.service.fareTTD))parts.push(`TT$${step.service.fareTTD}`);else parts.push('fare not in dataset');
+  const fare=fareForService(step.service,step.from,step.to);
+  const parts=[`Board at ${origin?.name||step.from}`,formatFare(fare)];
   const variants=serviceSchedules(step.service.id);
   const departures=nextDepartures(variants,selectedScheduleDate,1);
   if(departures.length)parts.push(`scheduled ${departures[0].label}`);
@@ -361,14 +365,14 @@ function showNoRouteMap(from,to){
 }
 function renderJourney(connected,options=[],selectedIndex=0){
   const{fromNear,toNear,fromAccess,toAccess,estimatedMinutes,transferCount}=connected;const steps=compactJourneySteps(connected.steps);const rides=steps.filter(step=>step.kind==='transit');const panel=$('#detailPanel');panel.hidden=false;
-  const knownFare=rides.reduce((sum,step)=>sum+(Number.isFinite(step.service.fareTTD)?step.service.fareTTD:0),0);const allFaresKnown=rides.length>0&&rides.every(step=>Number.isFinite(step.service.fareTTD));
-  let html=`<div class="journey-summary"><p class="eyebrow">Route</p><h2>${escapeHtml($('#fromInput').value)} → ${escapeHtml($('#toInput').value)}</h2><div class="journey-kpis"><div><strong>${formatMinutes(estimatedMinutes)}</strong><span>est. trip</span></div><div><strong>${transferCount}</strong><span>transfer${transferCount===1?'':'s'}</span></div><div><strong>${allFaresKnown?`TT$${knownFare}`:'—'}</strong><span>known fare</span></div></div></div>`;
+  const journeyFare=fareForJourney(steps,{fares,nodes:[...nodeIndex.values()]});
+  let html=`<div class="journey-summary"><p class="eyebrow">Route</p><h2>${escapeHtml($('#fromInput').value)} → ${escapeHtml($('#toInput').value)}</h2><div class="journey-kpis"><div><strong>${formatMinutes(estimatedMinutes)}</strong><span>est. trip</span></div><div><strong>${transferCount}</strong><span>transfer${transferCount===1?'':'s'}</span></div><div><strong>${escapeHtml(journeyFareLabel(journeyFare))}</strong><span>${journeyFare?.confidence==='includes_estimate'?'estimated fare':'fare'}</span></div></div></div>`;
   if(options.length>1)html+=`<div class="route-options" aria-label="Route alternatives">${options.map((option,index)=>`<button type="button" class="route-option ${index===selectedIndex?'is-active':''}" data-route-option="${index}"><strong>${escapeHtml(routeOptionLabel(option,index))}</strong><span>${escapeHtml(formatMinutes(option.estimatedMinutes))}</span><small>${escapeHtml(routeOptionModes(option)||'Transit')}</small></button>`).join('')}</div>`;
   const first=accessCopy(fromAccess,fromNear.node.name,false);if(first)html+=`<div class="journey-leg access-leg"><span class="leg-icon">${fromAccess.mode==='walk'?'↟':'●'}</span><div><h3>${escapeHtml(first.title)}</h3><p>${escapeHtml(first.detail)}</p></div></div>`;
   for(const step of steps){
     const destination=nodeIndex.get(step.to);
     if(step.kind==='transfer'){html+=`<div class="journey-leg access-leg"><span class="leg-icon">↟</span><div><h3>Walk to ${escapeHtml(destination?.name||step.to)}</h3><p>${step.transfer.distanceKm.toFixed(1)} km · ~${Math.round(step.minutes)} min</p></div></div>`;continue;}
-    html+=`<div class="journey-leg"><span class="leg-route" style="--route-color:${routeColor(step.service)}"></span><div><h3>${escapeHtml(transitInstruction(step))}</h3><p>${escapeHtml(boardingDetail(step))}</p><div class="data-chips leg-chips">${serviceBadges(step.service)}</div></div></div>`;
+    html+=`<div class="journey-leg"><span class="leg-route" style="--route-color:${routeColor(step.service)}"></span><div><h3>${escapeHtml(transitInstruction(step))}</h3><p>${escapeHtml(boardingDetail(step))}</p><div class="data-chips leg-chips">${serviceBadges(step.service,step.from,step.to)}</div></div></div>`;
   }
   const last=accessCopy(toAccess,toNear.node.name,true);if(last)html+=`<div class="journey-leg access-leg"><span class="leg-icon">${toAccess.mode==='walk'?'↟':'◆'}</span><div><h3>${escapeHtml(last.title)}</h3><p>${escapeHtml(last.detail)}</p></div></div>`;
   html+=journeyEvidenceHtml(rides);panel.innerHTML=html;
@@ -414,8 +418,8 @@ function addMapLayers(){
 }
 async function start(){
   try{
-    const[nodesData,servicesData,transfersData,schedulesData,placesData]=await Promise.all([getJson('./data/nodes.json'),getJson('./data/services.json'),getJson('./data/transfers.json'),getJson('./data/schedules.json'),getJson('./data/places.json')]);
-    nodesData.forEach(node=>nodeIndex.set(node.id,node));services=servicesData;transfers=transfersData;schedules=schedulesData;places=placesData;
+    const[nodesData,servicesData,transfersData,schedulesData,placesData,faresData]=await Promise.all([getJson('./data/nodes.json'),getJson('./data/services.json'),getJson('./data/transfers.json'),getJson('./data/schedules.json'),getJson('./data/places.json'),getJson('./data/fares.json')]);
+    nodesData.forEach(node=>nodeIndex.set(node.id,node));services=servicesData;transfers=transfersData;schedules=schedulesData;places=placesData;fares=faresData;
     renderList();setupModeTabs();setupTray();setupPlanner();
     map=new maplibregl.Map({container:'map',style:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],tileSize:256,attribution:'© OpenStreetMap contributors'}},layers:[{id:'osm',type:'raster',source:'osm'}]},bounds:TT_BOUNDS,fitBoundsOptions:{padding:50},maxBounds:TT_MAX_BOUNDS,minZoom:7,maxZoom:17,attributionControl:true});
     map.addControl(new maplibregl.NavigationControl({showCompass:false}),'bottom-right');map.on('load',()=>{addMapLayers();fitCountry();});
