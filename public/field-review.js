@@ -6,6 +6,7 @@ let nodes=[];
 let services=[];
 let visibleServices=[];
 let activeService=null;
+let activeQuery='';
 let reviewPayload=null;
 
 function escapeHtml(value=''){
@@ -29,6 +30,12 @@ function confidenceLabel(value){
 function filterText(service,map=nodeMap()){
   return [service.id,service.corridorId,service.operator,service.mode,modeLabels[service.mode],routeLabel(service,map),...serviceStops(service).map(id=>map.get(id)?.name||id)].join(' ').toLowerCase();
 }
+function optionLabel(service,map,query){
+  const base=`${routeLabel(service,map)} · ${modeLabels[service.mode]||service.mode}`;
+  const cleaned=String(query||'').trim();
+  if(!cleaned||base.toLowerCase().includes(cleaned.toLowerCase()))return base;
+  return `${base} · match: ${cleaned}`;
+}
 
 function setStatus(message,type=''){
   const status=$('#status');
@@ -45,11 +52,12 @@ function clearPreview(){
 
 function renderOptions(query=''){
   const map=nodeMap();
-  const needle=String(query||'').trim().toLowerCase();
+  activeQuery=String(query||'').trim();
+  const needle=activeQuery.toLowerCase();
   visibleServices=services.filter(service=>!needle||filterText(service,map).includes(needle));
   const select=$('#serviceSelect');
   const previous=activeService?.id;
-  select.innerHTML=visibleServices.map(service=>`<option value="${escapeHtml(service.id)}">${escapeHtml(routeLabel(service,map))} · ${escapeHtml(modeLabels[service.mode]||service.mode)}</option>`).join('');
+  select.innerHTML=visibleServices.map(service=>`<option value="${escapeHtml(service.id)}">${escapeHtml(optionLabel(service,map,activeQuery))}</option>`).join('');
   if(!visibleServices.length){
     activeService=null;
     renderService();
@@ -73,7 +81,9 @@ function renderService(){
   const ids=serviceStops(activeService);
   const names=ids.map(id=>map.get(id)?.name||id);
   const fare=activeService.fareTTD!=null?`TT$${activeService.fareTTD}`:'Fare not confirmed';
-  card.innerHTML=`<strong>${escapeHtml(routeLabel(activeService,map))}</strong><div class="meta"><span class="chip">${escapeHtml(modeLabels[activeService.mode]||activeService.mode)}</span><span class="chip">${escapeHtml(confidenceLabel(activeService.serviceConfidence))}</span><span class="chip">${escapeHtml(fare)}</span></div><p class="hint">${escapeHtml(activeService.operator||'Local operator')} · ${escapeHtml(activeService.id)}</p>`;
+  const baseLabel=routeLabel(activeService,map);
+  const matchChip=activeQuery&&!baseLabel.toLowerCase().includes(activeQuery.toLowerCase())?`<span class="chip">Matched: ${escapeHtml(activeQuery)}</span>`:'';
+  card.innerHTML=`<strong>${escapeHtml(baseLabel)}</strong><div class="meta"><span class="chip">${escapeHtml(modeLabels[activeService.mode]||activeService.mode)}</span><span class="chip">${escapeHtml(confidenceLabel(activeService.serviceConfidence))}</span><span class="chip">${escapeHtml(fare)}</span>${matchChip}</div><p class="hint">${escapeHtml(activeService.operator||'Local operator')} · ${escapeHtml(activeService.id)}</p>`;
   $('#fare').value=activeService.fareTTD??'';
   $('#patternType').value=activeService.patternType||'';
   $('#boardingPolicy').value=activeService.boardingPolicy||'';
