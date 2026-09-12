@@ -1,0 +1,72 @@
+{
+  "pilotId": "c1-central-south-2026-09",
+  "title": "Central–South Route 3 field validation",
+  "corridor": "Chaguanas–San Fernando local Route 3 / Green Band",
+  "purpose": "Validate whether a rider can actually follow TransitTrinidad directions on the Central–South corridor before broader public beta.",
+  "reviewThreshold": {
+    "knowledgeableReviewers": 3,
+    "independentConfirmationsPerCoreJourney": 2,
+    "severity1Remaining": 0
+  },
+  "journeys": [
+    {
+      "id": "c1-california-claxton",
+      "fromNodeId": "california-area",
+      "toNodeId": "claxton-bay-area",
+      "expectedMode": "maxi",
+      "expectedTransfersMax": 0,
+      "question": "Can a rider hail the local southbound Green Band service in California and get off in Claxton Bay as modeled?"
+    },
+    {
+      "id": "c1-couva-marabella",
+      "fromNodeId": "maxi-couva",
+      "toNodeId": "marabella-area",
+      "expectedMode": "maxi",
+      "expectedTransfersMax": 0,
+      "question": "Does the local Chaguanas–San Fernando service carry a Couva rider through to Marabella without requiring a transfer?"
+    },
+    {
+      "id": "c1-chase-sando",
+      "fromNodeId": "chase-village-area",
+      "toNodeId": "sf-chag-maxi",
+      "expectedMode": "maxi",
+      "expectedTransfersMax": 0,
+      "question": "Can a rider board/hail at Chase Village and remain on the same local Green Band service to San Fernando?"
+    },
+    {
+      "id": "c1-chag-california",
+      "fromNodeId": "chag-maxi-area",
+      "toNodeId": "california-area",
+      "expectedMode": "maxi",
+      "expectedTransfersMax": 0,
+      "question": "Is California a normal requested drop-off on the southbound Chaguanas–San Fernando local service?"
+    },
+    {
+      "id": "c1-claxton-chag-reverse-probe",
+      "fromNodeId": "claxton-bay-area",
+      "toNodeId": "chag-maxi-area",
+      "expectedMode": "maxi",
+      "expectedTransfersMax": 1,
+      "reverseProbe": true,
+      "question": "What is the real northbound behavior from Claxton Bay toward Chaguanas, and where exactly should a rider board?"
+    }
+  ],
+  "fareBaseline": {
+    "status": "historical_baseline_to_verify",
+    "effectiveDate": "2022-06-21",
+    "sourceName": "Route 3 Unified Maxi Taxi Association fare announcement",
+    "sourceUrl": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
+    "shortDropTTD": 5,
+    "southboundFromChaguanas": [
+      {"through": "St. Mary's Junction", "fareTTD": 5},
+      {"through": "Exchange Junction", "fareTTD": 6},
+      {"through": "BC Roundabout", "fareTTD": 7},
+      {"through": "Savonetta Junction", "fareTTD": 8},
+      {"through": "Pranz Gardens Recreation Ground", "fareTTD": 9},
+      {"through": "St. Margaret's Police Station", "fareTTD": 10},
+      {"through": "TECU", "fareTTD": 11},
+      {"through": "Bay Road", "fareTTD": 12},
+      {"through": "San Fernando", "fareTTD": 13}
+    ]
+  }
+}
