@@ -9,6 +9,7 @@ const nodes=[
   {id:'missing'}
 ];
 const service={id:'maxi-a-d',corridorId:'maxi-a-d',mode:'maxi',originNodeId:'a',destinationNodeId:'d',stopNodeIds:['a','b','c','d'],fareTTD:12,fareConfidence:'community_verified',serviceConfidence:'community_verified'};
+const historical={id:'ptsc-a-d-old',corridorId:'ptsc-a-d-old',mode:'ptsc',originNodeId:'a',destinationNodeId:'d',stopNodeIds:['a','d'],fareTTD:3,fareConfidence:'official_historical',serviceConfidence:'verified_service'};
 const noFare={id:'taxi-a-d',corridorId:'taxi-a-d',mode:'route_taxi',originNodeId:'a',destinationNodeId:'d',stopNodeIds:['a','d'],fareTTD:null,fareConfidence:'unknown',serviceConfidence:'reported_service'};
 const missingDistance={id:'taxi-a-missing',corridorId:'taxi-a-missing',mode:'route_taxi',originNodeId:'a',destinationNodeId:'missing',stopNodeIds:['a','missing'],fareTTD:null,fareConfidence:'unknown',serviceConfidence:'reported_service'};
 const override={id:'override-b-c',serviceId:'maxi-a-d',fromNodeId:'b',toNodeId:'c',minTTD:5,maxTTD:6,confidence:'community_verified',method:'driver_confirmation',sources:[]};
@@ -26,6 +27,12 @@ const legacy=fareForSegment({service,fromNodeId:'a',toNodeId:'d',fares:[],nodes}
 assert.equal(legacy.minTTD,12);
 assert.equal(legacy.maxTTD,12);
 assert.equal(legacy.confidence,'community_verified');
+
+const historicalFare=fareForSegment({service:historical,fromNodeId:'a',toNodeId:'d',fares:[],nodes});
+assert.equal(historicalFare.confidence,'estimated');
+assert.equal(historicalFare.method,'legacy_fare_calibrated_range');
+assert.equal(historicalFare.minTTD,3);
+assert.ok(historicalFare.maxTTD>3);
 
 const interpolated=fareForSegment({service,fromNodeId:'b',toNodeId:'d',fares:[],nodes});
 assert.equal(interpolated.confidence,'estimated');
@@ -52,7 +59,7 @@ assert.equal(formatFare({minTTD:7,maxTTD:7,confidence:'estimated'}),'Est. TT$7')
 assert.equal(formatFare({minTTD:7,maxTTD:10,confidence:'estimated'}),'Est. TT$7–10');
 assert.equal(formatFare({minTTD:9,maxTTD:9,confidence:'community_verified'}),'TT$9');
 
-const coverage=coverageReport([service,noFare,missingDistance],{fares:[override],nodes});
+const coverage=coverageReport([service,historical,noFare,missingDistance],{fares:[override],nodes});
 assert.equal(coverage.displayCoveragePct,100);
 assert.equal(coverage.counts.missing,0);
 assert.ok(coverage.counts.estimated>0);
