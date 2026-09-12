@@ -37,5 +37,15 @@ assert.equal(live.summary.routableServices,live.summary.services-(live.summary.s
 assert.ok(live.summary.fareCoveragePct>=0&&live.summary.fareCoveragePct<=100);
 assert.ok(live.summary.geometryCoveragePct>=0&&live.summary.geometryCoveragePct<=100);
 assert.ok(live.summary.operationCoveragePct>=0&&live.summary.operationCoveragePct<=100);
+
+const disconnected=live.places.filter(place=>place.issues.includes('place_disconnected'));
+const issueTypes={};
+for(const issue of live.issues)issueTypes[issue.type]=(issueTypes[issue.type]||0)+1;
+const weakest=live.corridors.slice(0,12);
+
 console.log(formatNetworkQASummary(live));
+console.log(`Disconnected places: ${disconnected.map(place=>`${place.name} (${place.id})`).join(', ')||'none'}`);
+console.log(`Issues by type: ${Object.entries(issueTypes).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0])).map(([type,count])=>`${type}=${count}`).join(', ')}`);
+console.log('Weakest corridors:');
+for(const corridor of weakest)console.log(`- ${corridor.corridorId} | ${corridor.score}/100 | ${corridor.modes.join('+')} | ${corridor.issues.join(',')}`);
 console.log('network QA tests passed');
