@@ -895,17 +895,29 @@
       "ptsc-pos-transit-centre",
       "sf-pos-maxi"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 12,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
       "note": "No published timetable. Confirm current fare and boarding point before travel."
     },
     "sources": [
+      {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
+      {
+        "name": "Newsday: Route Three green-band maxi fares and unaffected south fares",
+        "url": "https://newsday.co.tt/2022/05/09/green-band-maxi-fares-increase-2/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-05-09"
+      },
       {
         "name": "OpenStreetMap contributors: San Fernando-Port of Spain Maxi Taxi Stand",
         "url": "https://www.openstreetmap.org/node/1761221836",
@@ -932,17 +944,29 @@
       "sf-pos-maxi",
       "ptsc-pos-transit-centre"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 12,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
       "note": "No published timetable. Confirm current fare and boarding point before travel."
     },
     "sources": [
+      {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
+      {
+        "name": "Newsday: Route Three green-band maxi fares and unaffected south fares",
+        "url": "https://newsday.co.tt/2022/05/09/green-band-maxi-fares-increase-2/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-05-09"
+      },
       {
         "name": "OpenStreetMap contributors: San Fernando-Port of Spain Maxi Taxi Stand",
         "url": "https://www.openstreetmap.org/node/1761221836",
@@ -969,17 +993,23 @@
       "maxi-pos-western-hub",
       "maxi-diego-martin"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 6,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
       "note": "No published timetable. Boarding zone is approximate."
     },
     "sources": [
+      {
+        "name": "Newsday: Route One yellow-band maxi fares effective January 2022",
+        "url": "https://newsday.co.tt/2022/01/24/yellow-band-maxi-fares-go-up/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-01-24"
+      },
       {
         "name": "Newsday: Diego Martin/Petit Valley taxi fare adjustment",
         "url": "https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/",
@@ -1006,17 +1036,23 @@
       "maxi-diego-martin",
       "maxi-pos-western-hub"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 6,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
       "note": "No published timetable. Boarding zone is approximate."
     },
     "sources": [
+      {
+        "name": "Newsday: Route One yellow-band maxi fares effective January 2022",
+        "url": "https://newsday.co.tt/2022/01/24/yellow-band-maxi-fares-go-up/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-01-24"
+      },
       {
         "name": "Newsday: Diego Martin/Petit Valley taxi fare adjustment",
         "url": "https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/",
@@ -1043,17 +1079,29 @@
       "sf-princes-town-maxi",
       "princes-town-local-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 9,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
       "note": "No published timetable. Boarding zone is approximate."
     },
     "sources": [
+      {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
+      {
+        "name": "Newsday: Route Four Black Band fare schedule effective November 2022",
+        "url": "https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-10-14"
+      },
       {
         "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
         "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
@@ -1079,17 +1127,29 @@
       "princes-town-local-area",
       "sf-princes-town-maxi"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 9,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
       "note": "No published timetable. Boarding zone is approximate."
     },
     "sources": [
+      {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
+      {
+        "name": "Newsday: Route Four Black Band fare schedule effective November 2022",
+        "url": "https://newsday.co.tt/2022/10/14/taxis-to-hike-fares-in-south-west-trinidad/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-10-14"
+      },
       {
         "name": "Firsthand December 2024 journey: SF, Princes Town, La Brea and Curepe",
         "url": "https://www.travelerjack.com/2024/12/houston-trinidad-south-america.html",
@@ -1189,6 +1249,12 @@
     },
     "sources": [
       {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
+      {
         "name": "OpenStreetMap contributors: San Fernando-Point Fortin Maxi Taxi Stand",
         "url": "https://www.openstreetmap.org/node/1538914694",
         "checkedAt": "2026-09-11"
@@ -1220,6 +1286,12 @@
     },
     "sources": [
       {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
+      {
         "name": "OpenStreetMap contributors: San Fernando-Point Fortin Maxi Taxi Stand",
         "url": "https://www.openstreetmap.org/node/1538914694",
         "checkedAt": "2026-09-11"
@@ -1250,6 +1322,12 @@
       "note": "No published timetable. Boarding zone is approximate."
     },
     "sources": [
+      {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
       {
         "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
         "url": "https://www.openstreetmap.org/node/1761221833",
@@ -1287,6 +1365,12 @@
     },
     "sources": [
       {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
+      {
         "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
         "url": "https://www.openstreetmap.org/node/1761221833",
         "checkedAt": "2026-09-11"
@@ -1323,6 +1407,12 @@
     },
     "sources": [
       {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
+      {
         "name": "Reported Couva maxi stand on Penitence Street, San Fernando",
         "url": "https://newsday.co.tt/2020/05/04/2-women-knocked-down-as-driver-suffers-seizure/",
         "checkedAt": "2026-09-11",
@@ -1354,6 +1444,12 @@
       "note": "No published timetable. Confirm current fare and boarding point before travel."
     },
     "sources": [
+      {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
       {
         "name": "Reported Couva maxi stand on Penitence Street, San Fernando",
         "url": "https://newsday.co.tt/2020/05/04/2-women-knocked-down-as-driver-suffers-seizure/",
@@ -1511,6 +1607,12 @@
     "boardingNote": "Couva is an approximate area for the reported Exchange fare stage; confirm the roadside stopping point with the driver.",
     "sources": [
       {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
+      {
         "name": "Reported Route 3 association fare stages (2022; fares not adopted)",
         "url": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
         "checkedAt": "2026-09-11",
@@ -1555,6 +1657,12 @@
     "boardingNote": "Board at the San Fernando–Chaguanas Maxi stand. The Couva stage is the approximate Exchange area; confirm the roadside stop with the driver.",
     "sources": [
       {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
+      {
         "name": "Reported Route 3 association fare stages (2022; fares not adopted)",
         "url": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
         "checkedAt": "2026-09-11",
@@ -1585,11 +1693,11 @@
       "curepe-chag-maxi",
       "chag-maxi-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 10,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -1597,6 +1705,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Newsday: Route Three green-band maxi fares and unaffected south fares",
+        "url": "https://newsday.co.tt/2022/05/09/green-band-maxi-fares-increase-2/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-05-09"
+      },
       {
         "name": "Reported Route 3 association fare stages (2022; fares not adopted)",
         "url": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
@@ -1622,11 +1736,11 @@
       "chag-maxi-area",
       "curepe-chag-maxi"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 10,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -1634,6 +1748,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Newsday: Route Three green-band maxi fares and unaffected south fares",
+        "url": "https://newsday.co.tt/2022/05/09/green-band-maxi-fares-increase-2/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-05-09"
+      },
       {
         "name": "Reported Route 3 association fare stages (2022; fares not adopted)",
         "url": "https://ianalleyne.org/the-chaguanas-to-san-fernando-maxi-taxi-fares-will-be-increased-with-effect-from-tuesday-21st-june-2022",
@@ -2060,6 +2180,12 @@
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
       {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
+      {
         "name": "OpenStreetMap contributors: Penal-San Fernando Maxi Taxi Stand",
         "url": "https://www.openstreetmap.org/node/1810716978",
         "checkedAt": "2026-09-11"
@@ -2095,6 +2221,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
       {
         "name": "OpenStreetMap contributors: San Fernando-Penal/Siparia Maxi Taxi Stand",
         "url": "https://www.openstreetmap.org/node/1761221833",
@@ -2427,11 +2559,11 @@
       "ptsc-pos-transit-centre",
       "arima-pbr-maxi"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 10,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -2439,6 +2571,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Newsday: Route Two maxi fares effective November 2021",
+        "url": "https://newsday.co.tt/2021/11/01/busy-monday-in-tt-as-bars-reopen-full-public-service-back-out-to-work/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2021-11-01"
+      },
       {
         "name": "Passenger report: direct Grande maxis and separate Arima services",
         "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
@@ -2464,11 +2602,11 @@
       "arima-pbr-maxi",
       "ptsc-pos-transit-centre"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 10,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -2476,6 +2614,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Newsday: Route Two maxi fares effective November 2021",
+        "url": "https://newsday.co.tt/2021/11/01/busy-monday-in-tt-as-bars-reopen-full-public-service-back-out-to-work/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2021-11-01"
+      },
       {
         "name": "Passenger report: direct Grande maxis and separate Arima services",
         "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
@@ -2585,11 +2729,11 @@
       "ptsc-pos-transit-centre",
       "maloney-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 10,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -2597,6 +2741,12 @@
     },
     "boardingNote": "Reported City Gate service. Destination area only; return stand and current hours unconfirmed.",
     "sources": [
+      {
+        "name": "Newsday: Route Two maxi fares effective November 2021",
+        "url": "https://newsday.co.tt/2021/11/01/busy-monday-in-tt-as-bars-reopen-full-public-service-back-out-to-work/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2021-11-01"
+      },
       {
         "name": "Passenger report: direct Grande maxis and separate Arima services",
         "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
@@ -2617,11 +2767,11 @@
       "ptsc-pos-transit-centre",
       "la-horquetta-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 11,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -2629,6 +2779,12 @@
     },
     "boardingNote": "Reported City Gate service. Destination area only; return stand and current hours unconfirmed.",
     "sources": [
+      {
+        "name": "Newsday: Route Two maxi fares effective November 2021",
+        "url": "https://newsday.co.tt/2021/11/01/busy-monday-in-tt-as-bars-reopen-full-public-service-back-out-to-work/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2021-11-01"
+      },
       {
         "name": "Passenger report: direct Grande maxis and separate Arima services",
         "url": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/",
@@ -2915,11 +3071,11 @@
       "pos-maraval-taxi",
       "maraval-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 7,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -3237,6 +3393,12 @@
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
       {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
+      {
         "name": "Newsday: Point Fortin/San Fernando taxi fare remains TT$20",
         "url": "https://newsday.co.tt/2023/10/16/pointt-fortin-san-fernando-taxis-glad-for-highway-but-fare-remains-20/",
         "checkedAt": "2026-09-12",
@@ -3278,6 +3440,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
+        "url": "https://www.guardian.co.tt/news/new-test-scheme-for-maxi-taxis-in-san-fernando-activates-on-monday-6.2.1543778.61e26dd301",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-08-13"
+      },
       {
         "name": "Newsday: Point Fortin/San Fernando taxi fare remains TT$20",
         "url": "https://newsday.co.tt/2023/10/16/pointt-fortin-san-fernando-taxis-glad-for-highway-but-fare-remains-20/",
@@ -3950,8 +4118,8 @@
     "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 7,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "sources": [
       {
@@ -3988,8 +4156,8 @@
     "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 7,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "sources": [
       {
