@@ -11,7 +11,7 @@ if(dirIndex>=0){
   if(!dir)throw new Error('Usage: node tools/pilot-review-summary.mjs --dir data/reviews/c1-central-south [--json]');
   const names=(await readdir(resolve(dir))).filter(name=>name.endsWith('.json')).sort();
   paths=names.map(name=>resolve(dir,name));
-}else paths=paths.filter(path=>path!==args[dirIndex+1]);
+}
 if(!paths.length)throw new Error('Provide review JSON files or --dir data/reviews/c1-central-south');
 const payloads=await Promise.all(paths.map(path=>readFile(resolve(path),'utf8').then(JSON.parse)));
 const coreJourneyIds=['c1-california-claxton','c1-couva-marabella','c1-chase-sando','c1-chag-california'];
