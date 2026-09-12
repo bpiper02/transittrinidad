@@ -7,8 +7,9 @@ export function kmBetween(a,b){
   return 2*R*Math.asin(Math.sqrt(q));
 }
 
-export function nearestNodes(place,nodes,{limit=6,maxKm=Infinity}={}){
+export function nearestNodes(place,nodes,{limit=6,maxKm=Infinity,allowedNodeIds=null}={}){
   return [...nodes.values()]
+    .filter(node=>!allowedNodeIds||allowedNodeIds.has(node.id))
     .filter(node=>node?.location&&Number.isFinite(node.location.lat)&&Number.isFinite(node.location.lng))
     .map(node=>({node,km:kmBetween(place,node.location)}))
     .filter(candidate=>candidate.km<=maxKm)
@@ -74,6 +75,19 @@ function buildGraph(services,nodes,transfers=[]){
     add(transfer.fromNodeId,{kind:'transfer',next:transfer.toNodeId,transfer,minutes:transfer.estimatedMinutes});
   }
   return graph;
+}
+
+export function routableNodeIds(services,transfers=[]){
+  const ids=new Set();
+  for(const service of services){
+    if(service.serviceConfidence==='needs_review')continue;
+    for(const id of patternStops(service))ids.add(id);
+  }
+  for(const transfer of transfers){
+    ids.add(transfer.fromNodeId);
+    ids.add(transfer.toNodeId);
+  }
+  return ids;
 }
 
 function stateKey(node,lastServiceId,usedRequiredMode=false){return`${node}::${lastServiceId||''}::${usedRequiredMode?'1':'0'}`;}
@@ -163,8 +177,6 @@ function modeSequence(steps){
 }
 
 function journeySignature(candidate){
-  // Rider-facing alternatives are distinct rides, not different hidden access-node choices.
-  // If two candidates board the same ordered transit services, keep only the better one.
   return compactTransitIds(candidate.steps).join('>');
 }
 
@@ -177,13 +189,73 @@ function hasJourneyLoop(startId,steps){
   return false;
 }
 
-function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions}){
+function pathDistanceKm(start,end,steps,nodes){
+  let total=(start.km||0)+(end.km||0);
+  for(const step of steps||[]){
+    const a=nodes.get(step.from)?.location,b=nodes.get(step.to)?.location;
+    if(a&&b)total+=kmBetween(a,b);
+  }
+  return total;
+}
+
+function backtrackKm(steps,nodes,toPlace){
+  if(!toPlace)return 0;
+  let total=0;
+  for(const step of steps||[]){
+    if(step.kind!=='transit')continue;
+    const from=nodes.get(step.from)?.location,to=nodes.get(step.to)?.location;
+    if(!from||!to)continue;
+    const before=kmBetween(from,toPlace),after=kmBetween(to,toPlace);
+    if(after>before+0.75)total+=after-before;
+  }
+  return total;
+}
+
+function confidencePenalty(steps,{reportedServicePenaltyMinutes=8}={}){
+  const seen=new Set();
+  let penalty=0;
+  for(const step of steps||[]){
+    if(step.kind!=='transit'||seen.has(step.service.id))continue;
+    seen.add(step.service.id);
+    if(step.service.serviceConfidence==='reported_service')penalty+=reportedServicePenaltyMinutes;
+  }
+  return penalty;
+}
+
+function schedulePenalty(steps,scheduledServiceIds,{unknownSchedulePenaltyMinutes=0}={}){
+  if(!scheduledServiceIds||!unknownSchedulePenaltyMinutes)return 0;
+  const seen=new Set();
+  let penalty=0;
+  for(const step of steps||[]){
+    if(step.kind!=='transit'||seen.has(step.service.id))continue;
+    seen.add(step.service.id);
+    if(!scheduledServiceIds.has(step.service.id))penalty+=unknownSchedulePenaltyMinutes;
+  }
+  return penalty;
+}
+
+function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions,scheduledServiceIds}){
   const transitSteps=steps.filter(step=>step.kind==='transit');
   const transferCount=countTransfers(steps);
   const networkMinutes=journeyMinutes(steps,nodes,{transferPenaltyMinutes});
   const fromAccess=estimateAccess(start.km,accessOptions);
   const toAccess=estimateAccess(end.km,accessOptions);
-  const score=networkMinutes+fromAccess.minutes+toAccess.minutes;
+  const {
+    unconfirmedAccessPenaltyMinutes=35,
+    detourPenaltyMinutes=18,
+    backtrackPenaltyMinutesPerKm=3,
+    reportedServicePenaltyMinutes=8,
+    unknownSchedulePenaltyMinutes=0
+  }=rankingOptions;
+  const accessPenalty=(fromAccess.mode==='local'?unconfirmedAccessPenaltyMinutes:0)+(toAccess.mode==='local'?unconfirmedAccessPenaltyMinutes:0);
+  const travelledKm=pathDistanceKm(start,end,steps,nodes);
+  const detourRatio=directKm>0.5?travelledKm/directKm:1;
+  const detourPenalty=Math.max(0,detourRatio-1.45)*detourPenaltyMinutes;
+  const awayKm=backtrackKm(steps,nodes,toPlace);
+  const directionPenalty=awayKm*backtrackPenaltyMinutesPerKm;
+  const servicePenalty=confidencePenalty(steps,{reportedServicePenaltyMinutes});
+  const timetablePenalty=schedulePenalty(steps,scheduledServiceIds,{unknownSchedulePenaltyMinutes});
+  const score=networkMinutes+fromAccess.minutes+toAccess.minutes+accessPenalty+detourPenalty+directionPenalty+servicePenalty+timetablePenalty;
   const modes=modeSequence(steps);
   return{
     fromNear:start,
@@ -197,7 +269,8 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
     score,
     transferCount,
     networkMinutes:Math.round(networkMinutes),
-    estimatedMinutes:Math.round(score)
+    estimatedMinutes:Math.round(networkMinutes+fromAccess.minutes+toAccess.minutes),
+    ranking:{accessPenalty,detourRatio,detourPenalty,backtrackKm:awayKm,directionPenalty,servicePenalty,timetablePenalty}
   };
 }
 
@@ -216,12 +289,17 @@ export function chooseJourneyOptions({
   accessOptions={},
   maxOptions=3,
   maxAlternativeRatio=2.5,
-  maxAlternativeExtraMinutes=120
+  maxAlternativeExtraMinutes=120,
+  maxDetourRatio=4,
+  scheduledServiceIds=null,
+  rankingOptions={}
 }){
-  const starts=knownFrom?[{node:knownFrom,km:0}]:nearestNodes(fromPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm});
-  const ends=knownTo?[{node:knownTo,km:0}]:nearestNodes(toPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm});
+  const eligibleNodeIds=routableNodeIds(services,transfers);
+  const starts=knownFrom?[{node:knownFrom,km:0}]:nearestNodes(fromPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm,allowedNodeIds:eligibleNodeIds});
+  const ends=knownTo?[{node:knownTo,km:0}]:nearestNodes(toPlace,nodes,{limit:candidateLimit,maxKm:maxAccessKm,allowedNodeIds:eligibleNodeIds});
   const unique=new Map();
-  const availableModes=[...new Set(services.map(service=>service.mode))];
+  const availableModes=[...new Set(services.filter(service=>service.serviceConfidence!=='needs_review').map(service=>service.mode))];
+  const directKm=fromPlace&&toPlace?kmBetween(fromPlace,toPlace):0;
 
   for(const start of starts){
     for(const end of ends){
@@ -230,7 +308,8 @@ export function chooseJourneyOptions({
         const steps=findJourney(start.node.id,end.node.id,services,nodes,{transferPenaltyMinutes,transfers,requiredMode:routeMode});
         if(steps===null||hasJourneyLoop(start.node.id,steps))continue;
         if(steps.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
-        const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions});
+        const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions,scheduledServiceIds});
+        if(candidate.ranking.detourRatio>maxDetourRatio)continue;
         const signature=journeySignature(candidate);
         if(!signature)continue;
         const existing=unique.get(signature);
