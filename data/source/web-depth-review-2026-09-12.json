@@ -1,0 +1,27 @@
+{
+  "id": "web-depth-review-2026-09-12",
+  "checkedAt": "2026-09-12",
+  "policy": "Promote official-current directional service claims and mapped stands. Preserve approximate endpoints as stop zones. Never synthesize reverse service or exact times/fares not explicitly supported.",
+  "promoteNow": [
+    {"claim":"Scarborough → Charlotteville PTSC","confidence":"official_current","source":"https://ptsc.co.tt/from/scarborough/"},
+    {"claim":"Charlotteville → Scarborough weekend PTSC","confidence":"official_current","source":"https://ptsc.co.tt/periodical/saturday/"},
+    {"claim":"Scarborough → L'Anse Fourmi PTSC","confidence":"official_current","source":"https://ptsc.co.tt/from/scarborough/"},
+    {"claim":"Sangre Grande → Toco segment of Sangre Grande/Toco/Matelot coach","confidence":"official_current","source":"https://ptsc.co.tt/from/sangre-grande/"},
+    {"claim":"Scarborough → Buccoo PTSC, TT$3","confidence":"official_current","source":"https://ptsc.co.tt/"},
+    {"claim":"Sangre Grande → Guayaguayare PTSC","confidence":"official_current","source":"https://ptsc.co.tt/from/sangre-grande/"},
+    {"claim":"Sangre Grande → Rio Claro PTSC","confidence":"official_current","source":"https://ptsc.co.tt/from/sangre-grande/"},
+    {"claim":"POS → Chaguaramas weekend PTSC","confidence":"official_current","source":"https://ptsc.co.tt/periodical/saturday/"},
+    {"claim":"Sangre Grande Brierley Street hub currently active","confidence":"current_report_plus_official_stand_order","source":"https://www.guardian.co.tt/news/maxi-taxi-shut-down-leaves-sangre-grande-commuters-scrambling-6.2.2596990.938df5d0a9"},
+    {"claim":"Toco and Mayaro Maxi boarding side in Sangre Grande is southern Brierley Street facing Railway Road No.1","confidence":"official_order","source":"https://mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-410-Traffic-Control-%28Sangre-Grande-%29"},
+    {"claim":"Route 1 Maxi-Taxi Association stand mapped on Wrightson Road","confidence":"mapped_station","source":"https://www.openstreetmap.org/way/349610834"},
+    {"claim":"Arima → La Horquetta, Aripo and St Helena via Carapo PTSC fares shown as TT$3 on current route index","confidence":"official_current","source":"https://ptsc.co.tt/routes-and-schedules/"}
+  ],
+  "researchOnly": [
+    {"claim":"L'Anse Fourmi → Scarborough reverse","reason":"Current PTSC pages found only explicitly list Scarborough → L'Anse Fourmi; do not infer reverse."},
+    {"claim":"Toco → Sangre Grande PTSC reverse","reason":"Current route title proves outbound Sangre Grande/Toco/Matelot but does not independently establish return direction."},
+    {"claim":"Current Route 2 exact tariff","reason":"2026 association says no fare increase was planned, but no current tariff card was found; 2021 and 2022 reports conflict for Sangre Grande direct fare."},
+    {"claim":"Carenage destination-side stand","reason":"2026 legal notice confirms the Port of Spain Carenage stand at Green Corner, but destination-side boarding point remains unresolved."},
+    {"claim":"Chaguanas → POS 2024 taxi stand geometry","reason":"Official experimental order expired in 2024; useful route evidence but not a current stand claim."},
+    {"claim":"Mayaro/Mafeking taxi stand","reason":"Official 2021 order is useful evidence but needs fresher corroboration before current promotion."}
+  ]
+}
