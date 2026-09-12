@@ -12,11 +12,12 @@ const service={id:'maxi-a-d',corridorId:'maxi-a-d',mode:'maxi',originNodeId:'a',
 const historical={id:'ptsc-a-d-old',corridorId:'ptsc-a-d-old',mode:'ptsc',originNodeId:'a',destinationNodeId:'d',stopNodeIds:['a','d'],fareTTD:3,fareConfidence:'official_historical',serviceConfidence:'verified_service'};
 const noFare={id:'taxi-a-d',corridorId:'taxi-a-d',mode:'route_taxi',originNodeId:'a',destinationNodeId:'d',stopNodeIds:['a','d'],fareTTD:null,fareConfidence:'unknown',serviceConfidence:'reported_service'};
 const missingDistance={id:'taxi-a-missing',corridorId:'taxi-a-missing',mode:'route_taxi',originNodeId:'a',destinationNodeId:'missing',stopNodeIds:['a','missing'],fareTTD:null,fareConfidence:'unknown',serviceConfidence:'reported_service'};
-const override={id:'override-b-c',serviceId:'maxi-a-d',fromNodeId:'b',toNodeId:'c',minTTD:5,maxTTD:6,confidence:'community_verified',method:'driver_confirmation',sources:[]};
+const override={id:'override-b-c',serviceId:'maxi-a-d',fromNodeId:'b',toNodeId:'c',minTTD:5,maxTTD:6,confidence:'community_verified',method:'driver_confirmation',sources:[{name:'Driver confirmation',checkedAt:'2026-09-12'}]};
 
 validateFareDataset([override],{services:[service],nodes});
 assert.throws(()=>validateFareDataset([{...override,id:'bad',minTTD:9,maxTTD:4}],{services:[service],nodes}),/invalid range/);
 assert.throws(()=>validateFareDataset([{...override,id:'unknown-confidence',confidence:'unknown'}],{services:[service],nodes}),/invalid confidence/);
+assert.throws(()=>validateFareDataset([{...override,id:'unsourced',sources:[]}],{services:[service],nodes}),/needs a source/);
 
 const exact=fareForSegment({service,fromNodeId:'b',toNodeId:'c',fares:[override],nodes});
 assert.equal(exact.minTTD,5);
