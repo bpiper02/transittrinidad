@@ -3113,11 +3113,11 @@
       "scarborough-crown-point-taxi",
       "crown-point-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
-    "fareTTD": null,
-    "fareConfidence": "unknown",
+    "fareTTD": 10,
+    "fareConfidence": "community_verified",
     "scheduleConfidence": "unknown",
     "availability": {
       "kind": "frequency_based",
@@ -3125,6 +3125,12 @@
     },
     "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
     "sources": [
+      {
+        "name": "Newsday: West-End Taxi Association Crown Point fare increase",
+        "url": "https://newsday.co.tt/2022/02/24/tobago-taxi-fares-to-increase-by-1-from-march-15/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-02-24"
+      },
       {
         "name": "OpenStreetMap contributors: Scarborough-Crown Point Taxt Stand",
         "url": "https://www.openstreetmap.org/node/1745991289",
@@ -3934,20 +3940,26 @@
     "id": "taxi-pos-to-carenage",
     "corridorId": "taxi-pos-carenage",
     "mode": "route_taxi",
-    "operator": "Local route taxis",
+    "operator": "Carenage Taxi Drivers Association / local route taxis",
     "originNodeId": "maxi-pos-western-hub",
     "destinationNodeId": "carenage-route-taxi-area",
     "stopNodeIds": [
       "maxi-pos-western-hub",
       "carenage-route-taxi-area"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
     "fareTTD": null,
     "fareConfidence": "unknown",
     "scheduleConfidence": "unknown",
     "sources": [
+      {
+        "name": "Guardian: Carenage Taxi Drivers Association confirms POS/Carenage service in both directions",
+        "url": "https://www.guardian.co.tt/news/pos-to-carenage-taxi-fare-to-rise-diego-martin-drivers-feel-unsafe-6.2.1842043.43be95556c",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2023-11-02"
+      },
       {
         "name": "TnTIsland: Port of Spain route-taxi stands including Carenage",
         "url": "https://www.tntisland.com/routetaxis.html",
@@ -3960,6 +3972,76 @@
         "publishedAt": "2011-03-04"
       }
     ],
-    "boardingNote": "Documented Port of Spain/Carenage route. POS-side stand evidence is stronger than the Carenage-side endpoint, which remains an approximate service area. Reverse service is not inferred."
+    "boardingNote": "Carenage Taxi Drivers Association evidence confirms service in both directions. Exact Carenage-side stand and current 2026 fare still need confirmation."
+  },
+  {
+    "id": "taxi-carenage-to-pos",
+    "corridorId": "taxi-pos-carenage",
+    "mode": "route_taxi",
+    "operator": "Carenage Taxi Drivers Association / local route taxis",
+    "originNodeId": "carenage-route-taxi-area",
+    "destinationNodeId": "maxi-pos-western-hub",
+    "stopNodeIds": [
+      "carenage-route-taxi-area",
+      "maxi-pos-western-hub"
+    ],
+    "serviceConfidence": "community_verified",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "Guardian: Carenage Taxi Drivers Association confirms POS/Carenage service in both directions",
+        "url": "https://www.guardian.co.tt/news/pos-to-carenage-taxi-fare-to-rise-diego-martin-drivers-feel-unsafe-6.2.1842043.43be95556c",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2023-11-02"
+      },
+      {
+        "name": "TnTIsland: Port of Spain route-taxi stands including Carenage",
+        "url": "https://www.tntisland.com/routetaxis.html",
+        "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "Government legal notice: Carenage taxi stand in Port of Spain",
+        "url": "https://www.news.gov.tt/archive/E-Gazette/Gazette%202011/Legal%20Notice/Legal%20Notice%20No.%2032%20of%202011.pdf",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2011-03-04"
+      }
+    ],
+    "boardingNote": "Carenage Taxi Drivers Association evidence confirms service in both directions. Exact Carenage-side stand and current 2026 fare still need confirmation."
+  },
+  {
+    "id": "taxi-mayaro-to-mafeking",
+    "corridorId": "taxi-mayaro-mafeking",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "maxi-mayaro",
+    "destinationNodeId": "mafeking-area",
+    "stopNodeIds": [
+      "maxi-mayaro",
+      "mafeking-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "sources": [
+      {
+        "name": "MOWT Traffic Control Mayaro/Mafeking Taxi Stand Order",
+        "url": "https://www.mowt.gov.tt/Divisions/Administrative-Supporting-Units/Legal-Service-Unit/Legal-Notices/Legal-Notice-263",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2021-10-21"
+      },
+      {
+        "name": "OpenStreetMap-derived Mafeking community location",
+        "url": "https://www.openstreetmap.org/node/7824185572",
+        "checkedAt": "2026-09-12"
+      }
+    ],
+    "boardingNote": "MOWT formally designates a Mayaro/Mafeking taxi stand. Mafeking endpoint is approximate until the village-side stand is confirmed. Reverse service is not inferred."
   }
 ]
