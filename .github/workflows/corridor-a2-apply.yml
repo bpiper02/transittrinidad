@@ -19,6 +19,22 @@ jobs:
         with:
           node-version: 22
       - run: node tools/apply-corridor-a2-central-south.mjs
+      - name: Align direct-ride regression with multi-stop services
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const path='tests/routing-core.mjs';
+          let text=fs.readFileSync(path,'utf8');
+          text=text.replace(
+            "assert.equal(chagCouva.filter(step=>step.kind==='transit').length,1,'Chaguanas–Couva must be a direct Maxi leg');",
+            "assert.equal(new Set(chagCouva.filter(step=>step.kind==='transit').map(step=>step.service.id)).size,1,'Chaguanas–Couva must stay on one Maxi service even across intermediate graph segments');\nassert.equal(countTransfers(chagCouva),0,'Chaguanas–Couva must require no transit transfer');"
+          );
+          text=text.replace(
+            "assert.equal(couvaChag.filter(step=>step.kind==='transit').length,1,'northbound SF–Chaguanas Maxi must serve Couva directly');",
+            "assert.equal(new Set(couvaChag.filter(step=>step.kind==='transit').map(step=>step.service.id)).size,1,'northbound SF–Chaguanas Maxi must serve Couva on one service');\nassert.equal(countTransfers(couvaChag),0,'northbound Couva–Chaguanas must require no transit transfer');"
+          );
+          fs.writeFileSync(path,text);
+          NODE
       - run: npm test
       - name: Commit generated corridor data
         run: |
@@ -28,6 +44,6 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/nodes.json public/data/nodes.json data/services.json public/data/services.json data/source/corridor-promotion-manifest-2026-09-12.json
+          git add data/nodes.json public/data/nodes.json data/services.json public/data/services.json data/source/corridor-promotion-manifest-2026-09-12.json tests/routing-core.mjs
           git commit -m "Promote Central-South local corridor"
           git push origin HEAD:corridor-integration-sprint
