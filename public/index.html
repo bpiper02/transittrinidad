@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
   <title>Transit Trinidad</title>
   <meta name="description" content="Plan trips across Trinidad and Tobago's public and shared transport network." />
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-gl.css" />
   <link rel="stylesheet" href="./styles.css" />
   <link rel="stylesheet" href="./schedule.css" />
+  <link rel="stylesheet" href="./rider.css" />
 </head>
 <body>
   <div id="appShell" class="app-shell">
@@ -23,8 +24,8 @@
         <div class="planner-row">
           <div class="route-dots" aria-hidden="true"><span class="origin-dot"></span><span class="dot-line"></span><span class="destination-dot"></span></div>
           <div class="route-fields">
-            <label class="place-field"><span>From</span><input id="fromInput" autocomplete="off" placeholder="Start location" aria-autocomplete="list" aria-controls="fromSuggestions" /><div id="fromSuggestions" class="suggestions" role="listbox" hidden></div></label>
-            <label class="place-field"><span>To</span><input id="toInput" autocomplete="off" placeholder="Destination" aria-autocomplete="list" aria-controls="toSuggestions" /><div id="toSuggestions" class="suggestions" role="listbox" hidden></div></label>
+            <label class="place-field"><span>From</span><input id="fromInput" autocomplete="off" autocapitalize="words" spellcheck="false" enterkeyhint="next" placeholder="Start location" aria-autocomplete="list" aria-controls="fromSuggestions" /><div id="fromSuggestions" class="suggestions" role="listbox" hidden></div></label>
+            <label class="place-field"><span>To</span><input id="toInput" autocomplete="off" autocapitalize="words" spellcheck="false" enterkeyhint="go" placeholder="Destination" aria-autocomplete="list" aria-controls="toSuggestions" /><div id="toSuggestions" class="suggestions" role="listbox" hidden></div></label>
           </div>
           <button id="swapButton" class="swap" type="button" aria-label="Swap origin and destination">⇅</button>
         </div>
