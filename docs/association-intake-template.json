@@ -43,6 +43,9 @@
       ],
       "geometry": null,
       "fareTTD": 10,
+      "patternType": "local",
+      "boardingPolicy": "corridor_hail",
+      "alightingPolicy": "corridor_request",
       "boardingNote": "Normal fixed-route Maxi service; intermediate pickups occur along the route.",
       "operation": {
         "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
@@ -51,6 +54,11 @@
         "headwayMinutes": {"min": 5, "max": 15},
         "departureTimes": [],
         "note": "Frequency varies by demand and time of day."
+      },
+      "fieldReview": {
+        "accuracy": "needs_correction",
+        "serviceId": "optional-existing-service-id",
+        "notes": "Optional note created by the field-review page."
       }
     }
   ]
