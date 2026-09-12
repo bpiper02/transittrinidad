@@ -3,10 +3,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --check public/app-v2.js && node tests/data-contract.mjs && node tests/place-core.mjs && node tests/access-radius.mjs && node tests/schedule-core.mjs && node tests/ptsc-import-core.mjs && node tests/association-import-core.mjs && node tests/association-promotion-core.mjs && node tests/network-qa-core.mjs && node tests/repo-integrity.mjs && node tests/routing-core.mjs && node tests/journey-regressions.mjs && node tests/service-pattern-core.mjs && node tests/fare-core.mjs && node tests/corridor-promotion-core.mjs && node tests/corridor-central-south.mjs && node tools/fare-coverage.mjs && node tests/ui-contract.mjs && node tests/atlas-ui.mjs",
+    "test": "node --check public/app-v2.js && node tests/data-contract.mjs && node tests/place-core.mjs && node tests/access-radius.mjs && node tests/schedule-core.mjs && node tests/ptsc-import-core.mjs && node tests/association-import-core.mjs && node tests/association-promotion-core.mjs && node tests/network-qa-core.mjs && node tests/repo-integrity.mjs && node tests/routing-core.mjs && node tests/journey-regressions.mjs && node tests/service-pattern-core.mjs && node tests/fare-core.mjs && node tests/corridor-promotion-core.mjs && node tests/corridor-central-south.mjs && node tests/corridor-east.mjs && node tools/fare-coverage.mjs && node tests/ui-contract.mjs && node tests/atlas-ui.mjs",
     "qa": "node tools/network-qa.mjs",
     "corridors:check": "node tools/corridor-promotion-check.mjs",
     "corridors:apply:a2": "node tools/apply-corridor-a2-central-south.mjs",
+    "corridors:apply:a3": "node tools/apply-corridor-a3-east.mjs",
     "fares:validate": "node tools/fare-build.mjs",
     "fares:build": "node tools/fare-build.mjs",
     "fares:coverage": "node tools/fare-coverage.mjs",
