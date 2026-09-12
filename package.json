@@ -3,6 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --check public/app-v2.js && node tests/data-contract.mjs && node tests/place-core.mjs && node tests/access-radius.mjs && node tests/schedule-core.mjs && node tests/ptsc-import-core.mjs && node tests/routing-core.mjs && node tests/journey-regressions.mjs && node tests/ui-contract.mjs && node tests/atlas-ui.mjs"
+    "test": "node --check public/app-v2.js && node tests/data-contract.mjs && node tests/place-core.mjs && node tests/access-radius.mjs && node tests/schedule-core.mjs && node tests/ptsc-import-core.mjs && node tests/association-import-core.mjs && node tests/routing-core.mjs && node tests/journey-regressions.mjs && node tests/ui-contract.mjs && node tests/atlas-ui.mjs"
   }
 }
