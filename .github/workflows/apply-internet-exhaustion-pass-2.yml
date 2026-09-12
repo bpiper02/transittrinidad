@@ -5,6 +5,7 @@ on:
     branches: [internet-exhaustion-pass-2]
     paths:
       - '.github/workflows/apply-internet-exhaustion-pass-2.yml'
+      - 'tools/apply-internet-exhaustion-pass-2.mjs'
 
 permissions:
   contents: write
