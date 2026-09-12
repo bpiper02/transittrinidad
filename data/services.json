@@ -1082,6 +1082,10 @@
     "destinationNodeId": "princes-town-local-area",
     "stopNodeIds": [
       "sf-princes-town-maxi",
+      "palmyra-area",
+      "mount-stewart-area",
+      "cleghorn-area",
+      "iere-area",
       "princes-town-local-area"
     ],
     "serviceConfidence": "community_verified",
@@ -1116,10 +1120,19 @@
         "name": "Princes Town Maxi Stand, Coffee Street; mapped plus code 772W7GGQ+XFF",
         "url": "https://www.waze.com/live-map/directions/tt/san-fernando-city-corporation/san-fernando/princes-town-maxi-stand?to=place.ChIJYxXMKoqNNYwR_Y3dxqqrtuI",
         "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Newsday: Princes Town–San Fernando Main Road route serves Iere, Mt Stewart, Cleghorn and Palmyra fare stages",
+        "url": "https://newsday.co.tt/2022/10/04/main-road-fares-to-go-up-by-1-on-princes-town-san-fernando-route/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-10-04"
       }
     ],
-    "boardingNote": "Reported two-way service. Coffee Street stand in San Fernando; Princes Town return boarding area requires local confirmation.",
-    "routeArea": 4
+    "boardingNote": "Local Route 4 service along Naparima-Mayaro Road. Supported communities are corridor markers; confirm the exact safe roadside pickup point and tell the driver where you are getting off.",
+    "routeArea": 4,
+    "patternType": "local",
+    "boardingPolicy": "corridor_hail",
+    "alightingPolicy": "corridor_request"
   },
   {
     "id": "maxi-black-princes-town-to-san-fernando",

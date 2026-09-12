@@ -1931,5 +1931,77 @@
         "checkedAt": "2026-09-12"
       }
     ]
+  },
+  {
+    "id": "palmyra-area",
+    "name": "Palmyra Village",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.28546,
+      "lng": -61.42362
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Naparima-Mayaro Road community marker for the local San Fernando–Princes Town service; confirm the safest current roadside pickup point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Palmyra Village",
+        "url": "https://www.openstreetmap.org/node/1453289591",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "mount-stewart-area",
+    "name": "Mount Stewart Village",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.29034,
+      "lng": -61.4109
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Naparima-Mayaro Road community marker for the local San Fernando–Princes Town service; confirm the safest current roadside pickup point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Mount Stewart Village",
+        "url": "https://www.openstreetmap.org/node/1453289590",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "cleghorn-area",
+    "name": "Cleghorn Village",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.29115,
+      "lng": -61.40192
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Naparima-Mayaro Road community marker for the local San Fernando–Princes Town service; confirm the safest current roadside pickup point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Cleghorn Village",
+        "url": "https://www.openstreetmap.org/node/1453289586",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "iere-area",
+    "name": "Iere Village",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.29199,
+      "lng": -61.38536
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Naparima-Mayaro Road community marker for the local San Fernando–Princes Town service; confirm the safest current roadside pickup point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Iere Village",
+        "url": "https://www.openstreetmap.org/node/1453289588",
+        "checkedAt": "2026-09-12"
+      }
+    ]
   }
 ]

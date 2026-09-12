@@ -168,7 +168,7 @@
     "patternType": "local",
     "boardingPolicy": "corridor_hail",
     "alightingPolicy": "corridor_request",
-    "status": "needs_node_mapping",
+    "status": "ready",
     "sourceReview": "docs/part2-sprint3-consolidation-2026-09-12.md",
     "anchors": [
       {
@@ -176,27 +176,27 @@
         "nodeId": "sf-princes-town-maxi"
       },
       {
-        "name": "Palmyra / Seegobin",
-        "nodeId": null
+        "name": "Palmyra",
+        "nodeId": "palmyra-area"
+      },
+      {
+        "name": "Mount Stewart",
+        "nodeId": "mount-stewart-area"
       },
       {
         "name": "Cleghorn",
-        "nodeId": null
-      },
-      {
-        "name": "Mt Stewart",
-        "nodeId": null
+        "nodeId": "cleghorn-area"
       },
       {
         "name": "Iere",
-        "nodeId": null
+        "nodeId": "iere-area"
       },
       {
         "name": "Princes Town",
         "nodeId": "princes-town-local-area"
       }
     ],
-    "notes": "Strong south intermediate-trip candidate; off-route paid deviations are excluded."
+    "notes": "Local Naparima-Mayaro Road pattern. Off-route paid deviations remain excluded. Directional promotion only; reverse endpoint service remains unchanged."
   },
   {
     "id": "san-fernando-penal-route-taxi",
