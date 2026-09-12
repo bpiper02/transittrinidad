@@ -28,13 +28,21 @@ function segmentDistanceKm(service,fromNodeId,toNodeId,nodes=[]){
   const fromIndex=stops.indexOf(fromNodeId),toIndex=stops.indexOf(toNodeId);
   if(fromIndex<0||toIndex<0||toIndex<=fromIndex)return null;
   const lookup=nodeMap(nodes);
-  let total=0,hasAny=false;
+  const endpointDistance=kmBetween(lookup.get(fromNodeId),lookup.get(toNodeId));
+  let total=0;
   for(let i=fromIndex;i<toIndex;i++){
     const km=kmBetween(lookup.get(stops[i]),lookup.get(stops[i+1]));
-    if(Number.isFinite(km)){total+=km;hasAny=true;}
+    if(!Number.isFinite(km))return endpointDistance;
+    total+=km;
   }
-  if(hasAny)return total;
-  return kmBetween(lookup.get(fromNodeId),lookup.get(toNodeId));
+  return total;
+}
+
+function validateFareSource(source,recordId){
+  if(!source||typeof source!=='object')throw new Error(`fare ${recordId} has invalid source`);
+  if(!source.name||!String(source.name).trim())throw new Error(`fare ${recordId} source needs name`);
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(source.checkedAt||''))throw new Error(`fare ${recordId} source needs checkedAt YYYY-MM-DD`);
+  if(source.url!=null&&!/^https?:\/\//i.test(String(source.url)))throw new Error(`fare ${recordId} source url must be http(s)`);
 }
 
 export function validateFareRecord(record,{services=[],nodes=[]}={}){
@@ -46,6 +54,8 @@ export function validateFareRecord(record,{services=[],nodes=[]}={}){
   if(!(record.confidence in FARE_CONFIDENCE_ORDER)||record.confidence==='unknown')throw new Error(`fare ${record.id} has invalid confidence`);
   if(!record.method||!String(record.method).trim())throw new Error(`fare ${record.id} needs method`);
   if(!Array.isArray(record.sources))throw new Error(`fare ${record.id} sources must be an array`);
+  if(record.confidence!=='estimated'&&!record.sources.length)throw new Error(`fare ${record.id} needs a source for non-estimated confidence`);
+  record.sources.forEach(source=>validateFareSource(source,record.id));
   if(services.length&&record.serviceId&&!services.some(service=>service.id===record.serviceId))throw new Error(`fare ${record.id} references unknown service ${record.serviceId}`);
   if(nodes.length){
     const ids=new Set(nodes.map(node=>node.id));
