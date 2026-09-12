@@ -1,0 +1,57 @@
+{
+  "id": "example-association-2026-09-12",
+  "association": "Example Maxi Taxi Association",
+  "receivedAt": "2026-09-12",
+  "contact": {
+    "name": "Association representative",
+    "role": "Route coordinator",
+    "channel": "phone/email/in-person"
+  },
+  "evidenceUrl": "https://example.org/optional-public-source",
+  "notes": "Optional submission-level notes.",
+  "routes": [
+    {
+      "name": "Couva to Chaguanas",
+      "mode": "maxi",
+      "operator": "Example Maxi Taxi Association",
+      "maxiRouteArea": 3,
+      "bandColor": "green",
+      "origin": {
+        "name": "Couva central pickup area",
+        "nodeId": "maxi-couva",
+        "location": {"lat": 10.4223291, "lng": -61.458708},
+        "kind": "stand",
+        "boardingNote": "Board on the northbound side of the main pickup area."
+      },
+      "stops": [
+        {
+          "name": "Chase Village pickup area",
+          "location": {"lat": 10.4767392, "lng": -61.4112881},
+          "kind": "stop_zone",
+          "boardingNote": "Passengers may board along the main road in this area."
+        }
+      ],
+      "destination": {
+        "name": "Chaguanas Maxi hub area",
+        "nodeId": "chag-maxi-area",
+        "location": {"lat": 10.5136, "lng": -61.40928},
+        "kind": "stand"
+      },
+      "roads": [
+        "Southern Main Road",
+        "Main Road through Chase Village"
+      ],
+      "geometry": null,
+      "fareTTD": 10,
+      "boardingNote": "Normal fixed-route Maxi service; intermediate pickups occur along the route.",
+      "operation": {
+        "days": ["mon", "tue", "wed", "thu", "fri", "sat"],
+        "firstService": "05:30",
+        "lastService": "21:00",
+        "headwayMinutes": {"min": 5, "max": 15},
+        "departureTimes": [],
+        "note": "Frequency varies by demand and time of day."
+      }
+    }
+  ]
+}
