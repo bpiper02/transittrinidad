@@ -1,0 +1,46 @@
+[
+  {
+    "id": "water-taxi-pos-sf-official-2026",
+    "serviceId": "water-taxi-pos-to-san-fernando",
+    "fromNodeId": "pos-water-taxi-terminal",
+    "toNodeId": "san-fernando-water-taxi-terminal",
+    "minTTD": 15,
+    "maxTTD": 15,
+    "confidence": "official_current",
+    "method": "published_fare",
+    "sources": [{"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "water-taxi-sf-pos-official-2026",
+    "serviceId": "water-taxi-san-fernando-to-pos",
+    "fromNodeId": "san-fernando-water-taxi-terminal",
+    "toNodeId": "pos-water-taxi-terminal",
+    "minTTD": 15,
+    "maxTTD": 15,
+    "confidence": "official_current",
+    "method": "published_fare",
+    "sources": [{"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "ferry-pos-scarborough-adult-economy-2026",
+    "serviceId": "ferry-pos-to-scarborough",
+    "fromNodeId": "pos-ferry-terminal",
+    "toNodeId": "scarborough-ferry-terminal",
+    "minTTD": 75,
+    "maxTTD": 75,
+    "confidence": "official_current",
+    "method": "adult_economy_published_fare",
+    "sources": [{"name":"TTIT Ferry Fares and Ticket Costs","url":"https://www.ttitferry.com/fares/","checkedAt":"2026-09-12"}]
+  },
+  {
+    "id": "ferry-scarborough-pos-adult-economy-2026",
+    "serviceId": "ferry-scarborough-to-pos",
+    "fromNodeId": "scarborough-ferry-terminal",
+    "toNodeId": "pos-ferry-terminal",
+    "minTTD": 75,
+    "maxTTD": 75,
+    "confidence": "official_current",
+    "method": "adult_economy_published_fare",
+    "sources": [{"name":"TTIT Ferry Fares and Ticket Costs","url":"https://www.ttitferry.com/fares/","checkedAt":"2026-09-12"}]
+  }
+]
