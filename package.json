@@ -8,6 +8,7 @@
     "fares:validate": "node tools/fare-build.mjs",
     "fares:build": "node tools/fare-build.mjs",
     "fares:coverage": "node tools/fare-coverage.mjs",
+    "fares:set": "node tools/fare-set.mjs",
     "test:browser": "playwright test"
   }
 }
