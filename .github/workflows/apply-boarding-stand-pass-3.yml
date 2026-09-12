@@ -1,0 +1,29 @@
+name: apply-boarding-stand-pass-3
+on:
+  push:
+    branches: [boarding-stand-pass-3]
+    paths:
+      - '.github/workflows/apply-boarding-stand-pass-3.yml'
+      - 'tools/apply-boarding-stand-pass-3.mjs'
+permissions:
+  contents: write
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: boarding-stand-pass-3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node tools/apply-boarding-stand-pass-3.mjs
+      - run: npm test
+      - name: Commit canonical data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/nodes.json data/services.json data/transfers.json data/schedules.json public/data/nodes.json public/data/services.json public/data/transfers.json public/data/schedules.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'Apply boarding stand pass 3 [skip ci]'
+          git push origin HEAD:boarding-stand-pass-3
