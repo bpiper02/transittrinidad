@@ -49,7 +49,7 @@ async function planCouvaToChaguanas(page){
 test.beforeEach(async({page})=>{await primeNetwork(page);await page.goto('/');await expect(page.locator('#serviceCount')).not.toHaveText('0');});
 
 test('loads the canonical network and plans a local-place journey',async({page})=>{
-  await expect(page.locator('#serviceCount')).toHaveText('78');
+  await expect(page.locator('#serviceCount')).toHaveText('79');
   await planCouvaToChaguanas(page);
   expect(await page.locator('.journey-leg').count()).toBeGreaterThan(0);
 });
