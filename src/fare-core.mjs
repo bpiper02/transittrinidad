@@ -43,7 +43,7 @@ export function validateFareRecord(record,{services=[],nodes=[]}={}){
   if(!record.serviceId&&!record.corridorId)throw new Error(`fare ${record.id} needs serviceId or corridorId`);
   if(!record.fromNodeId||!record.toNodeId||record.fromNodeId===record.toNodeId)throw new Error(`fare ${record.id} needs distinct fromNodeId/toNodeId`);
   if(!Number.isFinite(record.minTTD)||!Number.isFinite(record.maxTTD)||record.minTTD<0||record.maxTTD<record.minTTD)throw new Error(`fare ${record.id} has invalid range`);
-  if(!FARE_CONFIDENCE_ORDER[record.confidence])throw new Error(`fare ${record.id} has invalid confidence`);
+  if(!(record.confidence in FARE_CONFIDENCE_ORDER)||record.confidence==='unknown')throw new Error(`fare ${record.id} has invalid confidence`);
   if(!record.method||!String(record.method).trim())throw new Error(`fare ${record.id} needs method`);
   if(!Array.isArray(record.sources))throw new Error(`fare ${record.id} sources must be an array`);
   if(services.length&&record.serviceId&&!services.some(service=>service.id===record.serviceId))throw new Error(`fare ${record.id} references unknown service ${record.serviceId}`);
@@ -96,7 +96,7 @@ function interpolateFromFullFare(service,fromNodeId,toNodeId,nodes=[]){
 function fallbackEstimate(service,fromNodeId,toNodeId,nodes=[],rules=DEFAULT_RULES){
   const km=segmentDistanceKm(service,fromNodeId,toNodeId,nodes);
   const buckets=rules[service.mode]||rules.route_taxi;
-  const bucket=buckets.find(item=>!Number.isFinite(km)||km<=item.maxKm)||buckets.at(-1);
+  const bucket=Number.isFinite(km)?(buckets.find(item=>km<=item.maxKm)||buckets.at(-1)):buckets.at(-1);
   return {minTTD:bucket.min,maxTTD:bucket.max,confidence:'estimated',method:Number.isFinite(km)?'mode_distance_range':'mode_fallback_range',sourceKind:'model',distanceKm:Number.isFinite(km)?km:null};
 }
 
