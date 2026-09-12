@@ -49,7 +49,7 @@ async function planCouvaToChaguanas(page){
 test.beforeEach(async({page})=>{await primeNetwork(page);await page.goto('/');await expect(page.locator('#serviceCount')).not.toHaveText('0');});
 
 test('loads the canonical network and plans a local-place journey',async({page})=>{
-  await expect(page.locator('#serviceCount')).toHaveText('78');
+  await expect(page.locator('#serviceCount')).toHaveText('79');
   await planCouvaToChaguanas(page);
   expect(await page.locator('.journey-leg').count()).toBeGreaterThan(0);
 });
@@ -71,9 +71,9 @@ test('swap preserves selected local places',async({page})=>{
   await expect(page.locator('#toInput')).toHaveValue(/Couva/i);
 });
 
-test('Carenage is reachable inward without inventing the unsupported reverse',async({page})=>{
-  await chooseLocalPlace(page,'fromInput','Carenage');
-  await chooseLocalPlace(page,'toInput','Couva');
+test('missing reverse service still fails clearly instead of being invented',async({page})=>{
+  await chooseLocalPlace(page,'fromInput','Guayaguayare');
+  await chooseLocalPlace(page,'toInput','Mayaro');
   await page.locator('#planButton').click();
   await expect(page.locator('#plannerStatus')).toHaveText('No route in the current network.');
   await expect(page.locator('#detailPanel')).toBeHidden();
