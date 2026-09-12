@@ -75,8 +75,16 @@ function exactRecord(records,service,fromNodeId,toNodeId){
 
 function legacyFullFare(service,fromNodeId,toNodeId){
   if(fromNodeId!==service.originNodeId||toNodeId!==service.destinationNodeId||!Number.isFinite(service.fareTTD))return null;
-  const confidence=service.fareConfidence==='official_current'?'official_current':service.fareConfidence==='community_verified'?'community_verified':service.fareConfidence==='reported'?'reported_current':'legacy_current';
-  return {minTTD:service.fareTTD,maxTTD:service.fareTTD,confidence,method:'legacy_service_fare',sourceKind:'service'};
+  if(service.fareConfidence==='official_current')return {minTTD:service.fareTTD,maxTTD:service.fareTTD,confidence:'official_current',method:'legacy_service_fare',sourceKind:'service'};
+  if(service.fareConfidence==='community_verified')return {minTTD:service.fareTTD,maxTTD:service.fareTTD,confidence:'community_verified',method:'legacy_service_fare',sourceKind:'service'};
+  if(service.fareConfidence==='reported')return {minTTD:service.fareTTD,maxTTD:service.fareTTD,confidence:'reported_current',method:'legacy_service_fare',sourceKind:'service'};
+  return {
+    minTTD:roundFare(service.fareTTD),
+    maxTTD:roundFare(Math.max(service.fareTTD+2,service.fareTTD*1.35)),
+    confidence:'estimated',
+    method:'legacy_fare_calibrated_range',
+    sourceKind:'service'
+  };
 }
 
 function interpolateFromFullFare(service,fromNodeId,toNodeId,nodes=[]){
