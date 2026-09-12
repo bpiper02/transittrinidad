@@ -1,0 +1,551 @@
+[
+  {
+    "id": "route3-chaguanas-san-fernando-local-southbound",
+    "region": "central-south",
+    "mode": "maxi",
+    "patternType": "local",
+    "boardingPolicy": "corridor_hail",
+    "alightingPolicy": "corridor_request",
+    "status": "ready",
+    "sourceReview": "data/source/central-south-pattern-review-2026-09-12.json",
+    "anchors": [
+      {
+        "name": "Chaguanas",
+        "nodeId": "chag-maxi-area"
+      },
+      {
+        "name": "Chase Village",
+        "nodeId": "chase-village-area"
+      },
+      {
+        "name": "Couva",
+        "nodeId": "maxi-couva"
+      },
+      {
+        "name": "California",
+        "nodeId": "california-area"
+      },
+      {
+        "name": "Claxton Bay",
+        "nodeId": "claxton-bay-area"
+      },
+      {
+        "name": "Marabella",
+        "nodeId": "marabella-area"
+      },
+      {
+        "name": "San Fernando",
+        "nodeId": "sf-chag-maxi"
+      }
+    ],
+    "notes": "Strongest first corridor promotion. Do not synthesize northbound from this record."
+  },
+  {
+    "id": "route3-chaguanas-san-fernando-highway-southbound",
+    "region": "central-south",
+    "mode": "maxi",
+    "patternType": "express",
+    "boardingPolicy": "fixed_only",
+    "alightingPolicy": "fixed_only",
+    "status": "staged",
+    "sourceReview": "data/source/central-south-pattern-review-2026-09-12.json",
+    "anchors": [
+      {
+        "name": "Chaguanas",
+        "nodeId": "chag-maxi-area"
+      },
+      {
+        "name": "San Fernando",
+        "nodeId": "sf-chag-maxi"
+      }
+    ],
+    "notes": "Keep separate from Southern Main Road local service; stopping behavior not established."
+  },
+  {
+    "id": "route2-pos-arima-pbr-eastbound",
+    "region": "east",
+    "mode": "maxi",
+    "patternType": "local",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "corridor_request",
+    "status": "ready",
+    "sourceReview": "data/source/east-corridor-pattern-review-2026-09-12.json",
+    "anchors": [
+      {
+        "name": "Port of Spain",
+        "nodeId": "ptsc-pos-transit-centre"
+      },
+      {
+        "name": "Curepe",
+        "nodeId": "ptsc-curepe"
+      },
+      {
+        "name": "Tunapuna",
+        "nodeId": "tunapuna-area"
+      },
+      {
+        "name": "Five Rivers",
+        "nodeId": "five-rivers-area"
+      },
+      {
+        "name": "D'Abadie",
+        "nodeId": "dabadie-area"
+      },
+      {
+        "name": "Arima",
+        "nodeId": "arima-pbr-maxi"
+      }
+    ],
+    "notes": "Short-drop fare ladder supports ordered intermediate use; exact maxi nodes still need mapping."
+  },
+  {
+    "id": "route2-pos-maloney-eastbound",
+    "region": "east",
+    "mode": "maxi",
+    "patternType": "limited",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "mixed",
+    "status": "staged",
+    "sourceReview": "data/source/east-corridor-pattern-review-2026-09-12.json",
+    "anchors": [
+      {
+        "name": "Port of Spain",
+        "nodeId": "ptsc-pos-transit-centre"
+      },
+      {
+        "name": "Maloney",
+        "nodeId": "maloney-area"
+      }
+    ],
+    "notes": "Destination service; do not inherit Arima-pattern intermediate stops."
+  },
+  {
+    "id": "route2-pos-la-horquetta-eastbound",
+    "region": "east",
+    "mode": "maxi",
+    "patternType": "limited",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "mixed",
+    "status": "staged",
+    "sourceReview": "data/source/east-corridor-pattern-review-2026-09-12.json",
+    "anchors": [
+      {
+        "name": "Port of Spain",
+        "nodeId": "ptsc-pos-transit-centre"
+      },
+      {
+        "name": "La Horquetta",
+        "nodeId": "la-horquetta-area"
+      }
+    ],
+    "notes": "Destination service; shared City Gate bay does not imply Maloney pattern equivalence."
+  },
+  {
+    "id": "route2-pos-sangre-grande-direct-eastbound",
+    "region": "east",
+    "mode": "maxi",
+    "patternType": "limited",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "mixed",
+    "status": "ready",
+    "sourceReview": "data/source/east-corridor-pattern-review-2026-09-12.json",
+    "anchors": [
+      {
+        "name": "Port of Spain",
+        "nodeId": "ptsc-pos-transit-centre"
+      },
+      {
+        "name": "Sangre Grande",
+        "nodeId": "grande-maxi-area"
+      }
+    ],
+    "notes": "Direct service exists; do not insert Arima or Valencia by inference."
+  },
+  {
+    "id": "san-fernando-princes-town-local",
+    "region": "south",
+    "mode": "maxi",
+    "patternType": "local",
+    "boardingPolicy": "corridor_hail",
+    "alightingPolicy": "corridor_request",
+    "status": "ready",
+    "sourceReview": "docs/part2-sprint3-consolidation-2026-09-12.md",
+    "anchors": [
+      {
+        "name": "San Fernando",
+        "nodeId": "sf-princes-town-maxi"
+      },
+      {
+        "name": "Palmyra",
+        "nodeId": "palmyra-area"
+      },
+      {
+        "name": "Mount Stewart",
+        "nodeId": "mount-stewart-area"
+      },
+      {
+        "name": "Cleghorn",
+        "nodeId": "cleghorn-area"
+      },
+      {
+        "name": "Iere",
+        "nodeId": "iere-area"
+      },
+      {
+        "name": "Princes Town",
+        "nodeId": "princes-town-local-area"
+      }
+    ],
+    "notes": "Local Naparima-Mayaro Road pattern. Off-route paid deviations remain excluded. Directional promotion only; reverse endpoint service remains unchanged."
+  },
+  {
+    "id": "san-fernando-penal-route-taxi",
+    "region": "southwest",
+    "mode": "route_taxi",
+    "patternType": "local",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "mixed",
+    "status": "ready",
+    "sourceReview": "docs/part2-sprint3-consolidation-2026-09-12.md",
+    "anchors": [
+      {
+        "name": "Penal",
+        "nodeId": "penal-sf-taxi"
+      },
+      {
+        "name": "San Fernando",
+        "nodeId": "ptsc-san-fernando"
+      }
+    ],
+    "notes": "Endpoint behavior safe; intermediate chain remains staged."
+  },
+  {
+    "id": "penal-siparia-route-taxi",
+    "region": "southwest",
+    "mode": "route_taxi",
+    "patternType": "local",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "mixed",
+    "status": "ready",
+    "sourceReview": "docs/part2-sprint3-consolidation-2026-09-12.md",
+    "anchors": [
+      {
+        "name": "Penal",
+        "nodeId": "penal-siparia-taxi"
+      },
+      {
+        "name": "Siparia",
+        "nodeId": "siparia-penal-taxi"
+      }
+    ],
+    "notes": "Endpoint route safe; short-drop behavior exists but exact intermediates remain staged."
+  },
+  {
+    "id": "san-fernando-point-fortin-highway",
+    "region": "southwest",
+    "mode": "route_taxi",
+    "patternType": "limited",
+    "boardingPolicy": "fixed_only",
+    "alightingPolicy": "fixed_only",
+    "status": "staged",
+    "sourceReview": "docs/part2-sprint3-consolidation-2026-09-12.md",
+    "anchors": [
+      {
+        "name": "San Fernando",
+        "nodeId": null
+      },
+      {
+        "name": "Point Fortin",
+        "nodeId": null
+      }
+    ],
+    "notes": "Must remain distinct from main-road/Guapo accommodation behavior."
+  },
+  {
+    "id": "san-fernando-la-brea-route-taxi",
+    "region": "southwest",
+    "mode": "route_taxi",
+    "patternType": "local",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "mixed",
+    "status": "staged",
+    "sourceReview": "docs/part2-sprint3-consolidation-2026-09-12.md",
+    "anchors": [
+      {
+        "name": "San Fernando",
+        "nodeId": null
+      },
+      {
+        "name": "La Brea",
+        "nodeId": null
+      }
+    ],
+    "notes": "Dedicated service; keep independent from Point Fortin highway pattern."
+  },
+  {
+    "id": "princes-town-rio-claro",
+    "region": "southeast",
+    "mode": "maxi",
+    "patternType": "branch",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "mixed",
+    "status": "staged",
+    "sourceReview": "docs/part2-sprint3-consolidation-2026-09-12.md",
+    "anchors": [
+      {
+        "name": "Princes Town",
+        "nodeId": "maxi-princes-town"
+      },
+      {
+        "name": "Rio Claro",
+        "nodeId": "rio-claro-hub"
+      }
+    ],
+    "notes": "Confirmed branch; San Pedro intermediate spine remains staged."
+  },
+  {
+    "id": "princes-town-tableland",
+    "region": "southeast",
+    "mode": "maxi",
+    "patternType": "branch",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "mixed",
+    "status": "staged",
+    "sourceReview": "docs/part2-sprint3-consolidation-2026-09-12.md",
+    "anchors": [
+      {
+        "name": "Princes Town",
+        "nodeId": "maxi-princes-town"
+      },
+      {
+        "name": "Tableland",
+        "nodeId": null
+      }
+    ],
+    "notes": "Separate destination branch; do not continue to Rio Claro."
+  },
+  {
+    "id": "princes-town-new-grant",
+    "region": "southeast",
+    "mode": "maxi",
+    "patternType": "branch",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "mixed",
+    "status": "staged",
+    "sourceReview": "docs/part2-sprint3-consolidation-2026-09-12.md",
+    "anchors": [
+      {
+        "name": "Princes Town",
+        "nodeId": "maxi-princes-town"
+      },
+      {
+        "name": "New Grant / Hindustan",
+        "nodeId": "new-grant-area"
+      }
+    ],
+    "notes": "Separate destination branch; do not merge with Tableland."
+  },
+  {
+    "id": "rio-claro-mayaro",
+    "region": "southeast",
+    "mode": "maxi",
+    "patternType": "local",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "mixed",
+    "status": "ready",
+    "sourceReview": "docs/part2-sprint3-consolidation-2026-09-12.md",
+    "anchors": [
+      {
+        "name": "Rio Claro",
+        "nodeId": "rio-claro-hub"
+      },
+      {
+        "name": "Mayaro",
+        "nodeId": "maxi-mayaro"
+      }
+    ],
+    "notes": "Distinct service meeting Guayaguayare service at Mayaro."
+  },
+  {
+    "id": "mayaro-guayaguayare",
+    "region": "southeast",
+    "mode": "maxi",
+    "patternType": "local",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "mixed",
+    "status": "ready",
+    "sourceReview": "docs/part2-sprint3-consolidation-2026-09-12.md",
+    "anchors": [
+      {
+        "name": "Mayaro",
+        "nodeId": "maxi-mayaro"
+      },
+      {
+        "name": "Guayaguayare",
+        "nodeId": "guayaguayare-area"
+      }
+    ],
+    "notes": "Distinct service; Rio Claro to Guayaguayare requires Mayaro transfer."
+  },
+  {
+    "id": "tobago-scarborough-crown-point-taxi",
+    "region": "tobago-west",
+    "mode": "route_taxi",
+    "patternType": "local",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "corridor_request",
+    "status": "needs_node_mapping",
+    "sourceReview": "data/source/tobago-pattern-review-2026-09-12.json",
+    "anchors": [
+      {
+        "name": "Scarborough",
+        "nodeId": null
+      },
+      {
+        "name": "Lowlands",
+        "nodeId": null
+      },
+      {
+        "name": "Canaan / Bon Accord",
+        "nodeId": null
+      },
+      {
+        "name": "Crown Point",
+        "nodeId": null
+      }
+    ],
+    "notes": "Short-drop behavior documented; exact ordered taxi nodes need mapping."
+  },
+  {
+    "id": "tobago-scarborough-lanse-fourmi-ptsc",
+    "region": "tobago-northside",
+    "mode": "ptsc",
+    "patternType": "fixed_route",
+    "boardingPolicy": "fixed_only",
+    "alightingPolicy": "fixed_only",
+    "status": "ready",
+    "sourceReview": "data/source/tobago-pattern-review-2026-09-12.json",
+    "anchors": [
+      {
+        "name": "Scarborough PTSC",
+        "nodeId": "ptsc-scarborough-shaw-park"
+      },
+      {
+        "name": "Moriah",
+        "nodeId": "moriah-area"
+      },
+      {
+        "name": "Castara",
+        "nodeId": "castara-area"
+      },
+      {
+        "name": "Parlatuvier",
+        "nodeId": "parlatuvier-area"
+      },
+      {
+        "name": "Bloody Bay",
+        "nodeId": "bloody-bay-area"
+      },
+      {
+        "name": "L'Anse Fourmi",
+        "nodeId": "ptsc-lanse-fourmi-area"
+      }
+    ],
+    "notes": "Northside family must remain separate from Windward Charlotteville corridor."
+  },
+  {
+    "id": "tobago-scarborough-charlotteville-blue-maxi",
+    "region": "tobago-windward",
+    "mode": "maxi",
+    "patternType": "local",
+    "boardingPolicy": "corridor_hail",
+    "alightingPolicy": "corridor_request",
+    "status": "needs_node_mapping",
+    "sourceReview": "data/source/tobago-pattern-review-2026-09-12.json",
+    "anchors": [
+      {
+        "name": "Scarborough",
+        "nodeId": null
+      },
+      {
+        "name": "Roxborough",
+        "nodeId": null
+      },
+      {
+        "name": "Speyside",
+        "nodeId": null
+      },
+      {
+        "name": "Charlotteville",
+        "nodeId": null
+      }
+    ],
+    "notes": "Blue-band corridor supported; ordered intermediate communities need node mapping."
+  },
+  {
+    "id": "route2-arima-pos-pbr-westbound",
+    "region": "east",
+    "mode": "maxi",
+    "patternType": "local",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "corridor_request",
+    "status": "ready",
+    "sourceReview": "data/source/east-corridor-pattern-review-2026-09-12.json",
+    "anchors": [
+      {
+        "name": "Arima",
+        "nodeId": "arima-pbr-maxi"
+      },
+      {
+        "name": "D'Abadie",
+        "nodeId": "dabadie-area"
+      },
+      {
+        "name": "Five Rivers",
+        "nodeId": "five-rivers-area"
+      },
+      {
+        "name": "Tunapuna",
+        "nodeId": "tunapuna-area"
+      },
+      {
+        "name": "Curepe",
+        "nodeId": "ptsc-curepe"
+      },
+      {
+        "name": "Port of Spain",
+        "nodeId": "ptsc-pos-transit-centre"
+      }
+    ],
+    "notes": "Separately supported westbound service and short-drop fare ladder; not auto-synthesized from eastbound."
+  },
+  {
+    "id": "tobago-scarborough-charlotteville-ptsc-windward",
+    "region": "tobago-windward",
+    "mode": "ptsc",
+    "patternType": "fixed_route",
+    "boardingPolicy": "fixed_only",
+    "alightingPolicy": "fixed_only",
+    "status": "ready",
+    "sourceReview": "data/source/tobago-pattern-review-2026-09-12.json",
+    "anchors": [
+      {
+        "name": "Scarborough PTSC",
+        "nodeId": "ptsc-scarborough-shaw-park"
+      },
+      {
+        "name": "Roxborough",
+        "nodeId": "roxborough-area"
+      },
+      {
+        "name": "Speyside",
+        "nodeId": "speyside-area"
+      },
+      {
+        "name": "Charlotteville",
+        "nodeId": "ptsc-charlotteville-area"
+      }
+    ],
+    "notes": "PTSC Windward family kept distinct from the Northside L’Anse Fourmi corridor. Reverse is separately represented by an existing directional PTSC service."
+  }
+]
