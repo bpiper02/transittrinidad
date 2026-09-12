@@ -1,7 +1,145 @@
 [
-  {"id":"ptsc-arima-la-horquetta-weekday","serviceId":"ptsc-arima-to-la-horquetta","timezone":"America/Port_of_Spain","serviceDays":["mon","tue","wed","thu","fri"],"departureTimes":["05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00"],"status":"published_times","confidence":"official_current","sources":[{"name":"PTSC Routes and Schedules directory","url":"https://ptsc.co.tt/routes-and-schedules/","checkedAt":"2026-09-11"}]},
-  {"id":"ptsc-arima-st-helena-carapo-weekday","serviceId":"ptsc-arima-to-st-helena-carapo","timezone":"America/Port_of_Spain","serviceDays":["mon","tue","wed","thu","fri"],"departureTimes":["05:00","07:00","09:00","14:00","16:00","18:00"],"status":"published_times","confidence":"official_current","sources":[{"name":"PTSC Routes and Schedules directory","url":"https://ptsc.co.tt/routes-and-schedules/","checkedAt":"2026-09-11"}]},
-  {"id":"ptsc-arima-st-helena-carapo-saturday","serviceId":"ptsc-arima-to-st-helena-carapo","timezone":"America/Port_of_Spain","serviceDays":["sat"],"departureTimes":["07:00","09:00","14:00","16:00"],"status":"published_times","confidence":"official_current","sources":[{"name":"PTSC Routes and Schedules directory","url":"https://ptsc.co.tt/routes-and-schedules/","checkedAt":"2026-09-11"}]},
-  {"id":"ptsc-arima-aripo-weekday","serviceId":"ptsc-arima-to-aripo","timezone":"America/Port_of_Spain","serviceDays":["mon","tue","wed","thu","fri"],"departureTimes":["05:00","07:00","09:00","13:00","15:00","17:00"],"status":"published_times","confidence":"official_current","sources":[{"name":"PTSC Routes and Schedules directory","url":"https://ptsc.co.tt/routes-and-schedules/","checkedAt":"2026-09-11"}]},
-  {"id":"ptsc-arima-wallerfield-weekday","serviceId":"ptsc-arima-to-wallerfield","timezone":"America/Port_of_Spain","serviceDays":["mon","tue","wed","thu","fri"],"departureTimes":[],"status":"times_unavailable","confidence":"official_current","notes":"PTSC lists this as a Monday–Friday route, but its current route page does not expose departure times.","sources":[{"name":"PTSC Arima / Wallerfield route","url":"https://ptsc.co.tt/routes/arima-wallerfield/","checkedAt":"2026-09-11"}]}
+  {
+    "id": "ptsc-arima-la-horquetta-weekday",
+    "serviceId": "ptsc-arima-to-la-horquetta",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [
+      "05:00",
+      "06:00",
+      "07:00",
+      "08:00",
+      "09:00",
+      "10:00",
+      "11:00",
+      "12:00",
+      "13:00",
+      "14:00",
+      "15:00",
+      "16:00",
+      "17:00",
+      "18:00",
+      "19:00",
+      "20:00"
+    ],
+    "status": "published_times",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-arima-st-helena-carapo-weekday",
+    "serviceId": "ptsc-arima-to-st-helena-carapo",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [
+      "05:00",
+      "07:00",
+      "09:00",
+      "14:00",
+      "16:00",
+      "18:00"
+    ],
+    "status": "published_times",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-arima-st-helena-carapo-saturday",
+    "serviceId": "ptsc-arima-to-st-helena-carapo",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sat"
+    ],
+    "departureTimes": [
+      "07:00",
+      "09:00",
+      "14:00",
+      "16:00"
+    ],
+    "status": "published_times",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-arima-aripo-weekday",
+    "serviceId": "ptsc-arima-to-aripo",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [
+      "05:00",
+      "07:00",
+      "09:00",
+      "13:00",
+      "15:00",
+      "17:00"
+    ],
+    "status": "published_times",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-arima-wallerfield-weekday",
+    "serviceId": "ptsc-arima-to-wallerfield",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "notes": "PTSC lists this as a Monday–Friday route, but its current route page does not expose departure times.",
+    "sources": [
+      {
+        "name": "PTSC Arima / Wallerfield route",
+        "url": "https://ptsc.co.tt/routes/arima-wallerfield/",
+        "checkedAt": "2026-09-11"
+      }
+    ]
+  }
 ]
