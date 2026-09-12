@@ -1,0 +1,4 @@
+# Local association workflow artifacts may contain personal contact details.
+data/submissions/
+data/candidates/
+data/reviews/
