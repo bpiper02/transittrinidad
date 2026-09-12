@@ -1841,5 +1841,41 @@
         "checkedAt": "2026-09-12"
       }
     ]
+  },
+  {
+    "id": "claxton-bay-area",
+    "name": "Claxton Bay",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.35344,
+      "lng": -61.45694
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Southern Main Road community marker for the local Chaguanas–San Fernando maxi pattern; hail roadside in the service direction and confirm with the driver.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Claxton Bay",
+        "url": "https://www.openstreetmap.org/node/1383960097",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "marabella-area",
+    "name": "Marabella",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.30735,
+      "lng": -61.45187
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Marabella community marker on the local Southern Main Road corridor; confirm the safest current roadside pickup point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Marabella",
+        "url": "https://www.openstreetmap.org/node/1270405996",
+        "checkedAt": "2026-09-12"
+      }
+    ]
   }
 ]

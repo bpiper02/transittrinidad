@@ -125,9 +125,11 @@ assert.equal(falseZeroLeg,null,'two arbitrary places must not become a fake zero
 const corridorIds=new Set(services.map(service=>service.corridorId));
 assert.ok(corridorIds.size>26,'regional sprint must expand the original 26 corridors');
 const chagCouva=findJourney('chag-maxi-area','maxi-couva',maxiOnly,nodes,{transfers});
-assert.equal(chagCouva.filter(step=>step.kind==='transit').length,1,'Chaguanas–Couva must be a direct Maxi leg');
+assert.equal(new Set(chagCouva.filter(step=>step.kind==='transit').map(step=>step.service.id)).size,1,'Chaguanas–Couva must stay on one Maxi service even across intermediate graph segments');
+assert.equal(countTransfers(chagCouva),0,'Chaguanas–Couva must require no transit transfer');
 const couvaChag=findJourney('maxi-couva','chag-maxi-area',maxiOnly,nodes,{transfers});
-assert.equal(couvaChag.filter(step=>step.kind==='transit').length,1,'northbound SF–Chaguanas Maxi must serve Couva directly');
+assert.equal(new Set(couvaChag.filter(step=>step.kind==='transit').map(step=>step.service.id)).size,1,'northbound SF–Chaguanas Maxi must serve Couva on one service');
+assert.equal(countTransfers(couvaChag),0,'northbound Couva–Chaguanas must require no transit transfer');
 const chagC3=findJourney('chag-maxi-area','c3-centre',services.filter(s=>s.mode==='maxi'||s.id==='route-taxi-san-fernando-to-c3'),nodes,{transfers});
 assert.ok(chagC3.some(step=>step.kind==='transit'&&step.service.mode==='maxi'));
 assert.ok(chagC3.some(step=>step.kind==='transit'&&step.service.mode==='route_taxi'));

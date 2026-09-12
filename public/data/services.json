@@ -1596,10 +1596,14 @@
     "destinationNodeId": "sf-chag-maxi",
     "stopNodeIds": [
       "chag-maxi-area",
+      "chase-village-area",
       "maxi-couva",
+      "california-area",
+      "claxton-bay-area",
+      "marabella-area",
       "sf-chag-maxi"
     ],
-    "serviceConfidence": "reported_service",
+    "serviceConfidence": "community_verified",
     "geometryConfidence": "endpoints_only",
     "geometry": null,
     "fareTTD": null,
@@ -1609,7 +1613,7 @@
       "kind": "frequency_based",
       "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
     },
-    "boardingNote": "Couva is an approximate area for the reported Exchange fare stage; confirm the roadside stopping point with the driver.",
+    "boardingNote": "Local southbound Route 3 pattern via Southern Main Road. Riders may hail along supported corridor communities; confirm the exact safe roadside pickup point and destination with the driver.",
     "sources": [
       {
         "name": "Trinidad Guardian: San Fernando Route 3/4/5 maxi stand traffic scheme",
@@ -1633,9 +1637,24 @@
         "name": "OpenStreetMap contributors: San Fernando-Chaguanas Maxi Taxi Stand",
         "url": "https://www.openstreetmap.org/node/1811264148",
         "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Guardian: Route 3 riders drop out in Southern Main Road communities between Chaguanas and San Fernando",
+        "url": "https://www.guardian.co.tt/article-6.2.365128.7ddda70ddb",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2015-01-23"
+      },
+      {
+        "name": "Newsday: Chaguanas-San Fernando maxi driver operating through Claxton Bay",
+        "url": "https://newsday.co.tt/2022/01/22/claxton-bay-residents-maxi-taxi-drivers-hold-fiery-protest/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2022-01-22"
       }
     ],
-    "routeArea": 3
+    "routeArea": 3,
+    "patternType": "local",
+    "boardingPolicy": "corridor_hail",
+    "alightingPolicy": "corridor_request"
   },
   {
     "id": "maxi-chag-san-fernando-back",
