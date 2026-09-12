@@ -39,7 +39,7 @@ async function chooseLocalPlace(page,inputId,name){
 async function planCouvaToChaguanas(page){
   await chooseLocalPlace(page,'fromInput','Couva');
   await chooseLocalPlace(page,'toInput','Chaguanas');
-  await page.getByRole('button',{name:'Route'}).click();
+  await page.locator('#planButton').click();
   await expect(page.locator('#detailPanel')).toBeVisible();
   await expect(page.locator('#detailPanel h2')).toContainText('Couva');
   await expect(page.locator('#detailPanel h2')).toContainText('Chaguanas');
@@ -56,7 +56,7 @@ test('loads the canonical network and plans a local-place journey',async({page})
 
 test('mode tabs re-plan the current trip without losing endpoints',async({page})=>{
   await planCouvaToChaguanas(page);
-  await page.getByRole('button',{name:'Maxi'}).click();
+  await page.getByRole('button',{name:'Maxi',exact:true}).click();
   await expect(page.locator('#fromInput')).toHaveValue(/Couva/i);
   await expect(page.locator('#toInput')).toHaveValue(/Chaguanas/i);
   await expect(page.locator('#detailPanel')).toBeVisible();
@@ -74,7 +74,7 @@ test('swap preserves selected local places',async({page})=>{
 test('disconnected tracked place fails clearly instead of inventing a route',async({page})=>{
   await chooseLocalPlace(page,'fromInput','Couva');
   await chooseLocalPlace(page,'toInput','Toco');
-  await page.getByRole('button',{name:'Route'}).click();
+  await page.locator('#planButton').click();
   await expect(page.locator('#plannerStatus')).toHaveText('No route in the current network.');
   await expect(page.locator('#detailPanel')).toBeHidden();
 });
