@@ -1,3 +1,6 @@
+const VALID_PATTERN_TYPES=new Set(['local','limited','express']);
+const VALID_STOP_POLICIES=new Set(['fixed_only','corridor_hail','corridor_request','mixed']);
+
 function key(value){
   return String(value||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 }
@@ -148,6 +151,9 @@ export function validateAssociationSubmission(submission){
     if(route.origin.name===route.destination.name)throw new Error(`route ${index+1} origin and destination must differ`);
     if(route.fareTTD!=null&&(!Number.isFinite(route.fareTTD)||route.fareTTD<0))throw new Error(`route ${index+1} fareTTD is invalid`);
     if(route.geometry!=null&&(!Array.isArray(route.geometry)||route.geometry.length<2||route.geometry.some(point=>!validLocation(point))))throw new Error(`route ${index+1} geometry is invalid`);
+    if(route.patternType!=null&&!VALID_PATTERN_TYPES.has(route.patternType))throw new Error(`route ${index+1} has invalid patternType`);
+    if(route.boardingPolicy!=null&&!VALID_STOP_POLICIES.has(route.boardingPolicy))throw new Error(`route ${index+1} has invalid boardingPolicy`);
+    if(route.alightingPolicy!=null&&!VALID_STOP_POLICIES.has(route.alightingPolicy))throw new Error(`route ${index+1} has invalid alightingPolicy`);
   }
   return true;
 }
@@ -197,7 +203,7 @@ export function buildAssociationCandidates(submission,{nodes=[],services=[]}={})
       originNodeId,
       destinationNodeId,
       stopNodeIds,
-      serviceConfidence:'community_verified',
+      serviceConfidence:existing?.serviceConfidence==='verified_service'?'verified_service':'community_verified',
       geometryConfidence:route.geometry?.length?'verified_path':existing?.geometryConfidence||'endpoints_only',
       geometry:route.geometry?.length?route.geometry:existing?.geometry||null,
       fareTTD:route.fareTTD??existing?.fareTTD??null,
@@ -206,6 +212,11 @@ export function buildAssociationCandidates(submission,{nodes=[],services=[]}={})
       availability:operation.canonicalAvailability||existing?.availability||null,
       maxiRouteArea:route.maxiRouteArea??existing?.maxiRouteArea,
       bandColor:route.bandColor??existing?.bandColor,
+      patternType:route.patternType??existing?.patternType,
+      boardingPolicy:route.boardingPolicy??existing?.boardingPolicy,
+      alightingPolicy:route.alightingPolicy??existing?.alightingPolicy,
+      boardableNodeIds:route.boardableNodeIds??existing?.boardableNodeIds,
+      alightableNodeIds:route.alightableNodeIds??existing?.alightableNodeIds,
       boardingNote:route.boardingNote||existing?.boardingNote||null
     }:null;
 
@@ -237,6 +248,7 @@ export function buildAssociationCandidates(submission,{nodes=[],services=[]}={})
       endpointResolution:points.map((point,i)=>({name:point.name,status:resolutions[i].status,nodeId:resolutions[i].node?.id||stopNodeIds[i]||null})),
       roads:route.roads||[],
       operation,
+      fieldReview:route.fieldReview||null,
       changeSet
     };
   });
