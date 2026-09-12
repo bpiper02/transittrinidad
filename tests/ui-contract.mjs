@@ -14,7 +14,10 @@ assert.doesNotMatch(html,/datalist|placeOptions/,'native datalist must not const
 assert.match(app,/new maplibregl\.Map/);
 assert.match(app,/\.\/src\/routing-core\.mjs/);
 assert.match(app,/\.\/src\/place-core\.mjs/,'browser must use the canonical place-resolution vocabulary');
+assert.match(app,/\.\/src\/fare-core\.mjs/,'browser must use the canonical fare engine');
+assert.match(app,/\.\/src\/rider-instruction-core\.mjs/,'browser must use shared rider-instruction semantics');
 assert.match(app,/getJson\('\.\/data\/places\.json'\)/,'browser must load local place aliases and centroids');
+assert.match(app,/getJson\('\.\/data\/fares\.json'\)/,'browser must load editable fare overrides');
 assert.match(app,/exactPlace\(/,'plain town names should resolve through the place layer');
 assert.match(app,/explicitNetworkNode\(/,'explicit stand and terminal searches should remain possible');
 assert.match(app,/matchPlaces\(/,'local place aliases should participate in autocomplete');
@@ -41,9 +44,14 @@ assert.match(app,/journey-transfer/);
 assert.match(app,/planCurrentTrip\(\{reuseContext:true\}\)/,'mode changes must re-plan the same resolved trip');
 assert.match(app,/currentTripContext=\{fromEndpoint,toEndpoint,from,to,knownFrom,knownTo\}/,'resolved place context must survive mode changes');
 
-assert.match(app,/Take the \$\{maxiBandLabel\(step\.service\)\} toward/,'Maxi directions should name the route band and direction');
-assert.match(app,/Board at \$\{origin\?\.name\|\|step\.from\}/,'journey instructions should name the boarding point');
-assert.match(app,/Fare unknown/,'unknown fares should be compact metadata rather than invented values');
+assert.match(app,/transitAction\(step\.service/,'journey directions should delegate mode-specific action copy to the rider-instruction core');
+assert.match(app,/bandLabel:step\.service\.mode==='maxi'\?maxiBandLabel\(step\.service\):'Maxi'/,'Maxi directions should still pass the visible route band to rider instructions');
+assert.match(app,/boardingGuidance\(step\.service/,'boarding details should delegate hail/board and requested-stop language to the rider-instruction core');
+assert.match(app,/fromName:origin\?\.name\|\|step\.from/,'journey instructions should still name the boarding point');
+assert.match(app,/fareForSegment/,'leg fares must use segment-aware fare logic');
+assert.match(app,/fareForJourney/,'journey totals must sum leg fare ranges');
+assert.match(app,/formatFare/,'fare output must consistently distinguish estimates and confirmed fares');
+assert.doesNotMatch(app,/Fare unknown|fare not in dataset/,'routable journeys should receive a confirmed/reported fare or explicit estimate');
 assert.match(app,/Reported route/,'reported service confidence should remain visible as metadata');
 assert.match(app,/Journey data/,'journey evidence should be available in one expandable section');
 assert.doesNotMatch(app,/current operation unconfirmed|Confirm service and boarding|access method unconfirmed|Sailing times are not yet included/,'route cards should not repeat defensive notices already covered globally');

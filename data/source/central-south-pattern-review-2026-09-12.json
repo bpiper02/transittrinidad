@@ -1,0 +1,85 @@
+{
+  "checkedAt": "2026-09-12",
+  "scope": "Chaguanas-San Fernando informal corridor patterns",
+  "patterns": [
+    {
+      "id": "route3-chaguanas-san-fernando-local-smr",
+      "mode": "maxi",
+      "direction": "southbound",
+      "patternType": "local",
+      "pickupPolicy": "corridor_hail",
+      "dropPolicy": "corridor_request",
+      "confidence": "reported_pattern",
+      "anchors": [
+        {"name":"Chaguanas","confidence":"confirmed_endpoint"},
+        {"name":"Chase Village","confidence":"corridor_supported"},
+        {"name":"Couva","confidence":"corridor_supported"},
+        {"name":"California","confidence":"local_and_corridor_supported"},
+        {"name":"Claxton Bay","confidence":"strong_reported_service"},
+        {"name":"Marabella","confidence":"corridor_supported"},
+        {"name":"San Fernando","confidence":"confirmed_endpoint"}
+      ],
+      "sources": [
+        {
+          "name": "Trinidad Guardian — Chaguanas maxi protest",
+          "url": "https://www.guardian.co.tt/article-6.2.365128.7ddda70ddb",
+          "claim": "Green-band maxi riders normally drop out in communities along the Southern Main Road between Chaguanas and San Fernando; Claxton Bay commuters affected."
+        },
+        {
+          "name": "Trinidad and Tobago Newsday — Claxton Bay residents, maxi taxi drivers hold fiery protest",
+          "url": "https://newsday.co.tt/2022/01/22/claxton-bay-residents-maxi-taxi-drivers-hold-fiery-protest/",
+          "claim": "Identifies a Chaguanas-to-San Fernando maxi driver operating along the Claxton Bay Southern Main Road corridor."
+        },
+        {
+          "name": "Trinidad and Tobago Newsday — Claxton Bay drivers, residents welcome news of planned roadworks",
+          "url": "https://newsday.co.tt/2022/01/24/claxton-bay-drivers-residents-welcome-news-of-planned-roadworks/",
+          "claim": "Reports from the San Fernando-to-Chaguanas maxi stand; driver describes Southern Main Road conditions from California toward St Margaret's."
+        },
+        {
+          "name": "Southern Main Road route description",
+          "url": "https://en.wikipedia.org/wiki/Southern_Main_Road",
+          "claim": "Road corridor passes through Chaguanas, Chase Village area, Couva, California, Claxton Bay, Marabella and San Fernando. Used as geography support only, not boarding proof."
+        }
+      ],
+      "localReview": {
+        "claim": "Some Chaguanas-San Fernando maxis run through the main-road communities and riders can hail/get off along the route; California to Claxton Bay is a representative use case.",
+        "confidence": "community_verified_behavior"
+      }
+    },
+    {
+      "id": "route3-chaguanas-san-fernando-highway",
+      "mode": "maxi",
+      "direction": "southbound",
+      "patternType": "express_or_limited",
+      "pickupPolicy": "fixed_only_until_proven",
+      "dropPolicy": "fixed_only_until_proven",
+      "confidence": "research_lead",
+      "anchors": [
+        {"name":"Chaguanas","confidence":"confirmed_endpoint"},
+        {"name":"San Fernando","confidence":"confirmed_endpoint"}
+      ],
+      "sources": [
+        {
+          "name": "Sir Solomon Hochoy Highway route description",
+          "url": "https://en.wikipedia.org/wiki/Sir_Solomon_Hochoy_Highway",
+          "claim": "Highway provides a distinct Chaguanas-San Fernando road path with interchanges serving central communities. Interchange proximity is not stop evidence."
+        }
+      ]
+    }
+  ],
+  "unresolvedAnchors": [
+    "Freeport / St Mary's / Carapichaima relationship to through local maxi",
+    "McBean / Point Lisas relationship to through local maxi",
+    "St Margaret's",
+    "Pointe-a-Pierre",
+    "Vistabella",
+    "northbound local intermediate pickup/alighting behavior",
+    "highway variant stop policy"
+  ],
+  "invariants": [
+    "Do not infer stop service from road geography alone",
+    "Do not merge highway and Southern Main Road patterns",
+    "Do not auto-create reverse pattern",
+    "Do not duplicate every intermediate OD pair as a canonical service"
+  ]
+}

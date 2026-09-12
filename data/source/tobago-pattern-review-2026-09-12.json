@@ -1,0 +1,105 @@
+{
+  "checkedAt": "2026-09-12",
+  "scope": "Tobago PTSC, route taxi and blue-band maxi service-pattern reconstruction",
+  "corridorFamilies": [
+    {
+      "id": "tobago-west-southwest",
+      "hub": "Scarborough",
+      "patterns": [
+        {
+          "name": "Scarborough-Crown Point west-end taxi",
+          "mode": "taxi",
+          "patternType": "local",
+          "status": "confirmed_service_intermediate_order_pending",
+          "supportedMarkets": ["Scarborough", "Lowlands / Gulf City area", "Canaan / Bon Accord", "Crown Point / ANR Robinson International Airport", "Pigeon Point"],
+          "behavior": ["short drops documented", "off-route surcharge documented"]
+        },
+        {
+          "name": "Scarborough-Buccoo",
+          "mode": "ptsc",
+          "patternType": "fixed_route",
+          "status": "current_ptsc_route"
+        },
+        {
+          "name": "Scarborough-Black Rock-Courland",
+          "mode": "ptsc",
+          "patternType": "fixed_route",
+          "status": "current_ptsc_route"
+        },
+        {
+          "name": "Scarborough-Plymouth via Arnos Vale",
+          "mode": "ptsc",
+          "patternType": "fixed_route",
+          "status": "current_ptsc_route"
+        }
+      ]
+    },
+    {
+      "id": "tobago-northside",
+      "hub": "Scarborough",
+      "patterns": [
+        {
+          "name": "Scarborough-L'Anse Fourmi",
+          "mode": "ptsc",
+          "patternType": "local_fixed_route",
+          "status": "confirmed_current_route",
+          "workingOrderedAreas": ["Scarborough", "Moriah", "Runnemade / Des Vignes / Mt Dillon area", "Castara", "Parlatuvier", "Bloody Bay", "L'Anse Fourmi"],
+          "intermediateConfidence": "strong_corridor_service_area_evidence_exact_nodes_pending"
+        }
+      ]
+    },
+    {
+      "id": "tobago-windward-east",
+      "hub": "Scarborough",
+      "patterns": [
+        {
+          "name": "Scarborough-Charlotteville",
+          "mode": "ptsc",
+          "patternType": "fixed_route",
+          "status": "confirmed_current_route",
+          "workingOrderedAreas": ["Scarborough", "Bacolet / Mt St George / Goodwood area", "Roxborough", "Speyside", "Charlotteville"],
+          "intermediateConfidence": "route_family_strong_exact_current_stop_policy_pending"
+        },
+        {
+          "name": "Scarborough-Charlotteville blue-band maxi",
+          "mode": "maxi",
+          "patternType": "local",
+          "pickupPolicy": "corridor_hail",
+          "dropPolicy": "corridor_request",
+          "status": "supported_public_route",
+          "notes": "Published transport guides consistently describe this as Tobago's public blue-band maxi route."
+        },
+        {
+          "name": "Scarborough-east/north taxi markets",
+          "mode": "taxi",
+          "patternType": "branch_family",
+          "status": "confirmed_markets_not_one_through_pattern",
+          "supportedMarkets": ["Bacolet", "Moriah", "Bloody Bay", "L'Anse Fourmi", "Charlotteville"]
+        }
+      ]
+    }
+  ],
+  "invariants": [
+    "Do not merge Northside and Windward corridors",
+    "Do not merge PTSC stop policy with maxi hail/drop policy",
+    "Do not treat Scarborough hub sharing as identical downstream routing",
+    "Do not convert off-route taxi diversions into canonical stops",
+    "Do not infer Buccoo-Plymouth or Crown Point-Buccoo through-service from geography",
+    "Do not infer L'Anse Fourmi-Charlotteville through-service",
+    "Do not auto-create reverse directions without evidence"
+  ],
+  "strongestIntermediateCandidates": [
+    "Scarborough-Moriah-Castara-Parlatuvier-Bloody Bay-L'Anse Fourmi PTSC corridor",
+    "Scarborough-Lowlands/Canaan/Bon Accord-Crown Point west-end taxi corridor",
+    "Scarborough-Charlotteville blue-band maxi once intermediate ordered communities are confirmed"
+  ],
+  "sources": [
+    {"name": "PTSC Scarborough route archive", "url": "https://ptsc.co.tt/from/scarborough/"},
+    {"name": "PTSC Scarborough/Buccoo", "url": "https://ptsc.co.tt/routes/scarborough-buccoo/"},
+    {"name": "PTSC Scarborough/Plymouth via Arnos Vale", "url": "https://ptsc.co.tt/routes/scarborough-plymouth-via-arnos-vale/"},
+    {"name": "Newsday west Tobago taxi fares", "url": "https://newsday.co.tt/2022/03/15/taxi-fares-in-west-tobago-increased-by-1/"},
+    {"name": "Newsday Tobago east taxis", "url": "https://newsday.co.tt/2022/03/08/tobago-east-taxis-agree-to-1-increase/"},
+    {"name": "Loop PTSC L'Anse Fourmi service adjustment", "url": "https://www.loopnews.com/content/ptsc-adjusts-service-in-lanse-fourmi-after-landslip/"},
+    {"name": "THA PTSC Tobago route incident confirmation", "url": "https://www.tha.gov.tt/news/ptsc-quickly-resolves-minor-problems-experienced-on-buses-today/"}
+  ]
+}

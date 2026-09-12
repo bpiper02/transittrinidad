@@ -1,0 +1,155 @@
+{
+  "reviewedAt": "2026-09-12",
+  "scope": "Part 2 Sprint 2 — East corridor service-pattern reconstruction",
+  "status": "research_proposal_only",
+  "principles": [
+    "Do not collapse all Route 2 services into one path.",
+    "Priority Bus Route and Eastern Main Road patterns are distinct.",
+    "A named destination service does not automatically serve every settlement between endpoints.",
+    "Intermediate trip generation requires an ordered served-point pattern plus pickup/alighting permission.",
+    "Reverse direction remains independent unless separately supported."
+  ],
+  "evidence": [
+    {
+      "claim": "Route 2 maxis run along both the Priority Bus Route and Eastern Main Road from Port of Spain toward La Horquetta, Arima, Maloney, Sangre Grande and other east-west communities.",
+      "confidence": "strong",
+      "source": "https://newsday.co.tt/2021/08/20/route-1-2-maxi-taxis-may-raise-fares-next-month/"
+    },
+    {
+      "claim": "Direct Route 2 destination services include Arima, Maloney, La Horquetta and Sangre Grande, with short-drop fares also recognized along the corridor.",
+      "confidence": "strong",
+      "source": "https://newsday.co.tt/2021/10/07/route-two-maxi-taxi-fares-to-increase-on-nov-1/"
+    },
+    {
+      "claim": "Documented 2021 short-drop points toward Port of Spain include D'Abadie, Five Rivers, Cane Farm/Tunapuna and Curepe.",
+      "confidence": "strong",
+      "source": "https://newsday.co.tt/2021/11/01/busy-monday-in-tt-as-bars-reopen-full-public-service-back-out-to-work/"
+    },
+    {
+      "claim": "City Gate has a La Horquetta/Maloney bay (Bay 4), corroborating destination-specific Route 2 service patterns rather than one generic eastbound route.",
+      "confidence": "strong_currentish",
+      "source": "https://www.guardian.co.tt/news/maxi-association-supporting-driver-who-refused-to-help-cops-with-arrest-6.2.2055346.3c868098b6"
+    },
+    {
+      "claim": "Direct Port of Spain to Sangre Grande maxi service exists; routing via Arima is an alternative, not proof that every Grande passenger must transfer in Arima.",
+      "confidence": "strong",
+      "source": "https://newsday.co.tt/2022/08/24/yes-there-are-maxi-taxis-to-grande/"
+    },
+    {
+      "claim": "Arima historically distinguishes Priority Bus Route maxi-taxis from Main Road maxi-taxis with separate stands, supporting distinct service-pattern classes.",
+      "confidence": "official_historical",
+      "source": "https://www.news.gov.tt/archive/E-Gazette/Gazette%202009/legal_notices/Legal%20Notice%20No.%2045%20of%202009.pdf"
+    },
+    {
+      "claim": "Sangre Grande red-band maxi operations currently center on Brierley Street/Eastern Main Road.",
+      "confidence": "strong_current",
+      "source": "https://www.guardian.co.tt/news/maxi-taxi-shut-down-leaves-sangre-grande-commuters-scrambling-6.2.2596990.938df5d0a9"
+    }
+  ],
+  "proposedPatterns": [
+    {
+      "id": "route2-pbr-shortdrop-west-east",
+      "type": "local_or_limited",
+      "mode": "maxi",
+      "direction": "eastbound_proposal",
+      "orderedServedAreas": [
+        "Port of Spain",
+        "Curepe",
+        "Tunapuna/Cane Farm",
+        "Five Rivers",
+        "D'Abadie",
+        "Arima"
+      ],
+      "pickupPolicy": "corridor_hail_or_stand",
+      "confidence": "supported_pattern",
+      "notes": "The short-drop fare ladder provides unusually useful evidence that these are usable intermediate points on Route 2 corridor service. Exact sub-patterns and stop permissions still need canonical mapping."
+    },
+    {
+      "id": "route2-pos-maloney",
+      "type": "destination_pattern",
+      "mode": "maxi",
+      "direction": "eastbound_proposal",
+      "orderedServedAreas": ["Port of Spain", "Maloney"],
+      "pickupPolicy": "mixed",
+      "confidence": "strong_endpoints_only",
+      "notes": "Do not infer every PBR community as a served stop until path/pickup behavior is established."
+    },
+    {
+      "id": "route2-pos-la-horquetta",
+      "type": "destination_pattern",
+      "mode": "maxi",
+      "direction": "eastbound_proposal",
+      "orderedServedAreas": ["Port of Spain", "La Horquetta"],
+      "pickupPolicy": "mixed",
+      "confidence": "strong_endpoints_only",
+      "notes": "La Horquetta and Maloney share a City Gate bay in current reporting but are not assumed to have identical downstream patterns."
+    },
+    {
+      "id": "route2-pos-arima-pbr",
+      "type": "limited_or_local",
+      "mode": "maxi",
+      "direction": "eastbound_proposal",
+      "orderedServedAreas": ["Port of Spain", "Curepe", "Tunapuna/Cane Farm", "Five Rivers", "D'Abadie", "Arima"],
+      "pickupPolicy": "corridor_hail_or_stand",
+      "confidence": "supported_pattern",
+      "notes": "PBR pattern supported; historical official evidence distinguishes PBR and Main Road operations at Arima."
+    },
+    {
+      "id": "route2-pos-arima-main-road",
+      "type": "local",
+      "mode": "maxi",
+      "direction": "eastbound_proposal",
+      "orderedServedAreas": ["Port of Spain", "Eastern Main Road corridor", "Arima"],
+      "pickupPolicy": "corridor_hail",
+      "confidence": "pattern_exists_points_unresolved",
+      "notes": "Do not fabricate exact intermediate communities yet; official historical evidence proves a distinct Main Road maxi class."
+    },
+    {
+      "id": "route2-pos-sangre-grande-direct",
+      "type": "long_distance_destination_pattern",
+      "mode": "maxi",
+      "direction": "eastbound_proposal",
+      "orderedServedAreas": ["Port of Spain", "Sangre Grande"],
+      "pickupPolicy": "mixed",
+      "confidence": "strong_endpoints_only",
+      "notes": "Direct service is established. Do not automatically insert Arima or Valencia as pickup points until direct-service stopping behavior is supported."
+    },
+    {
+      "id": "route2-arima-sangre-grande",
+      "type": "local_or_feeder",
+      "mode": "maxi",
+      "direction": "eastbound_proposal",
+      "orderedServedAreas": ["Arima", "Valencia", "Sangre Grande"],
+      "pickupPolicy": "corridor_hail_or_stand",
+      "confidence": "plausible_needs_more_support",
+      "notes": "Arima-to-Grande service is established; Valencia lies on the Eastern Main Road corridor but its intermediate boarding role should remain a research lead until independently supported."
+    }
+  ],
+  "safeDerivedTrips": [
+    {
+      "from": "Curepe",
+      "to": "Tunapuna/Cane Farm",
+      "basis": "documented short-drop ladder on Route 2 corridor",
+      "confidence": "strong_pattern_inference"
+    },
+    {
+      "from": "Tunapuna/Cane Farm",
+      "to": "Five Rivers",
+      "basis": "ordered short-drop ladder toward Arima",
+      "confidence": "strong_pattern_inference"
+    },
+    {
+      "from": "Five Rivers",
+      "to": "D'Abadie",
+      "basis": "ordered short-drop ladder toward Arima",
+      "confidence": "strong_pattern_inference"
+    }
+  ],
+  "notYetSafe": [
+    "Maloney -> Arima solely because both are Route 2 destinations",
+    "La Horquetta -> Arima solely because both are Route 2 destinations",
+    "Valencia -> Sangre Grande solely because Valencia lies on the Eastern Main Road",
+    "Curepe -> Sangre Grande on every direct Grande maxi",
+    "Any reverse pattern not separately evidenced"
+  ]
+}

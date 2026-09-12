@@ -17,7 +17,8 @@ const submission={
   routes:[{
     name:'Couva to Chaguanas',mode:'maxi',maxiRouteArea:3,bandColor:'green',
     origin:{name:'Couva central pickup area'},destination:{name:'Chaguanas Maxi hub area'},
-    fareTTD:10,
+    fareTTD:10,patternType:'local',boardingPolicy:'corridor_hail',alightingPolicy:'corridor_request',
+    fieldReview:{accuracy:'needs_correction',notes:'Intermediate pickup behavior confirmed.'},
     operation:{days:['Monday','Tuesday','Wednesday','Thursday','Friday'],firstService:'05:30',lastService:'21:00',headwayMinutes:{min:5,max:15}}
   }]
 };
@@ -30,11 +31,19 @@ assert.equal(candidate.changeSet.existingServiceId,'maxi-couva-chag');
 assert.equal(candidate.changeSet.proposedService.fareTTD,10);
 assert.equal(candidate.changeSet.proposedService.fareConfidence,'community_verified');
 assert.equal(candidate.changeSet.proposedService.serviceConfidence,'community_verified');
+assert.equal(candidate.changeSet.proposedService.patternType,'local');
+assert.equal(candidate.changeSet.proposedService.boardingPolicy,'corridor_hail');
+assert.equal(candidate.changeSet.proposedService.alightingPolicy,'corridor_request');
+assert.equal(candidate.fieldReview.accuracy,'needs_correction');
 assert.equal(candidate.operation.firstService,'05:30');
 assert.deepEqual(candidate.operation.days,['mon','tue','wed','thu','fri']);
 assert.equal(candidate.operation.canonicalSchedule,null,'service windows/headways are not fabricated into exact departures');
 assert.match(candidate.operation.canonicalAvailability.note,/Reported headway 5–15 minutes/);
 assert.equal(candidate.changeSet.nodesToCreate.length,0);
+
+const officialServices=[{...services[0],serviceConfidence:'verified_service'}];
+const [officialCandidate]=buildAssociationCandidates(submission,{nodes,services:officialServices});
+assert.equal(officialCandidate.changeSet.proposedService.serviceConfidence,'verified_service','field review must not downgrade official service evidence');
 
 const newStandSubmission={
   id:'assoc-002',association:'Local Taxi Association',receivedAt:'2026-09-12',
@@ -64,5 +73,7 @@ assert.equal(unmappedCandidate.changeSet.proposedService,null);
 assert.throws(()=>validateAssociationSubmission({...submission,routes:[]}),/at least one route/);
 assert.throws(()=>validateAssociationSubmission({...submission,routes:[{...submission.routes[0],mode:'spaceship'}]}),/invalid mode/);
 assert.throws(()=>validateAssociationSubmission({...submission,routes:[{...submission.routes[0],fareTTD:-1}]}),/fareTTD/);
+assert.throws(()=>validateAssociationSubmission({...submission,routes:[{...submission.routes[0],boardingPolicy:'teleport'}]}),/boardingPolicy/);
+assert.throws(()=>validateAssociationSubmission({...submission,routes:[{...submission.routes[0],patternType:'mystery'}]}),/patternType/);
 
 console.log('association import core tests passed');

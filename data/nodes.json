@@ -1841,5 +1841,275 @@
         "checkedAt": "2026-09-12"
       }
     ]
+  },
+  {
+    "id": "claxton-bay-area",
+    "name": "Claxton Bay",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.35344,
+      "lng": -61.45694
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Southern Main Road community marker for the local Chaguanas–San Fernando maxi pattern; hail roadside in the service direction and confirm with the driver.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Claxton Bay",
+        "url": "https://www.openstreetmap.org/node/1383960097",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "marabella-area",
+    "name": "Marabella",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.30735,
+      "lng": -61.45187
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Marabella community marker on the local Southern Main Road corridor; confirm the safest current roadside pickup point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Marabella",
+        "url": "https://www.openstreetmap.org/node/1270405996",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "tunapuna-area",
+    "name": "Tunapuna",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.64362,
+      "lng": -61.39072
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Route 2 corridor community marker; confirm the current PBR roadside pickup point and direction locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Tunapuna",
+        "url": "https://www.openstreetmap.org/node/477483943",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "five-rivers-area",
+    "name": "Five Rivers",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.64178,
+      "lng": -61.34458
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Route 2 corridor community marker; confirm the current PBR roadside pickup point and direction locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Five Rivers",
+        "url": "https://www.openstreetmap.org/node/1049296379",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "dabadie-area",
+    "name": "D'Abadie",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.62899,
+      "lng": -61.31091
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Route 2 corridor community marker; confirm the current PBR roadside pickup point and direction locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: D'Abadie",
+        "url": "https://www.openstreetmap.org/node/1453546938",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "palmyra-area",
+    "name": "Palmyra Village",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.28546,
+      "lng": -61.42362
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Naparima-Mayaro Road community marker for the local San Fernando–Princes Town service; confirm the safest current roadside pickup point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Palmyra Village",
+        "url": "https://www.openstreetmap.org/node/1453289591",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "mount-stewart-area",
+    "name": "Mount Stewart Village",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.29034,
+      "lng": -61.4109
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Naparima-Mayaro Road community marker for the local San Fernando–Princes Town service; confirm the safest current roadside pickup point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Mount Stewart Village",
+        "url": "https://www.openstreetmap.org/node/1453289590",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "cleghorn-area",
+    "name": "Cleghorn Village",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.29115,
+      "lng": -61.40192
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Naparima-Mayaro Road community marker for the local San Fernando–Princes Town service; confirm the safest current roadside pickup point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Cleghorn Village",
+        "url": "https://www.openstreetmap.org/node/1453289586",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "iere-area",
+    "name": "Iere Village",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.29199,
+      "lng": -61.38536
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Naparima-Mayaro Road community marker for the local San Fernando–Princes Town service; confirm the safest current roadside pickup point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Iere Village",
+        "url": "https://www.openstreetmap.org/node/1453289588",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "moriah-area",
+    "name": "Moriah",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 11.24941,
+      "lng": -60.71544
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "North Side Road community marker for PTSC routing; use the current PTSC stop/roadside boarding point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Moriah",
+        "url": "https://www.openstreetmap.org/node/1816584246",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "castara-area",
+    "name": "Castara",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 11.281,
+      "lng": -60.6934
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "North Side Road community marker for PTSC routing; use the current PTSC stop/roadside boarding point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Castara",
+        "url": "https://www.openstreetmap.org/node/1816584137",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "parlatuvier-area",
+    "name": "Parlatuvier",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 11.29803,
+      "lng": -60.65109
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "North Side Road community marker for PTSC routing; use the current PTSC stop/roadside boarding point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Parlatuvier",
+        "url": "https://www.openstreetmap.org/node/1816584263",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "bloody-bay-area",
+    "name": "Bloody Bay",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 11.29311,
+      "lng": -60.62943
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "North Side Road community marker for PTSC routing; use the current PTSC stop/roadside boarding point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Bloody Bay village",
+        "url": "https://www.openstreetmap.org/node/1816584117",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "roxborough-area",
+    "name": "Roxborough",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 11.24951,
+      "lng": -60.57622
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Windward Road community marker for PTSC routing; use the current PTSC stop/roadside boarding point locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Roxborough",
+        "url": "https://www.openstreetmap.org/node/1816584295",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "speyside-area",
+    "name": "Speyside",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 11.29694,
+      "lng": -60.53795
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Windward Road community marker for PTSC routing; use the current PTSC stop/roadside boarding point locally.",
+    "sources": [
+      {
+        "name": "Wikidata: Speyside coordinate location",
+        "url": "https://www.wikidata.org/wiki/Q7576463",
+        "checkedAt": "2026-09-12"
+      }
+    ]
   }
 ]
