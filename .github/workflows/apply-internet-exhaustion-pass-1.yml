@@ -29,3 +29,4 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m 'Apply internet exhaustion pass 1 [skip ci]'
           git push origin HEAD:internet-exhaustion-pass-1
+# rerun after confidence fix
