@@ -2581,6 +2581,10 @@
     "destinationNodeId": "arima-pbr-maxi",
     "stopNodeIds": [
       "ptsc-pos-transit-centre",
+      "ptsc-curepe",
+      "tunapuna-area",
+      "five-rivers-area",
+      "dabadie-area",
       "arima-pbr-maxi"
     ],
     "serviceConfidence": "community_verified",
@@ -2593,7 +2597,7 @@
       "kind": "frequency_based",
       "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
     },
-    "boardingNote": "At the Port of Spain Transit Centre Maxi-Taxi facility, use Platform 2, Bays A–D for the Arima Priority Bus Route service.",
+    "boardingNote": "Route 2 PBR eastbound pattern with supported short-drop markets. Confirm the exact current pickup point within each community.",
     "sources": [
       {
         "name": "Motor Vehicles and Road Traffic Act: Port-of-Spain Transit Centre Taxi Stand Order",
@@ -2616,9 +2620,18 @@
         "name": "OpenStreetMap contributors: Priority Bus Route (Route 2) Maxi Taxi Stand",
         "url": "https://www.openstreetmap.org/node/4110786989",
         "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Newsday: Route 2 destination services and short drops",
+        "url": "https://newsday.co.tt/2021/10/07/route-two-maxi-taxi-fares-to-increase-on-nov-1/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2021-10-07"
       }
     ],
-    "routeArea": 2
+    "routeArea": 2,
+    "patternType": "local",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "corridor_request"
   },
   {
     "id": "maxi-pos-arima-back",
@@ -2629,6 +2642,10 @@
     "destinationNodeId": "ptsc-pos-transit-centre",
     "stopNodeIds": [
       "arima-pbr-maxi",
+      "dabadie-area",
+      "five-rivers-area",
+      "tunapuna-area",
+      "ptsc-curepe",
       "ptsc-pos-transit-centre"
     ],
     "serviceConfidence": "community_verified",
@@ -2641,7 +2658,7 @@
       "kind": "frequency_based",
       "note": "No confirmed timetable or headway. Confirm operation, fare and boarding before travel."
     },
-    "boardingNote": "Board at the named stand/area. Destination markers do not establish a reverse boarding point.",
+    "boardingNote": "Route 2 PBR westbound pattern with supported short-drop markets. Confirm the exact current pickup point within each community.",
     "sources": [
       {
         "name": "Newsday: Route Two maxi fares effective November 2021",
@@ -2659,9 +2676,18 @@
         "name": "OpenStreetMap contributors: Priority Bus Route (Route 2) Maxi Taxi Stand",
         "url": "https://www.openstreetmap.org/node/4110786989",
         "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "Newsday: Route 2 destination services and short drops",
+        "url": "https://newsday.co.tt/2021/10/07/route-two-maxi-taxi-fares-to-increase-on-nov-1/",
+        "checkedAt": "2026-09-12",
+        "publishedAt": "2021-10-07"
       }
     ],
-    "routeArea": 2
+    "routeArea": 2,
+    "patternType": "local",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "corridor_request"
   },
   {
     "id": "maxi-arima-grande-out",

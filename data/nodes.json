@@ -1877,5 +1877,59 @@
         "checkedAt": "2026-09-12"
       }
     ]
+  },
+  {
+    "id": "tunapuna-area",
+    "name": "Tunapuna",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.64362,
+      "lng": -61.39072
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Route 2 corridor community marker; confirm the current PBR roadside pickup point and direction locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Tunapuna",
+        "url": "https://www.openstreetmap.org/node/477483943",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "five-rivers-area",
+    "name": "Five Rivers",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.64178,
+      "lng": -61.34458
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Route 2 corridor community marker; confirm the current PBR roadside pickup point and direction locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: Five Rivers",
+        "url": "https://www.openstreetmap.org/node/1049296379",
+        "checkedAt": "2026-09-12"
+      }
+    ]
+  },
+  {
+    "id": "dabadie-area",
+    "name": "D'Abadie",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.62899,
+      "lng": -61.31091
+    },
+    "locationConfidence": "approximate_area",
+    "boardingNote": "Route 2 corridor community marker; confirm the current PBR roadside pickup point and direction locally.",
+    "sources": [
+      {
+        "name": "OpenStreetMap contributors: D'Abadie",
+        "url": "https://www.openstreetmap.org/node/1453546938",
+        "checkedAt": "2026-09-12"
+      }
+    ]
   }
 ]

@@ -68,7 +68,7 @@
     "patternType": "local",
     "boardingPolicy": "mixed",
     "alightingPolicy": "corridor_request",
-    "status": "needs_node_mapping",
+    "status": "ready",
     "sourceReview": "data/source/east-corridor-pattern-review-2026-09-12.json",
     "anchors": [
       {
@@ -80,20 +80,20 @@
         "nodeId": "ptsc-curepe"
       },
       {
-        "name": "Tunapuna / Cane Farm",
-        "nodeId": null
+        "name": "Tunapuna",
+        "nodeId": "tunapuna-area"
       },
       {
         "name": "Five Rivers",
-        "nodeId": null
+        "nodeId": "five-rivers-area"
       },
       {
         "name": "D'Abadie",
-        "nodeId": null
+        "nodeId": "dabadie-area"
       },
       {
         "name": "Arima",
-        "nodeId": null
+        "nodeId": "arima-pbr-maxi"
       }
     ],
     "notes": "Short-drop fare ladder supports ordered intermediate use; exact maxi nodes still need mapping."
@@ -481,5 +481,42 @@
       }
     ],
     "notes": "Blue-band corridor supported; ordered intermediate communities need node mapping."
+  },
+  {
+    "id": "route2-arima-pos-pbr-westbound",
+    "region": "east",
+    "mode": "maxi",
+    "patternType": "local",
+    "boardingPolicy": "mixed",
+    "alightingPolicy": "corridor_request",
+    "status": "ready",
+    "sourceReview": "data/source/east-corridor-pattern-review-2026-09-12.json",
+    "anchors": [
+      {
+        "name": "Arima",
+        "nodeId": "arima-pbr-maxi"
+      },
+      {
+        "name": "D'Abadie",
+        "nodeId": "dabadie-area"
+      },
+      {
+        "name": "Five Rivers",
+        "nodeId": "five-rivers-area"
+      },
+      {
+        "name": "Tunapuna",
+        "nodeId": "tunapuna-area"
+      },
+      {
+        "name": "Curepe",
+        "nodeId": "ptsc-curepe"
+      },
+      {
+        "name": "Port of Spain",
+        "nodeId": "ptsc-pos-transit-centre"
+      }
+    ],
+    "notes": "Separately supported westbound service and short-drop fare ladder; not auto-synthesized from eastbound."
   }
 ]
