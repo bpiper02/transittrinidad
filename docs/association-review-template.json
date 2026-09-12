@@ -1,0 +1,17 @@
+{
+  "submissionId": "couva-maxi-association-2026-09-12",
+  "reviewedAt": "2026-09-12",
+  "reviewer": "local-review",
+  "decisions": [
+    {
+      "candidateId": "couva-maxi-association-2026-09-12:1",
+      "decision": "accept",
+      "locationConfidence": "verified_station"
+    },
+    {
+      "candidateId": "couva-maxi-association-2026-09-12:2",
+      "decision": "reject",
+      "reason": "Need exact destination stand"
+    }
+  ]
+}
