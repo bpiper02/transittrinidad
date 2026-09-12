@@ -8,7 +8,13 @@
     "maxTTD": 15,
     "confidence": "official_current",
     "method": "published_fare",
-    "sources": [{"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-12"}]
+    "sources": [
+      {
+        "name": "NIDCO Water Taxi Service",
+        "url": "https://www.nidco.co.tt/water-taxi-service/",
+        "checkedAt": "2026-09-12"
+      }
+    ]
   },
   {
     "id": "water-taxi-sf-pos-official-2026",
@@ -19,7 +25,13 @@
     "maxTTD": 15,
     "confidence": "official_current",
     "method": "published_fare",
-    "sources": [{"name":"NIDCO Water Taxi Service","url":"https://www.nidco.co.tt/water-taxi-service/","checkedAt":"2026-09-12"}]
+    "sources": [
+      {
+        "name": "NIDCO Water Taxi Service",
+        "url": "https://www.nidco.co.tt/water-taxi-service/",
+        "checkedAt": "2026-09-12"
+      }
+    ]
   },
   {
     "id": "ferry-pos-scarborough-adult-economy-2026",
@@ -30,7 +42,13 @@
     "maxTTD": 75,
     "confidence": "official_current",
     "method": "adult_economy_published_fare",
-    "sources": [{"name":"TTIT Ferry Fares and Ticket Costs","url":"https://www.ttitferry.com/fares/","checkedAt":"2026-09-12"}]
+    "sources": [
+      {
+        "name": "TTIT Ferry Fares and Ticket Costs",
+        "url": "https://www.ttitferry.com/fares/",
+        "checkedAt": "2026-09-12"
+      }
+    ]
   },
   {
     "id": "ferry-scarborough-pos-adult-economy-2026",
@@ -41,6 +59,12 @@
     "maxTTD": 75,
     "confidence": "official_current",
     "method": "adult_economy_published_fare",
-    "sources": [{"name":"TTIT Ferry Fares and Ticket Costs","url":"https://www.ttitferry.com/fares/","checkedAt":"2026-09-12"}]
+    "sources": [
+      {
+        "name": "TTIT Ferry Fares and Ticket Costs",
+        "url": "https://www.ttitferry.com/fares/",
+        "checkedAt": "2026-09-12"
+      }
+    ]
   }
 ]
