@@ -3941,6 +3941,8 @@
     "destinationNodeId": "ptsc-charlotteville-area",
     "stopNodeIds": [
       "ptsc-scarborough-shaw-park",
+      "roxborough-area",
+      "speyside-area",
       "ptsc-charlotteville-area"
     ],
     "sources": [
@@ -3960,7 +3962,10 @@
         "checkedAt": "2026-09-12"
       }
     ],
-    "boardingNote": "Official current PTSC route. Exact Charlotteville stop and departure times are not claimed until published route details are captured."
+    "boardingNote": "Official current PTSC route. Exact Charlotteville stop and departure times are not claimed until published route details are captured.",
+    "patternType": "fixed_route",
+    "boardingPolicy": "fixed_only",
+    "alightingPolicy": "fixed_only"
   },
   {
     "serviceConfidence": "verified_service",
@@ -3977,6 +3982,8 @@
     "destinationNodeId": "ptsc-scarborough-shaw-park",
     "stopNodeIds": [
       "ptsc-charlotteville-area",
+      "speyside-area",
+      "roxborough-area",
       "ptsc-scarborough-shaw-park"
     ],
     "sources": [
@@ -3991,7 +3998,10 @@
         "checkedAt": "2026-09-12"
       }
     ],
-    "boardingNote": "PTSC currently lists Charlotteville / Scarborough weekend service. Exact departure times are not claimed."
+    "boardingNote": "PTSC currently lists Charlotteville / Scarborough weekend service. Exact departure times are not claimed.",
+    "patternType": "fixed_route",
+    "boardingPolicy": "fixed_only",
+    "alightingPolicy": "fixed_only"
   },
   {
     "serviceConfidence": "verified_service",
@@ -4008,6 +4018,10 @@
     "destinationNodeId": "ptsc-lanse-fourmi-area",
     "stopNodeIds": [
       "ptsc-scarborough-shaw-park",
+      "moriah-area",
+      "castara-area",
+      "parlatuvier-area",
+      "bloody-bay-area",
       "ptsc-lanse-fourmi-area"
     ],
     "sources": [
@@ -4025,9 +4039,17 @@
         "name": "PTSC Sunday routes",
         "url": "https://ptsc.co.tt/periodical/sunday/",
         "checkedAt": "2026-09-12"
+      },
+      {
+        "name": "PTSC North Side Road disruption notice names Moriah, Castara, Parlatuvier, Bloody Bay and L’Anse Fourmi service communities",
+        "url": "https://www.loopnews.com/content/ptsc-adjusts-service-in-lanse-fourmi-after-landslip/",
+        "checkedAt": "2026-09-12"
       }
     ],
-    "boardingNote": "Official current PTSC Scarborough / L'Anse Fourmi service. Reverse service is not synthesized without independent directional evidence."
+    "boardingNote": "Official current PTSC Scarborough / L'Anse Fourmi service. Reverse service is not synthesized without independent directional evidence.",
+    "patternType": "fixed_route",
+    "boardingPolicy": "fixed_only",
+    "alightingPolicy": "fixed_only"
   },
   {
     "serviceConfidence": "verified_service",

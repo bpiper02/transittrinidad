@@ -423,32 +423,32 @@
     "patternType": "fixed_route",
     "boardingPolicy": "fixed_only",
     "alightingPolicy": "fixed_only",
-    "status": "needs_node_mapping",
+    "status": "ready",
     "sourceReview": "data/source/tobago-pattern-review-2026-09-12.json",
     "anchors": [
       {
-        "name": "Scarborough",
-        "nodeId": "scarborough-ferry-terminal"
+        "name": "Scarborough PTSC",
+        "nodeId": "ptsc-scarborough-shaw-park"
       },
       {
         "name": "Moriah",
-        "nodeId": null
+        "nodeId": "moriah-area"
       },
       {
         "name": "Castara",
-        "nodeId": null
+        "nodeId": "castara-area"
       },
       {
         "name": "Parlatuvier",
-        "nodeId": null
+        "nodeId": "parlatuvier-area"
       },
       {
         "name": "Bloody Bay",
-        "nodeId": null
+        "nodeId": "bloody-bay-area"
       },
       {
         "name": "L'Anse Fourmi",
-        "nodeId": null
+        "nodeId": "ptsc-lanse-fourmi-area"
       }
     ],
     "notes": "Northside family must remain separate from Windward Charlotteville corridor."
@@ -518,5 +518,34 @@
       }
     ],
     "notes": "Separately supported westbound service and short-drop fare ladder; not auto-synthesized from eastbound."
+  },
+  {
+    "id": "tobago-scarborough-charlotteville-ptsc-windward",
+    "region": "tobago-windward",
+    "mode": "ptsc",
+    "patternType": "fixed_route",
+    "boardingPolicy": "fixed_only",
+    "alightingPolicy": "fixed_only",
+    "status": "ready",
+    "sourceReview": "data/source/tobago-pattern-review-2026-09-12.json",
+    "anchors": [
+      {
+        "name": "Scarborough PTSC",
+        "nodeId": "ptsc-scarborough-shaw-park"
+      },
+      {
+        "name": "Roxborough",
+        "nodeId": "roxborough-area"
+      },
+      {
+        "name": "Speyside",
+        "nodeId": "speyside-area"
+      },
+      {
+        "name": "Charlotteville",
+        "nodeId": "ptsc-charlotteville-area"
+      }
+    ],
+    "notes": "PTSC Windward family kept distinct from the Northside L’Anse Fourmi corridor. Reverse is separately represented by an existing directional PTSC service."
   }
 ]
