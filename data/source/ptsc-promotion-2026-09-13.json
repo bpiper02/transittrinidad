@@ -1,0 +1,413 @@
+{
+  "generatedAt": "2026-09-13T04:53:52.623Z",
+  "source": {
+    "name": "PTSC Routes and Schedules directory",
+    "url": "https://ptsc.co.tt/routes-and-schedules/",
+    "checkedAt": "2026-09-13",
+    "sourceModifiedAt": "2025-03-11T18:05:14+00:00"
+  },
+  "promoted": [
+    "ptsc-official-9077",
+    "ptsc-official-9076",
+    "ptsc-official-9074",
+    "ptsc-official-9073",
+    "ptsc-official-8882",
+    "ptsc-official-8276",
+    "ptsc-official-8244",
+    "ptsc-official-8243",
+    "ptsc-official-7797",
+    "ptsc-official-7796",
+    "ptsc-official-7612",
+    "ptsc-official-7611",
+    "ptsc-official-7610",
+    "ptsc-official-7609",
+    "ptsc-official-6976",
+    "ptsc-official-6975",
+    "ptsc-official-5846",
+    "ptsc-official-2473",
+    "ptsc-official-5619",
+    "ptsc-official-5276",
+    "ptsc-official-5275",
+    "ptsc-official-5273",
+    "ptsc-official-5272",
+    "ptsc-official-5270",
+    "ptsc-official-5269",
+    "ptsc-official-5268",
+    "ptsc-official-5265",
+    "ptsc-official-3589",
+    "ptsc-official-3581",
+    "ptsc-official-2461",
+    "ptsc-official-2458",
+    "ptsc-official-2457",
+    "ptsc-official-2453",
+    "ptsc-official-2449",
+    "ptsc-official-2440",
+    "ptsc-official-2437",
+    "ptsc-official-2435",
+    "ptsc-official-2433",
+    "ptsc-official-2432",
+    "ptsc-official-2431",
+    "ptsc-official-2430",
+    "ptsc-official-2429",
+    "ptsc-official-2428",
+    "ptsc-official-2427",
+    "ptsc-official-2426",
+    "ptsc-official-2422",
+    "ptsc-official-2419",
+    "ptsc-official-2418",
+    "ptsc-official-2417",
+    "ptsc-official-2416",
+    "ptsc-official-2409",
+    "ptsc-official-2403",
+    "ptsc-official-2402",
+    "ptsc-official-2400",
+    "ptsc-official-2397",
+    "ptsc-official-2395",
+    "ptsc-official-2394",
+    "ptsc-official-2391",
+    "ptsc-official-2389",
+    "ptsc-official-2388",
+    "ptsc-official-2387",
+    "ptsc-official-2385",
+    "ptsc-official-2384",
+    "ptsc-official-2380",
+    "ptsc-official-2379",
+    "ptsc-official-2377",
+    "ptsc-official-2368",
+    "ptsc-official-1561"
+  ],
+  "upgraded": [
+    "ptsc-arima-to-aripo",
+    "ptsc-arima-to-wallerfield",
+    "ptsc-arima-to-la-horquetta",
+    "ptsc-arima-to-st-helena-carapo"
+  ],
+  "blocked": [
+    {
+      "officialId": "ptsc-card-8226",
+      "title": "POS/Couva",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-6044",
+      "title": "POS/Piarco",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-5879",
+      "title": "Chaguanas/ Tabaquite",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-5271",
+      "title": "Pos/Blanchisseuse",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-5264",
+      "title": "Saturday Arima Transit",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-3588",
+      "title": "Scarborough/Black Rock Courland",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-3587",
+      "title": "Scarborough/Plymouth via Arnos Vale",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-3586",
+      "title": "Scarborough/Mt. Thomas",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-3585",
+      "title": "Scarborough/Montgomery",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-3584",
+      "title": "Scarborough/Mason Hall",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2469",
+      "title": "Sangre Grande / Guatopajaro",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2463",
+      "title": "Malabar / POS",
+      "blockers": [
+        "origin_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2464",
+      "title": "Sangre Grande / Valencia / Arima",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2462",
+      "title": "Chaguanas / Cashew Gardens / Carlsen Field",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2460",
+      "title": "Chaguanas / Edinburgh 500",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2459",
+      "title": "Chaguanas / Chandenagore",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2455",
+      "title": "Chaguanas / Freeport / Chickland",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2454",
+      "title": "Chaguanas / Mamoral",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2451",
+      "title": "San Fernando / Icacos",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2447",
+      "title": "San Fernando / Mayaro",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2444",
+      "title": "San Fernando City Service : Tarouba",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2442",
+      "title": "San Fernando City Service: Pleasantville",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2441",
+      "title": "Couva / POS",
+      "blockers": [
+        "origin_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2439",
+      "title": "#6 & #2 Scale / POS via Barrackpore (Commuter Special)",
+      "blockers": [
+        "official_endpoint_taxonomy_missing"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2438",
+      "title": "Siparia / POS via Penal (Commuter Special)",
+      "blockers": [
+        "origin_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2434",
+      "title": "San Fernando / Tabaquite via Guaracara",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2421",
+      "title": "POS / Malabar",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2420",
+      "title": "Santa Rosa Heights / Pinto Road / POS",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2415",
+      "title": "POS / Greenvale",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2414",
+      "title": "POS / Oropune Gardens",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2413",
+      "title": "POS / Montrose Junction",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2412",
+      "title": "POS / Edinburgh 500",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2411",
+      "title": "POS / Bon Air Gardens",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2410",
+      "title": "POS / Petit Valley",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2408",
+      "title": "POS / City Service: Round D&#8217; Town",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2407",
+      "title": "POS City Service: St. James via Long Circular Road",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2405",
+      "title": "POS City Service:Queen&#8217;s Park Savannah via Edward St",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2404",
+      "title": "POS City Service: Belmont via Abercromby St.",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2401",
+      "title": "POS / Piarco",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2393",
+      "title": "POS / Arima (EDCS)",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2392",
+      "title": "POS /Maraval via Morne Coco Road",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2390",
+      "title": "POS / Blanchissuese",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2382",
+      "title": "Guapo / POS",
+      "blockers": [
+        "origin_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2381",
+      "title": "Buenos Ayres / POS (via Fanny Village)",
+      "blockers": [
+        "origin_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2378",
+      "title": "Point Fortin / Icacos",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    }
+  ],
+  "missingFare": [
+    "ptsc-card-2473",
+    "ptsc-card-5273"
+  ]
+}

@@ -141,5 +141,1426 @@
         "checkedAt": "2026-09-11"
       }
     ]
+  },
+  {
+    "id": "ptsc-official-9077-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-9077",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/moruga-princes-town/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-9076-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-9076",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/princes-town-moruga/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-9074-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-9074",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-5/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-9073-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-9073",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-lanse-fourmi-4/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-8882-sat",
+    "serviceId": "ptsc-official-8882",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sat"
+    ],
+    "departureTimes": [
+      "07:00",
+      "09:00",
+      "14:00",
+      "16:00"
+    ],
+    "status": "published_times",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/arima-st-helena-via-carapo/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-8276-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-8276",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-fyzabad/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-8244-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-8244",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-sangre-grande-coach/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-8243-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-8243",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-sangre-grande-ecs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-7797-sat",
+    "serviceId": "ptsc-official-7797",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sat"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/arima-la-horquetta-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-7796-sat",
+    "serviceId": "ptsc-official-7796",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sat"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/la-horquetta-arima/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-7612-sun",
+    "serviceId": "ptsc-official-7612",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sun"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/charlotteville-scarborough-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-7611-sun",
+    "serviceId": "ptsc-official-7611",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sun"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-4/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-7610-sat",
+    "serviceId": "ptsc-official-7610",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sat"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/charlotteville-scarborough/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-7609-sat",
+    "serviceId": "ptsc-official-7609",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sat"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-3/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-6976-sun",
+    "serviceId": "ptsc-official-6976",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sun"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-lanse-fourmi-3/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-6975-sat",
+    "serviceId": "ptsc-official-6975",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sat"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-lanse-fourmi-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5846-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-5846",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguanas-san-fernando/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2473-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2473",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-toco-matelot-coach/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5619-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-5619",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-point-fortin/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5276-sun",
+    "serviceId": "ptsc-official-5276",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sun"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-chaguanas/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5275-sun",
+    "serviceId": "ptsc-official-5275",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sun"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-arima-transit/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5273-sun",
+    "serviceId": "ptsc-official-5273",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sun"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-transit/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5272-sun",
+    "serviceId": "ptsc-official-5272",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sun"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-ecs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5270-sat",
+    "serviceId": "ptsc-official-5270",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sat"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/tunapuna-to-caura/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5269-sat",
+    "serviceId": "ptsc-official-5269",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sat"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguaramas/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5268-sat",
+    "serviceId": "ptsc-official-5268",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sat"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguanas-ecs-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5265-sun",
+    "serviceId": "ptsc-official-5265",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sun"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguanas-ecs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-3589-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-3589",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-buccoo/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-3581-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-3581",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2461-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2461",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguanas-san-fernando-via-southern-main-road/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2458-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2458",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguanas-rio-claro/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2457-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2457",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguanas-curepe/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2453-sun",
+    "serviceId": "ptsc-official-2453",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sun"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-pos-all-stop-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2449-sun",
+    "serviceId": "ptsc-official-2449",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sun"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-point-fortin/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2440-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2440",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-uwi/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2437-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2437",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/princes-town-pos-via-san-fernand-commuter-special/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2435-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2435",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/fyzabad-pos-commuter-special/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2433-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2433",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-princes-town/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2432-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2432",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-guayaguayare/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2431-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2431",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernado-fyzabad/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2430-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2430",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernado-erin-via-siparia/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2429-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2429",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-pos-all-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2428-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2428",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-pos-limited-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2427-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2427",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-pos-dcs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2426-sun",
+    "serviceId": "ptsc-official-2426",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "sun"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-san-fernado-limited-stop-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2422-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2422",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/port-of-spain-tunapuna/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2419-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2419",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-san-fernando-all-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2418-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2418",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-san-fernado-limited-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2417-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2417",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-san-fernado-dcs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2416-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2416",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-to-tunapuna-caura/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2409-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2409",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-diego-martin/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2403-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2403",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-maloney/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2402-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2402",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-chaguaramas/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2400-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2400",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-la-horquetta/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2397-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2397",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-chaguanas-ecs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2395-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2395",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-arima-limited-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2394-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2394",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-arima-all-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2391-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2391",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-santa-cruz/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2389-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2389",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-guayaguayare/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2388-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2388",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-rio-claro/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2387-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2387",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-pos-dcs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2385-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2385",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/point-fortin-erin-via-buenos-ayres/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2384-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2384",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/point-fortin-la-brea/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2380-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2380",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/point-fortin-pos/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2379-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2379",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/point-fortin-san-fernando/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2377-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2377",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-pos-express/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2368-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2368",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-pos-all-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-1561-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-1561",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-arima/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
   }
 ]

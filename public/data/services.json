@@ -663,14 +663,14 @@
         "checkedAt": "2026-09-12"
       },
       {
-        "name": "PTSC Arima / La Horquetta route",
-        "url": "https://ptsc.co.tt/routes/arima-la-horquetta/",
-        "checkedAt": "2026-09-11"
-      },
-      {
         "name": "Official PTSC Arima services notice",
         "url": "https://www.facebook.com/PTSCTT/posts/211583190397634/",
         "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/arima-la-horquetta/",
+        "checkedAt": "2026-09-13"
       }
     ]
   },
@@ -698,14 +698,14 @@
         "checkedAt": "2026-09-12"
       },
       {
-        "name": "PTSC Arima / St Helena via Carapo route",
-        "url": "https://ptsc.co.tt/routes/arima-carapo/",
-        "checkedAt": "2026-09-11"
-      },
-      {
         "name": "Official PTSC Arima services notice",
         "url": "https://www.facebook.com/PTSCTT/posts/211583190397634/",
         "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/arima-carapo/",
+        "checkedAt": "2026-09-13"
       }
     ]
   },
@@ -733,14 +733,14 @@
         "checkedAt": "2026-09-12"
       },
       {
-        "name": "PTSC Arima / Aripo route",
-        "url": "https://ptsc.co.tt/routes/arima-aripo/",
-        "checkedAt": "2026-09-11"
-      },
-      {
         "name": "Official PTSC Arima services notice",
         "url": "https://www.facebook.com/PTSCTT/posts/211583190397634/",
         "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/arima-aripo/",
+        "checkedAt": "2026-09-13"
       }
     ]
   },
@@ -759,18 +759,18 @@
     "geometryConfidence": "endpoints_only",
     "geometry": null,
     "fareTTD": 3,
-    "fareConfidence": "official_historical",
+    "fareConfidence": "official_current",
     "scheduleConfidence": "official_current",
     "sources": [
-      {
-        "name": "PTSC Arima / Wallerfield route",
-        "url": "https://ptsc.co.tt/routes/arima-wallerfield/",
-        "checkedAt": "2026-09-11"
-      },
       {
         "name": "Official PTSC Arima services notice",
         "url": "https://www.facebook.com/PTSCTT/posts/211583190397634/",
         "checkedAt": "2026-09-11"
+      },
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/arima-wallerfield/",
+        "checkedAt": "2026-09-13"
       }
     ]
   },
@@ -4313,5 +4313,1841 @@
       }
     ],
     "boardingNote": "The Mayaro/Mafeking taxi stand is on the southern side of Naparima-Mayaro Road, beginning about 15 m west of the Guayaguayare-Mayaro Road intersection, with taxis facing west."
+  },
+  {
+    "id": "ptsc-official-9077",
+    "corridorId": "ptsc-moruga-area-princes-town-local-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "moruga-area",
+    "destinationNodeId": "princes-town-local-area",
+    "stopNodeIds": [
+      "moruga-area",
+      "princes-town-local-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Moruga/Princes Town",
+    "officialRecordId": "ptsc-card-9077",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/moruga-princes-town/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-9076",
+    "corridorId": "ptsc-princes-town-local-area-moruga-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "princes-town-local-area",
+    "destinationNodeId": "moruga-area",
+    "stopNodeIds": [
+      "princes-town-local-area",
+      "moruga-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Princes Town/Moruga",
+    "officialRecordId": "ptsc-card-9076",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/princes-town-moruga/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-9074",
+    "corridorId": "ptsc-scarborough-charlotteville",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-scarborough-shaw-park",
+    "destinationNodeId": "ptsc-charlotteville-area",
+    "stopNodeIds": [
+      "ptsc-scarborough-shaw-park",
+      "ptsc-charlotteville-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Scarborough/Charlotteville",
+    "officialRecordId": "ptsc-card-9074",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-5/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-9073",
+    "corridorId": "ptsc-scarborough-lanse-fourmi",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-scarborough-shaw-park",
+    "destinationNodeId": "ptsc-lanse-fourmi-area",
+    "stopNodeIds": [
+      "ptsc-scarborough-shaw-park",
+      "ptsc-lanse-fourmi-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Scarborough/ L&#8217;Anse Fourmi",
+    "officialRecordId": "ptsc-card-9073",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-lanse-fourmi-4/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-8882",
+    "corridorId": "ptsc-arima-st-helena-carapo",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-arima",
+    "destinationNodeId": "ptsc-st-helena-carapo",
+    "stopNodeIds": [
+      "ptsc-arima",
+      "ptsc-st-helena-carapo"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Arima / St Helena Via Carapo",
+    "officialRecordId": "ptsc-card-8882",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/arima-st-helena-via-carapo/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-8276",
+    "corridorId": "ptsc-ptsc-pos-transit-centre-fyzabad-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "fyzabad-area",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "fyzabad-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 12,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS/Fyzabad",
+    "officialRecordId": "ptsc-card-8276",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-fyzabad/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-8244",
+    "corridorId": "ptsc-pos-sangre-grande",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-sangre-grande",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-sangre-grande"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 10,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS/ Sangre Grande (Coach)",
+    "officialRecordId": "ptsc-card-8244",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-sangre-grande-coach/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-8243",
+    "corridorId": "ptsc-pos-sangre-grande",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-sangre-grande",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-sangre-grande"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 6,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS/ Sangre Grande (ECS)",
+    "officialRecordId": "ptsc-card-8243",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-sangre-grande-ecs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-7797",
+    "corridorId": "ptsc-arima-la-horquetta",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-arima",
+    "destinationNodeId": "ptsc-la-horquetta",
+    "stopNodeIds": [
+      "ptsc-arima",
+      "ptsc-la-horquetta"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Arima/ La Horquetta",
+    "officialRecordId": "ptsc-card-7797",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/arima-la-horquetta-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-7796",
+    "corridorId": "ptsc-ptsc-la-horquetta-ptsc-arima",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-la-horquetta",
+    "destinationNodeId": "ptsc-arima",
+    "stopNodeIds": [
+      "ptsc-la-horquetta",
+      "ptsc-arima"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "La Horquetta/Arima",
+    "officialRecordId": "ptsc-card-7796",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/la-horquetta-arima/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-7612",
+    "corridorId": "ptsc-scarborough-charlotteville",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-charlotteville-area",
+    "destinationNodeId": "ptsc-scarborough-shaw-park",
+    "stopNodeIds": [
+      "ptsc-charlotteville-area",
+      "ptsc-scarborough-shaw-park"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Charlotteville/Scarborough",
+    "officialRecordId": "ptsc-card-7612",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/charlotteville-scarborough-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-7611",
+    "corridorId": "ptsc-scarborough-charlotteville",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-scarborough-shaw-park",
+    "destinationNodeId": "ptsc-charlotteville-area",
+    "stopNodeIds": [
+      "ptsc-scarborough-shaw-park",
+      "ptsc-charlotteville-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Scarborough/Charlotteville",
+    "officialRecordId": "ptsc-card-7611",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-4/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-7610",
+    "corridorId": "ptsc-scarborough-charlotteville",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-charlotteville-area",
+    "destinationNodeId": "ptsc-scarborough-shaw-park",
+    "stopNodeIds": [
+      "ptsc-charlotteville-area",
+      "ptsc-scarborough-shaw-park"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Charlotteville/Scarborough",
+    "officialRecordId": "ptsc-card-7610",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/charlotteville-scarborough/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-7609",
+    "corridorId": "ptsc-scarborough-charlotteville",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-scarborough-shaw-park",
+    "destinationNodeId": "ptsc-charlotteville-area",
+    "stopNodeIds": [
+      "ptsc-scarborough-shaw-park",
+      "ptsc-charlotteville-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Scarborough/ Charlotteville",
+    "officialRecordId": "ptsc-card-7609",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-3/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-6976",
+    "corridorId": "ptsc-scarborough-lanse-fourmi",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-scarborough-shaw-park",
+    "destinationNodeId": "ptsc-lanse-fourmi-area",
+    "stopNodeIds": [
+      "ptsc-scarborough-shaw-park",
+      "ptsc-lanse-fourmi-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Scarborough/ L&#8217;Anse Fourmi",
+    "officialRecordId": "ptsc-card-6976",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-lanse-fourmi-3/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-6975",
+    "corridorId": "ptsc-scarborough-lanse-fourmi",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-scarborough-shaw-park",
+    "destinationNodeId": "ptsc-lanse-fourmi-area",
+    "stopNodeIds": [
+      "ptsc-scarborough-shaw-park",
+      "ptsc-lanse-fourmi-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Scarborough/ L&#8217;Anse Fourmi",
+    "officialRecordId": "ptsc-card-6975",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-lanse-fourmi-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5846",
+    "corridorId": "ptsc-chaguanas-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-chaguanas",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "ptsc-chaguanas",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Chaguanas/ San Fernando",
+    "officialRecordId": "ptsc-card-5846",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguanas-san-fernando/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2473",
+    "corridorId": "ptsc-sangre-grande-toco",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-sangre-grande",
+    "destinationNodeId": "ptsc-toco-area",
+    "stopNodeIds": [
+      "ptsc-sangre-grande",
+      "ptsc-toco-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Sangre Grande / Toco / Matelot (Coach)",
+    "officialRecordId": "ptsc-card-2473",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-toco-matelot-coach/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5619",
+    "corridorId": "ptsc-pos-point-fortin",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-point-fortin",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-point-fortin"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 12,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS/Point Fortin",
+    "officialRecordId": "ptsc-card-5619",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-point-fortin/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5276",
+    "corridorId": "ptsc-pos-chaguanas",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-chaguanas",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-chaguanas"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / Chaguanas",
+    "officialRecordId": "ptsc-card-5276",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-chaguanas/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5275",
+    "corridorId": "ptsc-pos-arima",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-arima",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-arima"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 2.5,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / Arima Transit",
+    "officialRecordId": "ptsc-card-5275",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-arima-transit/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5273",
+    "corridorId": "ptsc-pos-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS/San Fernando Transit",
+    "officialRecordId": "ptsc-card-5273",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-transit/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5272",
+    "corridorId": "ptsc-pos-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 6,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS/San Fernando ECS",
+    "officialRecordId": "ptsc-card-5272",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-ecs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5270",
+    "corridorId": "ptsc-ptsc-pos-transit-centre-tunapuna-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "tunapuna-area",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "tunapuna-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS/Tunapuna to Caura",
+    "officialRecordId": "ptsc-card-5270",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/tunapuna-to-caura/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5269",
+    "corridorId": "ptsc-pos-chaguaramas",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "chaguaramas-area",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "chaguaramas-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 2,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS/Chaguaramas",
+    "officialRecordId": "ptsc-card-5269",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguaramas/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5268",
+    "corridorId": "ptsc-pos-chaguanas",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-chaguanas",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-chaguanas"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS/Chaguanas ECS",
+    "officialRecordId": "ptsc-card-5268",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguanas-ecs-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-5265",
+    "corridorId": "ptsc-pos-chaguanas",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-chaguanas",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-chaguanas"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS/Chaguanas ECS",
+    "officialRecordId": "ptsc-card-5265",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguanas-ecs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-3589",
+    "corridorId": "ptsc-scarborough-buccoo",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-scarborough-shaw-park",
+    "destinationNodeId": "buccoo-area",
+    "stopNodeIds": [
+      "ptsc-scarborough-shaw-park",
+      "buccoo-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Scarborough/ Buccoo",
+    "officialRecordId": "ptsc-card-3589",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-buccoo/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-3581",
+    "corridorId": "ptsc-ptsc-scarborough-shaw-park-crown-point-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-scarborough-shaw-park",
+    "destinationNodeId": "crown-point-area",
+    "stopNodeIds": [
+      "ptsc-scarborough-shaw-park",
+      "crown-point-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 2,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Scarborough/Crown Point",
+    "officialRecordId": "ptsc-card-3581",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2461",
+    "corridorId": "ptsc-chaguanas-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-chaguanas",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "ptsc-chaguanas",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Chaguanas / San Fernando (via Southern Main Road)",
+    "officialRecordId": "ptsc-card-2461",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguanas-san-fernando-via-southern-main-road/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2458",
+    "corridorId": "ptsc-ptsc-chaguanas-rio-claro-hub",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-chaguanas",
+    "destinationNodeId": "rio-claro-hub",
+    "stopNodeIds": [
+      "ptsc-chaguanas",
+      "rio-claro-hub"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Chaguanas / Rio Claro",
+    "officialRecordId": "ptsc-card-2458",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguanas-rio-claro/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2457",
+    "corridorId": "ptsc-chaguanas-curepe",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-chaguanas",
+    "destinationNodeId": "ptsc-curepe",
+    "stopNodeIds": [
+      "ptsc-chaguanas",
+      "ptsc-curepe"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Chaguanas / Curepe",
+    "officialRecordId": "ptsc-card-2457",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/chaguanas-curepe/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2453",
+    "corridorId": "ptsc-pos-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "San Fernando / POS (All Stop)",
+    "officialRecordId": "ptsc-card-2453",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-pos-all-stop-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2449",
+    "corridorId": "ptsc-san-fernando-point-fortin",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "ptsc-point-fortin",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "ptsc-point-fortin"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "San Fernando / Point Fortin",
+    "officialRecordId": "ptsc-card-2449",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-point-fortin/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2440",
+    "corridorId": "ptsc-san-fernando-uwi",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "ptsc-uwi-st-augustine",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "ptsc-uwi-st-augustine"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "San Fernando / UWI",
+    "officialRecordId": "ptsc-card-2440",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-uwi/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2437",
+    "corridorId": "ptsc-princes-town-local-area-ptsc-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "princes-town-local-area",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "princes-town-local-area",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 12,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Princes Town / POS via San Fernando (Commuter Special)",
+    "officialRecordId": "ptsc-card-2437",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/princes-town-pos-via-san-fernand-commuter-special/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2435",
+    "corridorId": "ptsc-fyzabad-area-ptsc-pos-transit-centre",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "fyzabad-area",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "fyzabad-area",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 12,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Fyzabad / POS (Commuter Special)",
+    "officialRecordId": "ptsc-card-2435",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/fyzabad-pos-commuter-special/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2433",
+    "corridorId": "ptsc-ptsc-san-fernando-princes-town-local-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "princes-town-local-area",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "princes-town-local-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "San Fernando / Princes Town",
+    "officialRecordId": "ptsc-card-2433",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-princes-town/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2432",
+    "corridorId": "ptsc-ptsc-san-fernando-guayaguayare-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "guayaguayare-area",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "guayaguayare-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 12,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "San Fernando / Guayaguayare",
+    "officialRecordId": "ptsc-card-2432",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-guayaguayare/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2431",
+    "corridorId": "ptsc-ptsc-san-fernando-fyzabad-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "fyzabad-area",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "fyzabad-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "San Fernado / Fyzabad",
+    "officialRecordId": "ptsc-card-2431",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernado-fyzabad/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2430",
+    "corridorId": "ptsc-ptsc-san-fernando-erin-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "erin-area",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "erin-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 6,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "San Fernado / Erin via Siparia",
+    "officialRecordId": "ptsc-card-2430",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernado-erin-via-siparia/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2429",
+    "corridorId": "ptsc-pos-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "San Fernando / POS (All Stop)",
+    "officialRecordId": "ptsc-card-2429",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-pos-all-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2428",
+    "corridorId": "ptsc-pos-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 6,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "San Fernando / POS (Limited Stop)",
+    "officialRecordId": "ptsc-card-2428",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-pos-limited-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2427",
+    "corridorId": "ptsc-pos-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 10,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "San Fernando / POS (DCS)",
+    "officialRecordId": "ptsc-card-2427",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-pos-dcs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2426",
+    "corridorId": "ptsc-pos-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 6,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / San Fernado (Limited Stop)",
+    "officialRecordId": "ptsc-card-2426",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-san-fernado-limited-stop-2/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2422",
+    "corridorId": "ptsc-ptsc-pos-transit-centre-tunapuna-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "tunapuna-area",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "tunapuna-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / Tunapuna",
+    "officialRecordId": "ptsc-card-2422",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/port-of-spain-tunapuna/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2419",
+    "corridorId": "ptsc-pos-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / San Fernando (All Stop)",
+    "officialRecordId": "ptsc-card-2419",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-san-fernando-all-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2418",
+    "corridorId": "ptsc-pos-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 6,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / San Fernado (Limited Stop)",
+    "officialRecordId": "ptsc-card-2418",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-san-fernado-limited-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2417",
+    "corridorId": "ptsc-pos-san-fernando",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 10,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / San Fernado (DCS)",
+    "officialRecordId": "ptsc-card-2417",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-san-fernado-dcs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2416",
+    "corridorId": "ptsc-ptsc-pos-transit-centre-tunapuna-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "tunapuna-area",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "tunapuna-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS to Tunapuna / Caura",
+    "officialRecordId": "ptsc-card-2416",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-to-tunapuna-caura/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2409",
+    "corridorId": "ptsc-ptsc-pos-transit-centre-maxi-diego-martin",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "maxi-diego-martin",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "maxi-diego-martin"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / Diego Martin",
+    "officialRecordId": "ptsc-card-2409",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-diego-martin/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2403",
+    "corridorId": "ptsc-ptsc-pos-transit-centre-maloney-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "maloney-area",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "maloney-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / Maloney",
+    "officialRecordId": "ptsc-card-2403",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-maloney/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2402",
+    "corridorId": "ptsc-pos-chaguaramas",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "chaguaramas-area",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "chaguaramas-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 2,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / Chaguaramas",
+    "officialRecordId": "ptsc-card-2402",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-chaguaramas/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2400",
+    "corridorId": "ptsc-ptsc-pos-transit-centre-ptsc-la-horquetta",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-la-horquetta",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-la-horquetta"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / La Horquetta",
+    "officialRecordId": "ptsc-card-2400",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-la-horquetta/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2397",
+    "corridorId": "ptsc-pos-chaguanas",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-chaguanas",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-chaguanas"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / Chaguanas ECS",
+    "officialRecordId": "ptsc-card-2397",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-chaguanas-ecs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2395",
+    "corridorId": "ptsc-pos-arima",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-arima",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-arima"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / Arima (Limited Stop)",
+    "officialRecordId": "ptsc-card-2395",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-arima-limited-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2394",
+    "corridorId": "ptsc-pos-arima",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "ptsc-arima",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "ptsc-arima"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 2.5,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / Arima (All Stop)",
+    "officialRecordId": "ptsc-card-2394",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-arima-all-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2391",
+    "corridorId": "ptsc-ptsc-pos-transit-centre-santa-cruz-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "santa-cruz-area",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "santa-cruz-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS / San Juan / Santa Cruz",
+    "officialRecordId": "ptsc-card-2391",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-santa-cruz/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2389",
+    "corridorId": "ptsc-sangre-grande-guayaguayare",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-sangre-grande",
+    "destinationNodeId": "guayaguayare-area",
+    "stopNodeIds": [
+      "ptsc-sangre-grande",
+      "guayaguayare-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Sangre Grande / Guayaguayare",
+    "officialRecordId": "ptsc-card-2389",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-guayaguayare/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2388",
+    "corridorId": "ptsc-sangre-grande-rio-claro",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-sangre-grande",
+    "destinationNodeId": "rio-claro-hub",
+    "stopNodeIds": [
+      "ptsc-sangre-grande",
+      "rio-claro-hub"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Sangre Grande / Rio Claro",
+    "officialRecordId": "ptsc-card-2388",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-rio-claro/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2387",
+    "corridorId": "ptsc-pos-sangre-grande",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-sangre-grande",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "ptsc-sangre-grande",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 10,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Sangre Grande / POS (DCS)",
+    "officialRecordId": "ptsc-card-2387",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-pos-dcs/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2385",
+    "corridorId": "ptsc-ptsc-point-fortin-erin-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-point-fortin",
+    "destinationNodeId": "erin-area",
+    "stopNodeIds": [
+      "ptsc-point-fortin",
+      "erin-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Point Fortin / Erin via Buenos Ayres",
+    "officialRecordId": "ptsc-card-2385",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/point-fortin-erin-via-buenos-ayres/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2384",
+    "corridorId": "ptsc-ptsc-point-fortin-la-brea-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-point-fortin",
+    "destinationNodeId": "la-brea-area",
+    "stopNodeIds": [
+      "ptsc-point-fortin",
+      "la-brea-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 2,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Point Fortin / La Brea",
+    "officialRecordId": "ptsc-card-2384",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/point-fortin-la-brea/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2380",
+    "corridorId": "ptsc-pos-point-fortin",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-point-fortin",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "ptsc-point-fortin",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 12,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Point Fortin / POS",
+    "officialRecordId": "ptsc-card-2380",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/point-fortin-pos/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2379",
+    "corridorId": "ptsc-san-fernando-point-fortin",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-point-fortin",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "ptsc-point-fortin",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 3,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Point Fortin / San Fernando",
+    "officialRecordId": "ptsc-card-2379",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/point-fortin-san-fernando/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2377",
+    "corridorId": "ptsc-pos-sangre-grande",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-sangre-grande",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "ptsc-sangre-grande",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 6,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Sangre Grande / POS (Express)",
+    "officialRecordId": "ptsc-card-2377",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-pos-express/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2368",
+    "corridorId": "ptsc-pos-sangre-grande",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-sangre-grande",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "ptsc-sangre-grande",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 4.5,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Sangre Grande / POS (All Stop)",
+    "officialRecordId": "ptsc-card-2368",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-pos-all-stop/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-1561",
+    "corridorId": "ptsc-arima-sangre-grande",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-sangre-grande",
+    "destinationNodeId": "ptsc-arima",
+    "stopNodeIds": [
+      "ptsc-sangre-grande",
+      "ptsc-arima"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 2.5,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Sangre Grande / Arima",
+    "officialRecordId": "ptsc-card-1561",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/sangre-grande-arima/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
   }
 ]
