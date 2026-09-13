@@ -43,8 +43,8 @@ async function chooseLocalPlace(page,inputId,name){
 }
 
 async function planNamedTrip(page,from,to){
-  await chooseLocalPlace(page,'fromInput',from);
-  await chooseLocalPlace(page,'toInput',to);
+  await page.locator('#fromInput').fill(from);
+  await page.locator('#toInput').fill(to);
   await page.locator('#planButton').click();
   await expect(page.locator('#detailPanel')).toBeVisible();
   await expect(page.locator('#detailPanel h2')).toContainText(from);
@@ -52,7 +52,13 @@ async function planNamedTrip(page,from,to){
   await expect(page.locator('#plannerStatus')).not.toContainText(/Finding routes|Loading route/);
 }
 
-async function planCouvaToChaguanas(page){await planNamedTrip(page,'Couva','Chaguanas');}
+async function planCouvaToChaguanas(page){
+  await chooseLocalPlace(page,'fromInput','Couva');
+  await chooseLocalPlace(page,'toInput','Chaguanas');
+  await page.locator('#planButton').click();
+  await expect(page.locator('#detailPanel')).toBeVisible();
+  await expect(page.locator('#plannerStatus')).not.toContainText(/Finding routes|Loading route/);
+}
 
 async function renderedTransitCoordinates(page){
   return page.evaluate(()=>{
@@ -61,16 +67,18 @@ async function renderedTransitCoordinates(page){
   });
 }
 
-async function localPlace(page,name){
-  return page.evaluate(async placeName=>{
-    const places=await fetch('/data/places.json').then(response=>response.json());
-    return places.find(place=>place.name===placeName)?.location||null;
+async function endpointLocation(page,name){
+  return page.evaluate(async endpointName=>{
+    const [places,nodes]=await Promise.all([
+      fetch('/data/places.json').then(response=>response.json()),
+      fetch('/data/nodes.json').then(response=>response.json())
+    ]);
+    return places.find(place=>place.name===endpointName)?.location||nodes.find(node=>node.name===endpointName)?.location||null;
   },name);
 }
 
 function expectJourneyGeometryNearEndpoints(coordinates,from,to,{latPad=.04,lngPad=.04}={}){
   expect(coordinates.length).toBeGreaterThan(1);
-  const lats=coordinates.map(point=>point[1]),lngs=coordinates.map(point=>point[0]);
   const minLat=Math.min(from.lat,to.lat)-latPad,maxLat=Math.max(from.lat,to.lat)+latPad;
   const minLng=Math.min(from.lng,to.lng)-lngPad,maxLng=Math.max(from.lng,to.lng)+lngPad;
   for(const [lng,lat] of coordinates){
@@ -109,15 +117,17 @@ test('local corridor directions explain roadside hail and requested drop-off',as
 });
 
 test('Point Fortin to Fyzabad highlighted geometry stays on the travelled leg',async({page})=>{
-  await planNamedTrip(page,'Point Fortin','Fyzabad');
-  const [coordinates,from,to]=await Promise.all([renderedTransitCoordinates(page),localPlace(page,'Point Fortin'),localPlace(page,'Fyzabad')]);
+  const fromName='Point Fortin PTSC',toName='Fyzabad';
+  await planNamedTrip(page,fromName,toName);
+  const [coordinates,from,to]=await Promise.all([renderedTransitCoordinates(page),endpointLocation(page,fromName),endpointLocation(page,toName)]);
   expect(from).not.toBeNull();expect(to).not.toBeNull();
   expectJourneyGeometryNearEndpoints(coordinates,from,to,{latPad:.035,lngPad:.035});
 });
 
 test('California to Arima highlighted geometry does not trail south past boarding',async({page})=>{
-  await planNamedTrip(page,'California','Arima');
-  const [coordinates,from,to]=await Promise.all([renderedTransitCoordinates(page),localPlace(page,'California'),localPlace(page,'Arima')]);
+  const fromName='California',toName='Arima PTSC Transit Hub';
+  await planNamedTrip(page,fromName,toName);
+  const [coordinates,from,to]=await Promise.all([renderedTransitCoordinates(page),endpointLocation(page,fromName),endpointLocation(page,toName)]);
   expect(from).not.toBeNull();expect(to).not.toBeNull();
   expectJourneyGeometryNearEndpoints(coordinates,from,to,{latPad:.035,lngPad:.05});
 });
