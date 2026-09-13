@@ -86,13 +86,6 @@ async function endpointLocation(page,name){
   },name);
 }
 
-async function nodeLocation(page,id){
-  return page.evaluate(async nodeId=>{
-    const nodes=await fetch('/data/nodes.json').then(response=>response.json());
-    return nodes.find(node=>node.id===nodeId)?.location||null;
-  },id);
-}
-
 function expectJourneyGeometryNearEndpoints(coordinates,from,to,{latPad=.04,lngPad=.04}={}){
   expect(coordinates.length).toBeGreaterThan(1);
   const minLat=Math.min(from.lat,to.lat)-latPad,maxLat=Math.max(from.lat,to.lat)+latPad;
@@ -132,16 +125,13 @@ test('local corridor directions explain roadside hail and requested drop-off',as
   await expect(panel).toContainText(/TT\$/);
 });
 
-test('Point Fortin to Fyzabad highlighted geometry stays on the travelled leg',async({page})=>{
+test('Point Fortin to Fyzabad does not invent or highlight an unsupported journey',async({page})=>{
   await chooseLocalPlace(page,'fromInput','Point Fortin');
   await chooseLocalPlace(page,'toInput','Fyzabad');
   await page.locator('#planButton').click();
-  await expect(page.locator('#detailPanel')).toBeVisible();
-  await expect(page.locator('#detailPanel h2')).toContainText('Point Fortin');
-  await expect(page.locator('#detailPanel h2')).toContainText('Fyzabad');
-  const [coordinates,from,to]=await Promise.all([renderedTransitCoordinates(page),nodeLocation(page,'point-sf-taxi'),endpointLocation(page,'Fyzabad')]);
-  expect(from).not.toBeNull();expect(to).not.toBeNull();
-  expectJourneyGeometryNearEndpoints(coordinates,from,to,{latPad:.035,lngPad:.035});
+  await expect(page.locator('#plannerStatus')).toHaveText('No route in the current network.');
+  await expect(page.locator('#detailPanel')).toBeHidden();
+  expect(await renderedTransitCoordinates(page)).toHaveLength(0);
 });
 
 test('California to Arima highlighted geometry does not trail south past boarding',async({page})=>{
