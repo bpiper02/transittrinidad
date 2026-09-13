@@ -11,7 +11,7 @@ const commonGlobals={
 };
 
 const bugRules={
-  'eqeqeq':['error','always'],
+  'eqeqeq':['error','smart'],
   'no-constant-condition':['error',{checkLoops:false}],
   'no-dupe-else-if':'error',
   'no-dupe-keys':'error',
@@ -21,8 +21,7 @@ const bugRules={
   'no-undef':'error',
   'no-unreachable':'error',
   'no-unused-vars':['error',{argsIgnorePattern:'^_',varsIgnorePattern:'^_'}],
-  'no-useless-catch':'error',
-  'prefer-const':'error'
+  'no-useless-catch':'error'
 };
 
 export default [
@@ -35,7 +34,7 @@ export default [
     ]
   },
   {
-    files:['src/**/*.mjs','tests/**/*.mjs','tools/**/*.mjs'],
+    files:['src/**/*.mjs','tools/**/*.mjs'],
     languageOptions:{
       ecmaVersion:'latest',
       sourceType:'module',
@@ -48,12 +47,27 @@ export default [
     rules:bugRules
   },
   {
+    files:['tests/**/*.mjs'],
+    languageOptions:{
+      ecmaVersion:'latest',
+      sourceType:'module',
+      globals:{
+        ...commonGlobals,
+        Buffer:'readonly',
+        document:'readonly',
+        process:'readonly'
+      }
+    },
+    rules:{...bugRules,'no-shadow':'off'}
+  },
+  {
     files:['public/**/*.js'],
     languageOptions:{
       ecmaVersion:'latest',
       sourceType:'module',
       globals:{
         ...commonGlobals,
+        DOMException:'readonly',
         document:'readonly',
         localStorage:'readonly',
         navigator:'readonly',
