@@ -59,6 +59,7 @@ test('service evidence escapes labels and rejects non-http URLs',async({page})=>
   await page.route('https://router.project-osrm.org/route/v1/driving/**',route=>route.fulfill({status:503,contentType:'application/json',body:'{}'}));
 
   await page.goto('/');
+  await page.locator('#trayToggle').click();
   await expect(page.locator('.service-card').first()).toBeVisible();
   await page.locator('.service-card').first().click();
   await expect(page.locator('#detailPanel')).toBeVisible();
