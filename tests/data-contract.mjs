@@ -24,6 +24,7 @@ assert.throws(()=>validateService({...base,availability:{kind:'scheduled',note:'
 assert.throws(()=>validateService({...base,boardingPolicy:'assume_anywhere'}),/invalid boardingPolicy/);
 assert.equal(validateService({...base,mode:'maxi',boardingPolicy:'corridor_hail',alightingPolicy:'corridor_request'}),true);
 assert.equal(validateService({...base,mode:'maxi',boardingPolicy:'mixed',alightingPolicy:'corridor_request'}),true);
+assert.equal(validateService({...base,boardingPolicy:'fixed_only',alightingPolicy:'fixed_only'}),true);
 assert.throws(() => validateSource({name:'x',url:'https://example.com',checkedAt:'2026-02-31'}), /real YYYY-MM-DD date/);
 
 const passThroughBase={
