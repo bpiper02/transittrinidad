@@ -322,7 +322,7 @@ export function chooseJourneyOptions({
   rankingOptions={}
 }){
   const schedulesByService=new Map();
-  for(const schedule of schedules)schedulesByService.set(schedule.serviceId,[...(schedulesByService.get(service.serviceId)||[]),schedule]);
+  for(const schedule of schedules)schedulesByService.set(schedule.serviceId,[...(schedulesByService.get(schedule.serviceId)||[]),schedule]);
   const eligibleServices=departureDate?services.filter(service=>serviceRunsOnDate(service,schedulesByService.get(service.id)||[],departureDate)):services;
   const eligibleNodeIds=routableNodeIds(eligibleServices,transfers);
   const fromAccessLimit=Number.isFinite(fromPlace?.routingRadiusKm)?fromPlace.routingRadiusKm:maxAccessKm;
