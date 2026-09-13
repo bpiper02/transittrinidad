@@ -1,4 +1,5 @@
 export const PUBLIC_MODULE_FILES=Object.freeze([
+  'external-data-core.mjs',
   'fare-core.mjs',
   'field-review-core.mjs',
   'http-core.mjs',
