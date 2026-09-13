@@ -322,7 +322,7 @@ export function chooseJourneyOptions({
   rankingOptions={}
 }){
   const schedulesByService=new Map();
-  for(const schedule of schedules)schedulesByService.set(schedule.serviceId,[...(schedulesByService.get(schedule.serviceId)||[]),schedule]);
+  for(const schedule of schedules)schedulesByService.set(schedule.serviceId,[...(schedulesByService.get(service.serviceId)||[]),schedule]);
   const eligibleServices=departureDate?services.filter(service=>serviceRunsOnDate(service,schedulesByService.get(service.id)||[],departureDate)):services;
   const eligibleNodeIds=routableNodeIds(eligibleServices,transfers);
   const fromAccessLimit=Number.isFinite(fromPlace?.routingRadiusKm)?fromPlace.routingRadiusKm:maxAccessKm;
@@ -342,7 +342,8 @@ export function chooseJourneyOptions({
         if(steps===null||hasJourneyLoop(start.node.id,steps))continue;
         if(steps.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
         const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions,scheduledServiceIds,schedules,departureDate});
-        if(!allowUntrustedLocalAccess&&(!candidate.ranking.fromAccessTrusted||!candidate.ranking.toAccessTrusted))continue;
+        const usesFormalIntermodalCandidate=candidate.modes.some(mode=>mode==='water_taxi'||mode==='ferry');
+        if(!allowUntrustedLocalAccess&&!usesFormalIntermodalCandidate&&(!candidate.ranking.fromAccessTrusted||!candidate.ranking.toAccessTrusted))continue;
         if(candidate.ranking.detourRatio>maxDetourRatio)continue;
         const maxBacktrackKm=Math.max(maxBacktrackFloorKm,directKm*maxBacktrackRatio);
         if(candidate.ranking.backtrackKm>maxBacktrackKm)continue;
