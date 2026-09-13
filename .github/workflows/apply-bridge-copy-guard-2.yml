@@ -1,0 +1,36 @@
+name: apply-bridge-copy-guard-2
+on:
+  push:
+    branches: [sprint-medium-corridor-bridging-5]
+permissions:
+  contents: write
+jobs:
+  patch:
+    if: github.ref_name == 'sprint-medium-corridor-bridging-5'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Patch bridge copy
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs');
+          const appFile='public/app-v2.js';
+          let app=fs.readFileSync(appFile,'utf8');
+          const oldLine=`if(step.kind==='transfer'){html+=\`<div class="journey-leg access-leg"><span class="leg-icon">↟</span><div><h3>Walk to \${escapeHtml(destination?.name||step.to)}</h3><p>\${step.transfer.distanceKm.toFixed(1)} km · ~\${Math.round(step.minutes)} min</p></div></div>\`;continue;}`;
+          const newLine=`if(step.kind==='transfer'){const isConnector=step.transfer?.isEstimatedConnector||step.transfer?.kind==='local_connector';html+=\`<div class="journey-leg access-leg"><span class="leg-icon">\${isConnector?'●':'↟'}</span><div><h3>\${isConnector?'Estimated local connector to':'Walk to'} \${escapeHtml(destination?.name||step.to)}</h3><p>\${step.transfer.distanceKm.toFixed(1)} km · ~\${Math.round(step.minutes)} min\${isConnector?' · not a surveyed route':''}</p></div></div>\`;continue;}`;
+          if(!app.includes('Estimated local connector to')){
+            if(!app.includes(oldLine))throw new Error('transfer render target not found');
+            app=app.replace(oldLine,newLine);
+          }
+          fs.writeFileSync(appFile,app);
+          fs.rmSync('.github/workflows/apply-bridge-copy-guard-2.yml');
+          NODE
+      - name: Commit patch
+        run: |
+          git config user.name "bpiper02"
+          git config user.email "93992231+bpiper02@users.noreply.github.com"
+          git add public/app-v2.js .github/workflows/apply-bridge-copy-guard-2.yml
+          git commit -m "fix: label estimated bridge connectors"
+          git push origin HEAD:sprint-medium-corridor-bridging-5
