@@ -1678,7 +1678,11 @@
     "destinationNodeId": "chag-maxi-area",
     "stopNodeIds": [
       "sf-chag-maxi",
+      "marabella-area",
+      "claxton-bay-area",
+      "california-area",
       "maxi-couva",
+      "chase-village-area",
       "chag-maxi-area"
     ],
     "serviceConfidence": "reported_service",

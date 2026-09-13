@@ -164,6 +164,11 @@ function formatMinutes(minutes){
   const hours=Math.floor(total/60),mins=total%60;
   return`~${hours}h${mins?` ${mins}m`:''}`;
 }
+function formatJourneyMinutes(option){
+  const min=option?.estimatedMinutesMin,max=option?.estimatedMinutesMax;
+  if(!Number.isFinite(min)||!Number.isFinite(max)||max-min<5)return formatMinutes(option?.estimatedMinutes);
+  return`${formatMinutes(min)}–${formatMinutes(max).replace(/^~/,'')}`;
+}
 function compactJourneySteps(steps=[]){
   const compact=[];
   for(const step of steps){
@@ -187,7 +192,7 @@ function routeOptionLabel(option,index){
   return'Alternative';
 }
 function routeOptionModes(option){const seen=[];for(const mode of option.modes)if(!seen.includes(mode))seen.push(mode);return seen.map(modeLabel).join(' + ');}
-function routeStatus(option){const rides=rideSteps(option.steps);const fare=fareForJourney(compactJourneySteps(option.steps),{fares,nodes:[...nodeIndex.values()]});return`${formatMinutes(option.estimatedMinutes)} · ${journeyFareLabel(fare)} · ${rides.length} ride${rides.length===1?'':'s'}${option.transferCount?` · ${option.transferCount} transfer${option.transferCount===1?'':'s'}`:''}`;}
+function routeStatus(option){const rides=rideSteps(option.steps);const fare=fareForJourney(compactJourneySteps(option.steps),{fares,nodes:[...nodeIndex.values()]});const wait=option.timing?.waitMinutes?` · ~${Math.round(option.timing.waitMinutes)} min expected waiting`:'';return`${formatJourneyMinutes(option)} · ${journeyFareLabel(fare)} · ${rides.length} ride${rides.length===1?'':'s'}${option.transferCount?` · ${option.transferCount} transfer${option.transferCount===1?'':'s'}`:''}${wait}`;}
 function isFormalBoardingNode(node){return['terminal','stand','ferry_terminal','water_taxi_terminal'].includes(node?.kind);}
 function transitInstruction(step){
   const origin=nodeIndex.get(step.from);
@@ -383,8 +388,8 @@ function showNoRouteMap(from,to){
 function renderJourney(connected,options=[],selectedIndex=0){
   const{fromNear,toNear,fromAccess,toAccess,estimatedMinutes,transferCount}=connected;const steps=compactJourneySteps(connected.steps);const rides=steps.filter(step=>step.kind==='transit');const panel=$('#detailPanel');panel.hidden=false;
   const journeyFare=fareForJourney(steps,{fares,nodes:[...nodeIndex.values()]});
-  let html=`<div class="journey-summary"><p class="eyebrow">Route</p><h2>${escapeHtml($('#fromInput').value)} → ${escapeHtml($('#toInput').value)}</h2><div class="journey-kpis"><div><strong>${formatMinutes(estimatedMinutes)}</strong><span>est. trip</span></div><div><strong>${transferCount}</strong><span>transfer${transferCount===1?'':'s'}</span></div><div><strong>${escapeHtml(journeyFareLabel(journeyFare))}</strong><span>${journeyFare?.confidence==='includes_estimate'?'estimated fare':'fare'}</span></div></div></div>`;
-  if(options.length>1)html+=`<div class="route-options" aria-label="Route alternatives">${options.map((option,index)=>`<button type="button" class="route-option ${index===selectedIndex?'is-active':''}" data-route-option="${index}"><strong>${escapeHtml(routeOptionLabel(option,index))}</strong><span>${escapeHtml(formatMinutes(option.estimatedMinutes))}</span><small>${escapeHtml(routeOptionModes(option)||'Transit')}</small></button>`).join('')}</div>`;
+  let html=`<div class="journey-summary"><p class="eyebrow">Route</p><h2>${escapeHtml($('#fromInput').value)} → ${escapeHtml($('#toInput').value)}</h2><div class="journey-kpis"><div><strong>${formatJourneyMinutes(connected)}</strong><span>estimated trip</span></div><div><strong>${transferCount}</strong><span>transfer${transferCount===1?'':'s'}</span></div><div><strong>${escapeHtml(journeyFareLabel(journeyFare))}</strong><span>${journeyFare?.confidence==='includes_estimate'?'estimated fare':'fare'}</span></div></div></div>`;
+  if(options.length>1)html+=`<div class="route-options" aria-label="Route alternatives">${options.map((option,index)=>`<button type="button" class="route-option ${index===selectedIndex?'is-active':''}" data-route-option="${index}"><strong>${escapeHtml(routeOptionLabel(option,index))}</strong><span>${escapeHtml(formatJourneyMinutes(option))}</span><small>${escapeHtml(routeOptionModes(option)||'Transit')}</small></button>`).join('')}</div>`;
   const first=accessCopy(fromAccess,fromNear.node.name,false);if(first)html+=`<div class="journey-leg access-leg"><span class="leg-icon">${fromAccess.mode==='walk'?'↟':'●'}</span><div><h3>${escapeHtml(first.title)}</h3><p>${escapeHtml(first.detail)}</p></div></div>`;
   for(const step of steps){
     const destination=nodeIndex.get(step.to);
@@ -409,7 +414,7 @@ async function planCurrentTrip({reuseContext=false}={}){
       if(kmBetween(from,to)<0.03){clearJourney({clearTrip:true});status.textContent='Start and destination are the same place.';return;}
       currentTripContext={fromEndpoint,toEndpoint,from,to,knownFrom,knownTo};
     }
-    const options=chooseJourneyOptions({fromPlace:from,toPlace:to,nodes:nodeIndex,services:routingServices(),transfers,knownFrom,knownTo,candidateLimit:12,maxAccessKm:Math.max(4,fromEndpoint?.routingRadiusKm||4,toEndpoint?.routingRadiusKm||4),transferPenaltyMinutes:10,accessOptions:{localWaitMinutes:30,localKph:18},maxOptions:3,requiredMode:activeMode==='all'?null:activeMode});
+    const options=chooseJourneyOptions({fromPlace:from,toPlace:to,nodes:nodeIndex,services:routingServices(),transfers,schedules,departureDate:new Date(),knownFrom,knownTo,candidateLimit:12,maxAccessKm:Math.max(4,fromEndpoint?.routingRadiusKm||4,toEndpoint?.routingRadiusKm||4),transferPenaltyMinutes:10,accessOptions:{localWaitMinutes:10,localKph:18},maxOptions:3,requiredMode:activeMode==='all'?null:activeMode});
     ensureCurrent(requestId);
     if(!options.length){currentRoutePlan=null;showNoRouteMap(from,to);$('#detailPanel').hidden=true;$('#detailPanel').innerHTML='';status.textContent=activeMode==='all'?'No route in the current network.':`No route using ${modeLabel(activeMode)} for this trip.`;return;}
     const connected=options[0];currentRoutePlan={from,to,knownFrom,knownTo,options,selectedIndex:0};await hydrateDisplayGeometry(rideSteps(connected.steps).map(step=>step.service));ensureCurrent(requestId);showJourneyMap(from,to,connected);renderJourney(connected,options,0);status.textContent=routeStatus(connected);

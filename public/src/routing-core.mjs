@@ -1,3 +1,5 @@
+import {estimateJourneyTiming,serviceRunsOnDate} from './journey-time-core.mjs';
+
 export function kmBetween(a,b){
   const R=6371;
   const rad=x=>x*Math.PI/180;
@@ -234,10 +236,11 @@ function schedulePenalty(steps,scheduledServiceIds,{unknownSchedulePenaltyMinute
   return penalty;
 }
 
-function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions,scheduledServiceIds}){
+function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions,scheduledServiceIds,schedules,departureDate}){
   const transitSteps=steps.filter(step=>step.kind==='transit');
   const transferCount=countTransfers(steps);
-  const networkMinutes=journeyMinutes(steps,nodes,{transferPenaltyMinutes});
+  const timing=departureDate?estimateJourneyTiming(steps,{schedules,departureDate}):null;
+  const networkMinutes=timing?.totalMinutes??journeyMinutes(steps,nodes,{transferPenaltyMinutes});
   const fromAccess=estimateAccess(start.km,accessOptions);
   const toAccess=estimateAccess(end.km,accessOptions);
   const {
@@ -270,6 +273,9 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
     transferCount,
     networkMinutes:Math.round(networkMinutes),
     estimatedMinutes:Math.round(networkMinutes+fromAccess.minutes+toAccess.minutes),
+    estimatedMinutesMin:Math.round((timing?.minTotalMinutes??networkMinutes)+fromAccess.minutes+toAccess.minutes),
+    estimatedMinutesMax:Math.round((timing?.maxTotalMinutes??networkMinutes)+fromAccess.minutes+toAccess.minutes),
+    timing,
     ranking:{accessPenalty,detourRatio,detourPenalty,backtrackKm:awayKm,directionPenalty,servicePenalty,timetablePenalty}
   };
 }
@@ -294,25 +300,30 @@ export function chooseJourneyOptions({
   maxBacktrackRatio=0.35,
   maxBacktrackFloorKm=3,
   scheduledServiceIds=null,
+  schedules=[],
+  departureDate=null,
   rankingOptions={}
 }){
-  const eligibleNodeIds=routableNodeIds(services,transfers);
+  const schedulesByService=new Map();
+  for(const schedule of schedules)schedulesByService.set(schedule.serviceId,[...(schedulesByService.get(schedule.serviceId)||[]),schedule]);
+  const eligibleServices=departureDate?services.filter(service=>serviceRunsOnDate(service,schedulesByService.get(service.id)||[],departureDate)):services;
+  const eligibleNodeIds=routableNodeIds(eligibleServices,transfers);
   const fromAccessLimit=Number.isFinite(fromPlace?.routingRadiusKm)?fromPlace.routingRadiusKm:maxAccessKm;
   const toAccessLimit=Number.isFinite(toPlace?.routingRadiusKm)?toPlace.routingRadiusKm:maxAccessKm;
   const starts=knownFrom?[{node:knownFrom,km:0}]:nearestNodes(fromPlace,nodes,{limit:candidateLimit,maxKm:fromAccessLimit,allowedNodeIds:eligibleNodeIds});
   const ends=knownTo?[{node:knownTo,km:0}]:nearestNodes(toPlace,nodes,{limit:candidateLimit,maxKm:toAccessLimit,allowedNodeIds:eligibleNodeIds});
   const unique=new Map();
-  const availableModes=[...new Set(services.filter(service=>service.serviceConfidence!=='needs_review').map(service=>service.mode))];
+  const availableModes=[...new Set(eligibleServices.filter(service=>service.serviceConfidence!=='needs_review').map(service=>service.mode))];
   const directKm=fromPlace&&toPlace?kmBetween(fromPlace,toPlace):0;
 
   for(const start of starts){
     for(const end of ends){
       const modeVariants=requiredMode?[requiredMode]:[null,...availableModes];
       for(const routeMode of modeVariants){
-        const steps=findJourney(start.node.id,end.node.id,services,nodes,{transferPenaltyMinutes,transfers,requiredMode:routeMode});
+        const steps=findJourney(start.node.id,end.node.id,eligibleServices,nodes,{transferPenaltyMinutes,transfers,requiredMode:routeMode});
         if(steps===null||hasJourneyLoop(start.node.id,steps))continue;
         if(steps.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
-        const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions,scheduledServiceIds});
+        const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions,scheduledServiceIds,schedules,departureDate});
         if(candidate.ranking.detourRatio>maxDetourRatio)continue;
         const maxBacktrackKm=Math.max(maxBacktrackFloorKm,directKm*maxBacktrackRatio);
         if(candidate.ranking.backtrackKm>maxBacktrackKm)continue;

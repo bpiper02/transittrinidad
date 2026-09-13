@@ -2,3 +2,6 @@
 data/submissions/
 data/candidates/
 data/reviews/
+node_modules/
+test-results/
+playwright-report/
