@@ -6,12 +6,23 @@ const nodes=[
   {id:'main-road',name:'Eastern Main Road Access',kind:'junction',location:{lat:10.6503,lng:-61.5010}},
   {id:'formal-stand',name:'San Juan Taxi Stand',kind:'stand',location:{lat:10.6510,lng:-61.5030}},
   {id:'approx-zone',name:'Approximate San Juan Area',kind:'stop_zone',locationConfidence:'approximate_area',location:{lat:10.6490,lng:-61.5010}},
-  {id:'far-formal',name:'Far Terminal',kind:'terminal',location:{lat:10.7200,lng:-61.6000}}
+  {id:'far-formal',name:'Far Terminal',kind:'terminal',location:{lat:10.7200,lng:-61.6000}},
+  {id:'corridor-east',name:'Corridor East',kind:'junction',location:{lat:10.6500,lng:-61.5050}}
 ];
 const services=[
   {id:'s1',originNodeId:'formal-stand',destinationNodeId:'main-road',serviceConfidence:'verified_service'},
   {id:'s2',originNodeId:'formal-stand',destinationNodeId:'main-road',serviceConfidence:'reported_service'},
-  {id:'s3',originNodeId:'random-highway',destinationNodeId:'far-formal',serviceConfidence:'needs_review'}
+  {id:'s3',originNodeId:'random-highway',destinationNodeId:'far-formal',serviceConfidence:'needs_review'},
+  {
+    id:'pass-through',
+    corridorId:'east-west',
+    mode:'maxi',
+    originNodeId:'main-road',
+    destinationNodeId:'corridor-east',
+    serviceConfidence:'verified_service',
+    boardingPolicy:'main_road_pass_through',
+    passThroughSegments:[{fromNodeId:'main-road',toNodeId:'corridor-east',confidence:'mapped_corridor'}]
+  }
 ];
 const place={name:'User location',lat:10.6502,lng:-61.5007};
 
@@ -19,13 +30,15 @@ assert.equal(nodeAccessKind(nodes[0]),'unsafe');
 assert.equal(nodeAccessKind(nodes[1]),'main_road');
 assert.equal(nodeAccessKind(nodes[2]),'formal');
 assert.equal(nodeAccessKind(nodes[3]),'approximate_area');
+assert.equal(nodeAccessKind({kind:'virtual_boarding_area'}),'pass_through_area');
 
 const usage=serviceUsageByNode(services);
 assert.equal(usage.get('formal-stand'),2);
-assert.equal(usage.get('main-road'),2);
+assert.equal(usage.get('main-road'),3);
 assert.equal(usage.has('random-highway'),false,'needs_review services should not improve access ranking');
 
 assert.ok(accessScore({distanceKm:.5,accessKind:'formal',usedByCount:1})>accessScore({distanceKm:.1,accessKind:'approximate_area',usedByCount:0}));
+assert.ok(accessScore({distanceKm:.1,accessKind:'pass_through_area',usedByCount:1})>accessScore({distanceKm:.1,accessKind:'mapped_stop_zone',usedByCount:1}));
 assert.ok(accessScore({distanceKm:.1,accessKind:'unsafe',usedByCount:20})<0,'unsafe nodes cannot win from service count');
 
 const candidates=nearbyAccessCandidates(place,nodes,services,{limit:4,maxKm:2});
@@ -36,10 +49,22 @@ assert.equal(candidates.some(candidate=>candidate.nodeId==='far-formal'),false,'
 const withUnsafe=nearbyAccessCandidates(place,nodes,services,{limit:5,maxKm:2,includeUnsafe:true});
 assert.equal(withUnsafe.some(candidate=>candidate.nodeId==='random-highway'),true,'diagnostics can include unsafe nodes only when requested');
 
+const withPassThrough=nearbyAccessCandidates(place,nodes,services,{limit:6,maxKm:2,includePassThrough:true,passThroughMaxKm:1.2});
+const virtual=withPassThrough.find(candidate=>candidate.source==='virtual_pass_through');
+assert.ok(virtual,'diagnostics should surface safe virtual pass-through boarding areas when enabled');
+assert.equal(virtual.accessKind,'pass_through_area');
+assert.equal(virtual.serviceId,'pass-through');
+assert.ok(virtual.safetyNote.includes('safe visible point'));
+
 const summary=accessSummary(place,nodes,services,{limit:3,maxKm:2});
 assert.equal(summary.hasUsableAccess,true);
 assert.equal(summary.certainty,'high');
 assert.equal(summary.best.nodeId,'formal-stand');
 assert.ok(summary.candidates.length<=3);
+
+const virtualOnlySummary=accessSummary({name:'Near pass-through only',lat:10.6502,lng:-61.504},nodes.filter(node=>node.id==='main-road'||node.id==='corridor-east'),[services[3]],{limit:3,maxKm:.2,includePassThrough:true,passThroughMaxKm:1.2});
+assert.equal(virtualOnlySummary.hasUsableAccess,true);
+assert.equal(virtualOnlySummary.certainty,'medium');
+assert.equal(virtualOnlySummary.best.accessKind,'pass_through_area');
 
 console.log('access diagnostics core tests passed');
