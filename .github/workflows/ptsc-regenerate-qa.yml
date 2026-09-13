@@ -6,6 +6,7 @@ on:
       - qa/journey-geometry-browser-20260913
     paths:
       - tools/ptsc-inventory-build.mjs
+      - tests/ptsc-promotion-data.mjs
 
 permissions:
   contents: write
