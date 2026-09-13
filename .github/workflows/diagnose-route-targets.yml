@@ -1,0 +1,61 @@
+name: diagnose-route-targets
+on:
+  push:
+    branches: [sprint-medium-corridor-bridging-5]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    if: github.ref_name == 'sprint-medium-corridor-bridging-5'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run route target diagnostic
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFile} from 'node:fs/promises';
+          import {chooseConnectedJourney,chooseJourneyOptions,kmBetween} from './src/routing-core.mjs';
+          const nodesArray=JSON.parse(await readFile(new URL('./data/nodes.json',import.meta.url)));
+          const services=JSON.parse(await readFile(new URL('./data/services.json',import.meta.url)));
+          const transfers=JSON.parse(await readFile(new URL('./data/transfers.json',import.meta.url)));
+          const places=JSON.parse(await readFile(new URL('./data/places.json',import.meta.url)));
+          const nodes=new Map(nodesArray.map(node=>[node.id,node]));
+          const place=name=>places.find(item=>item.name===name);
+          const point=name=>place(name)?.location;
+          const nodePoint=id=>nodes.get(id)?.location;
+          const describe=journey=>{
+            if(!journey)return null;
+            return {
+              minutes: journey.estimatedMinutes,
+              modes: journey.modes,
+              transfers: journey.transferCount,
+              steps: journey.steps.length,
+              estimatedConnectors: journey.ranking?.estimatedConnectorCount||0,
+              directFallback: Boolean(journey.ranking?.directLocalFallback),
+              passThrough: Boolean(journey.ranking?.fromPassThrough||journey.ranking?.toPassThrough),
+              services: [...new Set(journey.steps.filter(step=>step.kind==='transit').map(step=>step.service.id))]
+            };
+          };
+          const opts={candidateLimit:14,maxAccessKm:5,accessOptions:{localWaitMinutes:10,localKph:18},rankingOptions:{allowDirectLocalFallback:true,maxDirectLocalFallbackKm:8,allowCorridorBridgeFallback:true,maxBridgeConnectorKm:5,maxBridgeConnectorsPerNode:4,bridgeConnectorPenaltyMinutes:22,maxEstimatedConnectorsPerJourney:1}};
+          const targets=[
+            ['San Juan','Port of Spain',point('San Juan'),{lat:10.6500,lng:-61.5140}],
+            ['California','Claxton Bay',point('California'),{lat:10.351,lng:-61.461}],
+            ['Couva','San Fernando',point('Couva'),nodePoint('ptsc-san-fernando')],
+            ['Fyzabad','Point Fortin',point('Fyzabad'),nodePoint('ptsc-point-fortin')],
+            ['Fyzabad','San Fernando',point('Fyzabad'),nodePoint('ptsc-san-fernando')],
+            ['La Brea','Point Fortin',point('La Brea'),nodePoint('ptsc-point-fortin')],
+            ['Princes Town','San Fernando',point('Princes Town'),nodePoint('ptsc-san-fernando')],
+            ['Chase Village','Chaguanas',point('Chase Village'),point('Chaguanas')],
+            ['Carenage','Port of Spain',point('Carenage'),{lat:10.6500,lng:-61.5140}],
+            ['Crown Point','Scarborough Ferry',point('Crown Point'),nodePoint('scarborough-ferry-terminal')]
+          ];
+          for(const [fromName,toName,fromPlace,toPlace] of targets){
+            const journey=fromPlace&&toPlace?chooseConnectedJourney({fromPlace,toPlace,nodes:new Map(nodes),services,transfers,...opts}):null;
+            console.log('TARGET',JSON.stringify({fromName,toName,directKm:fromPlace&&toPlace?Math.round(kmBetween(fromPlace,toPlace)*10)/10:null,found:Boolean(journey),result:describe(journey)}));
+          }
+          const strictSanJuan=chooseConnectedJourney({fromPlace:point('San Juan'),toPlace:{lat:10.6500,lng:-61.5140},nodes:new Map(nodes),services,transfers,candidateLimit:14,maxAccessKm:5});
+          console.log('STRICT_SAN_JUAN_NO_FALLBACK',JSON.stringify(describe(strictSanJuan)));
+          NODE
