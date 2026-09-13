@@ -7,6 +7,7 @@ export const BOARDING_POLICIES = new Set([
 ]);
 
 export const POLICY_ALIASES = new Map([
+  ['fixed_only', 'fixed_stop_only'],
   ['corridor_hail', 'hail_along_segment'],
   ['corridor_request', 'main_road_pass_through'],
   ['mixed', 'unknown_do_not_assume']
