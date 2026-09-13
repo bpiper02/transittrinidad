@@ -1,5 +1,6 @@
 import {destinationBypassDiagnostic} from './destination-bypass-core.mjs';
 import {estimateJourneyTiming,serviceRunsOnDate} from './journey-time-core.mjs';
+import {evaluatePassThroughAccess,policyAllowsVirtualAccess,serviceAccessPolicy} from './pass-through-boarding-core.mjs';
 
 export function kmBetween(a,b){
   const R=6371;
@@ -23,10 +24,12 @@ export function nearestNodes(place,nodes,{limit=6,maxKm=Infinity,allowedNodeIds=
 const MODE_SPEED_KPH={ptsc:27,maxi:25,route_taxi:30,water_taxi:34,ferry:38};
 const ROUTE_DISTANCE_FACTOR={ptsc:1.28,maxi:1.28,route_taxi:1.22,water_taxi:1.04,ferry:1.04};
 const FORMAL_ACCESS_NODE_KINDS=new Set(['terminal','stand','station','ferry_terminal','water_taxi_terminal']);
+const PASS_THROUGH_MODES=new Set(['maxi','route_taxi']);
 
 export function isFormalAccessNode(node){return FORMAL_ACCESS_NODE_KINDS.has(node?.kind);}
 
 export function localAccessSupported(near,access,{walkThresholdKm=1.5,maxInformalLocalAccessKm=2,maxApproximateLocalAccessKm=1.8}={}){
+  if(near?.virtualAccess?.evaluation?.eligible)return true;
   if(!access||access.mode!=='local')return true;
   const node=near?.node;
   if(!node)return false;
@@ -57,6 +60,124 @@ function patternStops(service){
     : [service.originNodeId,service.destinationNodeId];
 }
 
+function hasValidLocation(node){
+  return node?.location&&Number.isFinite(node.location.lat)&&Number.isFinite(node.location.lng);
+}
+
+function corridorSignal(service){
+  const note=`${service.boardingNote||''} ${service.operator||''}`.toLowerCase();
+  return service.patternType==='local'||/corridor|main road|pickup|pick-up|hail|short drop|short-drop|drop-off|drop off/.test(note);
+}
+
+function inferredPolicyForPurpose(service,purpose){
+  const explicit=serviceAccessPolicy(service,purpose);
+  if(policyAllowsVirtualAccess(explicit))return explicit;
+  if(
+    purpose==='boarding'&&
+    service.boardingPolicy==='mixed'&&
+    PASS_THROUGH_MODES.has(service.mode)&&
+    corridorSignal(service)
+  )return 'hail_along_segment';
+  return 'unknown_do_not_assume';
+}
+
+function implicitAccessSegments(service,purpose){
+  if(!PASS_THROUGH_MODES.has(service.mode))return[];
+  if(!corridorSignal(service))return[];
+  const stops=patternStops(service);
+  if(stops.length<3)return[];
+  const policy=inferredPolicyForPurpose(service,purpose);
+  if(!policyAllowsVirtualAccess(policy))return[];
+  const confidence=service.serviceConfidence==='community_verified'?'inferred_from_route_shape':'reported';
+  const safetyEvidence=service.serviceConfidence==='community_verified'?['community_verified','junction']:['junction'];
+  return stops.slice(0,-1).map((fromNodeId,index)=>({
+    id:`inferred-${service.id}-${fromNodeId}-${stops[index+1]}`,
+    fromNodeId,
+    toNodeId:stops[index+1],
+    roadClass:'main_road',
+    boardingPolicy:purpose==='boarding'?policy:undefined,
+    alightingPolicy:purpose==='alighting'?policy:undefined,
+    safetyEvidence,
+    confidence,
+    sources:service.sources||[],
+    inferred:true
+  }));
+}
+
+function accessSegmentsForService(service,purpose){
+  if(Array.isArray(service.accessSegments)&&service.accessSegments.length)return service.accessSegments;
+  return implicitAccessSegments(service,purpose);
+}
+
+function projectPlaceToSegment(place,a,b){
+  if(!place||!hasValidLocation(a)||!hasValidLocation(b))return null;
+  const avgLat=((place.lat||0)+a.location.lat+b.location.lat)/3;
+  const xScale=Math.max(0.2,Math.cos(avgLat*Math.PI/180));
+  const bx=(b.location.lng-a.location.lng)*xScale;
+  const by=b.location.lat-a.location.lat;
+  const px=(place.lng-a.location.lng)*xScale;
+  const py=place.lat-a.location.lat;
+  const denom=bx*bx+by*by;
+  if(denom<=0)return null;
+  const unclamped=(px*bx+py*by)/denom;
+  const ratio=Math.max(0,Math.min(1,unclamped));
+  const location={
+    lat:a.location.lat+(b.location.lat-a.location.lat)*ratio,
+    lng:a.location.lng+(b.location.lng-a.location.lng)*ratio
+  };
+  return{ratio,location,km:kmBetween(place,location),unclampedRatio:unclamped};
+}
+
+function virtualAccessNodeId(service,segment,purpose,ratio){
+  return `virtual-${purpose}-${service.id}-${segment.fromNodeId}-${segment.toNodeId}-${Math.round(ratio*1000)}`.replace(/[^a-zA-Z0-9_-]/g,'-');
+}
+
+export function passThroughAccessCandidates(place,nodes,services,{limit=6,maxKm=2.5,purpose='boarding',accessOptions={},minSegmentRatio=0.04,maxSegmentRatio=0.96}={}){
+  if(!place||!Number.isFinite(place.lat)||!Number.isFinite(place.lng))return[];
+  const candidates=[];
+  for(const service of services||[]){
+    if(service.serviceConfidence==='needs_review')continue;
+    for(const segment of accessSegmentsForService(service,purpose)){
+      const from=nodes.get(segment.fromNodeId),to=nodes.get(segment.toNodeId);
+      const projected=projectPlaceToSegment(place,from,to);
+      if(!projected)continue;
+      if(projected.ratio<minSegmentRatio||projected.ratio>maxSegmentRatio)continue;
+      if(projected.km>maxKm)continue;
+      const evaluation=evaluatePassThroughAccess({service,segment,accessKm:projected.km,purpose,options:accessOptions});
+      if(!evaluation.eligible)continue;
+      const node={
+        id:virtualAccessNodeId(service,segment,purpose,projected.ratio),
+        name:purpose==='alighting'?'Estimated main-road drop-off':'Estimated main-road boarding',
+        kind:'stop_zone',
+        location:projected.location,
+        locationConfidence:'approximate_area',
+        virtual:true,
+        sources:segment.sources?.length?segment.sources:service.sources||[],
+        boardingNote:evaluation.safetyCopy
+      };
+      candidates.push({
+        node,
+        km:projected.km,
+        virtualAccess:{node,service,segment,purpose,ratio:projected.ratio,km:projected.km,evaluation}
+      });
+    }
+  }
+  return candidates
+    .sort((a,b)=>a.km-b.km||a.virtualAccess.service.id.localeCompare(b.virtualAccess.service.id))
+    .slice(0,limit);
+}
+
+function mergeAccessCandidates(limit,...groups){
+  const byId=new Map();
+  for(const group of groups){
+    for(const candidate of group||[]){
+      const existing=byId.get(candidate.node.id);
+      if(!existing||candidate.km<existing.km)byId.set(candidate.node.id,candidate);
+    }
+  }
+  return[...byId.values()].sort((a,b)=>a.km-b.km).slice(0,limit);
+}
+
 export function estimateSegmentMinutes(service,fromNodeId,toNodeId,nodes){
   const stops=patternStops(service);
   const total=estimateServiceMinutes(service,nodes);
@@ -75,7 +196,7 @@ export function estimateSegmentMinutes(service,fromNodeId,toNodeId,nodes){
   return Math.max(1,total*(piece.km/totalKm));
 }
 
-function buildGraph(services,nodes,transfers=[]){
+function buildGraph(services,nodes,transfers=[],{virtualAccessPoints=[]}={}){
   const graph=new Map();
   const add=(from,edge)=>{if(!graph.has(from))graph.set(from,[]);graph.get(from).push(edge);};
   for(const service of services){
@@ -84,6 +205,33 @@ function buildGraph(services,nodes,transfers=[]){
     for(let i=0;i<stops.length-1;i++){
       const from=stops[i],to=stops[i+1];
       add(from,{kind:'transit',next:to,service,minutes:estimateSegmentMinutes(service,from,to,nodes)});
+    }
+  }
+  const virtualBySegment=new Map();
+  for(const point of virtualAccessPoints||[]){
+    if(!point?.node?.id||!point?.service?.id||!point?.segment||!Number.isFinite(point.ratio))continue;
+    const key=`${point.service.id}::${point.segment.fromNodeId}->${point.segment.toNodeId}`;
+    if(!virtualBySegment.has(key))virtualBySegment.set(key,[]);
+    virtualBySegment.get(key).push(point);
+  }
+  for(const points of virtualBySegment.values()){
+    const [first]=points;
+    const service=first.service;
+    const segment=first.segment;
+    const segmentMinutes=estimateSegmentMinutes(service,segment.fromNodeId,segment.toNodeId,nodes);
+    const boarding=points.filter(point=>point.purpose==='boarding'||point.purpose==='both');
+    const alighting=points.filter(point=>point.purpose==='alighting'||point.purpose==='both');
+    for(const point of boarding){
+      add(point.node.id,{kind:'transit',next:segment.toNodeId,service,minutes:Math.max(1,segmentMinutes*(1-point.ratio)),virtualAccess:point});
+    }
+    for(const point of alighting){
+      add(segment.fromNodeId,{kind:'transit',next:point.node.id,service,minutes:Math.max(1,segmentMinutes*point.ratio),virtualAccess:point});
+    }
+    for(const board of boarding){
+      for(const alight of alighting){
+        if(board.node.id===alight.node.id||board.ratio>=alight.ratio)continue;
+        add(board.node.id,{kind:'transit',next:alight.node.id,service,minutes:Math.max(1,segmentMinutes*(alight.ratio-board.ratio)),virtualAccess:board});
+      }
     }
   }
   for(const transfer of transfers){
@@ -107,9 +255,9 @@ export function routableNodeIds(services,transfers=[]){
 
 function stateKey(node,lastServiceId,usedRequiredMode=false){return`${node}::${lastServiceId||''}::${usedRequiredMode?'1':'0'}`;}
 
-export function findJourney(startId,endId,services,nodes=new Map(),{transferPenaltyMinutes=10,transfers=[],requiredMode=null}={}){
+export function findJourney(startId,endId,services,nodes=new Map(),{transferPenaltyMinutes=10,transfers=[],requiredMode=null,virtualAccessPoints=[]}={}){
   if(startId===endId)return[];
-  const graph=buildGraph(services,nodes,transfers);
+  const graph=buildGraph(services,nodes,transfers,{virtualAccessPoints});
   const start={node:startId,lastServiceId:null,usedRequiredMode:false,cost:0,steps:[]};
   const best=new Map([[stateKey(startId,null,false),0]]);
   const queue=[start];
@@ -133,7 +281,7 @@ export function findJourney(startId,endId,services,nodes=new Map(),{transferPena
       const nextCost=current.cost+edgeCost;
       if(nextCost>=(best.get(nextKey)??Infinity))continue;
       const step=edge.kind==='transit'
-        ? {kind:'transit',from:current.node,to:edge.next,service:edge.service,minutes:edge.minutes}
+        ? {kind:'transit',from:current.node,to:edge.next,service:edge.service,minutes:edge.minutes,virtualAccess:edge.virtualAccess||null}
         : {kind:'transfer',from:current.node,to:edge.next,transfer:edge.transfer,minutes:edge.minutes};
       best.set(nextKey,nextCost);
       queue.push({node:edge.next,lastServiceId:nextLastServiceId,usedRequiredMode,cost:nextCost,steps:[...current.steps,step]});
@@ -257,8 +405,8 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
   const fromAccess=estimateAccess(start.km,accessOptions);
   const toAccess=estimateAccess(end.km,accessOptions);
   const accessTrustOptions={...accessOptions,...rankingOptions};
-  const fromAccessTrusted=localAccessSupported(start,fromAccess,accessTrustOptions);
-  const toAccessTrusted=localAccessSupported(end,toAccess,accessTrustOptions);
+  const fromAccessTrusted=start.virtualAccess?.evaluation?.eligible||localAccessSupported(start,fromAccess,accessTrustOptions);
+  const toAccessTrusted=end.virtualAccess?.evaluation?.eligible||localAccessSupported(end,toAccess,accessTrustOptions);
   const {
     unconfirmedAccessPenaltyMinutes=35,
     detourPenaltyMinutes=18,
@@ -295,7 +443,7 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
     estimatedMinutesMin:Math.round((timing?.minTotalMinutes??networkMinutes)+fromAccess.minutes+toAccess.minutes),
     estimatedMinutesMax:Math.round((timing?.maxTotalMinutes??networkMinutes)+fromAccess.minutes+toAccess.minutes),
     timing,
-    ranking:{accessPenalty,detourRatio,detourPenalty,backtrackKm:awayKm,directionPenalty,servicePenalty,timetablePenalty,fromAccessTrusted,toAccessTrusted,destinationBypass}
+    ranking:{accessPenalty,detourRatio,detourPenalty,backtrackKm:awayKm,directionPenalty,servicePenalty,timetablePenalty,fromAccessTrusted,toAccessTrusted,destinationBypass,fromPassThrough:start.virtualAccess?.evaluation||null,toPassThrough:end.virtualAccess?.evaluation||null}
   };
 }
 
@@ -334,8 +482,20 @@ export function chooseJourneyOptions({
   const eligibleNodeIds=routableNodeIds(eligibleServices,transfers);
   const fromAccessLimit=Number.isFinite(fromPlace?.routingRadiusKm)?fromPlace.routingRadiusKm:maxAccessKm;
   const toAccessLimit=Number.isFinite(toPlace?.routingRadiusKm)?toPlace.routingRadiusKm:maxAccessKm;
-  const starts=knownFrom?[{node:knownFrom,km:0}]:nearestNodes(fromPlace,nodes,{limit:candidateLimit,maxKm:fromAccessLimit,allowedNodeIds:eligibleNodeIds});
-  const ends=knownTo?[{node:knownTo,km:0}]:nearestNodes(toPlace,nodes,{limit:candidateLimit,maxKm:toAccessLimit,allowedNodeIds:eligibleNodeIds});
+  const passThroughAccessLimitKm=rankingOptions.passThroughAccessLimitKm??accessOptions.maxShortLocalAccessKm??2.5;
+  const passThroughCandidateLimit=rankingOptions.passThroughCandidateLimit??Math.max(4,Math.ceil(candidateLimit/2));
+  const candidateNodes=new Map(nodes);
+  const regularStarts=knownFrom?[{node:knownFrom,km:0}]:nearestNodes(fromPlace,nodes,{limit:candidateLimit,maxKm:fromAccessLimit,allowedNodeIds:eligibleNodeIds});
+  const regularEnds=knownTo?[{node:knownTo,km:0}]:nearestNodes(toPlace,nodes,{limit:candidateLimit,maxKm:toAccessLimit,allowedNodeIds:eligibleNodeIds});
+  const virtualStarts=knownFrom?[]:passThroughAccessCandidates(fromPlace,nodes,eligibleServices,{limit:passThroughCandidateLimit,maxKm:Math.min(fromAccessLimit,passThroughAccessLimitKm),purpose:'boarding',accessOptions});
+  const virtualEnds=knownTo?[]:passThroughAccessCandidates(toPlace,nodes,eligibleServices,{limit:passThroughCandidateLimit,maxKm:Math.min(toAccessLimit,passThroughAccessLimitKm),purpose:'alighting',accessOptions});
+  const virtualAccessPoints=[];
+  for(const candidate of [...virtualStarts,...virtualEnds]){
+    candidateNodes.set(candidate.node.id,candidate.node);
+    virtualAccessPoints.push(candidate.virtualAccess);
+  }
+  const starts=knownFrom?regularStarts:mergeAccessCandidates(candidateLimit+passThroughCandidateLimit,regularStarts,virtualStarts);
+  const ends=knownTo?regularEnds:mergeAccessCandidates(candidateLimit+passThroughCandidateLimit,regularEnds,virtualEnds);
   const unique=new Map();
   const availableModes=[...new Set(eligibleServices.filter(service=>service.serviceConfidence!=='needs_review').map(service=>service.mode))];
   const directKm=fromPlace&&toPlace?kmBetween(fromPlace,toPlace):0;
@@ -346,10 +506,10 @@ export function chooseJourneyOptions({
     for(const end of ends){
       const modeVariants=requiredMode?[requiredMode]:[null,...availableModes];
       for(const routeMode of modeVariants){
-        const steps=findJourney(start.node.id,end.node.id,eligibleServices,nodes,{transferPenaltyMinutes,transfers,requiredMode:routeMode});
+        const steps=findJourney(start.node.id,end.node.id,eligibleServices,candidateNodes,{transferPenaltyMinutes,transfers,requiredMode:routeMode,virtualAccessPoints});
         if(steps===null||hasJourneyLoop(start.node.id,steps))continue;
         if(steps.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
-        const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions:candidateRankingOptions,scheduledServiceIds,schedules,departureDate});
+        const candidate=candidateFor(start,end,steps,candidateNodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions:candidateRankingOptions,scheduledServiceIds,schedules,departureDate});
         const usesFormalIntermodalCandidate=candidate.modes.some(mode=>mode==='water_taxi'||mode==='ferry');
         if(!allowUntrustedLocalAccess&&!usesFormalIntermodalCandidate&&(!candidate.ranking.fromAccessTrusted||!candidate.ranking.toAccessTrusted))continue;
         if(!allowDestinationBypass&&candidate.ranking.destinationBypass.rejected)continue;
