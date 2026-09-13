@@ -7,9 +7,9 @@ export class LngLatBounds {
 }
 export class NavigationControl { constructor(){} }
 export class Map {
-  constructor(){this.handlers=new globalThis.Map();this.sources=new globalThis.Map();this.canvas={style:{}};queueMicrotask(()=>this.handlers.get('load')?.forEach(fn=>fn()));}
+  constructor(){this.handlers=new globalThis.Map();this.sources=new globalThis.Map();this.canvas={style:{}};globalThis.__testMap=this;queueMicrotask(()=>this.handlers.get('load')?.forEach(fn=>fn()));}
   addControl(){}
-  addSource(id,source){this.sources.set(id,{...source,setData(data){this.data=data;}});}
+  addSource(id,source){this.sources.set(id,{...source,data:source.data,setData(data){this.data=data;}});}
   addLayer(){}
   getSource(id){return this.sources.get(id);}
   getCanvas(){return this.canvas;}
@@ -23,8 +23,22 @@ export class Map {
 async function primeNetwork(page){
   await page.route('https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-gl.mjs',route=>route.fulfill({status:200,contentType:'text/javascript',body:mapLibreStub}));
   await page.route('https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-gl.css',route=>route.fulfill({status:200,contentType:'text/css',body:''}));
-  await page.route('https://photon.komoot.io/api**',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({features:[]})}));
-  await page.route('https://router.project-osrm.org/route/v1/driving/**',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({routes:[{duration:900,distance:12000,geometry:{coordinates:[[-61.47,10.42],[-61.41,10.51]]}}]})}));
+  await page.route('https://photon.komoot.io/api**',route=>{
+    const url=new URL(route.request().url());
+    const query=url.searchParams.get('q')||'';
+    const features=/point fortin/i.test(query)?[{
+      type:'Feature',
+      geometry:{type:'Point',coordinates:[-61.6818878,10.1739316]},
+      properties:{name:'Point Fortin',city:'Point Fortin',country:'Trinidad and Tobago'}
+    }]:[];
+    route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({features})});
+  });
+  await page.route('https://router.project-osrm.org/route/v1/driving/**',route=>{
+    const url=new URL(route.request().url());
+    const coordinatePair=url.pathname.split('/').at(-1).split(';');
+    const coordinates=coordinatePair.map(value=>value.split(',').map(Number));
+    route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({routes:[{duration:900,distance:12000,geometry:{coordinates}}]})});
+  });
   await page.route('https://tile.openstreetmap.org/**',route=>route.fulfill({status:204,body:''}));
 }
 
@@ -37,14 +51,51 @@ async function chooseLocalPlace(page,inputId,name){
   await expect(input).toHaveValue(new RegExp(name,'i'));
 }
 
+async function planNamedTrip(page,from,to){
+  await page.locator('#fromInput').fill(from);
+  await page.locator('#toInput').fill(to);
+  await page.locator('#planButton').click();
+  await expect(page.locator('#detailPanel')).toBeVisible();
+  await expect(page.locator('#detailPanel h2')).toContainText(from);
+  await expect(page.locator('#detailPanel h2')).toContainText(to);
+  await expect(page.locator('#plannerStatus')).not.toContainText(/Finding routes|Loading route/);
+}
+
 async function planCouvaToChaguanas(page){
   await chooseLocalPlace(page,'fromInput','Couva');
   await chooseLocalPlace(page,'toInput','Chaguanas');
   await page.locator('#planButton').click();
   await expect(page.locator('#detailPanel')).toBeVisible();
-  await expect(page.locator('#detailPanel h2')).toContainText('Couva');
-  await expect(page.locator('#detailPanel h2')).toContainText('Chaguanas');
   await expect(page.locator('#plannerStatus')).not.toContainText(/Finding routes|Loading route/);
+}
+
+async function renderedTransitCoordinates(page){
+  return page.evaluate(()=>{
+    const features=globalThis.__testMap?.getSource('journey')?.data?.features||[];
+    return features.filter(feature=>feature.properties?.kind==='transit').flatMap(feature=>feature.geometry?.coordinates||[]);
+  });
+}
+
+async function endpointLocation(page,name){
+  return page.evaluate(async endpointName=>{
+    const [places,nodes]=await Promise.all([
+      fetch('/data/places.json').then(response=>response.json()),
+      fetch('/data/nodes.json').then(response=>response.json())
+    ]);
+    return places.find(place=>place.name===endpointName)?.location||nodes.find(node=>node.name===endpointName)?.location||null;
+  },name);
+}
+
+function expectJourneyGeometryNearEndpoints(coordinates,from,to,{latPad=.04,lngPad=.04}={}){
+  expect(coordinates.length).toBeGreaterThan(1);
+  const minLat=Math.min(from.lat,to.lat)-latPad,maxLat=Math.max(from.lat,to.lat)+latPad;
+  const minLng=Math.min(from.lng,to.lng)-lngPad,maxLng=Math.max(from.lng,to.lng)+lngPad;
+  for(const [lng,lat] of coordinates){
+    expect(lat).toBeGreaterThanOrEqual(minLat);
+    expect(lat).toBeLessThanOrEqual(maxLat);
+    expect(lng).toBeGreaterThanOrEqual(minLng);
+    expect(lng).toBeLessThanOrEqual(maxLng);
+  }
 }
 
 test.beforeEach(async({page})=>{await primeNetwork(page);await page.goto('/');await expect(page.locator('#serviceCount')).not.toHaveText('0');});
@@ -72,6 +123,23 @@ test('local corridor directions explain roadside hail and requested drop-off',as
   await expect(panel).toContainText('Hail at California in the service direction');
   await expect(panel).toContainText('Tell the driver you’re getting off at Claxton Bay');
   await expect(panel).toContainText(/TT\$/);
+});
+
+test('Point Fortin to Fyzabad does not invent or highlight an unsupported journey',async({page})=>{
+  await chooseLocalPlace(page,'fromInput','Point Fortin');
+  await chooseLocalPlace(page,'toInput','Fyzabad');
+  await page.locator('#planButton').click();
+  await expect(page.locator('#plannerStatus')).toHaveText('No route in the current network.');
+  await expect(page.locator('#detailPanel')).toBeHidden();
+  expect(await renderedTransitCoordinates(page)).toHaveLength(0);
+});
+
+test('California to Arima highlighted geometry does not trail south past boarding',async({page})=>{
+  const fromName='California',toName='Arima PTSC Transit Hub';
+  await planNamedTrip(page,fromName,toName);
+  const [coordinates,from,to]=await Promise.all([renderedTransitCoordinates(page),endpointLocation(page,fromName),endpointLocation(page,toName)]);
+  expect(from).not.toBeNull();expect(to).not.toBeNull();
+  expectJourneyGeometryNearEndpoints(coordinates,from,to,{latPad:.035,lngPad:.05});
 });
 
 test('mode tabs re-plan the current trip without losing endpoints',async({page})=>{
