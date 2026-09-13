@@ -402,7 +402,7 @@ function renderJourney(connected,options=[],selectedIndex=0){
   const first=accessCopy(fromAccess,fromNear.node.name,false);if(first)html+=`<div class="journey-leg access-leg"><span class="leg-icon">${fromAccess.mode==='walk'?'↟':'●'}</span><div><h3>${escapeHtml(first.title)}</h3><p>${escapeHtml(first.detail)}</p></div></div>`;
   for(const step of steps){
     const destination=nodeIndex.get(step.to);
-    if(step.kind==='transfer'){html+=`<div class="journey-leg access-leg"><span class="leg-icon">↟</span><div><h3>Walk to ${escapeHtml(destination?.name||step.to)}</h3><p>${step.transfer.distanceKm.toFixed(1)} km · ~${Math.round(step.minutes)} min</p></div></div>`;continue;}
+    if(step.kind==='transfer'){const isConnector=step.transfer?.isEstimatedConnector||step.transfer?.kind==='local_connector';html+=`<div class="journey-leg access-leg"><span class="leg-icon">${isConnector?'●':'↟'}</span><div><h3>${isConnector?'Estimated local connector to':'Walk to'} ${escapeHtml(destination?.name||step.to)}</h3><p>${step.transfer.distanceKm.toFixed(1)} km · ~${Math.round(step.minutes)} min${isConnector?' · not a surveyed route':''}</p></div></div>`;continue;}
     html+=`<div class="journey-leg"><span class="leg-route" style="--route-color:${routeColor(step.service)}"></span><div><h3>${escapeHtml(transitInstruction(step))}</h3><p>${escapeHtml(boardingDetail(step))}</p><div class="data-chips leg-chips">${serviceBadges(step.service,step.from,step.to)}</div></div></div>`;
   }
   const last=accessCopy(toAccess,toNear.node.name,true);if(last)html+=`<div class="journey-leg access-leg"><span class="leg-icon">${toAccess.mode==='walk'?'↟':'◆'}</span><div><h3>${escapeHtml(last.title)}</h3><p>${escapeHtml(last.detail)}</p></div></div>`;
