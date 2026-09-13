@@ -27,8 +27,6 @@ const bugRules={
 export default [
   {
     ignores:[
-      'public/app.js',
-      'public/routing-core.mjs',
       'public/src/**',
       'tools/apply-*.mjs'
     ]
