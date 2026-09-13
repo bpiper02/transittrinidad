@@ -16,22 +16,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Audit declared project dependencies
+      - name: Audit exact current browser QA toolchain
         shell: bash
         run: |
-          rm -rf node_modules package-lock.json
+          mkdir -p /tmp/r7a-current
+          cd /tmp/r7a-current
+          printf '%s\n' '{"private":true,"dependencies":{"eslint":"9.35.0","@playwright/test":"1.55.0"}}' > package.json
           npm install --package-lock-only --ignore-scripts
-          npm audit --json > /tmp/baseline.json || true
-          node -e "const a=require('/tmp/baseline.json'); console.log(JSON.stringify({metadata:a.metadata?.vulnerabilities,vulnerabilities:Object.fromEntries(Object.entries(a.vulnerabilities||{}).map(([k,v])=>[k,{severity:v.severity,isDirect:v.isDirect,range:v.range,via:(v.via||[]).map(x=>typeof x==='string'?x:{name:x.name,title:x.title,severity:x.severity,range:x.range}),fixAvailable:v.fixAvailable}]))},null,2))"
-      - name: Audit browser QA dependency set
+          npm audit --json > audit.json || true
+          node -e "const a=require('./audit.json'); console.log(JSON.stringify({metadata:a.metadata?.vulnerabilities,vulnerabilities:Object.fromEntries(Object.entries(a.vulnerabilities||{}).map(([k,v])=>[k,{severity:v.severity,isDirect:v.isDirect,range:v.range,via:(v.via||[]).map(x=>typeof x==='string'?x:{source:x.source,name:x.name,title:x.title,severity:x.severity,range:x.range,url:x.url}),effects:v.effects,fixAvailable:v.fixAvailable}]))},null,2))"
+      - name: Discover and audit current Playwright release
         shell: bash
         run: |
-          rm -rf node_modules package-lock.json
-          npm install --package-lock-only --ignore-scripts --no-save @playwright/test@1.55.0
-          npm audit --json > /tmp/browser.json || true
-          node -e "const a=require('/tmp/browser.json'); console.log(JSON.stringify({metadata:a.metadata?.vulnerabilities,vulnerabilities:Object.fromEntries(Object.entries(a.vulnerabilities||{}).map(([k,v])=>[k,{severity:v.severity,isDirect:v.isDirect,range:v.range,via:(v.via||[]).map(x=>typeof x==='string'?x:{name:x.name,title:x.title,severity:x.severity,range:x.range}),fixAvailable:v.fixAvailable}]))},null,2))"
-      - name: Resolved top-level versions
-        shell: bash
-        run: |
-          npm install --ignore-scripts --no-save @playwright/test@1.55.0
-          npm ls eslint @playwright/test playwright playwright-core ajv minimatch --all || true
+          LATEST="$(npm view @playwright/test version)"
+          echo "latest_playwright=$LATEST"
+          mkdir -p /tmp/r7a-latest
+          cd /tmp/r7a-latest
+          printf '{"private":true,"dependencies":{"eslint":"9.35.0","@playwright/test":"%s"}}\n' "$LATEST" > package.json
+          npm install --package-lock-only --ignore-scripts
+          npm audit --json > audit.json || true
+          node -e "const a=require('./audit.json'); console.log(JSON.stringify({metadata:a.metadata?.vulnerabilities,vulnerabilities:Object.fromEntries(Object.entries(a.vulnerabilities||{}).map(([k,v])=>[k,{severity:v.severity,isDirect:v.isDirect,range:v.range,via:(v.via||[]).map(x=>typeof x==='string'?x:{source:x.source,name:x.name,title:x.title,severity:x.severity,range:x.range,url:x.url}),effects:v.effects,fixAvailable:v.fixAvailable}]))},null,2))"
