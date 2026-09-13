@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { validateDataset, validateSchedule, validateService, validateSource, validateTransfer } from '../src/data-contract.mjs';
+import { validateAccessSegment, validateDataset, validateSchedule, validateService, validateSource, validateTransfer } from '../src/data-contract.mjs';
 
 const nodes = JSON.parse(await readFile(new URL('../data/nodes.json', import.meta.url)));
 const services = JSON.parse(await readFile(new URL('../data/services.json', import.meta.url)));
@@ -21,7 +21,25 @@ assert.throws(()=>validateService({...base,bidirectional:true}),/bidirectional i
 assert.throws(()=>validateService({...base,stopNodeIds:['b','a']}),/must start at origin and end at destination/);
 assert.throws(()=>validateService({...base,geometryConfidence:'verified_path',geometry:null}),/must include geometry/);
 assert.throws(()=>validateService({...base,availability:{kind:'scheduled',note:'x'}}),/invalid availability/);
+assert.throws(()=>validateService({...base,boardingPolicy:'assume_anywhere'}),/invalid boardingPolicy/);
 assert.throws(() => validateSource({name:'x',url:'https://example.com',checkedAt:'2026-02-31'}), /real YYYY-MM-DD date/);
+
+const passThroughBase={
+  ...base,
+  mode:'maxi',
+  boardingPolicy:'main_road_pass_through',
+  alightingPolicy:'main_road_pass_through',
+  accessSegments:[{
+    id:'segment-a-b',fromNodeId:'a',toNodeId:'b',roadClass:'main_road',confidence:'community_verified',
+    safetyEvidence:['junction','community_verified'],
+    sources:[{name:'field review',url:'https://example.com/review',checkedAt:'2026-09-13'}]
+  }]
+};
+assert.equal(validateService(passThroughBase),true);
+assert.equal(validateAccessSegment(passThroughBase.accessSegments[0], passThroughBase), true);
+assert.throws(()=>validateService({...passThroughBase,accessSegments:[{...passThroughBase.accessSegments[0],safetyEvidence:['unknown']}]}),/safe stopping evidence/);
+assert.throws(()=>validateService({...passThroughBase,accessSegments:[{...passThroughBase.accessSegments[0],confidence:'unknown'}]}),/non-unknown confidence/);
+assert.throws(()=>validateService({...passThroughBase,accessSegments:[{...passThroughBase.accessSegments[0],fromNodeId:'b',toNodeId:'a'}]}),/stop order/);
 
 const transferBase={
   id:'walk-a-b',fromNodeId:'a',toNodeId:'b',mode:'walk',distanceKm:.4,estimatedMinutes:6,confidence:'estimated_walk',
