@@ -18,7 +18,7 @@ assert.match(app,/\.\/src\/routing-core\.mjs/);
 assert.match(app,/\.\/src\/place-core\.mjs/,'browser must use the canonical place-resolution vocabulary');
 assert.match(app,/\.\/src\/location-core\.mjs/,'browser must use shared live-location helpers');
 assert.match(app,/requestCurrentPosition/,'live location should use the browser geolocation helper');
-assert.match(app,/source:'browser_geolocation'/,'location endpoint metadata must survive into planning');
+assert.match(app,/selected\.source==='browser_geolocation'/,'location endpoint metadata must survive into planning');
 assert.match(app,/accuracyWarning/,'low-accuracy location warnings must be visible');
 assert.match(app,/current-from/,'map should distinguish live current-location origin markers');
 assert.match(app,/current-to/,'map should distinguish live current-location destination markers');
