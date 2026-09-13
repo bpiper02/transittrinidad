@@ -64,7 +64,7 @@ function criterion(name,label){
 function renderFareBaseline(){
   const baseline=pilot.fareBaseline;
   const last=baseline.southboundFromChaguanas.at(-1);
-  $('#fareBaseline').innerHTML=`<div class="kicker">Fare check</div><h2 style="margin:6px 0">Historical baseline — verify, don’t assume</h2><p>The latest route-specific ladder we found says short drops were TT$${baseline.shortDropTTD} and Chaguanas → San Fernando was TT$${last.fareTTD}, effective ${escapeHtml(baseline.effectiveDate)}. We need the reviewer to tell us what is true now.</p><p class="historical">This is deliberately not treated as a 2026 confirmed fare.</p>`;
+  $('#fareBaseline').innerHTML=`<div class="kicker">Fare check</div><h2 style="margin:6px 0">Historical baseline — verify, don’t assume</h2><p>The latest route-specific ladder we found says short drops were TT$${escapeHtml(baseline.shortDropTTD)} and Chaguanas → San Fernando was TT$${escapeHtml(last.fareTTD)}, effective ${escapeHtml(baseline.effectiveDate)}. We need the reviewer to tell us what is true now.</p><p class="historical">This is deliberately not treated as a 2026 confirmed fare.</p>`;
 }
 
 function renderJourney(fixture,index){
@@ -77,13 +77,13 @@ function renderJourney(fixture,index){
     planHtml=`<div class="plan"><div class="warning">Current planner does not produce a usable ${escapeHtml(fixture.expectedMode||'transit')} journey for this probe.</div><p>That is useful pilot information. Tell us what the real northbound behavior should be.</p></div>`;
   }else{
     const fare=fareForJourney(option.steps,{fares,nodes:nodesArray});
-    const mismatch=option.transferCount>fixture.expectedTransfersMax?`<div class="warning">Planner currently uses ${option.transferCount} transfer(s); pilot expectation is at most ${fixture.expectedTransfersMax}.</div>`:'';
+    const mismatch=option.transferCount>fixture.expectedTransfersMax?`<div class="warning">Planner currently uses ${option.transferCount} transfer(s); pilot expectation is at most ${escapeHtml(fixture.expectedTransfersMax)}.</div>`:'';
     planHtml=`<div class="plan">${mismatch}<div class="route-meta">Current planner · ${option.transferCount} transfer(s) · ${escapeHtml(fareLabel(fare))}</div>${option.steps.map(step=>step.kind==='transit'?transitStepHtml(step):genericStepHtml(step)).join('')}</div>`;
   }
   return `<section class="journey" data-journey-id="${escapeHtml(fixture.id)}">
     <div class="kicker">Journey ${index+1} of ${pilot.journeys.length}${fixture.reverseProbe?' · reverse-direction probe':''}</div>
     <h2>${escapeHtml(from)} → ${escapeHtml(to)}</h2>
-    <div class="route-meta">${escapeHtml(fixture.expectedMode||'transit')} · expected ≤ ${fixture.expectedTransfersMax} transfer(s)</div>
+    <div class="route-meta">${escapeHtml(fixture.expectedMode||'transit')} · expected ≤ ${escapeHtml(fixture.expectedTransfersMax)} transfer(s)</div>
     <p class="question">${escapeHtml(fixture.question)}</p>
     ${planHtml}
     <div class="review-grid">
