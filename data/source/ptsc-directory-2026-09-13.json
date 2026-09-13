@@ -1,0 +1,4552 @@
+{
+  "source": {
+    "name": "PTSC Routes and Schedules directory",
+    "url": "https://ptsc.co.tt/routes-and-schedules/",
+    "checkedAt": "2026-09-13",
+    "sourceModifiedAt": "2025-03-11T18:05:14+00:00"
+  },
+  "captureScope": "Full official route catalog plus timetable cards exposed on the public directory page. Only records with known service days and departures are eligible for schedule promotion.",
+  "catalog": [
+    {
+      "officialId": "ptsc-card-9077",
+      "title": "Moruga/Princes Town",
+      "from": [
+        {
+          "id": 450,
+          "name": "Moruga",
+          "slug": "moruga"
+        }
+      ],
+      "to": [
+        {
+          "id": 316,
+          "name": "Princes Town",
+          "slug": "princes-town"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/moruga-princes-town/",
+      "publishedAt": "2025-04-07T19:48:08",
+      "sourceModifiedAt": "2025-04-07T19:48:08",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-9076",
+      "title": "Princes Town/Moruga",
+      "from": [
+        {
+          "id": 377,
+          "name": "Princes Town",
+          "slug": "princes-town"
+        }
+      ],
+      "to": [
+        {
+          "id": 451,
+          "name": "Moruga",
+          "slug": "moruga"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/princes-town-moruga/",
+      "publishedAt": "2025-04-07T19:45:51",
+      "sourceModifiedAt": "2025-04-07T19:45:51",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-9074",
+      "title": "Scarborough/Charlotteville",
+      "from": [
+        {
+          "id": 288,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "to": [
+        {
+          "id": 345,
+          "name": "Charlotteville",
+          "slug": "charlotteville"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-5/",
+      "publishedAt": "2025-04-07T19:32:09",
+      "sourceModifiedAt": "2025-04-07T19:53:00",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-9073",
+      "title": "Scarborough/ L&#8217;Anse Fourmi",
+      "from": [
+        {
+          "id": 288,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "to": [
+        {
+          "id": 344,
+          "name": "L'Anse Fourmi",
+          "slug": "lanse-fourmi"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/scarborough-lanse-fourmi-4/",
+      "publishedAt": "2025-04-07T19:29:36",
+      "sourceModifiedAt": "2025-04-07T19:58:28",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-8882",
+      "title": "Arima / St Helena Via Carapo",
+      "from": [
+        {
+          "id": 286,
+          "name": "Arima",
+          "slug": "arima"
+        }
+      ],
+      "to": [
+        {
+          "id": 369,
+          "name": "St Helena",
+          "slug": "st-helena"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 163,
+          "name": "Saturday",
+          "slug": "saturday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 102,
+          "name": "Arima / Carapo",
+          "slug": "arima-carapo"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/arima-st-helena-via-carapo/",
+      "publishedAt": "2025-01-15T15:43:40",
+      "sourceModifiedAt": "2025-01-15T15:45:51",
+      "fareTTD": 3,
+      "amTimes": [
+        "7:00",
+        "9:00"
+      ],
+      "pmTimes": [
+        "2:00",
+        "4:00"
+      ],
+      "timetableCaptured": true
+    },
+    {
+      "officialId": "ptsc-card-8276",
+      "title": "POS/Fyzabad",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 312,
+          "name": "Fyzabad",
+          "slug": "fyzabad"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/pos-fyzabad/",
+      "publishedAt": "2024-08-05T18:43:27",
+      "sourceModifiedAt": "2024-08-05T18:43:27",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-8244",
+      "title": "POS/ Sangre Grande (Coach)",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 447,
+          "name": "Sangre Grande",
+          "slug": "sangre-grande"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/pos-sangre-grande-coach/",
+      "publishedAt": "2024-07-25T18:15:11",
+      "sourceModifiedAt": "2024-07-25T18:15:11",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-8243",
+      "title": "POS/ Sangre Grande (ECS)",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 447,
+          "name": "Sangre Grande",
+          "slug": "sangre-grande"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/pos-sangre-grande-ecs/",
+      "publishedAt": "2024-07-25T18:12:23",
+      "sourceModifiedAt": "2024-07-25T18:12:23",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-8226",
+      "title": "POS/Couva",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 310,
+          "name": "Couva",
+          "slug": "couva"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/pos-couva/",
+      "publishedAt": "2024-07-15T15:32:18",
+      "sourceModifiedAt": "2024-07-15T15:32:18",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-7797",
+      "title": "Arima/ La Horquetta",
+      "from": [
+        {
+          "id": 286,
+          "name": "Arima",
+          "slug": "arima"
+        }
+      ],
+      "to": [
+        {
+          "id": 296,
+          "name": "La Horquetta",
+          "slug": "la-horquetta"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 163,
+          "name": "Saturday",
+          "slug": "saturday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/arima-la-horquetta-2/",
+      "publishedAt": "2024-05-02T19:40:47",
+      "sourceModifiedAt": "2024-05-02T19:40:47",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-7796",
+      "title": "La Horquetta/Arima",
+      "from": [
+        {
+          "id": 445,
+          "name": "La Horquetta",
+          "slug": "la-horquetta"
+        }
+      ],
+      "to": [
+        {
+          "id": 289,
+          "name": "Arima",
+          "slug": "arima"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 163,
+          "name": "Saturday",
+          "slug": "saturday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/la-horquetta-arima/",
+      "publishedAt": "2024-05-02T19:38:15",
+      "sourceModifiedAt": "2024-05-02T19:38:15",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-7612",
+      "title": "Charlotteville/Scarborough",
+      "from": [
+        {
+          "id": 441,
+          "name": "Charlotteville",
+          "slug": "charlotteville"
+        }
+      ],
+      "to": [
+        {
+          "id": 442,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 72,
+          "name": "Sunday",
+          "slug": "sunday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/charlotteville-scarborough-2/",
+      "publishedAt": "2024-02-23T18:34:39",
+      "sourceModifiedAt": "2024-02-23T18:34:39",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-7611",
+      "title": "Scarborough/Charlotteville",
+      "from": [
+        {
+          "id": 288,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "to": [
+        {
+          "id": 345,
+          "name": "Charlotteville",
+          "slug": "charlotteville"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 72,
+          "name": "Sunday",
+          "slug": "sunday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-4/",
+      "publishedAt": "2024-02-23T18:29:11",
+      "sourceModifiedAt": "2025-04-07T19:54:01",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-7610",
+      "title": "Charlotteville/Scarborough",
+      "from": [
+        {
+          "id": 441,
+          "name": "Charlotteville",
+          "slug": "charlotteville"
+        }
+      ],
+      "to": [
+        {
+          "id": 442,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 163,
+          "name": "Saturday",
+          "slug": "saturday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/charlotteville-scarborough/",
+      "publishedAt": "2024-02-23T18:27:42",
+      "sourceModifiedAt": "2024-02-23T18:27:42",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-7609",
+      "title": "Scarborough/ Charlotteville",
+      "from": [
+        {
+          "id": 288,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "to": [
+        {
+          "id": 345,
+          "name": "Charlotteville",
+          "slug": "charlotteville"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 163,
+          "name": "Saturday",
+          "slug": "saturday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-3/",
+      "publishedAt": "2024-02-23T18:21:40",
+      "sourceModifiedAt": "2025-04-07T19:54:24",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-6976",
+      "title": "Scarborough/ L&#8217;Anse Fourmi",
+      "from": [
+        {
+          "id": 288,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "to": [
+        {
+          "id": 344,
+          "name": "L'Anse Fourmi",
+          "slug": "lanse-fourmi"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 72,
+          "name": "Sunday",
+          "slug": "sunday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/scarborough-lanse-fourmi-3/",
+      "publishedAt": "2023-11-22T14:09:16",
+      "sourceModifiedAt": "2025-04-07T19:56:00",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-6975",
+      "title": "Scarborough/ L&#8217;Anse Fourmi",
+      "from": [
+        {
+          "id": 288,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "to": [
+        {
+          "id": 344,
+          "name": "L'Anse Fourmi",
+          "slug": "lanse-fourmi"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 163,
+          "name": "Saturday",
+          "slug": "saturday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/scarborough-lanse-fourmi-2/",
+      "publishedAt": "2023-11-22T14:07:25",
+      "sourceModifiedAt": "2025-04-07T19:56:10",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-6044",
+      "title": "POS/Piarco",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 299,
+          "name": "Piarco",
+          "slug": "piarco"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 163,
+          "name": "Saturday",
+          "slug": "saturday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/pos-piarco-2/",
+      "publishedAt": "2023-08-23T19:42:10",
+      "sourceModifiedAt": "2023-10-27T13:08:01",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-5879",
+      "title": "Chaguanas/ Tabaquite",
+      "from": [
+        {
+          "id": 285,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "to": [
+        {
+          "id": 319,
+          "name": "Tabaquite",
+          "slug": "tabaquite"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/chaguanas-tabaquite/",
+      "publishedAt": "2023-08-07T18:15:40",
+      "sourceModifiedAt": "2023-08-07T18:15:40",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-5846",
+      "title": "Chaguanas/ San Fernando",
+      "from": [
+        {
+          "id": 285,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "to": [
+        {
+          "id": 359,
+          "name": "San Fernando",
+          "slug": "san-fernando"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/chaguanas-san-fernando/",
+      "publishedAt": "2023-07-31T16:24:59",
+      "sourceModifiedAt": "2025-01-08T12:37:49",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2473",
+      "title": "Sangre Grande / Toco / Matelot (Coach)",
+      "from": [
+        {
+          "id": 287,
+          "name": "Sangre Grande",
+          "slug": "sangre-grande"
+        }
+      ],
+      "to": [
+        {
+          "id": 338,
+          "name": "Matelot",
+          "slug": "matelot"
+        },
+        {
+          "id": 337,
+          "name": "Toco",
+          "slug": "toco"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 107,
+          "name": "Sangre Grande / Toco / Matelot",
+          "slug": "sangre-grande-toco-matelot"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/sangre-grande-toco-matelot-coach/",
+      "publishedAt": "2023-07-20T14:01:04",
+      "sourceModifiedAt": "2023-07-20T14:01:25",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-5619",
+      "title": "POS/Point Fortin",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 365,
+          "name": "Point Fortin",
+          "slug": "point-fortin"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 276,
+          "name": "POS / Point Fortin",
+          "slug": "pos-point-fortin"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-point-fortin/",
+      "publishedAt": "2023-07-12T15:08:07",
+      "sourceModifiedAt": "2024-01-05T15:20:56",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-5276",
+      "title": "POS / Chaguanas",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 290,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 72,
+          "name": "Sunday",
+          "slug": "sunday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 157,
+          "name": "POS / Chaguanas ECS Weekend",
+          "slug": "chagunas-ecs"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-chaguanas/",
+      "publishedAt": "2023-06-14T14:21:57",
+      "sourceModifiedAt": "2023-07-19T18:34:31",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-5275",
+      "title": "POS / Arima Transit",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 289,
+          "name": "Arima",
+          "slug": "arima"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 72,
+          "name": "Sunday",
+          "slug": "sunday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 156,
+          "name": "POS / Arima Transit Weekend",
+          "slug": "arima-transit"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-arima-transit/",
+      "publishedAt": "2023-06-14T14:19:58",
+      "sourceModifiedAt": "2023-07-19T18:32:55",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-5273",
+      "title": "POS/San Fernando Transit",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 359,
+          "name": "San Fernando",
+          "slug": "san-fernando"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 72,
+          "name": "Sunday",
+          "slug": "sunday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 162,
+          "name": "POS / San Fernando Transit Weekend",
+          "slug": "sanfernando-transit"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-transit/",
+      "publishedAt": "2023-06-14T13:32:38",
+      "sourceModifiedAt": "2023-10-27T13:48:55",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-5272",
+      "title": "POS/San Fernando ECS",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 359,
+          "name": "San Fernando",
+          "slug": "san-fernando"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 72,
+          "name": "Sunday",
+          "slug": "sunday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 161,
+          "name": "POS / San Fernando ECS Weekend",
+          "slug": "sanfernando-ecs"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-ecs/",
+      "publishedAt": "2023-06-14T13:30:42",
+      "sourceModifiedAt": "2023-10-27T13:49:37",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-5271",
+      "title": "Pos/Blanchisseuse",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 292,
+          "name": "Blanchisseuse",
+          "slug": "blanchisseuse"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 163,
+          "name": "Saturday",
+          "slug": "saturday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 160,
+          "name": "POS / Blanchisseuse",
+          "slug": "blanchisseuse"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-blanchisseuse/",
+      "publishedAt": "2023-06-14T13:27:48",
+      "sourceModifiedAt": "2023-10-27T13:07:37",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-5270",
+      "title": "POS/Tunapuna to Caura",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 364,
+          "name": "Caura",
+          "slug": "caura"
+        },
+        {
+          "id": 362,
+          "name": "Tunapuna",
+          "slug": "tunapuna"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 163,
+          "name": "Saturday",
+          "slug": "saturday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 159,
+          "name": "POS / Caura Shuttle Weekend",
+          "slug": "caura-shuttle"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/tunapuna-to-caura/",
+      "publishedAt": "2023-06-14T13:25:44",
+      "sourceModifiedAt": "2023-10-27T13:48:23",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-5269",
+      "title": "POS/Chaguaramas",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 291,
+          "name": "Chaguaramas",
+          "slug": "chaguaramas"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 163,
+          "name": "Saturday",
+          "slug": "saturday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 158,
+          "name": "POS / Chaguaramas Weekend",
+          "slug": "chaguaramas"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/chaguaramas/",
+      "publishedAt": "2023-06-14T13:16:10",
+      "sourceModifiedAt": "2023-10-27T13:08:20",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-5268",
+      "title": "POS/Chaguanas ECS",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 290,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 163,
+          "name": "Saturday",
+          "slug": "saturday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 157,
+          "name": "POS / Chaguanas ECS Weekend",
+          "slug": "chagunas-ecs"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/chaguanas-ecs-2/",
+      "publishedAt": "2023-06-14T13:13:44",
+      "sourceModifiedAt": "2023-10-27T13:08:50",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-5265",
+      "title": "POS/Chaguanas ECS",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 290,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 72,
+          "name": "Sunday",
+          "slug": "sunday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 157,
+          "name": "POS / Chaguanas ECS Weekend",
+          "slug": "chagunas-ecs"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/chaguanas-ecs/",
+      "publishedAt": "2023-06-14T12:19:18",
+      "sourceModifiedAt": "2023-10-27T13:09:02",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-5264",
+      "title": "Saturday Arima Transit",
+      "from": [],
+      "to": [],
+      "serviceDays": [],
+      "routeTags": [],
+      "url": "https://ptsc.co.tt/routes/saturday-arima-transit/",
+      "publishedAt": "2023-06-14T12:17:20",
+      "sourceModifiedAt": "2023-06-14T12:21:44",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-3589",
+      "title": "Scarborough/ Buccoo",
+      "from": [
+        {
+          "id": 288,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "to": [
+        {
+          "id": 356,
+          "name": "Buccoo",
+          "slug": "buccoo"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 126,
+          "name": "Scarborough/ Buccoo",
+          "slug": "scarborough-buccoo"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/scarborough-buccoo/",
+      "publishedAt": "2022-06-15T12:38:38",
+      "sourceModifiedAt": "2024-08-09T18:32:09",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-3588",
+      "title": "Scarborough/Black Rock Courland",
+      "from": [
+        {
+          "id": 288,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "to": [
+        {
+          "id": 342,
+          "name": "Blackrock",
+          "slug": "blackrock"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 125,
+          "name": "Scarborough/Black Rock Courland",
+          "slug": "scarborough-black-rock-courland"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/scarborough-black-rock-courland/",
+      "publishedAt": "2022-06-15T12:35:21",
+      "sourceModifiedAt": "2023-07-19T20:04:03",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-3587",
+      "title": "Scarborough/Plymouth via Arnos Vale",
+      "from": [
+        {
+          "id": 288,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "to": [
+        {
+          "id": 342,
+          "name": "Blackrock",
+          "slug": "blackrock"
+        },
+        {
+          "id": 341,
+          "name": "Plymouth",
+          "slug": "plymouth"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 124,
+          "name": "Scarborough/Plymouth via Arnos Vale",
+          "slug": "scarborough-plymouth-via-arnos-vale"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/scarborough-plymouth-via-arnos-vale/",
+      "publishedAt": "2022-06-15T12:30:41",
+      "sourceModifiedAt": "2023-07-20T13:29:18",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-3586",
+      "title": "Scarborough/Mt. Thomas",
+      "from": [
+        {
+          "id": 288,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "to": [
+        {
+          "id": 347,
+          "name": "Mt Thomas",
+          "slug": "mt-thomas"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 123,
+          "name": "Scarborough/Mt. Thomas",
+          "slug": "scarborough-mt-thomas"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/scarborough-mt-thomas/",
+      "publishedAt": "2022-06-15T12:26:33",
+      "sourceModifiedAt": "2023-07-20T13:31:04",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-3585",
+      "title": "Scarborough/Montgomery",
+      "from": [
+        {
+          "id": 288,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "to": [
+        {
+          "id": 348,
+          "name": "Mt Gomery",
+          "slug": "mt-gomery"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 122,
+          "name": "Scarborough/Montgomery",
+          "slug": "scarborough-montgomery"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/scarborough-montgomery/",
+      "publishedAt": "2022-06-15T12:24:24",
+      "sourceModifiedAt": "2023-07-20T13:35:18",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-3584",
+      "title": "Scarborough/Mason Hall",
+      "from": [
+        {
+          "id": 288,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "to": [
+        {
+          "id": 346,
+          "name": "Mason Hall",
+          "slug": "mason-hall"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 121,
+          "name": "Scarborough/Mason Hall",
+          "slug": "scarborough-mason-hall"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/scarborough-mason-hall/",
+      "publishedAt": "2022-06-15T12:21:26",
+      "sourceModifiedAt": "2023-07-20T13:31:51",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-3581",
+      "title": "Scarborough/Crown Point",
+      "from": [
+        {
+          "id": 288,
+          "name": "Scarborough",
+          "slug": "scarborough"
+        }
+      ],
+      "to": [
+        {
+          "id": 340,
+          "name": "Crown Point",
+          "slug": "crown-point"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 119,
+          "name": "Scarborough/Crown Point",
+          "slug": "scarborough-crown-point"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-2/",
+      "publishedAt": "2022-06-15T12:13:26",
+      "sourceModifiedAt": "2023-07-19T20:05:06",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2469",
+      "title": "Sangre Grande / Guatopajaro",
+      "from": [
+        {
+          "id": 287,
+          "name": "Sangre Grande",
+          "slug": "sangre-grande"
+        }
+      ],
+      "to": [
+        {
+          "id": 367,
+          "name": "Guatopajaro",
+          "slug": "guatopajaro"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 106,
+          "name": "Sangre Grande / Guatopajaro",
+          "slug": "sangre-grande-guatopajaro"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/sangre-grande-guatopajaro/",
+      "publishedAt": "2022-05-26T13:59:46",
+      "sourceModifiedAt": "2023-07-19T19:39:32",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2468",
+      "title": "Arima / Aripo",
+      "from": [
+        {
+          "id": 286,
+          "name": "Arima",
+          "slug": "arima"
+        }
+      ],
+      "to": [
+        {
+          "id": 335,
+          "name": "Aripo",
+          "slug": "aripo"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 105,
+          "name": "Arima / Aripo",
+          "slug": "arima-aripo"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/arima-aripo/",
+      "publishedAt": "2022-05-26T13:54:00",
+      "sourceModifiedAt": "2023-07-18T18:22:38",
+      "fareTTD": 3,
+      "amTimes": [
+        "5:00",
+        "7:00",
+        "9:00"
+      ],
+      "pmTimes": [
+        "1:00",
+        "3:00",
+        "5:00"
+      ],
+      "timetableCaptured": true
+    },
+    {
+      "officialId": "ptsc-card-2467",
+      "title": "Arima / Wallerfield",
+      "from": [
+        {
+          "id": 286,
+          "name": "Arima",
+          "slug": "arima"
+        }
+      ],
+      "to": [
+        {
+          "id": 336,
+          "name": "Wallerfield",
+          "slug": "wallerfield"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 104,
+          "name": "Arima / Wallerfield",
+          "slug": "arima-wallerfield"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/arima-wallerfield/",
+      "publishedAt": "2022-05-26T13:52:19",
+      "sourceModifiedAt": "2023-07-18T18:24:34",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2466",
+      "title": "Arima / La Horquetta",
+      "from": [
+        {
+          "id": 286,
+          "name": "Arima",
+          "slug": "arima"
+        }
+      ],
+      "to": [
+        {
+          "id": 296,
+          "name": "La Horquetta",
+          "slug": "la-horquetta"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 103,
+          "name": "Arima / La Horquetta",
+          "slug": "arima-la-horquetta"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/arima-la-horquetta/",
+      "publishedAt": "2022-05-26T13:48:00",
+      "sourceModifiedAt": "2023-07-18T17:08:35",
+      "fareTTD": 3,
+      "amTimes": [
+        "5:00",
+        "6:00",
+        "7:00",
+        "8:00",
+        "9:00",
+        "10:00",
+        "11:00"
+      ],
+      "pmTimes": [
+        "12:00",
+        "1:00",
+        "2:00",
+        "3:00",
+        "4:00",
+        "5:00",
+        "6:00",
+        "7:00",
+        "8:00"
+      ],
+      "timetableCaptured": true
+    },
+    {
+      "officialId": "ptsc-card-2465",
+      "title": "Arima / St Helena Via Carapo",
+      "from": [
+        {
+          "id": 286,
+          "name": "Arima",
+          "slug": "arima"
+        }
+      ],
+      "to": [
+        {
+          "id": 334,
+          "name": "Carapo",
+          "slug": "carapo"
+        },
+        {
+          "id": 369,
+          "name": "St Helena",
+          "slug": "st-helena"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 102,
+          "name": "Arima / Carapo",
+          "slug": "arima-carapo"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/arima-carapo/",
+      "publishedAt": "2022-05-26T13:44:14",
+      "sourceModifiedAt": "2023-09-21T16:21:31",
+      "fareTTD": 3,
+      "amTimes": [
+        "5:00",
+        "7:00",
+        "9:00"
+      ],
+      "pmTimes": [
+        "2:00",
+        "4:00",
+        "6:00"
+      ],
+      "timetableCaptured": true
+    },
+    {
+      "officialId": "ptsc-card-2463",
+      "title": "Malabar / POS",
+      "from": [
+        {
+          "id": 370,
+          "name": "Malabar",
+          "slug": "malabar"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 100,
+          "name": "Malabar / POS",
+          "slug": "malabar-pos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/malabar-pos/",
+      "publishedAt": "2022-05-26T13:41:57",
+      "sourceModifiedAt": "2023-07-20T14:19:11",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2464",
+      "title": "Sangre Grande / Valencia / Arima",
+      "from": [
+        {
+          "id": 287,
+          "name": "Sangre Grande",
+          "slug": "sangre-grande"
+        }
+      ],
+      "to": [
+        {
+          "id": 289,
+          "name": "Arima",
+          "slug": "arima"
+        },
+        {
+          "id": 368,
+          "name": "Valencia",
+          "slug": "valencia"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 101,
+          "name": "Sangre Grande / Valencia / Arima",
+          "slug": "sangre-grande-valencia-arima"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/sangre-grande-valencia-arima/",
+      "publishedAt": "2022-05-26T13:41:06",
+      "sourceModifiedAt": "2023-07-19T19:57:34",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2462",
+      "title": "Chaguanas / Cashew Gardens / Carlsen Field",
+      "from": [
+        {
+          "id": 285,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "to": [
+        {
+          "id": 361,
+          "name": "Carlsen Field",
+          "slug": "carlsen-field"
+        },
+        {
+          "id": 360,
+          "name": "Cashew Gardens",
+          "slug": "cashew-gardens"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 99,
+          "name": "Chaguanas / Cashew Gardens / Carlsen Field",
+          "slug": "chaguanas-cashew-gardens-carlsen-field"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/chaguanas-cashew-gardens-carlsen-field/",
+      "publishedAt": "2022-05-26T13:32:17",
+      "sourceModifiedAt": "2023-07-18T19:21:00",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2461",
+      "title": "Chaguanas / San Fernando (via Southern Main Road)",
+      "from": [
+        {
+          "id": 285,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "to": [
+        {
+          "id": 359,
+          "name": "San Fernando",
+          "slug": "san-fernando"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 98,
+          "name": "Chaguanas / San Fernando (via Southern Main Road)",
+          "slug": "chaguanas-san-fernando-via-southern-main-road"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/chaguanas-san-fernando-via-southern-main-road/",
+      "publishedAt": "2022-05-26T13:30:42",
+      "sourceModifiedAt": "2023-07-18T19:06:58",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2460",
+      "title": "Chaguanas / Edinburgh 500",
+      "from": [
+        {
+          "id": 285,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "to": [
+        {
+          "id": 328,
+          "name": "Edinburgh 500",
+          "slug": "edinburgh-500"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 97,
+          "name": "Chaguanas / Edinburgh 500",
+          "slug": "chaguanas-edinburgh-500"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/chaguanas-edinburgh-500/",
+      "publishedAt": "2022-05-26T13:28:41",
+      "sourceModifiedAt": "2023-07-18T18:57:25",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2459",
+      "title": "Chaguanas / Chandenagore",
+      "from": [
+        {
+          "id": 285,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "to": [
+        {
+          "id": 327,
+          "name": "Chandenagore",
+          "slug": "chandenagore"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 96,
+          "name": "Chaguanas / Chandenagore",
+          "slug": "chaguanas-chandenagore"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/chaguanas-chandenagore/",
+      "publishedAt": "2022-05-26T13:27:34",
+      "sourceModifiedAt": "2023-07-18T19:10:57",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2458",
+      "title": "Chaguanas / Rio Claro",
+      "from": [
+        {
+          "id": 285,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "to": [
+        {
+          "id": 325,
+          "name": "Rio Claro",
+          "slug": "rio-claro"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 95,
+          "name": "Chaguanas / Rio Claro",
+          "slug": "chaguanas-rio-claro"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/chaguanas-rio-claro/",
+      "publishedAt": "2022-05-26T13:24:34",
+      "sourceModifiedAt": "2025-01-08T12:39:09",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2457",
+      "title": "Chaguanas / Curepe",
+      "from": [
+        {
+          "id": 285,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "to": [
+        {
+          "id": 324,
+          "name": "Curepe",
+          "slug": "curepe"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 94,
+          "name": "Chaguanas / Curepe",
+          "slug": "chaguanas-curepe"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/chaguanas-curepe/",
+      "publishedAt": "2022-05-26T13:22:23",
+      "sourceModifiedAt": "2025-01-08T12:38:40",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2455",
+      "title": "Chaguanas / Freeport / Chickland",
+      "from": [
+        {
+          "id": 285,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "to": [
+        {
+          "id": 330,
+          "name": "Chickland",
+          "slug": "chickland"
+        },
+        {
+          "id": 329,
+          "name": "Freeport",
+          "slug": "freeport"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 92,
+          "name": "Chaguanas / Freeport / Chickland",
+          "slug": "chaguanas-freeport-chickland"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/chaguanas-freeport-chickland/",
+      "publishedAt": "2022-05-26T13:19:34",
+      "sourceModifiedAt": "2023-07-18T18:59:40",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2454",
+      "title": "Chaguanas / Mamoral",
+      "from": [
+        {
+          "id": 285,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "to": [
+        {
+          "id": 326,
+          "name": "Mamoral",
+          "slug": "mamoral"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 91,
+          "name": "Chaguanas / Mamoral",
+          "slug": "chaguanas-mamoral"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/chaguanas-mamoral/",
+      "publishedAt": "2022-05-26T13:18:30",
+      "sourceModifiedAt": "2025-01-08T12:39:48",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2453",
+      "title": "San Fernando / POS (All Stop)",
+      "from": [
+        {
+          "id": 283,
+          "name": "San Fernando",
+          "slug": "sanfernando"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 72,
+          "name": "Sunday",
+          "slug": "sunday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 73,
+          "name": "San Fernando / POS",
+          "slug": "san-fernando-pos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-pos-all-stop-2/",
+      "publishedAt": "2022-05-26T13:14:31",
+      "sourceModifiedAt": "2023-10-27T13:58:22",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2451",
+      "title": "San Fernando / Icacos",
+      "from": [
+        {
+          "id": 283,
+          "name": "San Fernando",
+          "slug": "sanfernando"
+        }
+      ],
+      "to": [
+        {
+          "id": 322,
+          "name": "Icacos",
+          "slug": "icacos"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 72,
+          "name": "Sunday",
+          "slug": "sunday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 89,
+          "name": "San Fernando / Icacos",
+          "slug": "san-fernando-icacos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-icacos/",
+      "publishedAt": "2022-05-26T13:08:38",
+      "sourceModifiedAt": "2023-07-19T19:15:33",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2449",
+      "title": "San Fernando / Point Fortin",
+      "from": [
+        {
+          "id": 283,
+          "name": "San Fernando",
+          "slug": "sanfernando"
+        }
+      ],
+      "to": [
+        {
+          "id": 365,
+          "name": "Point Fortin",
+          "slug": "point-fortin"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 72,
+          "name": "Sunday",
+          "slug": "sunday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 88,
+          "name": "San Fernando / Point Fortin",
+          "slug": "san-fernando-point-fortin"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-point-fortin/",
+      "publishedAt": "2022-05-26T13:06:54",
+      "sourceModifiedAt": "2023-07-19T19:14:03",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2447",
+      "title": "San Fernando / Mayaro",
+      "from": [
+        {
+          "id": 283,
+          "name": "San Fernando",
+          "slug": "sanfernando"
+        }
+      ],
+      "to": [
+        {
+          "id": 313,
+          "name": "Mayaro",
+          "slug": "mayaro"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 76,
+          "name": "San Fernando / Guayaguayare",
+          "slug": "san-fernando-guayaguayare"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-mayaro/",
+      "publishedAt": "2022-05-26T13:02:08",
+      "sourceModifiedAt": "2023-07-19T19:14:27",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2444",
+      "title": "San Fernando City Service : Tarouba",
+      "from": [],
+      "to": [],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 86,
+          "name": "San Fernando City Service",
+          "slug": "san-fernando-city-service"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-city-service-tarouba/",
+      "publishedAt": "2022-05-26T12:57:35",
+      "sourceModifiedAt": "2022-06-09T19:30:20",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2442",
+      "title": "San Fernando City Service: Pleasantville",
+      "from": [],
+      "to": [],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 86,
+          "name": "San Fernando City Service",
+          "slug": "san-fernando-city-service"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-city-service-pleasantville/",
+      "publishedAt": "2022-05-26T12:52:18",
+      "sourceModifiedAt": "2022-06-09T19:32:29",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2441",
+      "title": "Couva / POS",
+      "from": [
+        {
+          "id": 371,
+          "name": "Couva",
+          "slug": "couva"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 85,
+          "name": "Couva / POS",
+          "slug": "couva-pos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/couva-pos/",
+      "publishedAt": "2022-05-26T12:50:26",
+      "sourceModifiedAt": "2023-07-20T14:15:21",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2440",
+      "title": "San Fernando / UWI",
+      "from": [
+        {
+          "id": 283,
+          "name": "San Fernando",
+          "slug": "sanfernando"
+        }
+      ],
+      "to": [
+        {
+          "id": 311,
+          "name": "University of the West Indies (UWI)",
+          "slug": "university-of-the-west-indies-uwi"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 84,
+          "name": "San Fernando / UWI",
+          "slug": "san-fernando-uwi"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-uwi/",
+      "publishedAt": "2022-05-26T12:48:51",
+      "sourceModifiedAt": "2023-07-19T19:28:43",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2439",
+      "title": "#6 & #2 Scale / POS via Barrackpore (Commuter Special)",
+      "from": [],
+      "to": [],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 83,
+          "name": "#6 Scale / POS via Barrackpore (Commuter Special)",
+          "slug": "6-scale-pos-via-barrackpore-commuter-special"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/6-scale-pos-via-barrackpore-commuter-special/",
+      "publishedAt": "2022-05-26T12:47:14",
+      "sourceModifiedAt": "2023-11-10T17:17:07",
+      "fareTTD": 12,
+      "amTimes": [
+        "4:00"
+      ],
+      "pmTimes": [
+        "2:00"
+      ],
+      "timetableCaptured": true
+    },
+    {
+      "officialId": "ptsc-card-2438",
+      "title": "Siparia / POS via Penal (Commuter Special)",
+      "from": [
+        {
+          "id": 376,
+          "name": "Siparia",
+          "slug": "siparia"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 82,
+          "name": "Siparia / POS via Penal (Commuter Special)",
+          "slug": "siparia-pos-via-penal-commuter-special"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/siparia-pos-via-penal-commuter-special/",
+      "publishedAt": "2022-05-26T12:45:16",
+      "sourceModifiedAt": "2023-07-20T14:23:42",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2437",
+      "title": "Princes Town / POS via San Fernando (Commuter Special)",
+      "from": [
+        {
+          "id": 377,
+          "name": "Princes Town",
+          "slug": "princes-town"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        },
+        {
+          "id": 359,
+          "name": "San Fernando",
+          "slug": "san-fernando"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 81,
+          "name": "Princes Town / POS via San Fernand (Commuter Special)",
+          "slug": "princes-town-pos-via-san-fernand-commuter-special"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/princes-town-pos-via-san-fernand-commuter-special/",
+      "publishedAt": "2022-05-26T12:41:45",
+      "sourceModifiedAt": "2023-10-30T13:01:01",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2435",
+      "title": "Fyzabad / POS (Commuter Special)",
+      "from": [
+        {
+          "id": 372,
+          "name": "Fyzabad",
+          "slug": "fyzabad"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 79,
+          "name": "Fyzabad / POS (Commuter Special)",
+          "slug": "fyzabad-pos-commuter-special"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/fyzabad-pos-commuter-special/",
+      "publishedAt": "2022-05-26T12:30:38",
+      "sourceModifiedAt": "2024-08-05T18:39:41",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2434",
+      "title": "San Fernando / Tabaquite via Guaracara",
+      "from": [
+        {
+          "id": 283,
+          "name": "San Fernando",
+          "slug": "sanfernando"
+        }
+      ],
+      "to": [
+        {
+          "id": 319,
+          "name": "Tabaquite",
+          "slug": "tabaquite"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 78,
+          "name": "San Fernando / Tabaquite via Guaracara",
+          "slug": "san-fernando-tabaquite-via-guaracara"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-tabaquite-via-guaracara/",
+      "publishedAt": "2022-05-26T12:23:31",
+      "sourceModifiedAt": "2023-07-19T19:29:31",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2433",
+      "title": "San Fernando / Princes Town",
+      "from": [
+        {
+          "id": 283,
+          "name": "San Fernando",
+          "slug": "sanfernando"
+        }
+      ],
+      "to": [
+        {
+          "id": 316,
+          "name": "Princes Town",
+          "slug": "princes-town"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 77,
+          "name": "San Fernando / Princes Town",
+          "slug": "san-fernando-princes-town"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-princes-town/",
+      "publishedAt": "2022-05-26T12:20:52",
+      "sourceModifiedAt": "2023-07-19T19:30:06",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2432",
+      "title": "San Fernando / Guayaguayare",
+      "from": [
+        {
+          "id": 283,
+          "name": "San Fernando",
+          "slug": "sanfernando"
+        }
+      ],
+      "to": [
+        {
+          "id": 314,
+          "name": "Guayaguayare",
+          "slug": "guayaguayare"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 76,
+          "name": "San Fernando / Guayaguayare",
+          "slug": "san-fernando-guayaguayare"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-guayaguayare/",
+      "publishedAt": "2022-05-26T12:17:41",
+      "sourceModifiedAt": "2025-03-26T17:02:41",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2431",
+      "title": "San Fernado / Fyzabad",
+      "from": [
+        {
+          "id": 283,
+          "name": "San Fernando",
+          "slug": "sanfernando"
+        }
+      ],
+      "to": [
+        {
+          "id": 312,
+          "name": "Fyzabad",
+          "slug": "fyzabad"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 75,
+          "name": "San Fernado / Fyzabad",
+          "slug": "san-fernado-fyzabad"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernado-fyzabad/",
+      "publishedAt": "2022-05-26T12:14:58",
+      "sourceModifiedAt": "2023-07-19T19:17:33",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2430",
+      "title": "San Fernado / Erin via Siparia",
+      "from": [
+        {
+          "id": 283,
+          "name": "San Fernando",
+          "slug": "sanfernando"
+        }
+      ],
+      "to": [
+        {
+          "id": 315,
+          "name": "Erin",
+          "slug": "erin"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 74,
+          "name": "San Fernado / Erin via Siparia",
+          "slug": "san-fernado-erin-via-siparia"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernado-erin-via-siparia/",
+      "publishedAt": "2022-05-26T12:12:36",
+      "sourceModifiedAt": "2023-10-26T20:06:35",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2429",
+      "title": "San Fernando / POS (All Stop)",
+      "from": [
+        {
+          "id": 283,
+          "name": "San Fernando",
+          "slug": "sanfernando"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 73,
+          "name": "San Fernando / POS",
+          "slug": "san-fernando-pos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-pos-all-stop/",
+      "publishedAt": "2022-05-26T12:09:00",
+      "sourceModifiedAt": "2023-07-19T19:11:13",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2428",
+      "title": "San Fernando / POS (Limited Stop)",
+      "from": [
+        {
+          "id": 283,
+          "name": "San Fernando",
+          "slug": "sanfernando"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 73,
+          "name": "San Fernando / POS",
+          "slug": "san-fernando-pos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-pos-limited-stop/",
+      "publishedAt": "2022-05-26T12:06:17",
+      "sourceModifiedAt": "2023-07-19T19:31:28",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2427",
+      "title": "San Fernando / POS (DCS)",
+      "from": [
+        {
+          "id": 283,
+          "name": "San Fernando",
+          "slug": "sanfernando"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 73,
+          "name": "San Fernando / POS",
+          "slug": "san-fernando-pos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/san-fernando-pos-dcs/",
+      "publishedAt": "2022-05-26T11:59:18",
+      "sourceModifiedAt": "2023-08-04T13:09:09",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2426",
+      "title": "POS / San Fernado (Limited Stop)",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 359,
+          "name": "San Fernando",
+          "slug": "san-fernando"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 72,
+          "name": "Sunday",
+          "slug": "sunday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 68,
+          "name": "POS / San Fernado",
+          "slug": "pos-san-fernado"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-san-fernado-limited-stop-2/",
+      "publishedAt": "2022-05-26T01:27:14",
+      "sourceModifiedAt": "2023-08-02T15:51:44",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2422",
+      "title": "POS / Tunapuna",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 362,
+          "name": "Tunapuna",
+          "slug": "tunapuna"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 71,
+          "name": "POS / Tunapuna",
+          "slug": "pos-tunapuna"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/port-of-spain-tunapuna/",
+      "publishedAt": "2022-05-25T23:02:52",
+      "sourceModifiedAt": "2023-07-19T18:52:41",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2421",
+      "title": "POS / Malabar",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 331,
+          "name": "Malabar",
+          "slug": "malabar"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 70,
+          "name": "POS / Malabar",
+          "slug": "pos-malabar"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-malabar/",
+      "publishedAt": "2022-05-25T23:01:03",
+      "sourceModifiedAt": "2023-07-19T18:43:31",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2420",
+      "title": "Santa Rosa Heights / Pinto Road / POS",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 332,
+          "name": "Santa Rosa",
+          "slug": "santa-rosa"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 69,
+          "name": "Santa Rosa Heights / Pinto Road / POS",
+          "slug": "santa-rosa-heights-pinto-road-pos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/santa-rosa-heights-pinto-road-pos/",
+      "publishedAt": "2022-05-25T22:59:35",
+      "sourceModifiedAt": "2023-10-30T12:59:11",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2419",
+      "title": "POS / San Fernando (All Stop)",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 359,
+          "name": "San Fernando",
+          "slug": "san-fernando"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 68,
+          "name": "POS / San Fernado",
+          "slug": "pos-san-fernado"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-san-fernando-all-stop/",
+      "publishedAt": "2022-05-25T22:57:54",
+      "sourceModifiedAt": "2023-08-02T15:57:42",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2418",
+      "title": "POS / San Fernado (Limited Stop)",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 359,
+          "name": "San Fernando",
+          "slug": "san-fernando"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 68,
+          "name": "POS / San Fernado",
+          "slug": "pos-san-fernado"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-san-fernado-limited-stop/",
+      "publishedAt": "2022-05-25T22:46:34",
+      "sourceModifiedAt": "2023-08-02T15:49:59",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2417",
+      "title": "POS / San Fernado (DCS)",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 359,
+          "name": "San Fernando",
+          "slug": "san-fernando"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 68,
+          "name": "POS / San Fernado",
+          "slug": "pos-san-fernado"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-san-fernado-dcs/",
+      "publishedAt": "2022-05-25T22:38:04",
+      "sourceModifiedAt": "2023-08-02T15:50:55",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2416",
+      "title": "POS to Tunapuna / Caura",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 364,
+          "name": "Caura",
+          "slug": "caura"
+        },
+        {
+          "id": 362,
+          "name": "Tunapuna",
+          "slug": "tunapuna"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 67,
+          "name": "POS to Tunapuna / Caura",
+          "slug": "pos-to-tunapuna-caura"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-to-tunapuna-caura/",
+      "publishedAt": "2022-05-25T22:30:09",
+      "sourceModifiedAt": "2023-07-19T19:08:32",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2415",
+      "title": "POS / Greenvale",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 298,
+          "name": "Greenvale",
+          "slug": "greenvale"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 66,
+          "name": "POS / Greenvale",
+          "slug": "pos-greenvale"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-greenvale/",
+      "publishedAt": "2022-05-25T22:25:55",
+      "sourceModifiedAt": "2023-07-19T18:44:36",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2414",
+      "title": "POS / Oropune Gardens",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 302,
+          "name": "Oropune Gardens",
+          "slug": "oropune-gardens"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 65,
+          "name": "POS / Oropune Gardens",
+          "slug": "pos-oropune-gardens"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-oropune-gardens/",
+      "publishedAt": "2022-05-25T22:23:22",
+      "sourceModifiedAt": "2023-07-20T13:52:06",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2413",
+      "title": "POS / Montrose Junction",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 297,
+          "name": "Montrose Junction",
+          "slug": "montrose-junction"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 64,
+          "name": "POS / Montrose Junction",
+          "slug": "pos-montrose-junction"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-montrose-junction/",
+      "publishedAt": "2022-05-25T22:19:04",
+      "sourceModifiedAt": "2023-07-19T18:42:20",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2412",
+      "title": "POS / Edinburgh 500",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 328,
+          "name": "Edinburgh 500",
+          "slug": "edinburgh-500"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 63,
+          "name": "POS / Edinburgh 500",
+          "slug": "pos-edinburgh-500"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-edinburgh-500/",
+      "publishedAt": "2022-05-25T21:49:06",
+      "sourceModifiedAt": "2023-07-25T14:30:04",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2411",
+      "title": "POS / Bon Air Gardens",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 301,
+          "name": "Bon Air Gardens",
+          "slug": "bon-air-gardens"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 62,
+          "name": "POS / Bon Air Gardens",
+          "slug": "pos-bon-air-gardens"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-bon-air-gardens/",
+      "publishedAt": "2022-05-25T21:45:45",
+      "sourceModifiedAt": "2023-07-20T13:51:12",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2410",
+      "title": "POS / Petit Valley",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 306,
+          "name": "Petit Valley",
+          "slug": "petit-valley"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 61,
+          "name": "POS / Petit Valley",
+          "slug": "pos-petit-valley"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-petit-valley/",
+      "publishedAt": "2022-05-25T21:35:09",
+      "sourceModifiedAt": "2023-07-20T13:53:11",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2409",
+      "title": "POS / Diego Martin",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 307,
+          "name": "Diego Martin",
+          "slug": "diego-martin"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 60,
+          "name": "POS / Diego Martin",
+          "slug": "pos-diego-martin"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-diego-martin/",
+      "publishedAt": "2022-05-25T21:33:19",
+      "sourceModifiedAt": "2023-07-19T18:45:56",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2408",
+      "title": "POS / City Service: Round D&#8217; Town",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 295,
+          "name": "Round D' Town",
+          "slug": "round-d-town"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 59,
+          "name": "POS City Service",
+          "slug": "pos-city-service"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-city-service-round-d-town/",
+      "publishedAt": "2022-05-25T21:31:35",
+      "sourceModifiedAt": "2024-01-08T16:11:45",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2407",
+      "title": "POS City Service: St. James via Long Circular Road",
+      "from": [],
+      "to": [],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 59,
+          "name": "POS City Service",
+          "slug": "pos-city-service"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-city-service-st-james-via-long-circular-road/",
+      "publishedAt": "2022-05-25T21:29:37",
+      "sourceModifiedAt": "2022-06-09T20:06:12",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2405",
+      "title": "POS City Service:Queen&#8217;s Park Savannah via Edward St",
+      "from": [],
+      "to": [],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 59,
+          "name": "POS City Service",
+          "slug": "pos-city-service"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-city-servicequeens-park-savannah-via-edward-st/",
+      "publishedAt": "2022-05-25T21:25:58",
+      "sourceModifiedAt": "2022-06-09T20:07:05",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2404",
+      "title": "POS City Service: Belmont via Abercromby St.",
+      "from": [],
+      "to": [],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 59,
+          "name": "POS City Service",
+          "slug": "pos-city-service"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-city-service-belmont-via-abercromby-st/",
+      "publishedAt": "2022-05-25T21:24:14",
+      "sourceModifiedAt": "2022-06-09T20:05:54",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2403",
+      "title": "POS / Maloney",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 308,
+          "name": "Maloney",
+          "slug": "maloney"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 58,
+          "name": "POS / Maloney",
+          "slug": "pos-maloney"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-maloney/",
+      "publishedAt": "2022-05-25T21:13:43",
+      "sourceModifiedAt": "2023-07-19T18:41:33",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2402",
+      "title": "POS / Chaguaramas",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 291,
+          "name": "Chaguaramas",
+          "slug": "chaguaramas"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 57,
+          "name": "POS / Chaguaramas",
+          "slug": "pos-chaguaramas"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-chaguaramas/",
+      "publishedAt": "2022-05-25T21:11:26",
+      "sourceModifiedAt": "2023-07-19T18:36:10",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2401",
+      "title": "POS / Piarco",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 299,
+          "name": "Piarco",
+          "slug": "piarco"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 56,
+          "name": "POS / Piarco",
+          "slug": "pos-piarco"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-piarco/",
+      "publishedAt": "2022-05-25T21:04:45",
+      "sourceModifiedAt": "2023-07-20T13:48:03",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2400",
+      "title": "POS / La Horquetta",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 296,
+          "name": "La Horquetta",
+          "slug": "la-horquetta"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 55,
+          "name": "POS / La Horquetta",
+          "slug": "pos-la-horquetta"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-la-horquetta/",
+      "publishedAt": "2022-05-25T20:58:48",
+      "sourceModifiedAt": "2023-07-19T18:44:05",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2397",
+      "title": "POS / Chaguanas ECS",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 290,
+          "name": "Chaguanas",
+          "slug": "chaguanas"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 54,
+          "name": "POS / Chaguanas",
+          "slug": "pos-chaguanas"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-chaguanas-ecs/",
+      "publishedAt": "2022-05-25T20:42:18",
+      "sourceModifiedAt": "2023-07-19T18:36:21",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2395",
+      "title": "POS / Arima (Limited Stop)",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 289,
+          "name": "Arima",
+          "slug": "arima"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 52,
+          "name": "POS / Arima",
+          "slug": "pos-arima"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-arima-limited-stop/",
+      "publishedAt": "2022-05-25T20:26:21",
+      "sourceModifiedAt": "2023-07-19T18:31:57",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2394",
+      "title": "POS / Arima (All Stop)",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 289,
+          "name": "Arima",
+          "slug": "arima"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 52,
+          "name": "POS / Arima",
+          "slug": "pos-arima"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-arima-all-stop/",
+      "publishedAt": "2022-05-25T20:22:53",
+      "sourceModifiedAt": "2023-07-19T18:26:48",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2393",
+      "title": "POS / Arima (EDCS)",
+      "from": [],
+      "to": [],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 52,
+          "name": "POS / Arima",
+          "slug": "pos-arima"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-arima-edcs/",
+      "publishedAt": "2022-05-25T20:20:44",
+      "sourceModifiedAt": "2022-06-09T19:35:38",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2392",
+      "title": "POS /Maraval via Morne Coco Road",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 300,
+          "name": "Maraval",
+          "slug": "maraval"
+        },
+        {
+          "id": 363,
+          "name": "Mourne Cocoa Rd",
+          "slug": "mourne-cocoa-rd"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 48,
+          "name": "POS /Maraval via Morne Coco Road",
+          "slug": "pos-maraval-via-morne-coco-road"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-maraval-via-morne-coco-road/",
+      "publishedAt": "2022-05-25T20:19:13",
+      "sourceModifiedAt": "2023-07-19T18:52:25",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2391",
+      "title": "POS / San Juan / Santa Cruz",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 304,
+          "name": "San Juan",
+          "slug": "san-juan"
+        },
+        {
+          "id": 305,
+          "name": "Santa Cruz",
+          "slug": "santa-cruz"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 111,
+          "name": "POS / San Juan / Santa Cruz",
+          "slug": "pos-san-juan-santa-cruz"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-santa-cruz/",
+      "publishedAt": "2022-05-25T20:18:05",
+      "sourceModifiedAt": "2023-07-19T18:53:36",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2390",
+      "title": "POS / Blanchissuese",
+      "from": [
+        {
+          "id": 282,
+          "name": "Port of Spain",
+          "slug": "pos"
+        }
+      ],
+      "to": [
+        {
+          "id": 292,
+          "name": "Blanchisseuse",
+          "slug": "blanchisseuse"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 46,
+          "name": "POS / Blanchissuese",
+          "slug": "pos-blanchissuese"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/pos-blanchissuese/",
+      "publishedAt": "2022-05-25T20:16:01",
+      "sourceModifiedAt": "2023-07-19T18:33:45",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2389",
+      "title": "Sangre Grande / Guayaguayare",
+      "from": [
+        {
+          "id": 287,
+          "name": "Sangre Grande",
+          "slug": "sangre-grande"
+        }
+      ],
+      "to": [
+        {
+          "id": 314,
+          "name": "Guayaguayare",
+          "slug": "guayaguayare"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 44,
+          "name": "Sangre Grande / Guayaguayare",
+          "slug": "sangre-grande-guayaguayare"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/sangre-grande-guayaguayare/",
+      "publishedAt": "2022-05-25T20:08:00",
+      "sourceModifiedAt": "2023-10-26T16:55:53",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2388",
+      "title": "Sangre Grande / Rio Claro",
+      "from": [
+        {
+          "id": 287,
+          "name": "Sangre Grande",
+          "slug": "sangre-grande"
+        }
+      ],
+      "to": [
+        {
+          "id": 325,
+          "name": "Rio Claro",
+          "slug": "rio-claro"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 43,
+          "name": "Sangre Grande / Rio Claro",
+          "slug": "sangre-grande-rio-claro"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/sangre-grande-rio-claro/",
+      "publishedAt": "2022-05-25T20:05:01",
+      "sourceModifiedAt": "2023-07-20T13:59:57",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2387",
+      "title": "Sangre Grande / POS (DCS)",
+      "from": [
+        {
+          "id": 287,
+          "name": "Sangre Grande",
+          "slug": "sangre-grande"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 45,
+          "name": "Sangre Grande / POS",
+          "slug": "sangre-grande-pos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/sangre-grande-pos-dcs/",
+      "publishedAt": "2022-05-25T19:36:15",
+      "sourceModifiedAt": "2023-07-19T19:36:39",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2385",
+      "title": "Point Fortin / Erin via Buenos Ayres",
+      "from": [
+        {
+          "id": 284,
+          "name": "Point Fortin",
+          "slug": "point-fortin"
+        }
+      ],
+      "to": [
+        {
+          "id": 320,
+          "name": "Buenos Aires",
+          "slug": "buenos-aires"
+        },
+        {
+          "id": 315,
+          "name": "Erin",
+          "slug": "erin"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 40,
+          "name": "Point Fortin / Erin via Buenos Ayres",
+          "slug": "point-fortin-erin-via-buenos-ayres"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/point-fortin-erin-via-buenos-ayres/",
+      "publishedAt": "2022-05-25T19:26:01",
+      "sourceModifiedAt": "2023-07-20T13:42:48",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2384",
+      "title": "Point Fortin / La Brea",
+      "from": [
+        {
+          "id": 284,
+          "name": "Point Fortin",
+          "slug": "point-fortin"
+        }
+      ],
+      "to": [
+        {
+          "id": 323,
+          "name": "La Brea",
+          "slug": "la-brea"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 39,
+          "name": "Point Fortin / La Brea",
+          "slug": "point-fortin-la-brea"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/point-fortin-la-brea/",
+      "publishedAt": "2022-05-25T19:23:49",
+      "sourceModifiedAt": "2023-07-20T13:41:12",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2382",
+      "title": "Guapo / POS",
+      "from": [
+        {
+          "id": 373,
+          "name": "Guapo",
+          "slug": "guapo"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 35,
+          "name": "Guapo / POS",
+          "slug": "guapo-pos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/guapo-pos/",
+      "publishedAt": "2022-05-25T19:13:37",
+      "sourceModifiedAt": "2023-07-20T14:18:21",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2381",
+      "title": "Buenos Ayres / POS (via Fanny Village)",
+      "from": [
+        {
+          "id": 378,
+          "name": "Buenos Aires",
+          "slug": "buenos-aires"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 36,
+          "name": "Buenos Ayres / POS (via Fanny Village)",
+          "slug": "buenos-ayres-pos-via-fanny-village"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/buenos-ayres-pos-via-fanny-village/",
+      "publishedAt": "2022-05-25T19:12:09",
+      "sourceModifiedAt": "2023-07-20T14:29:04",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2380",
+      "title": "Point Fortin / POS",
+      "from": [
+        {
+          "id": 284,
+          "name": "Point Fortin",
+          "slug": "point-fortin"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 37,
+          "name": "Point Fortin / POS",
+          "slug": "point-fortin-pos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/point-fortin-pos/",
+      "publishedAt": "2022-05-25T19:10:57",
+      "sourceModifiedAt": "2023-07-20T13:38:09",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2379",
+      "title": "Point Fortin / San Fernando",
+      "from": [
+        {
+          "id": 284,
+          "name": "Point Fortin",
+          "slug": "point-fortin"
+        }
+      ],
+      "to": [
+        {
+          "id": 359,
+          "name": "San Fernando",
+          "slug": "san-fernando"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 38,
+          "name": "Point Fortin / San Fernando",
+          "slug": "point-fortin-san-fernando"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/point-fortin-san-fernando/",
+      "publishedAt": "2022-05-25T19:09:08",
+      "sourceModifiedAt": "2023-07-20T13:37:47",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2378",
+      "title": "Point Fortin / Icacos",
+      "from": [
+        {
+          "id": 284,
+          "name": "Point Fortin",
+          "slug": "point-fortin"
+        }
+      ],
+      "to": [
+        {
+          "id": 322,
+          "name": "Icacos",
+          "slug": "icacos"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 41,
+          "name": "Point Fortin / Icacos",
+          "slug": "point-fortin-icacos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/point-fortin-icacos/",
+      "publishedAt": "2022-05-25T19:07:04",
+      "sourceModifiedAt": "2023-07-20T13:41:36",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2377",
+      "title": "Sangre Grande / POS (Express)",
+      "from": [
+        {
+          "id": 287,
+          "name": "Sangre Grande",
+          "slug": "sangre-grande"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 45,
+          "name": "Sangre Grande / POS",
+          "slug": "sangre-grande-pos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/sangre-grande-pos-express/",
+      "publishedAt": "2022-05-25T19:06:07",
+      "sourceModifiedAt": "2023-07-19T19:36:06",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-2368",
+      "title": "Sangre Grande / POS (All Stop)",
+      "from": [
+        {
+          "id": 287,
+          "name": "Sangre Grande",
+          "slug": "sangre-grande"
+        }
+      ],
+      "to": [
+        {
+          "id": 309,
+          "name": "Port of Spain",
+          "slug": "port-of-spain"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 45,
+          "name": "Sangre Grande / POS",
+          "slug": "sangre-grande-pos"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/sangre-grande-pos-all-stop/",
+      "publishedAt": "2022-05-25T18:40:18",
+      "sourceModifiedAt": "2023-07-19T19:37:19",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    },
+    {
+      "officialId": "ptsc-card-1561",
+      "title": "Sangre Grande / Arima",
+      "from": [
+        {
+          "id": 287,
+          "name": "Sangre Grande",
+          "slug": "sangre-grande"
+        }
+      ],
+      "to": [
+        {
+          "id": 289,
+          "name": "Arima",
+          "slug": "arima"
+        }
+      ],
+      "serviceDays": [
+        {
+          "id": 32,
+          "name": "Monday - Friday",
+          "slug": "monday-friday"
+        }
+      ],
+      "routeTags": [
+        {
+          "id": 31,
+          "name": "Sangre Grande/Arima",
+          "slug": "sangre-grande-arima"
+        }
+      ],
+      "url": "https://ptsc.co.tt/routes/sangre-grande-arima/",
+      "publishedAt": "2022-05-13T19:11:04",
+      "sourceModifiedAt": "2023-07-19T19:40:19",
+      "fareTTD": null,
+      "amTimes": [],
+      "pmTimes": [],
+      "timetableCaptured": false
+    }
+  ],
+  "records": [
+    {
+      "officialId": "ptsc-card-2439",
+      "title": "#6 & #2 Scale / POS via Barrackpore (Commuter Special)",
+      "from": "#6 & #2 Scale",
+      "to": "POS via Barrackpore (Commuter Special)",
+      "serviceDays": "Monday-Friday",
+      "fareTTD": 12,
+      "amTimes": [
+        "4:00"
+      ],
+      "pmTimes": [
+        "2:00"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2468",
+      "title": "Arima / Aripo",
+      "from": "Arima",
+      "to": "Aripo",
+      "serviceDays": "Monday-Friday",
+      "fareTTD": 3,
+      "amTimes": [
+        "5:00",
+        "7:00",
+        "9:00"
+      ],
+      "pmTimes": [
+        "1:00",
+        "3:00",
+        "5:00"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2466",
+      "title": "Arima / La Horquetta",
+      "from": "Arima",
+      "to": "La Horquetta",
+      "serviceDays": "Monday-Friday",
+      "fareTTD": 3,
+      "amTimes": [
+        "5:00",
+        "6:00",
+        "7:00",
+        "8:00",
+        "9:00",
+        "10:00",
+        "11:00"
+      ],
+      "pmTimes": [
+        "12:00",
+        "1:00",
+        "2:00",
+        "3:00",
+        "4:00",
+        "5:00",
+        "6:00",
+        "7:00",
+        "8:00"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2465",
+      "title": "Arima / St Helena Via Carapo",
+      "from": "Arima",
+      "to": "St Helena Via Carapo",
+      "serviceDays": "Monday-Friday",
+      "fareTTD": 3,
+      "amTimes": [
+        "5:00",
+        "7:00",
+        "9:00"
+      ],
+      "pmTimes": [
+        "2:00",
+        "4:00",
+        "6:00"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-8882",
+      "title": "Arima / St Helena Via Carapo",
+      "from": "Arima",
+      "to": "St Helena Via Carapo",
+      "serviceDays": "Saturday",
+      "fareTTD": 3,
+      "amTimes": [
+        "7:00",
+        "9:00"
+      ],
+      "pmTimes": [
+        "2:00",
+        "4:00"
+      ]
+    }
+  ]
+}

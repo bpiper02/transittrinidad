@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {formatClock,formatServiceDays,nextDepartures,scheduleForDate} from '../src/schedule-core.mjs';
+import {formatClock,formatServiceDays,nextDepartures,scheduleForDate,scheduleFreshness} from '../src/schedule-core.mjs';
 
 const schedule={
   status:'published_times',
@@ -25,5 +25,8 @@ const variants=[schedule,{...schedule,id:'saturday',serviceDays:['sat'],departur
 assert.equal(scheduleForDate(variants,new Date('2026-09-12T12:00:00-04:00')).id,'saturday');
 assert.deepEqual(nextDepartures(variants,new Date('2026-09-12T10:00:00Z'),1).map(item=>item.time),['07:00']);
 assert.equal(scheduleForDate([...variants,{...schedule,id:'special',activeDates:['2026-09-12'],departureTimes:['10:00']}],new Date('2026-09-12T12:00:00-04:00')).id,'special');
+assert.equal(scheduleFreshness({sources:[{checkedAt:'2026-09-12'}]},new Date('2026-09-13T12:00:00Z')).kind,'fresh');
+assert.equal(scheduleFreshness({sources:[{checkedAt:'2026-08-01'}]},new Date('2026-09-13T12:00:00Z')).kind,'stale');
+assert.equal(scheduleFreshness({},new Date('2026-09-13T12:00:00Z')).kind,'unknown');
 
 console.log('schedule core tests passed');

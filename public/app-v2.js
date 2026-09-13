@@ -1,7 +1,7 @@
 import * as maplibregl from 'https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-gl.mjs';
 import {chooseJourneyOptions,kmBetween} from './src/routing-core.mjs';
 import {exactPlace,explicitNetworkNode,matchPlaces,mergePlaceSuggestions,placeToPoint} from './src/place-core.mjs';
-import {formatClock,formatServiceDays,nextDepartures,scheduleForDate} from './src/schedule-core.mjs';
+import {formatClock,formatServiceDays,nextDepartures,scheduleForDate,scheduleFreshness} from './src/schedule-core.mjs';
 import {fareForJourney,fareForSegment,formatFare} from './src/fare-core.mjs';
 import {boardingGuidance,transitAction} from './src/rider-instruction-core.mjs';
 
@@ -89,11 +89,13 @@ function scheduleHtml(service){
   const schedule=scheduleForDate(variants,selectedScheduleDate);
   const picker=`<label class="schedule-date-label">Travel date <input id="scheduleDate" type="date" value="${localDateValue()}" /></label>`;
   if(!schedule)return`<section class="schedule-block"><p class="eyebrow">Schedule</p>${picker}<p>No published timetable for this date.</p><span class="data-chip">Schedule unavailable</span></section>`;
+  const freshness=scheduleFreshness(schedule);
+  const freshnessChip=`<span class="data-chip data-${escapeHtml(freshness.kind)}">${escapeHtml(freshness.label)}</span>`;
   const days=formatServiceDays(schedule.serviceDays);
   if(schedule.status!=='published_times'||!schedule.departureTimes.length){
-    return`<section class="schedule-block"><p class="eyebrow">Schedule</p>${picker}<strong>Runs ${escapeHtml(days)}</strong><p>Exact departure times are not in the dataset.</p><span class="data-chip">Published service days</span></section>`;
+    return`<section class="schedule-block"><p class="eyebrow">Schedule</p>${picker}<strong>Runs ${escapeHtml(days)}</strong><p>Exact departure times are not in the dataset.</p><span class="data-chip">Published service days</span>${freshnessChip}</section>`;
   }
-  return`<section class="schedule-block"><p class="eyebrow">Scheduled departures</p>${picker}<div class="departure-times">${schedule.departureTimes.map(time=>`<strong>${escapeHtml(formatClock(time))}</strong>`).join('')}</div><p>${escapeHtml(days)}</p><span class="data-chip">Published timetable</span></section>`;
+  return`<section class="schedule-block"><p class="eyebrow">Scheduled departures</p>${picker}<div class="departure-times">${schedule.departureTimes.map(time=>`<strong>${escapeHtml(formatClock(time))}</strong>`).join('')}</div><p>${escapeHtml(days)}</p><span class="data-chip">Published timetable</span>${freshnessChip}</section>`;
 }
 function availabilityHtml(service){
   if(service.availability?.kind!=='frequency_based')return'';

@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {buildPTSCCandidates, daysFromPTSCLabel, normalizeDepartureTimes, normalizeEndpoint, parsePTSCClock} from '../src/ptsc-import-core.mjs';
+import {buildPTSCCandidates, daysFromPTSCLabel, diffPTSCSnapshots, normalizeDepartureTimes, normalizeEndpoint, parsePTSCClock} from '../src/ptsc-import-core.mjs';
 
 assert.equal(parsePTSCClock('12:00', 'am'), '00:00');
 assert.equal(parsePTSCClock('12:00', 'pm'), '12:00');
@@ -23,4 +23,8 @@ assert.deepEqual(candidates[0].schedule.departureTimes, ['05:00','13:00']);
 assert.equal(candidates[1].reviewStatus, 'schedule_variant_review');
 assert.equal(candidates[2].reviewStatus, 'needs_endpoint_mapping');
 assert.equal(candidates[0].schedule.id, 'ptsc-arima-aripo-weekday');
+const diff = diffPTSCSnapshots({records:[snapshot.records[0], snapshot.records[1]]}, {records:[{...snapshot.records[0], pmTimes:['3:00']}, snapshot.records[2]]});
+assert.equal(diff.changed.length, 1);
+assert.equal(diff.removed.length, 1);
+assert.equal(diff.added.length, 1);
 console.log('PTSC import core tests passed');

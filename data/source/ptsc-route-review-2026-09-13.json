@@ -1,0 +1,2654 @@
+{
+  "generatedAt": "2026-09-13T04:16:58.759Z",
+  "source": {
+    "name": "PTSC Routes and Schedules directory",
+    "url": "https://ptsc.co.tt/routes-and-schedules/",
+    "checkedAt": "2026-09-13",
+    "sourceModifiedAt": "2025-03-11T18:05:14+00:00"
+  },
+  "total": 117,
+  "counts": {
+    "ready_for_service_review": 68,
+    "needs_endpoint_mapping": 45,
+    "already_represented": 4
+  },
+  "candidates": [
+    {
+      "officialId": "ptsc-card-9077",
+      "title": "Moruga/Princes Town",
+      "url": "https://ptsc.co.tt/routes/moruga-princes-town/",
+      "from": "Moruga",
+      "to": "Princes Town",
+      "originNodeId": "moruga-area",
+      "destinationNodeId": "princes-town-local-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-9076",
+      "title": "Princes Town/Moruga",
+      "url": "https://ptsc.co.tt/routes/princes-town-moruga/",
+      "from": "Princes Town",
+      "to": "Moruga",
+      "originNodeId": "princes-town-local-area",
+      "destinationNodeId": "moruga-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-9074",
+      "title": "Scarborough/Charlotteville",
+      "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-5/",
+      "from": "Scarborough",
+      "to": "Charlotteville",
+      "originNodeId": "ptsc-scarborough-shaw-park",
+      "destinationNodeId": "ptsc-charlotteville-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-9073",
+      "title": "Scarborough/ L&#8217;Anse Fourmi",
+      "url": "https://ptsc.co.tt/routes/scarborough-lanse-fourmi-4/",
+      "from": "Scarborough",
+      "to": "L'Anse Fourmi",
+      "originNodeId": "ptsc-scarborough-shaw-park",
+      "destinationNodeId": "ptsc-lanse-fourmi-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-8882",
+      "title": "Arima / St Helena Via Carapo",
+      "url": "https://ptsc.co.tt/routes/arima-st-helena-via-carapo/",
+      "from": "Arima",
+      "to": "St Helena",
+      "originNodeId": "ptsc-arima",
+      "destinationNodeId": "ptsc-st-helena-carapo",
+      "serviceDays": [
+        "Saturday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-8276",
+      "title": "POS/Fyzabad",
+      "url": "https://ptsc.co.tt/routes/pos-fyzabad/",
+      "from": "Port of Spain",
+      "to": "Fyzabad",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "fyzabad-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 12,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-8244",
+      "title": "POS/ Sangre Grande (Coach)",
+      "url": "https://ptsc.co.tt/routes/pos-sangre-grande-coach/",
+      "from": "Port of Spain",
+      "to": "Sangre Grande",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-sangre-grande",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 10,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-8243",
+      "title": "POS/ Sangre Grande (ECS)",
+      "url": "https://ptsc.co.tt/routes/pos-sangre-grande-ecs/",
+      "from": "Port of Spain",
+      "to": "Sangre Grande",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-sangre-grande",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 6,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-8226",
+      "title": "POS/Couva",
+      "url": "https://ptsc.co.tt/routes/pos-couva/",
+      "from": "Port of Spain",
+      "to": "Couva",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-7797",
+      "title": "Arima/ La Horquetta",
+      "url": "https://ptsc.co.tt/routes/arima-la-horquetta-2/",
+      "from": "Arima",
+      "to": "La Horquetta",
+      "originNodeId": "ptsc-arima",
+      "destinationNodeId": "ptsc-la-horquetta",
+      "serviceDays": [
+        "Saturday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-7796",
+      "title": "La Horquetta/Arima",
+      "url": "https://ptsc.co.tt/routes/la-horquetta-arima/",
+      "from": "La Horquetta",
+      "to": "Arima",
+      "originNodeId": "ptsc-la-horquetta",
+      "destinationNodeId": "ptsc-arima",
+      "serviceDays": [
+        "Saturday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-7612",
+      "title": "Charlotteville/Scarborough",
+      "url": "https://ptsc.co.tt/routes/charlotteville-scarborough-2/",
+      "from": "Charlotteville",
+      "to": "Scarborough",
+      "originNodeId": "ptsc-charlotteville-area",
+      "destinationNodeId": "ptsc-scarborough-shaw-park",
+      "serviceDays": [
+        "Sunday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-7611",
+      "title": "Scarborough/Charlotteville",
+      "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-4/",
+      "from": "Scarborough",
+      "to": "Charlotteville",
+      "originNodeId": "ptsc-scarborough-shaw-park",
+      "destinationNodeId": "ptsc-charlotteville-area",
+      "serviceDays": [
+        "Sunday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-7610",
+      "title": "Charlotteville/Scarborough",
+      "url": "https://ptsc.co.tt/routes/charlotteville-scarborough/",
+      "from": "Charlotteville",
+      "to": "Scarborough",
+      "originNodeId": "ptsc-charlotteville-area",
+      "destinationNodeId": "ptsc-scarborough-shaw-park",
+      "serviceDays": [
+        "Saturday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-7609",
+      "title": "Scarborough/ Charlotteville",
+      "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-3/",
+      "from": "Scarborough",
+      "to": "Charlotteville",
+      "originNodeId": "ptsc-scarborough-shaw-park",
+      "destinationNodeId": "ptsc-charlotteville-area",
+      "serviceDays": [
+        "Saturday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-6976",
+      "title": "Scarborough/ L&#8217;Anse Fourmi",
+      "url": "https://ptsc.co.tt/routes/scarborough-lanse-fourmi-3/",
+      "from": "Scarborough",
+      "to": "L'Anse Fourmi",
+      "originNodeId": "ptsc-scarborough-shaw-park",
+      "destinationNodeId": "ptsc-lanse-fourmi-area",
+      "serviceDays": [
+        "Sunday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-6975",
+      "title": "Scarborough/ L&#8217;Anse Fourmi",
+      "url": "https://ptsc.co.tt/routes/scarborough-lanse-fourmi-2/",
+      "from": "Scarborough",
+      "to": "L'Anse Fourmi",
+      "originNodeId": "ptsc-scarborough-shaw-park",
+      "destinationNodeId": "ptsc-lanse-fourmi-area",
+      "serviceDays": [
+        "Saturday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-6044",
+      "title": "POS/Piarco",
+      "url": "https://ptsc.co.tt/routes/pos-piarco-2/",
+      "from": "Port of Spain",
+      "to": "Piarco",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Saturday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-5879",
+      "title": "Chaguanas/ Tabaquite",
+      "url": "https://ptsc.co.tt/routes/chaguanas-tabaquite/",
+      "from": "Chaguanas",
+      "to": "Tabaquite",
+      "originNodeId": "ptsc-chaguanas",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-5846",
+      "title": "Chaguanas/ San Fernando",
+      "url": "https://ptsc.co.tt/routes/chaguanas-san-fernando/",
+      "from": "Chaguanas",
+      "to": "San Fernando",
+      "originNodeId": "ptsc-chaguanas",
+      "destinationNodeId": "ptsc-san-fernando",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2473",
+      "title": "Sangre Grande / Toco / Matelot (Coach)",
+      "url": "https://ptsc.co.tt/routes/sangre-grande-toco-matelot-coach/",
+      "from": "Sangre Grande",
+      "to": "Toco",
+      "originNodeId": "ptsc-sangre-grande",
+      "destinationNodeId": "ptsc-toco-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": null,
+      "fareConfidence": "unknown",
+      "fareSource": null,
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": [
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-5619",
+      "title": "POS/Point Fortin",
+      "url": "https://ptsc.co.tt/routes/pos-point-fortin/",
+      "from": "Port of Spain",
+      "to": "Point Fortin",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-point-fortin",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 12,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-5276",
+      "title": "POS / Chaguanas",
+      "url": "https://ptsc.co.tt/routes/pos-chaguanas/",
+      "from": "Port of Spain",
+      "to": "Chaguanas",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-chaguanas",
+      "serviceDays": [
+        "Sunday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-5275",
+      "title": "POS / Arima Transit",
+      "url": "https://ptsc.co.tt/routes/pos-arima-transit/",
+      "from": "Port of Spain",
+      "to": "Arima",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-arima",
+      "serviceDays": [
+        "Sunday"
+      ],
+      "fareTTD": 2.5,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-5273",
+      "title": "POS/San Fernando Transit",
+      "url": "https://ptsc.co.tt/routes/san-fernando-transit/",
+      "from": "Port of Spain",
+      "to": "San Fernando",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-san-fernando",
+      "serviceDays": [
+        "Sunday"
+      ],
+      "fareTTD": null,
+      "fareConfidence": "unknown",
+      "fareSource": null,
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": [
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-5272",
+      "title": "POS/San Fernando ECS",
+      "url": "https://ptsc.co.tt/routes/san-fernando-ecs/",
+      "from": "Port of Spain",
+      "to": "San Fernando",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-san-fernando",
+      "serviceDays": [
+        "Sunday"
+      ],
+      "fareTTD": 6,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-5271",
+      "title": "Pos/Blanchisseuse",
+      "url": "https://ptsc.co.tt/routes/pos-blanchisseuse/",
+      "from": "Port of Spain",
+      "to": "Blanchisseuse",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Saturday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-5270",
+      "title": "POS/Tunapuna to Caura",
+      "url": "https://ptsc.co.tt/routes/tunapuna-to-caura/",
+      "from": "Port of Spain",
+      "to": "Tunapuna",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "tunapuna-area",
+      "serviceDays": [
+        "Saturday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-5269",
+      "title": "POS/Chaguaramas",
+      "url": "https://ptsc.co.tt/routes/chaguaramas/",
+      "from": "Port of Spain",
+      "to": "Chaguaramas",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "chaguaramas-area",
+      "serviceDays": [
+        "Saturday"
+      ],
+      "fareTTD": 2,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-5268",
+      "title": "POS/Chaguanas ECS",
+      "url": "https://ptsc.co.tt/routes/chaguanas-ecs-2/",
+      "from": "Port of Spain",
+      "to": "Chaguanas",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-chaguanas",
+      "serviceDays": [
+        "Saturday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-5265",
+      "title": "POS/Chaguanas ECS",
+      "url": "https://ptsc.co.tt/routes/chaguanas-ecs/",
+      "from": "Port of Spain",
+      "to": "Chaguanas",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-chaguanas",
+      "serviceDays": [
+        "Sunday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-5264",
+      "title": "Saturday Arima Transit",
+      "url": "https://ptsc.co.tt/routes/saturday-arima-transit/",
+      "from": null,
+      "to": null,
+      "originNodeId": null,
+      "destinationNodeId": null,
+      "serviceDays": [],
+      "fareTTD": null,
+      "fareConfidence": "unknown",
+      "fareSource": null,
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-3589",
+      "title": "Scarborough/ Buccoo",
+      "url": "https://ptsc.co.tt/routes/scarborough-buccoo/",
+      "from": "Scarborough",
+      "to": "Buccoo",
+      "originNodeId": "ptsc-scarborough-shaw-park",
+      "destinationNodeId": "buccoo-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-3588",
+      "title": "Scarborough/Black Rock Courland",
+      "url": "https://ptsc.co.tt/routes/scarborough-black-rock-courland/",
+      "from": "Scarborough",
+      "to": "Blackrock",
+      "originNodeId": "ptsc-scarborough-shaw-park",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 2,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-3587",
+      "title": "Scarborough/Plymouth via Arnos Vale",
+      "url": "https://ptsc.co.tt/routes/scarborough-plymouth-via-arnos-vale/",
+      "from": "Scarborough",
+      "to": "Plymouth",
+      "originNodeId": "ptsc-scarborough-shaw-park",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 2,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-3586",
+      "title": "Scarborough/Mt. Thomas",
+      "url": "https://ptsc.co.tt/routes/scarborough-mt-thomas/",
+      "from": "Scarborough",
+      "to": "Mt Thomas",
+      "originNodeId": "ptsc-scarborough-shaw-park",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-3585",
+      "title": "Scarborough/Montgomery",
+      "url": "https://ptsc.co.tt/routes/scarborough-montgomery/",
+      "from": "Scarborough",
+      "to": "Mt Gomery",
+      "originNodeId": "ptsc-scarborough-shaw-park",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 2,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-3584",
+      "title": "Scarborough/Mason Hall",
+      "url": "https://ptsc.co.tt/routes/scarborough-mason-hall/",
+      "from": "Scarborough",
+      "to": "Mason Hall",
+      "originNodeId": "ptsc-scarborough-shaw-park",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 2,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-3581",
+      "title": "Scarborough/Crown Point",
+      "url": "https://ptsc.co.tt/routes/scarborough-charlotteville-2/",
+      "from": "Scarborough",
+      "to": "Crown Point",
+      "originNodeId": "ptsc-scarborough-shaw-park",
+      "destinationNodeId": "crown-point-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 2,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2469",
+      "title": "Sangre Grande / Guatopajaro",
+      "url": "https://ptsc.co.tt/routes/sangre-grande-guatopajaro/",
+      "from": "Sangre Grande",
+      "to": "Guatopajaro",
+      "originNodeId": "ptsc-sangre-grande",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2468",
+      "title": "Arima / Aripo",
+      "url": "https://ptsc.co.tt/routes/arima-aripo/",
+      "from": "Arima",
+      "to": "Aripo",
+      "originNodeId": "ptsc-arima",
+      "destinationNodeId": "ptsc-aripo",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": "ptsc-arima-to-aripo",
+      "status": "already_represented",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2467",
+      "title": "Arima / Wallerfield",
+      "url": "https://ptsc.co.tt/routes/arima-wallerfield/",
+      "from": "Arima",
+      "to": "Wallerfield",
+      "originNodeId": "ptsc-arima",
+      "destinationNodeId": "ptsc-wallerfield",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": "ptsc-arima-to-wallerfield",
+      "status": "already_represented",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2466",
+      "title": "Arima / La Horquetta",
+      "url": "https://ptsc.co.tt/routes/arima-la-horquetta/",
+      "from": "Arima",
+      "to": "La Horquetta",
+      "originNodeId": "ptsc-arima",
+      "destinationNodeId": "ptsc-la-horquetta",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": "ptsc-arima-to-la-horquetta",
+      "status": "already_represented",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2465",
+      "title": "Arima / St Helena Via Carapo",
+      "url": "https://ptsc.co.tt/routes/arima-carapo/",
+      "from": "Arima",
+      "to": "St Helena",
+      "originNodeId": "ptsc-arima",
+      "destinationNodeId": "ptsc-st-helena-carapo",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": "ptsc-arima-to-st-helena-carapo",
+      "status": "already_represented",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2463",
+      "title": "Malabar / POS",
+      "url": "https://ptsc.co.tt/routes/malabar-pos/",
+      "from": "Malabar",
+      "to": "Port of Spain",
+      "originNodeId": null,
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "origin_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2464",
+      "title": "Sangre Grande / Valencia / Arima",
+      "url": "https://ptsc.co.tt/routes/sangre-grande-valencia-arima/",
+      "from": "Sangre Grande",
+      "to": "Valencia",
+      "originNodeId": "ptsc-sangre-grande",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2462",
+      "title": "Chaguanas / Cashew Gardens / Carlsen Field",
+      "url": "https://ptsc.co.tt/routes/chaguanas-cashew-gardens-carlsen-field/",
+      "from": "Chaguanas",
+      "to": "Cashew Gardens",
+      "originNodeId": "ptsc-chaguanas",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2461",
+      "title": "Chaguanas / San Fernando (via Southern Main Road)",
+      "url": "https://ptsc.co.tt/routes/chaguanas-san-fernando-via-southern-main-road/",
+      "from": "Chaguanas",
+      "to": "San Fernando",
+      "originNodeId": "ptsc-chaguanas",
+      "destinationNodeId": "ptsc-san-fernando",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2460",
+      "title": "Chaguanas / Edinburgh 500",
+      "url": "https://ptsc.co.tt/routes/chaguanas-edinburgh-500/",
+      "from": "Chaguanas",
+      "to": "Edinburgh 500",
+      "originNodeId": "ptsc-chaguanas",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2459",
+      "title": "Chaguanas / Chandenagore",
+      "url": "https://ptsc.co.tt/routes/chaguanas-chandenagore/",
+      "from": "Chaguanas",
+      "to": "Chandenagore",
+      "originNodeId": "ptsc-chaguanas",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2458",
+      "title": "Chaguanas / Rio Claro",
+      "url": "https://ptsc.co.tt/routes/chaguanas-rio-claro/",
+      "from": "Chaguanas",
+      "to": "Rio Claro",
+      "originNodeId": "ptsc-chaguanas",
+      "destinationNodeId": "rio-claro-hub",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2457",
+      "title": "Chaguanas / Curepe",
+      "url": "https://ptsc.co.tt/routes/chaguanas-curepe/",
+      "from": "Chaguanas",
+      "to": "Curepe",
+      "originNodeId": "ptsc-chaguanas",
+      "destinationNodeId": "ptsc-curepe",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2455",
+      "title": "Chaguanas / Freeport / Chickland",
+      "url": "https://ptsc.co.tt/routes/chaguanas-freeport-chickland/",
+      "from": "Chaguanas",
+      "to": "Freeport",
+      "originNodeId": "ptsc-chaguanas",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2454",
+      "title": "Chaguanas / Mamoral",
+      "url": "https://ptsc.co.tt/routes/chaguanas-mamoral/",
+      "from": "Chaguanas",
+      "to": "Mamoral",
+      "originNodeId": "ptsc-chaguanas",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 5,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2453",
+      "title": "San Fernando / POS (All Stop)",
+      "url": "https://ptsc.co.tt/routes/san-fernando-pos-all-stop-2/",
+      "from": "San Fernando",
+      "to": "Port of Spain",
+      "originNodeId": "ptsc-san-fernando",
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Sunday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2451",
+      "title": "San Fernando / Icacos",
+      "url": "https://ptsc.co.tt/routes/san-fernando-icacos/",
+      "from": "San Fernando",
+      "to": "Icacos",
+      "originNodeId": "ptsc-san-fernando",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Sunday"
+      ],
+      "fareTTD": 11,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2449",
+      "title": "San Fernando / Point Fortin",
+      "url": "https://ptsc.co.tt/routes/san-fernando-point-fortin/",
+      "from": "San Fernando",
+      "to": "Point Fortin",
+      "originNodeId": "ptsc-san-fernando",
+      "destinationNodeId": "ptsc-point-fortin",
+      "serviceDays": [
+        "Sunday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2447",
+      "title": "San Fernando / Mayaro",
+      "url": "https://ptsc.co.tt/routes/san-fernando-mayaro/",
+      "from": "San Fernando",
+      "to": "Mayaro",
+      "originNodeId": "ptsc-san-fernando",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 9,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2444",
+      "title": "San Fernando City Service : Tarouba",
+      "url": "https://ptsc.co.tt/routes/san-fernando-city-service-tarouba/",
+      "from": null,
+      "to": null,
+      "originNodeId": null,
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": null,
+      "fareConfidence": "unknown",
+      "fareSource": null,
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2442",
+      "title": "San Fernando City Service: Pleasantville",
+      "url": "https://ptsc.co.tt/routes/san-fernando-city-service-pleasantville/",
+      "from": null,
+      "to": null,
+      "originNodeId": null,
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": null,
+      "fareConfidence": "unknown",
+      "fareSource": null,
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2441",
+      "title": "Couva / POS",
+      "url": "https://ptsc.co.tt/routes/couva-pos/",
+      "from": "Couva",
+      "to": "Port of Spain",
+      "originNodeId": null,
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "origin_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2440",
+      "title": "San Fernando / UWI",
+      "url": "https://ptsc.co.tt/routes/san-fernando-uwi/",
+      "from": "San Fernando",
+      "to": "University of the West Indies (UWI)",
+      "originNodeId": "ptsc-san-fernando",
+      "destinationNodeId": "ptsc-uwi-st-augustine",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2439",
+      "title": "#6 & #2 Scale / POS via Barrackpore (Commuter Special)",
+      "url": "https://ptsc.co.tt/routes/6-scale-pos-via-barrackpore-commuter-special/",
+      "from": null,
+      "to": null,
+      "originNodeId": null,
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 12,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "official_endpoint_taxonomy_missing"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2438",
+      "title": "Siparia / POS via Penal (Commuter Special)",
+      "url": "https://ptsc.co.tt/routes/siparia-pos-via-penal-commuter-special/",
+      "from": "Siparia",
+      "to": "Port of Spain",
+      "originNodeId": null,
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 10,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "origin_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2437",
+      "title": "Princes Town / POS via San Fernando (Commuter Special)",
+      "url": "https://ptsc.co.tt/routes/princes-town-pos-via-san-fernand-commuter-special/",
+      "from": "Princes Town",
+      "to": "San Fernando",
+      "originNodeId": "princes-town-local-area",
+      "destinationNodeId": "ptsc-san-fernando",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 12,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2435",
+      "title": "Fyzabad / POS (Commuter Special)",
+      "url": "https://ptsc.co.tt/routes/fyzabad-pos-commuter-special/",
+      "from": "Fyzabad",
+      "to": "Port of Spain",
+      "originNodeId": "fyzabad-area",
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 12,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2434",
+      "title": "San Fernando / Tabaquite via Guaracara",
+      "url": "https://ptsc.co.tt/routes/san-fernando-tabaquite-via-guaracara/",
+      "from": "San Fernando",
+      "to": "Tabaquite",
+      "originNodeId": "ptsc-san-fernando",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2433",
+      "title": "San Fernando / Princes Town",
+      "url": "https://ptsc.co.tt/routes/san-fernando-princes-town/",
+      "from": "San Fernando",
+      "to": "Princes Town",
+      "originNodeId": "ptsc-san-fernando",
+      "destinationNodeId": "princes-town-local-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2432",
+      "title": "San Fernando / Guayaguayare",
+      "url": "https://ptsc.co.tt/routes/san-fernando-guayaguayare/",
+      "from": "San Fernando",
+      "to": "Guayaguayare",
+      "originNodeId": "ptsc-san-fernando",
+      "destinationNodeId": "guayaguayare-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 12,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2431",
+      "title": "San Fernado / Fyzabad",
+      "url": "https://ptsc.co.tt/routes/san-fernado-fyzabad/",
+      "from": "San Fernando",
+      "to": "Fyzabad",
+      "originNodeId": "ptsc-san-fernando",
+      "destinationNodeId": "fyzabad-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2430",
+      "title": "San Fernado / Erin via Siparia",
+      "url": "https://ptsc.co.tt/routes/san-fernado-erin-via-siparia/",
+      "from": "San Fernando",
+      "to": "Erin",
+      "originNodeId": "ptsc-san-fernando",
+      "destinationNodeId": "erin-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 6,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2429",
+      "title": "San Fernando / POS (All Stop)",
+      "url": "https://ptsc.co.tt/routes/san-fernando-pos-all-stop/",
+      "from": "San Fernando",
+      "to": "Port of Spain",
+      "originNodeId": "ptsc-san-fernando",
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2428",
+      "title": "San Fernando / POS (Limited Stop)",
+      "url": "https://ptsc.co.tt/routes/san-fernando-pos-limited-stop/",
+      "from": "San Fernando",
+      "to": "Port of Spain",
+      "originNodeId": "ptsc-san-fernando",
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 6,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2427",
+      "title": "San Fernando / POS (DCS)",
+      "url": "https://ptsc.co.tt/routes/san-fernando-pos-dcs/",
+      "from": "San Fernando",
+      "to": "Port of Spain",
+      "originNodeId": "ptsc-san-fernando",
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 10,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2426",
+      "title": "POS / San Fernado (Limited Stop)",
+      "url": "https://ptsc.co.tt/routes/pos-san-fernado-limited-stop-2/",
+      "from": "Port of Spain",
+      "to": "San Fernando",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-san-fernando",
+      "serviceDays": [
+        "Sunday"
+      ],
+      "fareTTD": 6,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2422",
+      "title": "POS / Tunapuna",
+      "url": "https://ptsc.co.tt/routes/port-of-spain-tunapuna/",
+      "from": "Port of Spain",
+      "to": "Tunapuna",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "tunapuna-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2421",
+      "title": "POS / Malabar",
+      "url": "https://ptsc.co.tt/routes/pos-malabar/",
+      "from": "Port of Spain",
+      "to": "Malabar",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2420",
+      "title": "Santa Rosa Heights / Pinto Road / POS",
+      "url": "https://ptsc.co.tt/routes/santa-rosa-heights-pinto-road-pos/",
+      "from": "Port of Spain",
+      "to": "Santa Rosa",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 5,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2419",
+      "title": "POS / San Fernando (All Stop)",
+      "url": "https://ptsc.co.tt/routes/pos-san-fernando-all-stop/",
+      "from": "Port of Spain",
+      "to": "San Fernando",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-san-fernando",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2418",
+      "title": "POS / San Fernado (Limited Stop)",
+      "url": "https://ptsc.co.tt/routes/pos-san-fernado-limited-stop/",
+      "from": "Port of Spain",
+      "to": "San Fernando",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-san-fernando",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 6,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2417",
+      "title": "POS / San Fernado (DCS)",
+      "url": "https://ptsc.co.tt/routes/pos-san-fernado-dcs/",
+      "from": "Port of Spain",
+      "to": "San Fernando",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-san-fernando",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 10,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2416",
+      "title": "POS to Tunapuna / Caura",
+      "url": "https://ptsc.co.tt/routes/pos-to-tunapuna-caura/",
+      "from": "Port of Spain",
+      "to": "Tunapuna",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "tunapuna-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2415",
+      "title": "POS / Greenvale",
+      "url": "https://ptsc.co.tt/routes/pos-greenvale/",
+      "from": "Port of Spain",
+      "to": "Greenvale",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2414",
+      "title": "POS / Oropune Gardens",
+      "url": "https://ptsc.co.tt/routes/pos-oropune-gardens/",
+      "from": "Port of Spain",
+      "to": "Oropune Gardens",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2413",
+      "title": "POS / Montrose Junction",
+      "url": "https://ptsc.co.tt/routes/pos-montrose-junction/",
+      "from": "Port of Spain",
+      "to": "Montrose Junction",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2412",
+      "title": "POS / Edinburgh 500",
+      "url": "https://ptsc.co.tt/routes/pos-edinburgh-500/",
+      "from": "Port of Spain",
+      "to": "Edinburgh 500",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2411",
+      "title": "POS / Bon Air Gardens",
+      "url": "https://ptsc.co.tt/routes/pos-bon-air-gardens/",
+      "from": "Port of Spain",
+      "to": "Bon Air Gardens",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2410",
+      "title": "POS / Petit Valley",
+      "url": "https://ptsc.co.tt/routes/pos-petit-valley/",
+      "from": "Port of Spain",
+      "to": "Petit Valley",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2409",
+      "title": "POS / Diego Martin",
+      "url": "https://ptsc.co.tt/routes/pos-diego-martin/",
+      "from": "Port of Spain",
+      "to": "Diego Martin",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "maxi-diego-martin",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2408",
+      "title": "POS / City Service: Round D&#8217; Town",
+      "url": "https://ptsc.co.tt/routes/pos-city-service-round-d-town/",
+      "from": "Port of Spain",
+      "to": "Round D' Town",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 1.5,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2407",
+      "title": "POS City Service: St. James via Long Circular Road",
+      "url": "https://ptsc.co.tt/routes/pos-city-service-st-james-via-long-circular-road/",
+      "from": null,
+      "to": null,
+      "originNodeId": null,
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": null,
+      "fareConfidence": "unknown",
+      "fareSource": null,
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2405",
+      "title": "POS City Service:Queen&#8217;s Park Savannah via Edward St",
+      "url": "https://ptsc.co.tt/routes/pos-city-servicequeens-park-savannah-via-edward-st/",
+      "from": null,
+      "to": null,
+      "originNodeId": null,
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": null,
+      "fareConfidence": "unknown",
+      "fareSource": null,
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2404",
+      "title": "POS City Service: Belmont via Abercromby St.",
+      "url": "https://ptsc.co.tt/routes/pos-city-service-belmont-via-abercromby-st/",
+      "from": null,
+      "to": null,
+      "originNodeId": null,
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": null,
+      "fareConfidence": "unknown",
+      "fareSource": null,
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2403",
+      "title": "POS / Maloney",
+      "url": "https://ptsc.co.tt/routes/pos-maloney/",
+      "from": "Port of Spain",
+      "to": "Maloney",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "maloney-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2402",
+      "title": "POS / Chaguaramas",
+      "url": "https://ptsc.co.tt/routes/pos-chaguaramas/",
+      "from": "Port of Spain",
+      "to": "Chaguaramas",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "chaguaramas-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 2,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2401",
+      "title": "POS / Piarco",
+      "url": "https://ptsc.co.tt/routes/pos-piarco/",
+      "from": "Port of Spain",
+      "to": "Piarco",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2400",
+      "title": "POS / La Horquetta",
+      "url": "https://ptsc.co.tt/routes/pos-la-horquetta/",
+      "from": "Port of Spain",
+      "to": "La Horquetta",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-la-horquetta",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2397",
+      "title": "POS / Chaguanas ECS",
+      "url": "https://ptsc.co.tt/routes/pos-chaguanas-ecs/",
+      "from": "Port of Spain",
+      "to": "Chaguanas",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-chaguanas",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2395",
+      "title": "POS / Arima (Limited Stop)",
+      "url": "https://ptsc.co.tt/routes/pos-arima-limited-stop/",
+      "from": "Port of Spain",
+      "to": "Arima",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-arima",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2394",
+      "title": "POS / Arima (All Stop)",
+      "url": "https://ptsc.co.tt/routes/pos-arima-all-stop/",
+      "from": "Port of Spain",
+      "to": "Arima",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "ptsc-arima",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 2.5,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2393",
+      "title": "POS / Arima (EDCS)",
+      "url": "https://ptsc.co.tt/routes/pos-arima-edcs/",
+      "from": null,
+      "to": null,
+      "originNodeId": null,
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": null,
+      "fareConfidence": "unknown",
+      "fareSource": null,
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "official_endpoint_taxonomy_missing",
+        "official_fare_unavailable"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2392",
+      "title": "POS /Maraval via Morne Coco Road",
+      "url": "https://ptsc.co.tt/routes/pos-maraval-via-morne-coco-road/",
+      "from": "Port of Spain",
+      "to": "Mourne Cocoa Rd",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2391",
+      "title": "POS / San Juan / Santa Cruz",
+      "url": "https://ptsc.co.tt/routes/pos-santa-cruz/",
+      "from": "Port of Spain",
+      "to": "Santa Cruz",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": "santa-cruz-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2390",
+      "title": "POS / Blanchissuese",
+      "url": "https://ptsc.co.tt/routes/pos-blanchissuese/",
+      "from": "Port of Spain",
+      "to": "Blanchisseuse",
+      "originNodeId": "ptsc-pos-transit-centre",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2389",
+      "title": "Sangre Grande / Guayaguayare",
+      "url": "https://ptsc.co.tt/routes/sangre-grande-guayaguayare/",
+      "from": "Sangre Grande",
+      "to": "Guayaguayare",
+      "originNodeId": "ptsc-sangre-grande",
+      "destinationNodeId": "guayaguayare-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2388",
+      "title": "Sangre Grande / Rio Claro",
+      "url": "https://ptsc.co.tt/routes/sangre-grande-rio-claro/",
+      "from": "Sangre Grande",
+      "to": "Rio Claro",
+      "originNodeId": "ptsc-sangre-grande",
+      "destinationNodeId": "rio-claro-hub",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2387",
+      "title": "Sangre Grande / POS (DCS)",
+      "url": "https://ptsc.co.tt/routes/sangre-grande-pos-dcs/",
+      "from": "Sangre Grande",
+      "to": "Port of Spain",
+      "originNodeId": "ptsc-sangre-grande",
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 10,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2385",
+      "title": "Point Fortin / Erin via Buenos Ayres",
+      "url": "https://ptsc.co.tt/routes/point-fortin-erin-via-buenos-ayres/",
+      "from": "Point Fortin",
+      "to": "Erin",
+      "originNodeId": "ptsc-point-fortin",
+      "destinationNodeId": "erin-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2384",
+      "title": "Point Fortin / La Brea",
+      "url": "https://ptsc.co.tt/routes/point-fortin-la-brea/",
+      "from": "Point Fortin",
+      "to": "La Brea",
+      "originNodeId": "ptsc-point-fortin",
+      "destinationNodeId": "la-brea-area",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 2,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2382",
+      "title": "Guapo / POS",
+      "url": "https://ptsc.co.tt/routes/guapo-pos/",
+      "from": "Guapo",
+      "to": "Port of Spain",
+      "originNodeId": null,
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 12,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "origin_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2381",
+      "title": "Buenos Ayres / POS (via Fanny Village)",
+      "url": "https://ptsc.co.tt/routes/buenos-ayres-pos-via-fanny-village/",
+      "from": "Buenos Aires",
+      "to": "Port of Spain",
+      "originNodeId": null,
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 12,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "origin_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2380",
+      "title": "Point Fortin / POS",
+      "url": "https://ptsc.co.tt/routes/point-fortin-pos/",
+      "from": "Point Fortin",
+      "to": "Port of Spain",
+      "originNodeId": "ptsc-point-fortin",
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 12,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2379",
+      "title": "Point Fortin / San Fernando",
+      "url": "https://ptsc.co.tt/routes/point-fortin-san-fernando/",
+      "from": "Point Fortin",
+      "to": "San Fernando",
+      "originNodeId": "ptsc-point-fortin",
+      "destinationNodeId": "ptsc-san-fernando",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 3,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2378",
+      "title": "Point Fortin / Icacos",
+      "url": "https://ptsc.co.tt/routes/point-fortin-icacos/",
+      "from": "Point Fortin",
+      "to": "Icacos",
+      "originNodeId": "ptsc-point-fortin",
+      "destinationNodeId": null,
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 8,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "needs_endpoint_mapping",
+      "blockers": [
+        "destination_node_unresolved"
+      ]
+    },
+    {
+      "officialId": "ptsc-card-2377",
+      "title": "Sangre Grande / POS (Express)",
+      "url": "https://ptsc.co.tt/routes/sangre-grande-pos-express/",
+      "from": "Sangre Grande",
+      "to": "Port of Spain",
+      "originNodeId": "ptsc-sangre-grande",
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 6,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-2368",
+      "title": "Sangre Grande / POS (All Stop)",
+      "url": "https://ptsc.co.tt/routes/sangre-grande-pos-all-stop/",
+      "from": "Sangre Grande",
+      "to": "Port of Spain",
+      "originNodeId": "ptsc-sangre-grande",
+      "destinationNodeId": "ptsc-pos-transit-centre",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 4.5,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    },
+    {
+      "officialId": "ptsc-card-1561",
+      "title": "Sangre Grande / Arima",
+      "url": "https://ptsc.co.tt/routes/sangre-grande-arima/",
+      "from": "Sangre Grande",
+      "to": "Arima",
+      "originNodeId": "ptsc-sangre-grande",
+      "destinationNodeId": "ptsc-arima",
+      "serviceDays": [
+        "Monday - Friday"
+      ],
+      "fareTTD": 2.5,
+      "fareConfidence": "official_current",
+      "fareSource": {
+        "name": "PTSC Routes and Schedules rendered directory",
+        "url": "https://ptsc.co.tt/routes-and-schedules/",
+        "checkedAt": "2026-09-13"
+      },
+      "existingServiceId": null,
+      "status": "ready_for_service_review",
+      "blockers": []
+    }
+  ]
+}

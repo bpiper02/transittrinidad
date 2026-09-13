@@ -120,3 +120,29 @@ export function buildPTSCCandidates(snapshot, {nodes = [], services = [], schedu
     };
   });
 }
+
+function recordFingerprint(record) {
+  return JSON.stringify({
+    title: record.title,
+    from: normalizeEndpoint(record.from),
+    to: normalizeEndpoint(record.to),
+    serviceDays: record.serviceDays,
+    fareTTD: record.fareTTD ?? null,
+    amTimes: record.amTimes || [],
+    pmTimes: record.pmTimes || []
+  });
+}
+
+// Source captures are evidence only. This reports what changed; promotion remains explicit.
+export function diffPTSCSnapshots(previous, current) {
+  const before = new Map((previous?.records || []).map(record => [record.officialId, record]));
+  const after = new Map((current?.records || []).map(record => [record.officialId, record]));
+  const added = [], removed = [], changed = [];
+  for (const [id, record] of after) {
+    const old = before.get(id);
+    if (!old) added.push(record);
+    else if (recordFingerprint(old) !== recordFingerprint(record)) changed.push({officialId:id, before:old, after:record});
+  }
+  for (const [id, record] of before) if (!after.has(id)) removed.push(record);
+  return {added, removed, changed, unchanged: after.size - added.length - changed.length};
+}

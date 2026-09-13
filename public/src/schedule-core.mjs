@@ -23,6 +23,18 @@ export function formatServiceDays(days=[]){
   return days.map(day=>DAY_LABELS[day]||day).join(', ');
 }
 
+export function scheduleFreshness(schedule, now=new Date(), {warnAfterDays=7, staleAfterDays=30}={}){
+  const checkedAt=schedule?.sources?.map(source=>source.checkedAt).filter(Boolean).sort().at(-1);
+  if(!checkedAt)return{kind:'unknown',label:'Check date unavailable',checkedAt:null};
+  const checkedDate=new Date(`${checkedAt}T00:00:00Z`);
+  if(Number.isNaN(checkedDate.getTime()))return{kind:'unknown',label:'Check date unavailable',checkedAt:null};
+  const ageDays=Math.max(0,Math.floor((now.getTime()-checkedDate.getTime())/86400000));
+  const ageLabel=ageDays===0?'checked today':`checked ${ageDays}d ago`;
+  if(ageDays>staleAfterDays)return{kind:'stale',label:`Official schedule ${ageLabel}`,checkedAt,ageDays};
+  if(ageDays>warnAfterDays)return{kind:'aging',label:`Official schedule ${ageLabel}`,checkedAt,ageDays};
+  return{kind:'fresh',label:`Official schedule ${ageLabel}`,checkedAt,ageDays};
+}
+
 export function scheduleForDate(schedules,date=new Date()){
   const list=scheduleList(schedules);
   const timeZone=list[0]?.timezone||'America/Port_of_Spain';
