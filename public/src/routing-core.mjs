@@ -73,11 +73,11 @@ function inferredPolicyForPurpose(service,purpose){
   const explicit=serviceAccessPolicy(service,purpose);
   if(policyAllowsVirtualAccess(explicit))return explicit;
   if(
-    purpose==='boarding'&&
-    service.boardingPolicy==='mixed'&&
+    (purpose==='boarding'||purpose==='alighting')&&
+    (purpose==='boarding'?service.boardingPolicy:service.alightingPolicy)==='mixed'&&
     PASS_THROUGH_MODES.has(service.mode)&&
     corridorSignal(service)
-  )return 'hail_along_segment';
+  )return purpose==='alighting'?'main_road_pass_through':'hail_along_segment';
   return 'unknown_do_not_assume';
 }
 
@@ -447,6 +447,42 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
   };
 }
 
+function fallbackNodeId(prefix,place){
+  return `virtual-local-${prefix}-${Math.round(place.lat*10000)}-${Math.round(place.lng*10000)}`.replace(/[^a-zA-Z0-9_-]/g,'-');
+}
+
+function directLocalFallbackCandidate({fromPlace,toPlace,nodes,requiredMode,directKm,transferPenaltyMinutes,accessOptions,rankingOptions}){
+  const {allowDirectLocalFallback=false,maxDirectLocalFallbackKm=8,directLocalFallbackPenaltyMinutes=55}=rankingOptions||{};
+  if(!allowDirectLocalFallback)return null;
+  if(requiredMode&&requiredMode!=='route_taxi')return null;
+  if(!fromPlace||!toPlace||!Number.isFinite(fromPlace.lat)||!Number.isFinite(fromPlace.lng)||!Number.isFinite(toPlace.lat)||!Number.isFinite(toPlace.lng))return null;
+  if(!Number.isFinite(directKm)||directKm<=0.03||directKm>maxDirectLocalFallbackKm)return null;
+  const fromNode={id:fallbackNodeId('origin',fromPlace),name:'Estimated local connector start',kind:'stop_zone',location:{lat:fromPlace.lat,lng:fromPlace.lng},locationConfidence:'approximate_area',virtual:true};
+  const toNode={id:fallbackNodeId('destination',toPlace),name:'Estimated local connector destination',kind:'stop_zone',location:{lat:toPlace.lat,lng:toPlace.lng},locationConfidence:'approximate_area',virtual:true};
+  nodes.set(fromNode.id,fromNode);
+  nodes.set(toNode.id,toNode);
+  const minutes=Math.max(6,estimateAccess(directKm,{...accessOptions,walkThresholdKm:0}).minutes);
+  const service={
+    id:`local-connector-${fromNode.id}-${toNode.id}`,
+    corridorId:'local-connector-fallback',
+    mode:'route_taxi',
+    originNodeId:fromNode.id,
+    destinationNodeId:toNode.id,
+    stopNodeIds:[fromNode.id,toNode.id],
+    estimatedMinutes:minutes,
+    serviceConfidence:'reported_service',
+    boardingPolicy:'hail_along_segment',
+    alightingPolicy:'main_road_pass_through',
+    boardingNote:'No confirmed corridor found; this is a short local connection estimate, not a surveyed route.',
+    sources:[]
+  };
+  const steps=[{kind:'transit',from:fromNode.id,to:toNode.id,service,minutes}];
+  const candidate=candidateFor({node:fromNode,km:0},{node:toNode,km:0},steps,nodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions,scheduledServiceIds:null,schedules:[],departureDate:null});
+  candidate.score+=directLocalFallbackPenaltyMinutes;
+  candidate.ranking.directLocalFallback={estimated:true,maxKm:maxDirectLocalFallbackKm,directKm};
+  return candidate;
+}
+
 export function chooseJourneyOptions({
   fromPlace,
   toPlace,
@@ -527,7 +563,11 @@ export function chooseJourneyOptions({
   }
 
   const sorted=[...unique.values()].sort((a,b)=>a.score-b.score);
-  if(!sorted.length)return[];
+  if(!sorted.length){
+    const fallback=directLocalFallbackCandidate({fromPlace,toPlace,nodes:candidateNodes,requiredMode,directKm,transferPenaltyMinutes,accessOptions,rankingOptions:candidateRankingOptions});
+    if(fallback)return[fallback];
+    return[];
+  }
   const best=sorted[0];
   const ceiling=Math.min(best.score*maxAlternativeRatio,best.score+maxAlternativeExtraMinutes);
   const eligible=sorted.filter((candidate,index)=>index===0||candidate.score<=ceiling);

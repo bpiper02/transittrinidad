@@ -146,6 +146,12 @@ const sameHubNodes=new Map([['hub',{id:'hub',location:{lat:10.5,lng:-61.4}}],['o
 const sameHubServices=[{id:'hub-to-other',corridorId:'hub-other',mode:'ptsc',originNodeId:'hub',destinationNodeId:'other',stopNodeIds:['hub','other']}];
 const falseZeroLeg=chooseConnectedJourney({fromPlace:{lat:10.40,lng:-61.46},toPlace:{lat:10.42,lng:-61.45},nodes:sameHubNodes,services:sameHubServices,candidateLimit:1,maxAccessKm:20});
 assert.equal(falseZeroLeg,null,'two arbitrary places must not become a fake zero-transit journey merely because they snap to the same hub');
+const shortLocalFallback=chooseConnectedJourney({fromPlace:{lat:10.40,lng:-61.46},toPlace:{lat:10.42,lng:-61.45},nodes:new Map(sameHubNodes),services:sameHubServices,candidateLimit:1,maxAccessKm:20,rankingOptions:{allowDirectLocalFallback:true,maxDirectLocalFallbackKm:5}});
+assert.ok(shortLocalFallback,'short-distance fallback should prevent a no-route result when explicitly enabled');
+assert.equal(shortLocalFallback.modes[0],'route_taxi','short-distance fallback should be labeled as an estimated local route-taxi connector');
+assert.equal(shortLocalFallback.ranking.directLocalFallback.estimated,true,'fallback must be machine-readable as estimated, not verified');
+const farLocalFallback=chooseConnectedJourney({fromPlace:{lat:10.00,lng:-61.00},toPlace:{lat:10.30,lng:-61.00},nodes:new Map(),services:[],rankingOptions:{allowDirectLocalFallback:true,maxDirectLocalFallbackKm:5}});
+assert.equal(farLocalFallback,null,'direct local fallback must not create long-distance imaginary routes');
 
 const corridorIds=new Set(services.map(service=>service.corridorId));
 assert.ok(corridorIds.size>26,'regional sprint must expand the original 26 corridors');
