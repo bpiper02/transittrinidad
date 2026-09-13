@@ -8,7 +8,8 @@ export const BOARDING_POLICIES = new Set([
 
 export const POLICY_ALIASES = new Map([
   ['corridor_hail', 'hail_along_segment'],
-  ['corridor_request', 'main_road_pass_through']
+  ['corridor_request', 'main_road_pass_through'],
+  ['mixed', 'unknown_do_not_assume']
 ]);
 export const VIRTUAL_ACCESS_POLICIES = new Set(['main_road_pass_through', 'hail_along_segment']);
 export const TERMINAL_ONLY_POLICIES = new Set(['fixed_stop_only', 'terminal_or_stand_only', 'unknown_do_not_assume']);
