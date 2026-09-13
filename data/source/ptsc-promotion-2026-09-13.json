@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T04:53:52.623Z",
+  "generatedAt": "2026-09-13T05:39:52.389Z",
   "source": {
     "name": "PTSC Routes and Schedules directory",
     "url": "https://ptsc.co.tt/routes-and-schedules/",
@@ -7,6 +7,11 @@
     "sourceModifiedAt": "2025-03-11T18:05:14+00:00"
   },
   "promoted": [
+    "ptsc-official-8226",
+    "ptsc-official-2447",
+    "ptsc-official-2441"
+  ],
+  "upgraded": [
     "ptsc-official-9077",
     "ptsc-official-9076",
     "ptsc-official-9074",
@@ -36,6 +41,10 @@
     "ptsc-official-5265",
     "ptsc-official-3589",
     "ptsc-official-3581",
+    "ptsc-arima-to-aripo",
+    "ptsc-arima-to-wallerfield",
+    "ptsc-arima-to-la-horquetta",
+    "ptsc-arima-to-st-helena-carapo",
     "ptsc-official-2461",
     "ptsc-official-2458",
     "ptsc-official-2457",
@@ -76,20 +85,7 @@
     "ptsc-official-2368",
     "ptsc-official-1561"
   ],
-  "upgraded": [
-    "ptsc-arima-to-aripo",
-    "ptsc-arima-to-wallerfield",
-    "ptsc-arima-to-la-horquetta",
-    "ptsc-arima-to-st-helena-carapo"
-  ],
   "blocked": [
-    {
-      "officialId": "ptsc-card-8226",
-      "title": "POS/Couva",
-      "blockers": [
-        "destination_node_unresolved"
-      ]
-    },
     {
       "officialId": "ptsc-card-6044",
       "title": "POS/Piarco",
@@ -218,13 +214,6 @@
       ]
     },
     {
-      "officialId": "ptsc-card-2447",
-      "title": "San Fernando / Mayaro",
-      "blockers": [
-        "destination_node_unresolved"
-      ]
-    },
-    {
       "officialId": "ptsc-card-2444",
       "title": "San Fernando City Service : Tarouba",
       "blockers": [
@@ -238,13 +227,6 @@
       "blockers": [
         "official_endpoint_taxonomy_missing",
         "official_fare_unavailable"
-      ]
-    },
-    {
-      "officialId": "ptsc-card-2441",
-      "title": "Couva / POS",
-      "blockers": [
-        "origin_node_unresolved"
       ]
     },
     {

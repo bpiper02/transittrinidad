@@ -6153,5 +6153,86 @@
         "checkedAt": "2026-09-13"
       }
     ]
+  },
+  {
+    "id": "ptsc-official-8226",
+    "corridorId": "ptsc-ptsc-pos-transit-centre-maxi-couva",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-pos-transit-centre",
+    "destinationNodeId": "maxi-couva",
+    "stopNodeIds": [
+      "ptsc-pos-transit-centre",
+      "maxi-couva"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "POS/Couva",
+    "officialRecordId": "ptsc-card-8226",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-couva/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2447",
+    "corridorId": "ptsc-ptsc-san-fernando-maxi-mayaro",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "maxi-mayaro",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "maxi-mayaro"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 9,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "San Fernando / Mayaro",
+    "officialRecordId": "ptsc-card-2447",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-mayaro/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2441",
+    "corridorId": "ptsc-maxi-couva-ptsc-pos-transit-centre",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "maxi-couva",
+    "destinationNodeId": "ptsc-pos-transit-centre",
+    "stopNodeIds": [
+      "maxi-couva",
+      "ptsc-pos-transit-centre"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": 8,
+    "fareConfidence": "official_current",
+    "scheduleConfidence": "official_current",
+    "officialRouteTitle": "Couva / POS",
+    "officialRecordId": "ptsc-card-2441",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/couva-pos/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
   }
 ]
