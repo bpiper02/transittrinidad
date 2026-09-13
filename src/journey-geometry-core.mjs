@@ -15,6 +15,13 @@ function distanceKm(a,b){
   return Math.hypot(q.x-p.x,q.y-p.y);
 }
 
+export function lineDistanceKm(coordinates){
+  if(!Array.isArray(coordinates)||coordinates.length<2||!coordinates.every(validCoordinate))return 0;
+  let total=0;
+  for(let index=0;index<coordinates.length-1;index++)total+=distanceKm(coordinates[index],coordinates[index+1]);
+  return total;
+}
+
 export function projectOntoLine(coordinates,point){
   if(!Array.isArray(coordinates)||coordinates.length<2||!coordinates.every(validCoordinate)||!validCoordinate(point))return null;
   let best=null,cumulativeKm=0;
@@ -32,18 +39,23 @@ export function projectOntoLine(coordinates,point){
   return best;
 }
 
-export function sliceLineBetween(coordinates,from,to,{maxSnapKm=5}={}){
+export function sliceLineBetween(coordinates,from,to,{maxSnapKm=5,maxSliceDetourRatio=4,maxSliceExtraKm=5}={}){
   const start=projectOntoLine(coordinates,from),end=projectOntoLine(coordinates,to);
   if(!start||!end||start.distanceKm>maxSnapKm||end.distanceKm>maxSnapKm||end.positionKm+0.01<start.positionKm)return null;
   const sliced=[start.point];
   for(let index=start.segmentIndex+1;index<=end.segmentIndex;index++)sliced.push(coordinates[index]);
   sliced.push(end.point);
-  return sliced.filter((point,index,list)=>index===0||point[0]!==list[index-1][0]||point[1]!==list[index-1][1]);
+  const compact=sliced.filter((point,index,list)=>index===0||point[0]!==list[index-1][0]||point[1]!==list[index-1][1]);
+  if(compact.length<2)return null;
+  const directKm=distanceKm(from,to);
+  const slicedKm=lineDistanceKm(compact);
+  if(directKm>0.05&&slicedKm>directKm*maxSliceDetourRatio+maxSliceExtraKm)return null;
+  return compact;
 }
 
-export function coordinatesForJourneyLeg({coordinates,from,to,isWholeService=false,maxSnapKm=5}){
+export function coordinatesForJourneyLeg({coordinates,from,to,isWholeService=false,maxSnapKm=5,maxSliceDetourRatio=4,maxSliceExtraKm=5}){
+  void isWholeService;
   if(!validCoordinate(from)||!validCoordinate(to))return null;
-  if(isWholeService&&Array.isArray(coordinates)&&coordinates.length>=2)return coordinates;
-  const sliced=sliceLineBetween(coordinates,from,to,{maxSnapKm});
+  const sliced=sliceLineBetween(coordinates,from,to,{maxSnapKm,maxSliceDetourRatio,maxSliceExtraKm});
   return sliced?.length>=2?sliced:[from,to];
 }
