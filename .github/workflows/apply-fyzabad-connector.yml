@@ -1,0 +1,54 @@
+name: apply-fyzabad-connector
+on:
+  push:
+    branches: [sprint-medium-corridor-bridging-5]
+permissions:
+  contents: write
+jobs:
+  patch:
+    if: github.ref_name == 'sprint-medium-corridor-bridging-5'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Patch Fyzabad connector
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs');
+          const paths=['data/services.json','public/data/services.json'];
+          const sourceA={name:'Legal Notice No. 45 of 2009 temporary San Fernando traffic notice',url:'https://news.gov.tt/archive/E-Gazette/Gazette%202009/legal_notices/Legal%20Notice%20No.%2045%20of%202009.pdf',checkedAt:'2026-09-13'};
+          const sourceB={name:'Motor Vehicles and Road Traffic Regulations taxi stand list',url:'https://www.mowt.gov.tt/MOWT/media/General/Legislation/48-50.pdf',checkedAt:'2026-09-13'};
+          const note='Reported Fyzabad/San Fernando route-taxi connection from public traffic and taxi-stand notices. Exact current stand, bay, fare and operating hours need local confirmation.';
+          const servicesToAdd=[
+            {id:'taxi-fyzabad-san-fernando-out',corridorId:'taxi-fyzabad-san-fernando',mode:'route_taxi',operator:'Local route taxis',originNodeId:'fyzabad-area',destinationNodeId:'ptsc-san-fernando',stopNodeIds:['fyzabad-area','ptsc-san-fernando'],serviceConfidence:'reported_service',geometryConfidence:'endpoints_only',geometry:null,fareTTD:null,fareConfidence:'unknown',scheduleConfidence:'unknown',boardingNote:note,sources:[sourceA,sourceB]},
+            {id:'taxi-fyzabad-san-fernando-back',corridorId:'taxi-fyzabad-san-fernando',mode:'route_taxi',operator:'Local route taxis',originNodeId:'ptsc-san-fernando',destinationNodeId:'fyzabad-area',stopNodeIds:['ptsc-san-fernando','fyzabad-area'],serviceConfidence:'reported_service',geometryConfidence:'endpoints_only',geometry:null,fareTTD:null,fareConfidence:'unknown',scheduleConfidence:'unknown',boardingNote:note,sources:[sourceA,sourceB]}
+          ];
+          for(const path of paths){
+            const services=JSON.parse(fs.readFileSync(path,'utf8'));
+            for(const service of servicesToAdd){
+              if(!services.some(item=>item.id===service.id))services.push(service);
+            }
+            fs.writeFileSync(path,JSON.stringify(services,null,2)+'\n');
+          }
+          const sourcePath='data/source/southwest-connectivity-2026-09-13.json';
+          const sourceDoc={checkedAt:'2026-09-13',purpose:'Evidence notes for southwest reported connectors added to reduce false no-route results while preserving caveats.',items:[{claim:'San Fernando/Fyzabad route taxi movement appears in public traffic notices.',sources:[sourceA]},{claim:'Fyzabad taxi stand location appears in published taxi stand regulations.',sources:[sourceB]}],caveats:['Current stand placement, fare and operating hours still require local confirmation.','Connector is marked reported_service and no fare is presented.']};
+          fs.writeFileSync(sourcePath,JSON.stringify(sourceDoc,null,2)+'\n');
+          const testFile='tests/routing-core.mjs';
+          let test=fs.readFileSync(testFile,'utf8');
+          if(!test.includes('Fyzabad should connect to San Fernando through the reported local taxi connector')){
+            const anchor="assert.ok(findJourney('penal-siparia-taxi','siparia-penal-taxi',localSouthOnly,nodes));";
+            const addition="assert.ok(findJourney('fyzabad-area','ptsc-san-fernando',services,nodes,{transfers}),'Fyzabad should connect to San Fernando through the reported local taxi connector');\nassert.ok(findJourney('fyzabad-area','ptsc-point-fortin',services,nodes,{transfers}),'Fyzabad should reach Point Fortin through San Fernando/Point Fortin services after the local connector');\n"+anchor;
+            if(!test.includes(anchor))throw new Error('routing test anchor not found');
+            test=test.replace(anchor,addition);
+          }
+          fs.writeFileSync(testFile,test);
+          fs.rmSync('.github/workflows/apply-fyzabad-connector.yml');
+          NODE
+      - name: Commit patch
+        run: |
+          git config user.name "bpiper02"
+          git config user.email "93992231+bpiper02@users.noreply.github.com"
+          git add data/services.json public/data/services.json data/source/southwest-connectivity-2026-09-13.json tests/routing-core.mjs .github/workflows/apply-fyzabad-connector.yml
+          git commit -m "feat: add reported Fyzabad San Fernando connector"
+          git push origin HEAD:sprint-medium-corridor-bridging-5
