@@ -23,6 +23,10 @@ assert.match(virtualGuidance,/visible, legal, well-lit/,'virtual boarding must i
 assert.doesNotMatch(virtualGuidance,/virtual-boarding/,'rider copy must hide internal virtual node ids');
 
 const virtualDropOff='virtual-alighting-maxi-pos-arima-barataria-0-300';
+assert.equal(
+  transitAction(passThroughMaxi,{toward:virtualDropOff,bandLabel:'Route 3 / Green Band',fromName:'California'}),
+  'Hail the Route 3 / Green Band toward estimated main-road drop-off area'
+);
 const dropOffGuidance=boardingGuidance(passThroughMaxi,{fromName:'Port of Spain Route 2 stand',toName:virtualDropOff,fromIsTerminal:true});
 assert.match(dropOffGuidance,/estimated main-road drop-off area/,'virtual alighting ids must become rider-safe drop-off copy');
 assert.doesNotMatch(dropOffGuidance,/virtual-alighting/,'rider copy must hide internal virtual alighting ids');
