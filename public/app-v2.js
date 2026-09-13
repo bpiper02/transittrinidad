@@ -115,7 +115,7 @@ function nodeGeoJson(){
 }
 function fitCountry(){map?.fitBounds(TT_BOUNDS,{padding:50,duration:0});}
 function refreshMapData(){if(map?.isStyleLoaded())map.getSource('services')?.setData(visibleGeoJson());}
-function invalidatePlanner(){plannerRequestId+=1;}
+function invalidatePlanner(){plannerRequestId+=1;const button=$('#planButton');if(button)button.disabled=false;}
 function ensureCurrent(requestId){if(requestId!==plannerRequestId)throw new DOMException('Superseded','AbortError');}
 function clearJourney({clearTrip=false}={}){
   currentRoutePlan=null;
