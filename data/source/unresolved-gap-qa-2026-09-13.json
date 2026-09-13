@@ -1,0 +1,66 @@
+{
+  "checkedAt": "2026-09-13",
+  "purpose": "Record evidence found during southwest/Tobago gap QA and explain why two tempting routes were not promoted automatically.",
+  "confirmedInDataset": [
+    {
+      "trip": "Point Fortin to La Brea",
+      "status": "routable",
+      "basis": "Existing official-current PTSC directional route in services data."
+    },
+    {
+      "trip": "La Brea to San Fernando",
+      "status": "routable",
+      "basis": "Existing Route 5 maxi directional service in services data, supported by earlier route/fare sources."
+    },
+    {
+      "trip": "Scarborough to Crown Point",
+      "status": "routable",
+      "basis": "Existing Tobago PTSC/taxi directional service in services data."
+    }
+  ],
+  "leftUnresolved": [
+    {
+      "trip": "La Brea to Point Fortin",
+      "status": "unresolved_directional_gap",
+      "reason": "The current graph has Point Fortin to La Brea and La Brea to San Fernando, but routing La Brea to San Fernando and back west to Point Fortin is a destination-bypass/backtracking pattern. Do not loosen the router or invent reverse PTSC service without stronger evidence.",
+      "evidenceNeeded": [
+        "Official/current La Brea to Point Fortin service listing", 
+        "Association or field confirmation that La Brea is a two-way intermediate pickup/drop-off on the San Fernando to Point Fortin Route 5 corridor"
+      ],
+      "researchSignals": [
+        {
+          "name": "PTSC routes and schedules index includes Point Fortin/La Brea references",
+          "url": "https://ptsc.co.tt/routes-and-schedules/",
+          "use": "directional signal only; not enough by itself to create a reverse pattern"
+        },
+        {
+          "name": "Newsday reporting on Point Fortin/San Fernando/La Brea fare and waiting patterns",
+          "url": "https://newsday.co.tt/",
+          "use": "supports the corridor existing, but needs a current route-specific confirmation before promotion"
+        }
+      ]
+    },
+    {
+      "trip": "Crown Point to Scarborough Ferry",
+      "status": "unresolved_reverse_or_terminal_link_gap",
+      "reason": "The current graph confirms Scarborough to Crown Point, but does not yet have enough modeled evidence for Crown Point back to Scarborough ferry terminal, including either reverse public service and/or a safe terminal connection to the ferry node.",
+      "evidenceNeeded": [
+        "Official/current Crown Point to Scarborough PTSC direction or reliable route-taxi confirmation",
+        "Mapped safe walk/local transfer between Scarborough PTSC/taxi hub and Scarborough ferry terminal"
+      ],
+      "researchSignals": [
+        {
+          "name": "PTSC schedules index lists Scarborough Tobago depot",
+          "url": "https://ptsc.co.tt/routes-and-schedules-2/schedules/",
+          "use": "official hub signal"
+        },
+        {
+          "name": "Public travel sources mention PTSC Scarborough/Crown Point service",
+          "url": "https://www.mytobago.info/",
+          "use": "directional/useful context, not enough to silently infer app routing"
+        }
+      ]
+    }
+  ],
+  "qaRule": "If a journey would require backtracking away from the destination or assuming a reverse direction/ferry-terminal transfer, the app should prefer no route until the missing connector is explicitly modeled."
+}
