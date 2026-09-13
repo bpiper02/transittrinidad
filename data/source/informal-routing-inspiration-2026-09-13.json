@@ -1,0 +1,46 @@
+{
+  "checkedAt": "2026-09-13",
+  "purpose": "Inspiration for Transit Trinidad pass-through boarding and informal-route UX. These are design references, not Trinidad route evidence.",
+  "references": [
+    {
+      "name": "GTFS Continuous Stops",
+      "url": "https://gtfs.org/documentation/schedule/examples/continuous-stops/",
+      "lesson": "Represent pickup/drop-off between stops as explicit segment-level policy instead of inventing dense fake stops."
+    },
+    {
+      "name": "GTFS Flexible Services",
+      "url": "https://gtfs.org/documentation/schedule/examples/flex/",
+      "lesson": "Separate demand-responsive or flexible access from ordinary scheduled/fixed-route travel."
+    },
+    {
+      "name": "OpenTripPlanner Routing Modes",
+      "url": "https://docs.opentripplanner.org/en/latest/RoutingModes/",
+      "lesson": "Model walking to a pickup point along a road as a distinct access behavior, not as a normal stop."
+    },
+    {
+      "name": "TfL Bus Stop Design Guidance",
+      "url": "https://content.tfl.gov.uk/bus-stop-design-guidance.pdf",
+      "lesson": "Hail-and-ride sections should be treated as safety-sensitive and less certain than fixed stops."
+    },
+    {
+      "name": "Digital Matatus",
+      "url": "https://www.digitalmatatus.com/",
+      "lesson": "Informal transit can be made map-usable through adapted GTFS-style data without pretending it is fully formal."
+    },
+    {
+      "name": "Transport for Cairo Greater Cairo Region Digitalization",
+      "url": "https://transportforcairo.com/projects/greater-cairo-region-digitalization/",
+      "lesson": "When exact stops are messy, use surveyed terminals and virtual stops with explicit confidence."
+    },
+    {
+      "name": "Trufi Core",
+      "url": "https://github.com/trufi-association/trufi-core",
+      "lesson": "Open informal-transport journey planners still need bounded walking distance, candidate limits, and route confidence."
+    },
+    {
+      "name": "Trotro App",
+      "url": "https://apps.apple.com/us/app/trotro/id1478620071",
+      "lesson": "Door-to-door public transport UX is valuable, but users must also be able to report missing or wrong routes."
+    }
+  ]
+}
