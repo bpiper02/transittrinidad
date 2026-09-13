@@ -5,6 +5,7 @@ import {formatClock,formatServiceDays,nextDepartures,scheduleForDate} from './sr
 import {fareForJourney,fareForSegment,formatFare} from './src/fare-core.mjs';
 import {boardingGuidance,transitAction} from './src/rider-instruction-core.mjs';
 import {escapeHtml,formatMinutes,maxiBandLabel,modeLabel,routeColor,serviceConfidenceLabel} from './src/presentation-core.mjs';
+import {readJsonStorage,writeJsonStorage} from './src/storage-core.mjs';
 
 const nodeIndex=new Map();
 let services=[];
@@ -234,10 +235,10 @@ function setupModeTabs(){
 }
 function setupTray(){const button=$('#trayToggle'),list=$('#serviceList');button.addEventListener('click',()=>{list.hidden=!list.hidden;button.setAttribute('aria-expanded',String(!list.hidden));});}
 
-function readGeoCache(){try{return JSON.parse(localStorage.getItem(GEOCODE_CACHE_KEY)||'{}');}catch{return{};}}
-function writeGeoCache(cache){try{localStorage.setItem(GEOCODE_CACHE_KEY,JSON.stringify(cache));}catch{}}
-function readRoadCache(){try{return JSON.parse(localStorage.getItem(OSRM_CACHE_KEY)||'{}');}catch{return{};}}
-function writeRoadCache(cache){try{localStorage.setItem(OSRM_CACHE_KEY,JSON.stringify(cache));}catch{}}
+function readGeoCache(){return readJsonStorage(localStorage,GEOCODE_CACHE_KEY,{fallback:{}});}
+function writeGeoCache(cache){writeJsonStorage(localStorage,GEOCODE_CACHE_KEY,cache);}
+function readRoadCache(){return readJsonStorage(localStorage,OSRM_CACHE_KEY,{fallback:{}});}
+function writeRoadCache(cache){writeJsonStorage(localStorage,OSRM_CACHE_KEY,cache);}
 function sleep(ms){return new Promise(resolve=>setTimeout(resolve,ms));}
 function inTT(lng,lat){return lng>=TT_BOUNDS[0][0]&&lng<=TT_BOUNDS[1][0]&&lat>=TT_BOUNDS[0][1]&&lat<=TT_BOUNDS[1][1];}
 function photonLabel(properties={}){const parts=[properties.name,properties.street,properties.city||properties.district||properties.county].filter(Boolean);return[...new Set(parts)].join(', ');}
