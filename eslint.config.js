@@ -1,0 +1,67 @@
+const commonGlobals={
+  AbortController:'readonly',
+  Blob:'readonly',
+  URL:'readonly',
+  URLSearchParams:'readonly',
+  clearTimeout:'readonly',
+  console:'readonly',
+  fetch:'readonly',
+  setTimeout:'readonly',
+  structuredClone:'readonly'
+};
+
+const bugRules={
+  'eqeqeq':['error','always'],
+  'no-constant-condition':['error',{checkLoops:false}],
+  'no-dupe-else-if':'error',
+  'no-dupe-keys':'error',
+  'no-fallthrough':'error',
+  'no-self-assign':'error',
+  'no-shadow':'error',
+  'no-undef':'error',
+  'no-unreachable':'error',
+  'no-unused-vars':['error',{argsIgnorePattern:'^_',varsIgnorePattern:'^_'}],
+  'no-useless-catch':'error',
+  'prefer-const':'error'
+};
+
+export default [
+  {
+    ignores:[
+      'public/app.js',
+      'public/routing-core.mjs',
+      'public/src/**',
+      'tools/apply-*.mjs'
+    ]
+  },
+  {
+    files:['src/**/*.mjs','tests/**/*.mjs','tools/**/*.mjs'],
+    languageOptions:{
+      ecmaVersion:'latest',
+      sourceType:'module',
+      globals:{
+        ...commonGlobals,
+        Buffer:'readonly',
+        process:'readonly'
+      }
+    },
+    rules:bugRules
+  },
+  {
+    files:['public/**/*.js'],
+    languageOptions:{
+      ecmaVersion:'latest',
+      sourceType:'module',
+      globals:{
+        ...commonGlobals,
+        document:'readonly',
+        localStorage:'readonly',
+        navigator:'readonly',
+        requestAnimationFrame:'readonly',
+        sessionStorage:'readonly',
+        window:'readonly'
+      }
+    },
+    rules:bugRules
+  }
+];
