@@ -1,0 +1,71 @@
+name: apply-bridge-count-guard
+on:
+  push:
+    branches: [sprint-medium-corridor-bridging-5]
+permissions:
+  contents: write
+jobs:
+  patch:
+    if: github.ref_name == 'sprint-medium-corridor-bridging-5'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Patch connector count guard
+        run: |
+          node <<'NODE'
+          const fs=require('node:fs');
+          const files=['src/routing-core.mjs','public/src/routing-core.mjs'];
+          for(const file of files){
+            let text=fs.readFileSync(file,'utf8');
+            if(!text.includes('function estimatedConnectorCount(')){
+              const anchor='function schedulePenalty(steps,scheduledServiceIds,{unknownSchedulePenaltyMinutes=0}={}){';
+              const helper="function estimatedConnectorCount(steps){\n  return (steps||[]).filter(step=>step.kind==='transfer'&&step.transfer?.isEstimatedConnector).length;\n}\n\n";
+              if(!text.includes(anchor))throw new Error(file+': schedulePenalty anchor not found');
+              text=text.replace(anchor,helper+anchor);
+            }
+            if(!text.includes('estimatedConnectorPenaltyMinutes=15')){
+              const old="    unknownSchedulePenaltyMinutes=0,\n    destinationCatchmentKm=2.5,";
+              const neu="    unknownSchedulePenaltyMinutes=0,\n    estimatedConnectorPenaltyMinutes=15,\n    destinationCatchmentKm=2.5,";
+              if(!text.includes(old))throw new Error(file+': ranking defaults anchor not found');
+              text=text.replace(old,neu);
+            }
+            if(!text.includes('const estimatedConnectors=estimatedConnectorCount(steps);')){
+              const old="  const timetablePenalty=schedulePenalty(steps,scheduledServiceIds,{unknownSchedulePenaltyMinutes});\n  const destinationBypass=destinationBypassDiagnostic";
+              const neu="  const timetablePenalty=schedulePenalty(steps,scheduledServiceIds,{unknownSchedulePenaltyMinutes});\n  const estimatedConnectors=estimatedConnectorCount(steps);\n  const estimatedConnectorPenalty=estimatedConnectors*estimatedConnectorPenaltyMinutes;\n  const destinationBypass=destinationBypassDiagnostic";
+              if(!text.includes(old))throw new Error(file+': penalty insert anchor not found');
+              text=text.replace(old,neu);
+            }
+            if(!text.includes('+servicePenalty+timetablePenalty+estimatedConnectorPenalty')){
+              text=text.replace('const score=networkMinutes+fromAccess.minutes+toAccess.minutes+accessPenalty+detourPenalty+directionPenalty+servicePenalty+timetablePenalty;','const score=networkMinutes+fromAccess.minutes+toAccess.minutes+accessPenalty+detourPenalty+directionPenalty+servicePenalty+timetablePenalty+estimatedConnectorPenalty;');
+            }
+            if(!text.includes('estimatedConnectorCount:estimatedConnectors')){
+              text=text.replace('timetablePenalty,fromAccessTrusted','timetablePenalty,estimatedConnectorPenalty,estimatedConnectorCount:estimatedConnectors,fromAccessTrusted');
+            }
+            if(!text.includes('maxEstimatedConnectorsPerJourney')){
+              const old="        if(!allowDestinationBypass&&candidate.ranking.destinationBypass.rejected)continue;\n        if(candidate.ranking.detourRatio>maxDetourRatio)continue;";
+              const neu="        if(!allowDestinationBypass&&candidate.ranking.destinationBypass.rejected)continue;\n        const {maxEstimatedConnectorsPerJourney=1}=candidateRankingOptions;\n        if(candidate.ranking.estimatedConnectorCount>maxEstimatedConnectorsPerJourney)continue;\n        if(candidate.ranking.detourRatio>maxDetourRatio)continue;";
+              if(!text.includes(old))throw new Error(file+': candidate guard anchor not found');
+              text=text.replace(old,neu);
+            }
+            fs.writeFileSync(file,text);
+          }
+          const testFile='tests/routing-core.mjs';
+          let test=fs.readFileSync(testFile,'utf8');
+          if(!test.includes('multiBridgeNodes')){
+            const anchor="assert.deepEqual(mediumBridge.modes,['maxi','route_taxi'],'bridge fallback should preserve the real transit legs around the estimated connector');";
+            const addition=anchor+"\nconst multiBridgeNodes=new Map([\n  ['a',{id:'a',kind:'stand',location:{lat:10.000,lng:-61.000}}],\n  ['b',{id:'b',kind:'stand',location:{lat:10.020,lng:-61.000}}],\n  ['c',{id:'c',kind:'stand',location:{lat:10.040,lng:-61.000}}],\n  ['d',{id:'d',kind:'stand',location:{lat:10.060,lng:-61.000}}],\n  ['e',{id:'e',kind:'stand',location:{lat:10.080,lng:-61.000}}]\n]);\nconst multiBridgeServices=[\n  {id:'a-b',corridorId:'a-b',mode:'maxi',originNodeId:'a',destinationNodeId:'b',stopNodeIds:['a','b'],estimatedMinutes:5},\n  {id:'c-d',corridorId:'c-d',mode:'route_taxi',originNodeId:'c',destinationNodeId:'d',stopNodeIds:['c','d'],estimatedMinutes:5}\n];\nconst noMultiBridge=chooseConnectedJourney({fromPlace:multiBridgeNodes.get('a').location,toPlace:multiBridgeNodes.get('e').location,nodes:new Map(multiBridgeNodes),services:multiBridgeServices,knownFrom:multiBridgeNodes.get('a'),knownTo:multiBridgeNodes.get('e'),rankingOptions:{allowCorridorBridgeFallback:true,maxBridgeConnectorKm:3,maxBridgeConnectorsPerNode:3,maxEstimatedConnectorsPerJourney:1}});\nassert.equal(noMultiBridge,null,'bridge fallback must not stitch journeys together with multiple unsurveyed connectors by default');";
+            if(!test.includes(anchor))throw new Error('routing test bridge anchor not found');
+            test=test.replace(anchor,addition);
+          }
+          fs.writeFileSync(testFile,test);
+          fs.rmSync('.github/workflows/apply-bridge-count-guard.yml');
+          NODE
+      - name: Commit patch
+        run: |
+          git config user.name "bpiper02"
+          git config user.email "93992231+bpiper02@users.noreply.github.com"
+          git add src/routing-core.mjs public/src/routing-core.mjs tests/routing-core.mjs .github/workflows/apply-bridge-count-guard.yml
+          git commit -m "fix: cap estimated bridge connectors"
+          git push origin HEAD:sprint-medium-corridor-bridging-5
