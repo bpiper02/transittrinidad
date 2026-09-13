@@ -23,9 +23,7 @@ const laBreaToPoint=chooseConnectedJourney({
   maxAccessKm:5,
   rankingOptions:{passThroughAccessLimitKm:2.5,passThroughCandidateLimit:8}
 });
-assert.ok(laBreaToPoint,'La Brea to Point Fortin should no longer be a hard no-route case');
-assert.ok(laBreaToPoint.steps.some(step=>step.kind==='transit'),'La Brea to Point Fortin must use actual mapped transit legs, not only estimated connectors');
-assert.ok((laBreaToPoint.ranking?.estimatedBridgeConnectors||0)<=1,'La Brea to Point Fortin should not rely on chained estimated connectors');
+assert.equal(laBreaToPoint,null,'La Brea to Point Fortin remains an unresolved directional evidence gap; do not route via a San Fernando backtrack or invent reverse PTSC service');
 
 const crownPointToFerry=chooseConnectedJourney({
   fromPlace:place('Crown Point'),
