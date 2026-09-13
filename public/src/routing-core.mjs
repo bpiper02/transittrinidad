@@ -483,6 +483,40 @@ function directLocalFallbackCandidate({fromPlace,toPlace,nodes,requiredMode,dire
   return candidate;
 }
 
+function sameIslandLocations(a,b){
+  if(!a||!b)return false;
+  const aTobago=a.lat>10.9,bTobago=b.lat>10.9;
+  return aTobago===bTobago;
+}
+
+function connectorTransferKey(from,to){return String(from)+'->'+String(to);}
+
+function localConnectorTransfers(nodes,eligibleNodeIds,existingTransfers=[],options={}){
+  const {allowCorridorBridgeFallback=false,maxBridgeConnectorKm=5,maxBridgeConnectorsPerNode=4,bridgeConnectorPenaltyMinutes=18}=options||{};
+  if(!allowCorridorBridgeFallback)return[];
+  const existing=new Set((existingTransfers||[]).map(transfer=>connectorTransferKey(transfer.fromNodeId,transfer.toNodeId)));
+  const candidates=[...eligibleNodeIds].map(id=>nodes.get(id)).filter(node=>hasValidLocation(node));
+  const transfers=[];
+  for(const from of candidates){
+    const close=[];
+    for(const to of candidates){
+      if(from.id===to.id)continue;
+      if(!sameIslandLocations(from.location,to.location))continue;
+      const key=connectorTransferKey(from.id,to.id);
+      if(existing.has(key))continue;
+      const km=kmBetween(from.location,to.location);
+      if(!Number.isFinite(km)||km<=0.03||km>maxBridgeConnectorKm)continue;
+      close.push({to,km});
+    }
+    close.sort((a,b)=>a.km-b.km);
+    for(const item of close.slice(0,maxBridgeConnectorsPerNode)){
+      const to=item.to,km=item.km;
+      transfers.push({fromNodeId:from.id,toNodeId:to.id,distanceKm:km,estimatedMinutes:Math.round(bridgeConnectorPenaltyMinutes+estimateAccess(km,{...options,walkThresholdKm:0}).minutes),kind:'local_connector',isEstimatedConnector:true,note:'Estimated local connector between nearby corridors; not a surveyed route.'});
+    }
+  }
+  return transfers;
+}
+
 export function chooseJourneyOptions({
   fromPlace,
   toPlace,
@@ -531,6 +565,9 @@ export function chooseJourneyOptions({
     if(typeof nodes?.set==='function')nodes.set(candidate.node.id,candidate.node);
     virtualAccessPoints.push(candidate.virtualAccess);
   }
+  const routingTransfers=rankingOptions.allowCorridorBridgeFallback
+    ? [...transfers,...localConnectorTransfers(candidateNodes,eligibleNodeIds,transfers,{...accessOptions,...rankingOptions})]
+    : transfers;
   const starts=knownFrom?regularStarts:mergeAccessCandidates(candidateLimit+passThroughCandidateLimit,regularStarts,virtualStarts);
   const ends=knownTo?regularEnds:mergeAccessCandidates(candidateLimit+passThroughCandidateLimit,regularEnds,virtualEnds);
   const unique=new Map();
@@ -543,7 +580,7 @@ export function chooseJourneyOptions({
     for(const end of ends){
       const modeVariants=requiredMode?[requiredMode]:[null,...availableModes];
       for(const routeMode of modeVariants){
-        const steps=findJourney(start.node.id,end.node.id,eligibleServices,candidateNodes,{transferPenaltyMinutes,transfers,requiredMode:routeMode,virtualAccessPoints});
+        const steps=findJourney(start.node.id,end.node.id,eligibleServices,candidateNodes,{transferPenaltyMinutes,transfers:routingTransfers,requiredMode:routeMode,virtualAccessPoints});
         if(steps===null||hasJourneyLoop(start.node.id,steps))continue;
         if(steps.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
         const candidate=candidateFor(start,end,steps,candidateNodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions:candidateRankingOptions,scheduledServiceIds,schedules,departureDate});

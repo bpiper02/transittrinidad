@@ -152,6 +152,21 @@ assert.equal(shortLocalFallback.modes[0],'route_taxi','short-distance fallback s
 assert.equal(shortLocalFallback.ranking.directLocalFallback.estimated,true,'fallback must be machine-readable as estimated, not verified');
 const farLocalFallback=chooseConnectedJourney({fromPlace:{lat:10.00,lng:-61.00},toPlace:{lat:10.30,lng:-61.00},nodes:new Map(),services:[],rankingOptions:{allowDirectLocalFallback:true,maxDirectLocalFallbackKm:5}});
 assert.equal(farLocalFallback,null,'direct local fallback must not create long-distance imaginary routes');
+const mediumBridgeNodes=new Map([
+  ['origin-stand',{id:'origin-stand',kind:'stand',name:'Origin Stand',location:{lat:10.000,lng:-61.000}}],
+  ['near-gap-west',{id:'near-gap-west',kind:'stand',name:'Near Gap West',location:{lat:10.020,lng:-61.000}}],
+  ['near-gap-east',{id:'near-gap-east',kind:'stand',name:'Near Gap East',location:{lat:10.035,lng:-61.000}}],
+  ['destination-stand',{id:'destination-stand',kind:'stand',name:'Destination Stand',location:{lat:10.055,lng:-61.000}}]
+]);
+const mediumBridgeServices=[
+  {id:'origin-to-gap',corridorId:'origin-gap',mode:'maxi',originNodeId:'origin-stand',destinationNodeId:'near-gap-west',stopNodeIds:['origin-stand','near-gap-west'],estimatedMinutes:10},
+  {id:'gap-to-destination',corridorId:'gap-destination',mode:'route_taxi',originNodeId:'near-gap-east',destinationNodeId:'destination-stand',stopNodeIds:['near-gap-east','destination-stand'],estimatedMinutes:10}
+];
+assert.equal(chooseConnectedJourney({fromPlace:mediumBridgeNodes.get('origin-stand').location,toPlace:mediumBridgeNodes.get('destination-stand').location,nodes:new Map(mediumBridgeNodes),services:mediumBridgeServices,knownFrom:mediumBridgeNodes.get('origin-stand'),knownTo:mediumBridgeNodes.get('destination-stand')}),null,'disconnected corridor fragments should still fail without bridge fallback');
+const mediumBridge=chooseConnectedJourney({fromPlace:mediumBridgeNodes.get('origin-stand').location,toPlace:mediumBridgeNodes.get('destination-stand').location,nodes:new Map(mediumBridgeNodes),services:mediumBridgeServices,knownFrom:mediumBridgeNodes.get('origin-stand'),knownTo:mediumBridgeNodes.get('destination-stand'),rankingOptions:{allowCorridorBridgeFallback:true,maxBridgeConnectorKm:3,maxBridgeConnectorsPerNode:2}});
+assert.ok(mediumBridge,'medium-distance bridge fallback should connect nearby corridor fragments');
+assert.ok(mediumBridge.steps.some(step=>step.kind==='transfer'&&step.transfer?.isEstimatedConnector),'bridge fallback must be machine-readable as an estimated connector, not verified transit');
+assert.deepEqual(mediumBridge.modes,['maxi','route_taxi'],'bridge fallback should preserve the real transit legs around the estimated connector');
 
 const corridorIds=new Set(services.map(service=>service.corridorId));
 assert.ok(corridorIds.size>26,'regional sprint must expand the original 26 corridors');
