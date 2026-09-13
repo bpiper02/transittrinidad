@@ -1,5 +1,6 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 
+// Temporary, fail-closed source transformation used only for the R4a extraction.
 const path=new URL('../public/app-v2.js',import.meta.url);
 let source=readFileSync(path,'utf8');
 
