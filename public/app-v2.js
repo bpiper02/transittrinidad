@@ -6,6 +6,7 @@ import {fareForJourney,fareForSegment,formatFare} from './src/fare-core.mjs';
 import {boardingGuidance,transitAction} from './src/rider-instruction-core.mjs';
 import {escapeHtml,formatMinutes,maxiBandLabel,modeLabel,routeColor,serviceConfidenceLabel} from './src/presentation-core.mjs';
 import {readJsonStorage,writeJsonStorage} from './src/storage-core.mjs';
+import {fetchWithTimeout,getJson} from './src/http-core.mjs';
 
 const nodeIndex=new Map();
 let services=[];
@@ -185,19 +186,6 @@ function journeyEvidenceHtml(rides){
   }).join('');
   return`<details class="data-details journey-data"><summary>Journey data</summary>${rows}</details>`;
 }
-
-async function fetchWithTimeout(url,options={},timeoutMs=7000){
-  const controller=new AbortController();
-  const external=options.signal;
-  const forwardAbort=()=>controller.abort();
-  if(external){if(external.aborted)controller.abort();else external.addEventListener('abort',forwardAbort,{once:true});}
-  let timedOut=false;
-  const timer=setTimeout(()=>{timedOut=true;controller.abort();},timeoutMs);
-  try{return await fetch(url,{...options,signal:controller.signal});}
-  catch(error){if(timedOut)throw new Error('Request timed out.');throw error;}
-  finally{clearTimeout(timer);external?.removeEventListener('abort',forwardAbort);}
-}
-async function getJson(url){const response=await fetchWithTimeout(url,{cache:'no-cache'},7000);if(!response.ok)throw new Error(`${url} returned ${response.status}`);return response.json();}
 
 function renderList(){
   const list=$('#serviceList'),groups=corridorGroups();
