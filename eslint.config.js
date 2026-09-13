@@ -1,6 +1,7 @@
 const commonGlobals={
   AbortController:'readonly',
   Blob:'readonly',
+  DOMException:'readonly',
   URL:'readonly',
   URLSearchParams:'readonly',
   clearTimeout:'readonly',
@@ -65,7 +66,6 @@ export default [
       sourceType:'module',
       globals:{
         ...commonGlobals,
-        DOMException:'readonly',
         document:'readonly',
         localStorage:'readonly',
         navigator:'readonly',
