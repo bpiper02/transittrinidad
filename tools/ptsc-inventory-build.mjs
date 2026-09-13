@@ -16,7 +16,8 @@ const aliases={
   'crown point':'crown-point-area',buccoo:'buccoo-area',fyzabad:'fyzabad-area',erin:'erin-area',
   guayaguayare:'guayaguayare-area',moruga:'moruga-area','princes town':'princes-town-local-area','rio claro':'rio-claro-hub',
   'la brea':'la-brea-area',tunapuna:'tunapuna-area',maloney:'maloney-area',chaguaramas:'chaguaramas-area',
-  maraval:'maraval-area','san juan':'san-juan-area','santa cruz':'santa-cruz-area','diego martin':'maxi-diego-martin'
+  maraval:'maraval-area','san juan':'san-juan-area','santa cruz':'santa-cruz-area','diego martin':'maxi-diego-martin',
+  couva:'maxi-couva',mayaro:'maxi-mayaro'
 };
 const key=value=>String(value||'').toLowerCase().replace(/[’']/g,' ').replace(/[^a-z0-9]+/g,' ').trim();
 const nodeIds=new Set(nodes.map(node=>node.id));
