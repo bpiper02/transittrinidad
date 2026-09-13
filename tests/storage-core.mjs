@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {readJsonStorage,writeJsonStorage} from '../src/storage-core.mjs';
+import {isPlainObject,readJsonObjectStorage,readJsonStorage,writeJsonStorage} from '../src/storage-core.mjs';
 
 function memoryStorage(initial={}){
   const data=new Map(Object.entries(initial));
@@ -22,9 +22,17 @@ const throwing={getItem(){throw new Error('blocked');},setItem(){throw new Error
 assert.deepEqual(readJsonStorage(throwing,'x',{fallback:{}}),{});
 assert.equal(writeJsonStorage(throwing,'x',{a:1}),false);
 
-// Characterization: valid JSON null/arrays currently pass through. R6 will decide
-// whether cache-specific callers should reject these shapes as malformed caches.
+// General JSON storage still accepts valid JSON primitives/arrays.
 assert.equal(readJsonStorage(memoryStorage({value:'null'}),'value',{fallback:{}}),null);
 assert.deepEqual(readJsonStorage(memoryStorage({value:'[]'}),'value',{fallback:{}}),[]);
+
+// Cache callers require dictionary-like objects; valid-but-wrong JSON shapes fall back safely.
+assert.equal(isPlainObject({}),true);
+assert.equal(isPlainObject(Object.create(null)),true);
+assert.equal(isPlainObject(null),false);
+assert.equal(isPlainObject([]),false);
+assert.deepEqual(readJsonObjectStorage(memoryStorage({value:'null'}),'value',{fallback:{safe:true}}),{safe:true});
+assert.deepEqual(readJsonObjectStorage(memoryStorage({value:'[]'}),'value',{fallback:{safe:true}}),{safe:true});
+assert.deepEqual(readJsonObjectStorage(memoryStorage({value:'{"a":1}'}),'value',{fallback:{}}),{a:1});
 
 console.log('storage core tests passed');
