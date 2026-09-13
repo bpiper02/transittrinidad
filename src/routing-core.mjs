@@ -290,7 +290,9 @@ export function chooseJourneyOptions({
   maxOptions=3,
   maxAlternativeRatio=2.5,
   maxAlternativeExtraMinutes=120,
-  maxDetourRatio=4,
+  maxDetourRatio=2.5,
+  maxBacktrackRatio=0.35,
+  maxBacktrackFloorKm=3,
   scheduledServiceIds=null,
   rankingOptions={}
 }){
@@ -312,6 +314,9 @@ export function chooseJourneyOptions({
         if(steps.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
         const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions,scheduledServiceIds});
         if(candidate.ranking.detourRatio>maxDetourRatio)continue;
+        const maxBacktrackKm=Math.max(maxBacktrackFloorKm,directKm*maxBacktrackRatio);
+        if(candidate.ranking.backtrackKm>maxBacktrackKm)continue;
+        if(requiredMode&&!candidate.modes.includes(requiredMode))continue;
         const signature=journeySignature(candidate);
         if(!signature)continue;
         const existing=unique.get(signature);

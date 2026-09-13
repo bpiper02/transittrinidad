@@ -7,7 +7,7 @@ for(const file of files){
   const browser=readFileSync(new URL(`../public/data/${file}`,import.meta.url),'utf8');
   assert.equal(browser,canonical,`${file} browser mirror must exactly match canonical data`);
 }
-for(const core of ['network-qa-core.mjs','fare-core.mjs','journey-geometry-core.mjs']){
+for(const core of ['network-qa-core.mjs','fare-core.mjs','journey-geometry-core.mjs','routing-core.mjs']){
   const sourceCore=readFileSync(new URL(`../src/${core}`,import.meta.url),'utf8');
   const browserCore=readFileSync(new URL(`../public/src/${core}`,import.meta.url),'utf8');
   assert.equal(browserCore,sourceCore,`${core} browser core must exactly mirror source core`);

@@ -26,7 +26,15 @@ function assertSensible(option,label){
       assert.equal(previous.to,current.from,`${label}: mode/service changes must occur at a common node or explicit transfer`);
     }
   }
-  assert.ok(option.ranking.detourRatio<=4,`${label}: excessive detours must be rejected`);
+  assert.ok(option.ranking.detourRatio<=2.5,`${label}: excessive detours must be rejected`);
+  const directKm=locationDistance(option.fromNear.node.location,option.toNear.node.location);
+  assert.ok(option.ranking.backtrackKm<=Math.max(3,directKm*.35)+.01,`${label}: material backtracking must be rejected`);
+}
+
+function locationDistance(a,b){
+  const radians=value=>value*Math.PI/180,R=6371,dLat=radians(b.lat-a.lat),dLng=radians(b.lng-a.lng);
+  const q=Math.sin(dLat/2)**2+Math.cos(radians(a.lat))*Math.cos(radians(b.lat))*Math.sin(dLng/2)**2;
+  return 2*R*Math.asin(Math.sqrt(q));
 }
 
 function options(fromId,toId,extra={}){
@@ -83,6 +91,13 @@ assertSensible(scarboroughCrown[0],'Scarborough Ferry Terminal → Crown Point')
 const maxiFiltered=options('penal-siparia-taxi','chag-maxi-area',{requiredMode:'maxi'});
 assertSensible(maxiFiltered[0],'Penal → Chaguanas (Maxi filter)');
 assert.ok(maxiFiltered[0].modes.includes('maxi'),'Maxi filter must require a Maxi leg while permitting connector modes');
+
+const pointFortin=nodes.get('ptsc-point-fortin'),fyzabad=nodes.get('fyzabad-area');
+const misleadingPTSC=chooseJourneyOptions({
+  fromPlace:pointFortin.location,toPlace:fyzabad.location,knownFrom:pointFortin,knownTo:fyzabad,
+  nodes,services,transfers,requiredMode:'ptsc'
+});
+assert.equal(misleadingPTSC.length,0,'Point Fortin → Fyzabad must not satisfy the PTSC filter via a San Fernando/Siparia detour');
 
 const eligible=routableNodeIds(services,transfers);
 assert.equal(services.filter(service=>service.serviceConfidence==='needs_review').some(service=>eligible.has(service.originNodeId)&&eligible.has(service.destinationNodeId)&&!services.some(other=>other!==service&&other.serviceConfidence!=='needs_review'&&([other.originNodeId,other.destinationNodeId,...(other.stopNodeIds||[])].includes(service.originNodeId)||[other.originNodeId,other.destinationNodeId,...(other.stopNodeIds||[])].includes(service.destinationNodeId)))),false,'held-only service nodes must not become eligible merely because the held service exists');
