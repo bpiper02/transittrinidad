@@ -24,12 +24,13 @@
         <div class="planner-row">
           <div class="route-dots" aria-hidden="true"><span class="origin-dot"></span><span class="dot-line"></span><span class="destination-dot"></span></div>
           <div class="route-fields">
-            <label class="place-field"><span>From</span><input id="fromInput" autocomplete="off" autocapitalize="words" spellcheck="false" enterkeyhint="next" placeholder="Start location" aria-autocomplete="list" aria-controls="fromSuggestions" /><div id="fromSuggestions" class="suggestions" role="listbox" hidden></div></label>
-            <label class="place-field"><span>To</span><input id="toInput" autocomplete="off" autocapitalize="words" spellcheck="false" enterkeyhint="go" placeholder="Destination" aria-autocomplete="list" aria-controls="toSuggestions" /><div id="toSuggestions" class="suggestions" role="listbox" hidden></div></label>
+            <label class="place-field"><span>From</span><div class="input-action-row"><input id="fromInput" autocomplete="off" autocapitalize="words" spellcheck="false" enterkeyhint="next" placeholder="Start location" aria-autocomplete="list" aria-controls="fromSuggestions" /><button id="fromLocationButton" class="use-location-button" type="button">Use my location</button></div><div id="fromSuggestions" class="suggestions" role="listbox" hidden></div></label>
+            <label class="place-field"><span>To</span><div class="input-action-row"><input id="toInput" autocomplete="off" autocapitalize="words" spellcheck="false" enterkeyhint="go" placeholder="Destination" aria-autocomplete="list" aria-controls="toSuggestions" /><button id="toLocationButton" class="use-location-button" type="button">Use my location</button></div><div id="toSuggestions" class="suggestions" role="listbox" hidden></div></label>
           </div>
           <button id="swapButton" class="swap" type="button" aria-label="Swap origin and destination">⇅</button>
         </div>
         <button id="planButton" class="plan-button" type="button">Route</button>
+        <p id="locationStatus" class="location-status" aria-live="polite" hidden></p>
         <p id="plannerStatus" class="planner-status" aria-live="polite">Search anywhere in Trinidad & Tobago.</p>
         <details class="network-notice">
           <summary>About this map</summary>
