@@ -7,6 +7,7 @@ import {boardingGuidance,transitAction} from './src/rider-instruction-core.mjs';
 import {escapeHtml,formatMinutes,maxiBandLabel,modeLabel,routeColor,serviceConfidenceLabel} from './src/presentation-core.mjs';
 import {readJsonObjectStorage,writeJsonStorage} from './src/storage-core.mjs';
 import {fetchWithTimeout,getJson} from './src/http-core.mjs';
+import {parseNominatimPlace,parseOsrmRoute,parsePhotonFeatures} from './src/external-data-core.mjs';
 
 const nodeIndex=new Map();
 let services=[];
@@ -235,7 +236,7 @@ async function remoteAutocomplete(query,signal){
   const params=new URLSearchParams({q:cleaned,limit:'6',lang:'en',bbox:'-61.98,9.95,-60.42,11.42'});
   const response=await fetchWithTimeout(`${PHOTON_BASE}?${params}`,{signal,headers:{Accept:'application/json'}},5000);if(!response.ok)return[];
   const data=await response.json();
-  return(data.features||[]).map(feature=>{const[lng,lat]=feature.geometry?.coordinates||[];return{name:photonLabel(feature.properties),lat:+lat,lng:+lng};}).filter(place=>place.name&&Number.isFinite(place.lat)&&Number.isFinite(place.lng)&&inTT(place.lng,place.lat));
+  return parsePhotonFeatures(data).map(feature=>({name:photonLabel(feature.properties),lat:feature.lat,lng:feature.lng})).filter(place=>place.name&&inTT(place.lng,place.lat));
 }
 async function autocompletePlaces(query,signal){
   const local=matchPlaces(query,places,{limit:4});
@@ -279,8 +280,8 @@ async function geocodePlace(query){
   const wait=Math.max(0,1100-(Date.now()-lastGeocodeAt));if(wait)await sleep(wait);
   const params=new URLSearchParams({q:cleaned,format:'jsonv2',limit:'1',countrycodes:'tt',bounded:'1',viewbox:'-61.98,11.42,-60.42,9.95'});lastGeocodeAt=Date.now();
   const response=await fetchWithTimeout(`${GEOCODER_BASE}?${params}`,{headers:{Accept:'application/json'}},7000);if(!response.ok)throw new Error('Place search failed.');
-  const rows=await response.json();if(!rows.length)throw new Error(`Could not find “${cleaned}”.`);
-  const point={name:rows[0].display_name,lat:+rows[0].lat,lng:+rows[0].lon};cache[key]=point;writeGeoCache(cache);return point;
+  const point=parseNominatimPlace(await response.json());if(!point)throw new Error(`Could not find “${cleaned}”.`);
+  cache[key]=point;writeGeoCache(cache);return point;
 }
 async function resolveEndpoint(inputId){
   const input=$(`#${inputId}`),value=input.value.trim();
@@ -301,7 +302,7 @@ async function estimateRoadGeometry(service){
   if(cache[key]?.coordinates?.length){displayGeometry.set(service.id,{...cache[key],source:'osrm'});return;}
   const wait=Math.max(0,350-(Date.now()-lastOsrmAt));if(wait)await sleep(wait);lastOsrmAt=Date.now();
   const url=`${OSRM_BASE}/${origin.location.lng},${origin.location.lat};${destination.location.lng},${destination.location.lat}?overview=full&geometries=geojson&steps=false&alternatives=false`;
-  try{const response=await fetchWithTimeout(url,{},6000);if(!response.ok)return;const data=await response.json(),route=data?.routes?.[0];if(!route?.geometry?.coordinates?.length)return;const value={coordinates:route.geometry.coordinates,durationSeconds:route.duration,distanceMeters:route.distance};displayGeometry.set(service.id,{...value,source:'osrm'});cache[key]=value;writeRoadCache(cache);}catch(error){console.warn('Road geometry unavailable for',service.id,error);}
+  try{const response=await fetchWithTimeout(url,{},6000);if(!response.ok)return;const value=parseOsrmRoute(await response.json());if(!value)return;displayGeometry.set(service.id,{...value,source:'osrm'});cache[key]=value;writeRoadCache(cache);}catch(error){console.warn('Road geometry unavailable for',service.id,error);}
 }
 async function hydrateDisplayGeometry(list){for(const service of[...new Map(list.map(item=>[item.id,item])).values()])await estimateRoadGeometry(service);refreshMapData();renderList();}
 function transitStepCoordinates(step){const service=step.service;if(step.from===service.originNodeId&&step.to===service.destinationNodeId)return serviceCoordinates(service);const from=nodeCoordinates(step.from),to=nodeCoordinates(step.to);return from&&to?[from,to]:serviceCoordinates(service);}
