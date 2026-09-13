@@ -22,6 +22,7 @@ assert.throws(()=>validateService({...base,stopNodeIds:['b','a']}),/must start a
 assert.throws(()=>validateService({...base,geometryConfidence:'verified_path',geometry:null}),/must include geometry/);
 assert.throws(()=>validateService({...base,availability:{kind:'scheduled',note:'x'}}),/invalid availability/);
 assert.throws(()=>validateService({...base,boardingPolicy:'assume_anywhere'}),/invalid boardingPolicy/);
+assert.equal(validateService({...base,mode:'maxi',boardingPolicy:'corridor_hail',alightingPolicy:'corridor_request'}),true);
 assert.throws(() => validateSource({name:'x',url:'https://example.com',checkedAt:'2026-02-31'}), /real YYYY-MM-DD date/);
 
 const passThroughBase={
