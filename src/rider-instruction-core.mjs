@@ -11,6 +11,7 @@ function displayPlaceName(value,purpose='boarding'){
   if(isVirtualPlace(value))return purpose==='alighting'?'estimated main-road drop-off area':'estimated main-road boarding area';
   return value;
 }
+function directionName(value){return displayPlaceName(value,'alighting')||'your destination';}
 function hasVirtualAccess(virtualAccess,purpose){
   if(!virtualAccess)return false;
   return virtualAccess.purpose===purpose||virtualAccess.purpose==='both';
@@ -19,7 +20,7 @@ function hasVirtualAccess(virtualAccess,purpose){
 export function passThroughSafetyCopy(){return PASS_THROUGH_SAFETY_COPY;}
 
 export function transitAction(service,{toward,bandLabel='Maxi',fromIsTerminal=false,fromName='',fromVirtualAccess=null}={}){
-  const target=toward||'your destination';
+  const target=directionName(toward);
   const virtualBoarding=hasVirtualAccess(fromVirtualAccess,'boarding')||isVirtualPlace(fromName);
   if(service?.mode==='maxi'){
     if((virtualBoarding||allowsHail(service.boardingPolicy))&&!fromIsTerminal)return`Hail the ${bandLabel} toward ${target}`;
