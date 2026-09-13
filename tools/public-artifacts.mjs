@@ -8,6 +8,7 @@ export const PUBLIC_MODULE_FILES=Object.freeze([
   'presentation-core.mjs',
   'rider-instruction-core.mjs',
   'routing-core.mjs',
+  'runtime-data-core.mjs',
   'schedule-core.mjs',
   'storage-core.mjs'
 ]);
