@@ -31,8 +31,8 @@ async function primeNetwork(page){
 test('valid JSON with invalid cache shape falls back instead of crashing the planner',async({page})=>{
   await primeNetwork(page);
   await page.addInitScript(()=>{
-    localStorage.setItem('transittrinidad-geocode-v2','null');
-    localStorage.setItem('transittrinidad-road-geometry-v1','[]');
+    globalThis.localStorage.setItem('transittrinidad-geocode-v2','null');
+    globalThis.localStorage.setItem('transittrinidad-road-geometry-v1','[]');
   });
   const pageErrors=[];
   page.on('pageerror',error=>pageErrors.push(error.message));
