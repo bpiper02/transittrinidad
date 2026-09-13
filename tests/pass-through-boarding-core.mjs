@@ -19,6 +19,7 @@ assert.equal(policyAllowsVirtualAccess('fixed_stop_only'), false);
 assert.equal(serviceAccessPolicy({ mode: 'maxi', boardingPolicy: 'corridor_hail' }), 'hail_along_segment', 'legacy corridor_hail should normalize to canonical hail access');
 assert.equal(serviceAccessPolicy({ mode: 'maxi', alightingPolicy: 'corridor_request' }, 'alighting'), 'main_road_pass_through', 'legacy corridor_request should normalize to canonical request access');
 assert.equal(serviceAccessPolicy({ mode: 'maxi', boardingPolicy: 'mixed' }), 'unknown_do_not_assume', 'mixed boarding should be accepted but never treated as blanket roadside access');
+assert.equal(serviceAccessPolicy({ mode: 'ptsc', boardingPolicy: 'fixed_only' }), 'fixed_stop_only', 'legacy fixed_only should normalize to canonical fixed-stop access');
 
 const closeMainRoad = evaluatePassThroughAccess({
   service: sourceTaggedMaxi,
