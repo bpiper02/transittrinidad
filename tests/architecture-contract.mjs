@@ -20,6 +20,7 @@ for(const pageName of readdirSync(publicDir).filter(name=>name.endsWith('.html')
 const browserMirrorModules=[
   'fare-core.mjs',
   'field-review-core.mjs',
+  'http-core.mjs',
   'network-qa-core.mjs',
   'place-core.mjs',
   'presentation-core.mjs',
