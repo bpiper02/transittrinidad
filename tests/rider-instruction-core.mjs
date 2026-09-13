@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {boardingGuidance,transitAction} from '../src/rider-instruction-core.mjs';
+import {boardingGuidance,passThroughSafetyCopy,transitAction} from '../src/rider-instruction-core.mjs';
 
 const localMaxi={mode:'maxi',patternType:'local',boardingPolicy:'corridor_hail',alightingPolicy:'corridor_request'};
 assert.equal(transitAction(localMaxi,{toward:'San Fernando',bandLabel:'Route 3 / Green Band',fromIsTerminal:false}),'Hail the Route 3 / Green Band toward San Fernando');
@@ -13,5 +13,19 @@ assert.equal(boardingGuidance(fixed,{fromName:'Roxborough',toName:'Charlottevill
 
 const limited={mode:'maxi',patternType:'limited',boardingPolicy:'fixed_only',alightingPolicy:'fixed_only'};
 assert.equal(transitAction(limited,{toward:'Point Fortin',bandLabel:'Route 5 / Brown Band'}),'Board the Route 5 / Brown Band toward Point Fortin');
+
+const virtualBoarding='virtual-boarding-maxi-pos-arima-san-juan-0-512';
+const passThroughMaxi={mode:'maxi',patternType:'local',boardingPolicy:'main_road_pass_through',alightingPolicy:'main_road_pass_through'};
+assert.equal(transitAction(passThroughMaxi,{toward:'Port of Spain',bandLabel:'Route 2 / Red Band',fromName:virtualBoarding}),'Hail the Route 2 / Red Band toward Port of Spain');
+const virtualGuidance=boardingGuidance(passThroughMaxi,{fromName:virtualBoarding,toName:'Port of Spain Transit Centre'});
+assert.match(virtualGuidance,/estimated main-road boarding area/,'virtual boarding ids must not leak to riders');
+assert.match(virtualGuidance,/visible, legal, well-lit/,'virtual boarding must include safety copy');
+assert.doesNotMatch(virtualGuidance,/virtual-boarding/,'rider copy must hide internal virtual node ids');
+
+const virtualDropOff='virtual-alighting-maxi-pos-arima-barataria-0-300';
+const dropOffGuidance=boardingGuidance(passThroughMaxi,{fromName:'Port of Spain Route 2 stand',toName:virtualDropOff,fromIsTerminal:true});
+assert.match(dropOffGuidance,/estimated main-road drop-off area/,'virtual alighting ids must become rider-safe drop-off copy');
+assert.doesNotMatch(dropOffGuidance,/virtual-alighting/,'rider copy must hide internal virtual alighting ids');
+assert.match(passThroughSafetyCopy(),/Prefer a stand/);
 
 console.log('rider instruction core tests passed');
