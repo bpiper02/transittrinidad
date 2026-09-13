@@ -55,7 +55,9 @@ const water=chooseJourneyOptions({
   nodes:waterNodes,
   services:waterServices,
   transfers:[],
-  candidateLimit:4
+  candidateLimit:4,
+  maxDetourRatio:50,
+  maxBacktrackRatio:50
 });
 assert.equal(water.length,1,'formal water/ferry intermodal journeys should not be blocked by the bypass guard');
 assert.equal(water[0].ranking.destinationBypass.formalIntermodalException,true);
