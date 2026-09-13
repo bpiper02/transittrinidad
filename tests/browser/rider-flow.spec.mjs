@@ -86,6 +86,14 @@ async function endpointLocation(page,name){
   },name);
 }
 
+async function attachJourneyAudit(page,testInfo,label){
+  const safeLabel=label.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+  const coordinates=await renderedTransitCoordinates(page);
+  await testInfo.attach(`${safeLabel}-screen.png`,{body:await page.screenshot({fullPage:true}),contentType:'image/png'});
+  await testInfo.attach(`${safeLabel}-transit-coordinates.json`,{body:JSON.stringify(coordinates,null,2),contentType:'application/json'});
+  return coordinates;
+}
+
 function expectJourneyGeometryNearEndpoints(coordinates,from,to,{latPad=.04,lngPad=.04}={}){
   expect(coordinates.length).toBeGreaterThan(1);
   const minLat=Math.min(from.lat,to.lat)-latPad,maxLat=Math.max(from.lat,to.lat)+latPad;
@@ -125,19 +133,20 @@ test('local corridor directions explain roadside hail and requested drop-off',as
   await expect(panel).toContainText(/TT\$/);
 });
 
-test('Point Fortin to Fyzabad does not invent or highlight an unsupported journey',async({page})=>{
+test('Point Fortin to Fyzabad does not invent or highlight an unsupported journey',async({page},testInfo)=>{
   await chooseLocalPlace(page,'fromInput','Point Fortin');
   await chooseLocalPlace(page,'toInput','Fyzabad');
   await page.locator('#planButton').click();
   await expect(page.locator('#plannerStatus')).toHaveText('No route in the current network.');
   await expect(page.locator('#detailPanel')).toBeHidden();
-  expect(await renderedTransitCoordinates(page)).toHaveLength(0);
+  const coordinates=await attachJourneyAudit(page,testInfo,'Point Fortin to Fyzabad');
+  expect(coordinates).toHaveLength(0);
 });
 
-test('California to Arima highlighted geometry does not trail south past boarding',async({page})=>{
+test('California to Arima highlighted geometry does not trail south past boarding',async({page},testInfo)=>{
   const fromName='California',toName='Arima PTSC Transit Hub';
   await planNamedTrip(page,fromName,toName);
-  const [coordinates,from,to]=await Promise.all([renderedTransitCoordinates(page),endpointLocation(page,fromName),endpointLocation(page,toName)]);
+  const [coordinates,from,to]=await Promise.all([attachJourneyAudit(page,testInfo,'California to Arima'),endpointLocation(page,fromName),endpointLocation(page,toName)]);
   expect(from).not.toBeNull();expect(to).not.toBeNull();
   expectJourneyGeometryNearEndpoints(coordinates,from,to,{latPad:.035,lngPad:.05});
 });
