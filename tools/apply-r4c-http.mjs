@@ -1,5 +1,6 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 
+// Temporary, fail-closed R4c source transformation.
 const path=new URL('../public/app-v2.js',import.meta.url);
 let source=readFileSync(path,'utf8');
 
