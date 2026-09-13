@@ -25,7 +25,8 @@ const browserMirrorModules=[
   'presentation-core.mjs',
   'rider-instruction-core.mjs',
   'routing-core.mjs',
-  'schedule-core.mjs'
+  'schedule-core.mjs',
+  'storage-core.mjs'
 ];
 for(const moduleName of browserMirrorModules){
   assert.equal(
