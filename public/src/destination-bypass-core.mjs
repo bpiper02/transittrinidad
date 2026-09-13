@@ -42,6 +42,21 @@ function usesFormalIntermodal(steps,nodes){
   return false;
 }
 
+function nearAwayReturn(distances,destinationCatchmentKm){
+  let best={destinationBypassKm:0,nearNodeId:null,farthestAfterClosestNodeId:null,movesAwayAfterNearDestination:false};
+  for(let index=0;index<distances.length-1;index++){
+    const near=distances[index];
+    if(near.distanceKm>destinationCatchmentKm)continue;
+    const farthest=distances.slice(index+1).reduce((candidate,item)=>!candidate||item.distanceKm>candidate.distanceKm?item:candidate,null);
+    if(!farthest)continue;
+    const destinationBypassKm=Math.max(0,farthest.distanceKm-near.distanceKm);
+    if(destinationBypassKm>best.destinationBypassKm){
+      best={destinationBypassKm,nearNodeId:near.nodeId,farthestAfterClosestNodeId:farthest.nodeId,movesAwayAfterNearDestination:true};
+    }
+  }
+  return best;
+}
+
 export function destinationBypassDiagnostic({
   steps,
   nodes,
@@ -73,12 +88,11 @@ export function destinationBypassDiagnostic({
     distanceKm:kmBetween(node.location,destination)
   }));
   const closest=distances.reduce((best,item)=>item.distanceKm<best.distanceKm?item:best,distances[0]);
-  const afterClosest=distances.slice(closest.index+1);
-  const farthestAfter=afterClosest.reduce((best,item)=>!best||item.distanceKm>best.distanceKm?item:best,null);
   const final=distances.at(-1);
   const finalAccessKm=Number.isFinite(toNear?.km)?toNear.km:final.distanceKm;
-  const destinationBypassKm=farthestAfter?Math.max(0,farthestAfter.distanceKm-closest.distanceKm):0;
-  const movesAwayAfterNearDestination=closest.distanceKm<=destinationCatchmentKm&&destinationBypassKm>=maxDestinationBypassKm;
+  const bypass=nearAwayReturn(distances,destinationCatchmentKm);
+  const destinationBypassKm=bypass.destinationBypassKm;
+  const movesAwayAfterNearDestination=bypass.movesAwayAfterNearDestination&&destinationBypassKm>=maxDestinationBypassKm;
   const returnsTowardDestination=final.distanceKm<=destinationCatchmentKm||finalAccessKm<=destinationCatchmentKm;
   const formalIntermodalException=allowFormalIntermodalException&&usesFormalIntermodal(steps,nodes);
   const rejected=movesAwayAfterNearDestination&&returnsTowardDestination&&!formalIntermodalException;
@@ -91,7 +105,8 @@ export function destinationBypassDiagnostic({
     distanceAtFinalTransitStopKm:final.distanceKm,
     finalTransitNodeId:final.nodeId,
     destinationBypassKm,
-    farthestAfterClosestNodeId:farthestAfter?.nodeId||null,
+    nearBeforeBypassNodeId:bypass.nearNodeId,
+    farthestAfterClosestNodeId:bypass.farthestAfterClosestNodeId,
     movesAwayAfterNearDestination,
     returnsTowardDestination,
     formalIntermodalException
