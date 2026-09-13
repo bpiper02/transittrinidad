@@ -19,6 +19,8 @@ function assertSensible(option,label){
   assert.equal(new Set(visited).size,visited.length,`${label}: journey must not repeat nodes`);
   assert.ok(option.fromNear.km<=4,`${label}: boarding point must be within the planner access radius`);
   assert.ok(option.toNear.km<=4,`${label}: final network point must be within the planner access radius`);
+  assert.ok(option.ranking.fromAccessTrusted,`${label}: origin access must not require a long unverified jump to an approximate node`);
+  assert.ok(option.ranking.toAccessTrusted,`${label}: destination access must not require a long unverified jump from an approximate node`);
   assert.ok(option.steps.some(step=>step.kind==='transit'),`${label}: journey must contain transit`);
   for(let i=1;i<option.steps.length;i++){
     const previous=option.steps[i-1],current=option.steps[i];
@@ -51,6 +53,40 @@ function options(fromId,toId,extra={}){
     maxOptions:3,
     ...extra
   });
+}
+
+function syntheticAccessOptions({boardingKind='stop_zone',boardingConfidence='approximate_area'}={}){
+  const fixtureNodes=new Map([
+    ['origin-place',{id:'origin-place',name:'Origin place',kind:'stop_zone',location:{lat:10,lng:-61},locationConfidence:'approximate_area'}],
+    ['remote-boarding',{id:'remote-boarding',name:'Highway shoulder',kind:boardingKind,location:{lat:10,lng:-60.965},locationConfidence:boardingConfidence}],
+    ['destination-place',{id:'destination-place',name:'Destination place',kind:'stand',location:{lat:10,lng:-60.94},locationConfidence:'mapped_station'}]
+  ]);
+  const fixtureServices=[{id:'service-from-highway',corridorId:'synthetic',mode:'maxi',originNodeId:'remote-boarding',destinationNodeId:'destination-place',stopNodeIds:['remote-boarding','destination-place'],serviceConfidence:'verified_service'}];
+  return chooseJourneyOptions({
+    fromPlace:{lat:10,lng:-61,routingRadiusKm:5},
+    toPlace:{lat:10,lng:-60.94,routingRadiusKm:5},
+    nodes:fixtureNodes,
+    services:fixtureServices,
+    transfers:[],
+    candidateLimit:3,
+    maxAccessKm:5,
+    accessOptions:{walkThresholdKm:.5,localWaitMinutes:5,localKph:18},
+    maxOptions:1
+  });
+}
+
+assert.equal(syntheticAccessOptions().length,0,'planner must not send riders on a long local jump to an approximate highway/area node');
+assert.equal(syntheticAccessOptions({boardingKind:'stand',boardingConfidence:'mapped_station'}).length,1,'planner may use a farther access leg when the boarding anchor is a real stand');
+
+const couvaFyzabad=chooseJourneyOptions({
+  fromPlace:{...location('maxi-couva'),routingRadiusKm:4.5},
+  toPlace:{...location('fyzabad-area'),routingRadiusKm:4.5},
+  nodes,services,transfers,candidateLimit:12,maxAccessKm:4.5,transferPenaltyMinutes:10,
+  accessOptions:{localWaitMinutes:10,localKph:18},maxOptions:3
+});
+for(const option of couvaFyzabad){
+  assert.ok(option.ranking.fromAccessTrusted,'Couva → Fyzabad must not board from a long untrusted approximate access node');
+  assert.ok(option.ranking.toAccessTrusted,'Couva → Fyzabad must not alight to a long untrusted approximate access node');
 }
 
 const couvaChag=options('maxi-couva','chag-maxi-area');
