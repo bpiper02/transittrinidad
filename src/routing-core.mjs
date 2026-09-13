@@ -385,6 +385,10 @@ function confidencePenalty(steps,{reportedServicePenaltyMinutes=8}={}){
   return penalty;
 }
 
+function estimatedConnectorCount(steps){
+  return (steps||[]).filter(step=>step.kind==='transfer'&&step.transfer?.isEstimatedConnector).length;
+}
+
 function schedulePenalty(steps,scheduledServiceIds,{unknownSchedulePenaltyMinutes=0}={}){
   if(!scheduledServiceIds||!unknownSchedulePenaltyMinutes)return 0;
   const seen=new Set();
@@ -413,6 +417,7 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
     backtrackPenaltyMinutesPerKm=3,
     reportedServicePenaltyMinutes=8,
     unknownSchedulePenaltyMinutes=0,
+    estimatedConnectorPenaltyMinutes=15,
     destinationCatchmentKm=2.5,
     maxDestinationBypassKm=4
   }=rankingOptions;
@@ -424,8 +429,10 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
   const directionPenalty=awayKm*backtrackPenaltyMinutesPerKm;
   const servicePenalty=confidencePenalty(steps,{reportedServicePenaltyMinutes});
   const timetablePenalty=schedulePenalty(steps,scheduledServiceIds,{unknownSchedulePenaltyMinutes});
+  const estimatedConnectors=estimatedConnectorCount(steps);
+  const estimatedConnectorPenalty=estimatedConnectors*estimatedConnectorPenaltyMinutes;
   const destinationBypass=destinationBypassDiagnostic({steps,nodes,toPlace,toNear:end,destinationCatchmentKm,maxDestinationBypassKm});
-  const score=networkMinutes+fromAccess.minutes+toAccess.minutes+accessPenalty+detourPenalty+directionPenalty+servicePenalty+timetablePenalty;
+  const score=networkMinutes+fromAccess.minutes+toAccess.minutes+accessPenalty+detourPenalty+directionPenalty+servicePenalty+timetablePenalty+estimatedConnectorPenalty;
   const modes=modeSequence(steps);
   return{
     fromNear:start,
@@ -443,7 +450,7 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
     estimatedMinutesMin:Math.round((timing?.minTotalMinutes??networkMinutes)+fromAccess.minutes+toAccess.minutes),
     estimatedMinutesMax:Math.round((timing?.maxTotalMinutes??networkMinutes)+fromAccess.minutes+toAccess.minutes),
     timing,
-    ranking:{accessPenalty,detourRatio,detourPenalty,backtrackKm:awayKm,directionPenalty,servicePenalty,timetablePenalty,fromAccessTrusted,toAccessTrusted,destinationBypass,fromPassThrough:start.virtualAccess?.evaluation||null,toPassThrough:end.virtualAccess?.evaluation||null}
+    ranking:{accessPenalty,detourRatio,detourPenalty,backtrackKm:awayKm,directionPenalty,servicePenalty,timetablePenalty,estimatedConnectorPenalty,estimatedConnectorCount:estimatedConnectors,fromAccessTrusted,toAccessTrusted,destinationBypass,fromPassThrough:start.virtualAccess?.evaluation||null,toPassThrough:end.virtualAccess?.evaluation||null}
   };
 }
 
@@ -587,6 +594,8 @@ export function chooseJourneyOptions({
         const usesFormalIntermodalCandidate=candidate.modes.some(mode=>mode==='water_taxi'||mode==='ferry');
         if(!allowUntrustedLocalAccess&&!usesFormalIntermodalCandidate&&(!candidate.ranking.fromAccessTrusted||!candidate.ranking.toAccessTrusted))continue;
         if(!allowDestinationBypass&&candidate.ranking.destinationBypass.rejected)continue;
+        const {maxEstimatedConnectorsPerJourney=1}=candidateRankingOptions;
+        if(candidate.ranking.estimatedConnectorCount>maxEstimatedConnectorsPerJourney)continue;
         if(candidate.ranking.detourRatio>maxDetourRatio)continue;
         const maxBacktrackKm=Math.max(maxBacktrackFloorKm,directKm*maxBacktrackRatio);
         if(candidate.ranking.backtrackKm>maxBacktrackKm)continue;

@@ -167,6 +167,19 @@ const mediumBridge=chooseConnectedJourney({fromPlace:mediumBridgeNodes.get('orig
 assert.ok(mediumBridge,'medium-distance bridge fallback should connect nearby corridor fragments');
 assert.ok(mediumBridge.steps.some(step=>step.kind==='transfer'&&step.transfer?.isEstimatedConnector),'bridge fallback must be machine-readable as an estimated connector, not verified transit');
 assert.deepEqual(mediumBridge.modes,['maxi','route_taxi'],'bridge fallback should preserve the real transit legs around the estimated connector');
+const multiBridgeNodes=new Map([
+  ['a',{id:'a',kind:'stand',location:{lat:10.000,lng:-61.000}}],
+  ['b',{id:'b',kind:'stand',location:{lat:10.020,lng:-61.000}}],
+  ['c',{id:'c',kind:'stand',location:{lat:10.040,lng:-61.000}}],
+  ['d',{id:'d',kind:'stand',location:{lat:10.060,lng:-61.000}}],
+  ['e',{id:'e',kind:'stand',location:{lat:10.080,lng:-61.000}}]
+]);
+const multiBridgeServices=[
+  {id:'a-b',corridorId:'a-b',mode:'maxi',originNodeId:'a',destinationNodeId:'b',stopNodeIds:['a','b'],estimatedMinutes:5},
+  {id:'c-d',corridorId:'c-d',mode:'route_taxi',originNodeId:'c',destinationNodeId:'d',stopNodeIds:['c','d'],estimatedMinutes:5}
+];
+const noMultiBridge=chooseConnectedJourney({fromPlace:multiBridgeNodes.get('a').location,toPlace:multiBridgeNodes.get('e').location,nodes:new Map(multiBridgeNodes),services:multiBridgeServices,knownFrom:multiBridgeNodes.get('a'),knownTo:multiBridgeNodes.get('e'),rankingOptions:{allowCorridorBridgeFallback:true,maxBridgeConnectorKm:3,maxBridgeConnectorsPerNode:3,maxEstimatedConnectorsPerJourney:1}});
+assert.equal(noMultiBridge,null,'bridge fallback must not stitch journeys together with multiple unsurveyed connectors by default');
 
 const corridorIds=new Set(services.map(service=>service.corridorId));
 assert.ok(corridorIds.size>26,'regional sprint must expand the original 26 corridors');
