@@ -8,6 +8,7 @@ import {escapeHtml,formatMinutes,maxiBandLabel,modeLabel,routeColor,serviceConfi
 import {readJsonObjectStorage,writeJsonStorage} from './src/storage-core.mjs';
 import {fetchWithTimeout,getJson} from './src/http-core.mjs';
 import {parseNominatimPlace,parseOsrmRoute,parsePhotonFeatures} from './src/external-data-core.mjs';
+import {validateRuntimeData} from './src/runtime-data-core.mjs';
 
 const nodeIndex=new Map();
 let services=[];
@@ -383,7 +384,8 @@ function addMapLayers(){
 async function start(){
   try{
     const[nodesData,servicesData,transfersData,schedulesData,placesData,faresData]=await Promise.all([getJson('./data/nodes.json'),getJson('./data/services.json'),getJson('./data/transfers.json'),getJson('./data/schedules.json'),getJson('./data/places.json'),getJson('./data/fares.json')]);
-    nodesData.forEach(node=>nodeIndex.set(node.id,node));services=servicesData;transfers=transfersData;schedules=schedulesData;places=placesData;fares=faresData;
+    const runtimeData=validateRuntimeData({nodes:nodesData,services:servicesData,transfers:transfersData,schedules:schedulesData,places:placesData,fares:faresData});
+    runtimeData.nodes.forEach(node=>nodeIndex.set(node.id,node));services=runtimeData.services;transfers=runtimeData.transfers;schedules=runtimeData.schedules;places=runtimeData.places;fares=runtimeData.fares;
     renderList();setupModeTabs();setupTray();setupPlanner();
     map=new maplibregl.Map({container:'map',style:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],tileSize:256,attribution:'© OpenStreetMap contributors'}},layers:[{id:'osm',type:'raster',source:'osm'}]},bounds:TT_BOUNDS,fitBoundsOptions:{padding:50},maxBounds:TT_MAX_BOUNDS,minZoom:7,maxZoom:17,attributionControl:true});
     map.addControl(new maplibregl.NavigationControl({showCompass:false}),'bottom-right');map.on('load',()=>{addMapLayers();fitCountry();});
