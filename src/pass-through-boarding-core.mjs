@@ -6,6 +6,10 @@ export const BOARDING_POLICIES = new Set([
   'unknown_do_not_assume'
 ]);
 
+export const POLICY_ALIASES = new Map([
+  ['corridor_hail', 'hail_along_segment'],
+  ['corridor_request', 'main_road_pass_through']
+]);
 export const VIRTUAL_ACCESS_POLICIES = new Set(['main_road_pass_through', 'hail_along_segment']);
 export const TERMINAL_ONLY_POLICIES = new Set(['fixed_stop_only', 'terminal_or_stand_only', 'unknown_do_not_assume']);
 export const ROAD_CLASSES = new Set(['main_road', 'arterial', 'collector', 'local', 'highway', 'expressway', 'unknown']);
@@ -30,7 +34,9 @@ const DEFAULTS = {
 };
 
 function cleanPolicy(value) {
-  return typeof value === 'string' && BOARDING_POLICIES.has(value) ? value : 'unknown_do_not_assume';
+  if (typeof value !== 'string') return 'unknown_do_not_assume';
+  const canonical = POLICY_ALIASES.get(value) || value;
+  return BOARDING_POLICIES.has(canonical) ? canonical : 'unknown_do_not_assume';
 }
 
 function evidenceList(segment = {}) {
