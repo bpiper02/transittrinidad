@@ -3,10 +3,12 @@ import {readFileSync} from 'node:fs';
 const html=readFileSync(new URL('../public/index.html',import.meta.url),'utf8');
 const app=readFileSync(new URL('../public/app-v2.js',import.meta.url),'utf8');
 const css=readFileSync(new URL('../public/styles.css',import.meta.url),'utf8');
+const locationCss=readFileSync(new URL('../public/location.css',import.meta.url),'utf8');
 
-for(const id of ['appShell','map','serviceList','serviceCount','modeTabs','detailPanel','fromInput','toInput','planButton','swapButton','plannerStatus','fromSuggestions','toSuggestions'])assert.match(html,new RegExp(`id=["']${id}["']`),`missing #${id}`);
+for(const id of ['appShell','map','serviceList','serviceCount','modeTabs','detailPanel','fromInput','toInput','planButton','swapButton','plannerStatus','fromSuggestions','toSuggestions','fromLocationButton','toLocationButton','locationStatus'])assert.match(html,new RegExp(`id=["']${id}["']`),`missing #${id}`);
 assert.match(html,/maplibre-gl@6\.8\.0/);
 assert.match(html,/app-v2\.js/,'the place-aware planner must be the active browser entry point');
+assert.match(html,/location\.css/,'live-location controls should load their own small style layer');
 assert.match(html,/class="network-notice"/,'network limitations should be consolidated into one notice');
 assert.equal((html.match(/About this map/g)||[]).length,1,'there should be one network notice, not repeated warnings');
 assert.doesNotMatch(html,/datalist|placeOptions/,'native datalist must not constrain arbitrary-place search');
@@ -14,6 +16,12 @@ assert.doesNotMatch(html,/datalist|placeOptions/,'native datalist must not const
 assert.match(app,/new maplibregl\.Map/);
 assert.match(app,/\.\/src\/routing-core\.mjs/);
 assert.match(app,/\.\/src\/place-core\.mjs/,'browser must use the canonical place-resolution vocabulary');
+assert.match(app,/\.\/src\/location-core\.mjs/,'browser must use shared live-location helpers');
+assert.match(app,/requestCurrentPosition/,'live location should use the browser geolocation helper');
+assert.match(app,/source:'browser_geolocation'/,'location endpoint metadata must survive into planning');
+assert.match(app,/accuracyWarning/,'low-accuracy location warnings must be visible');
+assert.match(app,/current-from/,'map should distinguish live current-location origin markers');
+assert.match(app,/current-to/,'map should distinguish live current-location destination markers');
 assert.match(app,/\.\/src\/fare-core\.mjs/,'browser must use the canonical fare engine');
 assert.match(app,/\.\/src\/rider-instruction-core\.mjs/,'browser must use shared rider-instruction semantics');
 assert.match(app,/getJson\('\.\/data\/places\.json'\)/,'browser must load local place aliases and centroids');
@@ -78,5 +86,7 @@ assert.match(css,/\.suggestions\{/);
 assert.match(css,/\.mode-tabs\{[^}]*scrollbar-width:none/);
 assert.match(css,/\.route-options\{/);
 assert.match(css,/\.route-option\.is-active/);
+assert.match(locationCss,/\.use-location-button/);
+assert.match(locationCss,/\.location-status/);
 
 console.log('ui contract tests passed');
