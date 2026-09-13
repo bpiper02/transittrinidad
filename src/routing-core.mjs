@@ -1,3 +1,4 @@
+import {destinationBypassDiagnostic} from './destination-bypass-core.mjs';
 import {estimateJourneyTiming,serviceRunsOnDate} from './journey-time-core.mjs';
 
 export function kmBetween(a,b){
@@ -263,7 +264,9 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
     detourPenaltyMinutes=18,
     backtrackPenaltyMinutesPerKm=3,
     reportedServicePenaltyMinutes=8,
-    unknownSchedulePenaltyMinutes=0
+    unknownSchedulePenaltyMinutes=0,
+    destinationCatchmentKm=2.5,
+    maxDestinationBypassKm=4
   }=rankingOptions;
   const accessPenalty=(fromAccess.mode==='local'?unconfirmedAccessPenaltyMinutes:0)+(toAccess.mode==='local'?unconfirmedAccessPenaltyMinutes:0);
   const travelledKm=pathDistanceKm(start,end,steps,nodes);
@@ -273,6 +276,7 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
   const directionPenalty=awayKm*backtrackPenaltyMinutesPerKm;
   const servicePenalty=confidencePenalty(steps,{reportedServicePenaltyMinutes});
   const timetablePenalty=schedulePenalty(steps,scheduledServiceIds,{unknownSchedulePenaltyMinutes});
+  const destinationBypass=destinationBypassDiagnostic({steps,nodes,toPlace,toNear:end,destinationCatchmentKm,maxDestinationBypassKm});
   const score=networkMinutes+fromAccess.minutes+toAccess.minutes+accessPenalty+detourPenalty+directionPenalty+servicePenalty+timetablePenalty;
   const modes=modeSequence(steps);
   return{
@@ -291,7 +295,7 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
     estimatedMinutesMin:Math.round((timing?.minTotalMinutes??networkMinutes)+fromAccess.minutes+toAccess.minutes),
     estimatedMinutesMax:Math.round((timing?.maxTotalMinutes??networkMinutes)+fromAccess.minutes+toAccess.minutes),
     timing,
-    ranking:{accessPenalty,detourRatio,detourPenalty,backtrackKm:awayKm,directionPenalty,servicePenalty,timetablePenalty,fromAccessTrusted,toAccessTrusted}
+    ranking:{accessPenalty,detourRatio,detourPenalty,backtrackKm:awayKm,directionPenalty,servicePenalty,timetablePenalty,fromAccessTrusted,toAccessTrusted,destinationBypass}
   };
 }
 
@@ -316,6 +320,9 @@ export function chooseJourneyOptions({
   maxDetourRatio=2.5,
   maxBacktrackRatio=0.35,
   maxBacktrackFloorKm=3,
+  allowDestinationBypass=false,
+  destinationCatchmentKm=2.5,
+  maxDestinationBypassKm=4,
   scheduledServiceIds=null,
   schedules=[],
   departureDate=null,
@@ -333,6 +340,7 @@ export function chooseJourneyOptions({
   const availableModes=[...new Set(eligibleServices.filter(service=>service.serviceConfidence!=='needs_review').map(service=>service.mode))];
   const directKm=fromPlace&&toPlace?kmBetween(fromPlace,toPlace):0;
   const {allowUntrustedLocalAccess=false}=rankingOptions;
+  const candidateRankingOptions={destinationCatchmentKm,maxDestinationBypassKm,...rankingOptions};
 
   for(const start of starts){
     for(const end of ends){
@@ -341,9 +349,10 @@ export function chooseJourneyOptions({
         const steps=findJourney(start.node.id,end.node.id,eligibleServices,nodes,{transferPenaltyMinutes,transfers,requiredMode:routeMode});
         if(steps===null||hasJourneyLoop(start.node.id,steps))continue;
         if(steps.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
-        const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions,scheduledServiceIds,schedules,departureDate});
+        const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions:candidateRankingOptions,scheduledServiceIds,schedules,departureDate});
         const usesFormalIntermodalCandidate=candidate.modes.some(mode=>mode==='water_taxi'||mode==='ferry');
         if(!allowUntrustedLocalAccess&&!usesFormalIntermodalCandidate&&(!candidate.ranking.fromAccessTrusted||!candidate.ranking.toAccessTrusted))continue;
+        if(!allowDestinationBypass&&candidate.ranking.destinationBypass.rejected)continue;
         if(candidate.ranking.detourRatio>maxDetourRatio)continue;
         const maxBacktrackKm=Math.max(maxBacktrackFloorKm,directKm*maxBacktrackRatio);
         if(candidate.ranking.backtrackKm>maxBacktrackKm)continue;
