@@ -23,7 +23,16 @@ export class Map {
 async function primeNetwork(page){
   await page.route('https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-gl.mjs',route=>route.fulfill({status:200,contentType:'text/javascript',body:mapLibreStub}));
   await page.route('https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-gl.css',route=>route.fulfill({status:200,contentType:'text/css',body:''}));
-  await page.route('https://photon.komoot.io/api**',route=>route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({features:[]})}));
+  await page.route('https://photon.komoot.io/api**',route=>{
+    const url=new URL(route.request().url());
+    const query=url.searchParams.get('q')||'';
+    const features=/point fortin/i.test(query)?[{
+      type:'Feature',
+      geometry:{type:'Point',coordinates:[-61.6818878,10.1739316]},
+      properties:{name:'Point Fortin',city:'Point Fortin',country:'Trinidad and Tobago'}
+    }]:[];
+    route.fulfill({status:200,contentType:'application/json',body:JSON.stringify({features})});
+  });
   await page.route('https://router.project-osrm.org/route/v1/driving/**',route=>{
     const url=new URL(route.request().url());
     const coordinatePair=url.pathname.split('/').at(-1).split(';');
@@ -77,6 +86,13 @@ async function endpointLocation(page,name){
   },name);
 }
 
+async function nodeLocation(page,id){
+  return page.evaluate(async nodeId=>{
+    const nodes=await fetch('/data/nodes.json').then(response=>response.json());
+    return nodes.find(node=>node.id===nodeId)?.location||null;
+  },id);
+}
+
 function expectJourneyGeometryNearEndpoints(coordinates,from,to,{latPad=.04,lngPad=.04}={}){
   expect(coordinates.length).toBeGreaterThan(1);
   const minLat=Math.min(from.lat,to.lat)-latPad,maxLat=Math.max(from.lat,to.lat)+latPad;
@@ -117,9 +133,13 @@ test('local corridor directions explain roadside hail and requested drop-off',as
 });
 
 test('Point Fortin to Fyzabad highlighted geometry stays on the travelled leg',async({page})=>{
-  const fromName='Point Fortin PTSC',toName='Fyzabad';
-  await planNamedTrip(page,fromName,toName);
-  const [coordinates,from,to]=await Promise.all([renderedTransitCoordinates(page),endpointLocation(page,fromName),endpointLocation(page,toName)]);
+  await chooseLocalPlace(page,'fromInput','Point Fortin');
+  await chooseLocalPlace(page,'toInput','Fyzabad');
+  await page.locator('#planButton').click();
+  await expect(page.locator('#detailPanel')).toBeVisible();
+  await expect(page.locator('#detailPanel h2')).toContainText('Point Fortin');
+  await expect(page.locator('#detailPanel h2')).toContainText('Fyzabad');
+  const [coordinates,from,to]=await Promise.all([renderedTransitCoordinates(page),nodeLocation(page,'point-sf-taxi'),endpointLocation(page,'Fyzabad')]);
   expect(from).not.toBeNull();expect(to).not.toBeNull();
   expectJourneyGeometryNearEndpoints(coordinates,from,to,{latPad:.035,lngPad:.035});
 });
