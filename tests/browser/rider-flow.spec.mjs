@@ -101,7 +101,7 @@ function expectJourneyGeometryNearEndpoints(coordinates,from,to,{latPad=.04,lngP
 test.beforeEach(async({page})=>{await primeNetwork(page);await page.goto('/');await expect(page.locator('#serviceCount')).not.toHaveText('0');});
 
 test('loads the canonical network and plans a local-place journey',async({page})=>{
-  await expect(page.locator('#serviceCount')).toHaveText('98');
+  await expect(page.locator('#serviceCount')).toHaveText('101');
   await planCouvaToChaguanas(page);
   expect(await page.locator('.journey-leg').count()).toBeGreaterThan(0);
 });
