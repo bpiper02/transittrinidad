@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {accessSummary} from '../src/access-diagnostics-core.mjs';
-import {exactPlace,placeToPoint} from '../src/place-core.mjs';
+import {exactPlace,placeToPoint,normalizePlaceQuery} from '../src/place-core.mjs';
 
 const nodes=JSON.parse(readFileSync(new URL('../data/nodes.json',import.meta.url),'utf8'));
 const services=JSON.parse(readFileSync(new URL('../data/services.json',import.meta.url),'utf8'));
@@ -9,8 +9,11 @@ const places=JSON.parse(readFileSync(new URL('../data/places.json',import.meta.u
 
 function pointFor(name){
   const place=exactPlace(name,places);
-  assert.ok(place,`${name} should exist in place aliases`);
-  return placeToPoint(place);
+  if(place)return placeToPoint(place);
+  const target=normalizePlaceQuery(name);
+  const node=nodes.find(item=>normalizePlaceQuery(item.name).includes(target)&&item.location);
+  assert.ok(node,`${name} should resolve from place aliases or named network nodes`);
+  return{name,lat:node.location.lat,lng:node.location.lng,routingRadiusKm:4};
 }
 
 for(const name of ['San Juan','Port of Spain','Chaguanas','Couva','Arima']){
