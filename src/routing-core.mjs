@@ -492,6 +492,7 @@ export function chooseJourneyOptions({
   const virtualAccessPoints=[];
   for(const candidate of [...virtualStarts,...virtualEnds]){
     candidateNodes.set(candidate.node.id,candidate.node);
+    if(typeof nodes?.set==='function')nodes.set(candidate.node.id,candidate.node);
     virtualAccessPoints.push(candidate.virtualAccess);
   }
   const starts=knownFrom?regularStarts:mergeAccessCandidates(candidateLimit+passThroughCandidateLimit,regularStarts,virtualStarts);
