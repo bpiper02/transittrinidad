@@ -7,6 +7,10 @@ export const TRANSFER_CONFIDENCE = new Set(['verified_walk','estimated_walk']);
 export const SCHEDULE_STATUS = new Set(['published_times','times_unavailable']);
 export const SERVICE_DAYS = new Set(['mon','tue','wed','thu','fri','sat','sun']);
 export const SOURCE_KINDS = new Set(['web','association_contact']);
+export const BOARDING_POLICIES = new Set(['fixed_stop_only','terminal_or_stand_only','main_road_pass_through','hail_along_segment','unknown_do_not_assume']);
+export const ACCESS_SEGMENT_CONFIDENCE = new Set(['association_confirmed','community_verified','reported','inferred_from_route_shape','unknown']);
+export const ACCESS_ROAD_CLASSES = new Set(['main_road','arterial','collector','local','highway','expressway','unknown']);
+export const ACCESS_SAFETY_EVIDENCE = new Set(['terminal_or_stand','named_stop','junction','layby','wide_shoulder','association_confirmed','community_verified','unknown']);
 
 function isNonEmpty(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -49,6 +53,32 @@ export function validateNode(node) {
   return true;
 }
 
+export function validateAccessSegment(segment, service, index=0) {
+  if (!segment || typeof segment !== 'object') throw new Error(`accessSegment ${index} is required`);
+  if (!isNonEmpty(segment.id)) throw new Error(`accessSegment ${index} needs id`);
+  if (!isNonEmpty(segment.fromNodeId) || !isNonEmpty(segment.toNodeId)) throw new Error(`accessSegment ${segment.id} needs fromNodeId and toNodeId`);
+  if (segment.fromNodeId === segment.toNodeId) throw new Error(`accessSegment ${segment.id} cannot connect a node to itself`);
+  if (!ACCESS_ROAD_CLASSES.has(segment.roadClass)) throw new Error(`invalid roadClass for accessSegment ${segment.id}`);
+  if (!ACCESS_SEGMENT_CONFIDENCE.has(segment.confidence)) throw new Error(`invalid confidence for accessSegment ${segment.id}`);
+  if (!Array.isArray(segment.safetyEvidence) || segment.safetyEvidence.length === 0 || segment.safetyEvidence.some(item => !ACCESS_SAFETY_EVIDENCE.has(item))) throw new Error(`invalid safetyEvidence for accessSegment ${segment.id}`);
+  if (new Set(segment.safetyEvidence).size !== segment.safetyEvidence.length) throw new Error(`duplicate safetyEvidence for accessSegment ${segment.id}`);
+  if (segment.boardingPolicy != null && !BOARDING_POLICIES.has(segment.boardingPolicy)) throw new Error(`invalid boardingPolicy for accessSegment ${segment.id}`);
+  if (segment.alightingPolicy != null && !BOARDING_POLICIES.has(segment.alightingPolicy)) throw new Error(`invalid alightingPolicy for accessSegment ${segment.id}`);
+  if (!Array.isArray(segment.sources) || segment.sources.length === 0) throw new Error(`accessSegment ${segment.id} needs at least one source`);
+  segment.sources.forEach(validateSource);
+  const stopNodeIds = service?.stopNodeIds || [];
+  const fromIndex = stopNodeIds.indexOf(segment.fromNodeId);
+  const toIndex = stopNodeIds.indexOf(segment.toNodeId);
+  if (fromIndex < 0 || toIndex < 0) throw new Error(`accessSegment ${segment.id} endpoints must exist in ${service?.id || 'service'} stopNodeIds`);
+  if (fromIndex >= toIndex) throw new Error(`accessSegment ${segment.id} must follow ${service?.id || 'service'} stop order`);
+  const effectiveBoardingPolicy = segment.boardingPolicy || service?.boardingPolicy || 'unknown_do_not_assume';
+  const effectiveAlightingPolicy = segment.alightingPolicy || service?.alightingPolicy || effectiveBoardingPolicy;
+  const allowsVirtual = [effectiveBoardingPolicy,effectiveAlightingPolicy].some(policy => ['main_road_pass_through','hail_along_segment'].includes(policy));
+  if (allowsVirtual && segment.confidence === 'unknown') throw new Error(`virtual accessSegment ${segment.id} needs non-unknown confidence`);
+  if (allowsVirtual && segment.safetyEvidence.length === 1 && segment.safetyEvidence[0] === 'unknown') throw new Error(`virtual accessSegment ${segment.id} needs safe stopping evidence`);
+  return true;
+}
+
 export function validateService(service) {
   if (!service || typeof service !== 'object') throw new Error('service is required');
   if (!isNonEmpty(service.id)) throw new Error('service.id is required');
@@ -63,11 +93,17 @@ export function validateService(service) {
   if (!GEOMETRY_CONFIDENCE.has(service.geometryConfidence)) throw new Error(`invalid geometry confidence for ${service.id}`);
   if (!CLAIM_CONFIDENCE.has(service.fareConfidence)) throw new Error(`invalid fare confidence for ${service.id}`);
   if (!CLAIM_CONFIDENCE.has(service.scheduleConfidence)) throw new Error(`invalid schedule confidence for ${service.id}`);
+  if (service.boardingPolicy != null && !BOARDING_POLICIES.has(service.boardingPolicy)) throw new Error(`invalid boardingPolicy for ${service.id}`);
+  if (service.alightingPolicy != null && !BOARDING_POLICIES.has(service.alightingPolicy)) throw new Error(`invalid alightingPolicy for ${service.id}`);
   if (service.fareTTD != null && (!Number.isFinite(service.fareTTD) || service.fareTTD < 0)) throw new Error(`invalid fare for ${service.id}`);
   if (service.estimatedMinutes != null && (!Number.isFinite(service.estimatedMinutes) || service.estimatedMinutes <= 0)) throw new Error(`invalid estimatedMinutes for ${service.id}`);
   if (service.geometry != null && (!Array.isArray(service.geometry) || service.geometry.length < 2 || service.geometry.some(point => !isLatLng(point)))) throw new Error(`invalid geometry for ${service.id}`);
   if (service.geometryConfidence === 'verified_path' && !service.geometry) throw new Error(`verified path ${service.id} must include geometry`);
   if (service.availability != null && (!service.availability || typeof service.availability !== 'object' || !['frequency_based'].includes(service.availability.kind) || !isNonEmpty(service.availability.note))) throw new Error(`invalid availability for ${service.id}`);
+  if (service.accessSegments != null) {
+    if (!Array.isArray(service.accessSegments)) throw new Error(`service ${service.id} accessSegments must be an array`);
+    service.accessSegments.forEach((segment,index) => validateAccessSegment(segment, service, index));
+  }
   if (!Array.isArray(service.sources) || service.sources.length === 0) throw new Error(`service ${service.id} needs at least one source`);
   service.sources.forEach(validateSource);
   return true;
@@ -124,6 +160,10 @@ export function validateDataset({nodes,services,transfers=[],schedules=[]}) {
     if (!nodeIds.has(service.originNodeId)) throw new Error(`unknown origin node ${service.originNodeId}`);
     if (!nodeIds.has(service.destinationNodeId)) throw new Error(`unknown destination node ${service.destinationNodeId}`);
     for (const stopNodeId of service.stopNodeIds) if (!nodeIds.has(stopNodeId)) throw new Error(`unknown stop node ${stopNodeId} in ${service.id}`);
+    for (const segment of service.accessSegments || []) {
+      if (!nodeIds.has(segment.fromNodeId)) throw new Error(`unknown accessSegment origin node ${segment.fromNodeId} in ${service.id}`);
+      if (!nodeIds.has(segment.toNodeId)) throw new Error(`unknown accessSegment destination node ${segment.toNodeId} in ${service.id}`);
+    }
   }
   const transferIds = new Set();
   const transferPairs = new Set();
