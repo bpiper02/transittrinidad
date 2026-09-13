@@ -23,6 +23,7 @@
     "test:browser": "playwright test"
   },
   "devDependencies": {
+    "@playwright/test": "1.63.0",
     "eslint": "9.35.0"
   }
 }
