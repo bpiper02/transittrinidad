@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-09-13",
+  "purpose": "Evidence notes for southwest reported connectors added to reduce false no-route results while preserving caveats.",
+  "items": [
+    {
+      "claim": "San Fernando/Fyzabad route taxi movement appears in public traffic notices.",
+      "sources": [
+        {
+          "name": "Legal Notice No. 45 of 2009 temporary San Fernando traffic notice",
+          "url": "https://news.gov.tt/archive/E-Gazette/Gazette%202009/legal_notices/Legal%20Notice%20No.%2045%20of%202009.pdf",
+          "checkedAt": "2026-09-13"
+        }
+      ]
+    },
+    {
+      "claim": "Fyzabad taxi stand location appears in published taxi stand regulations.",
+      "sources": [
+        {
+          "name": "Motor Vehicles and Road Traffic Regulations taxi stand list",
+          "url": "https://www.mowt.gov.tt/MOWT/media/General/Legislation/48-50.pdf",
+          "checkedAt": "2026-09-13"
+        }
+      ]
+    }
+  ],
+  "caveats": [
+    "Current stand placement, fare and operating hours still require local confirmation.",
+    "Connector is marked reported_service and no fare is presented."
+  ]
+}

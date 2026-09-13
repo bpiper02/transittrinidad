@@ -208,6 +208,8 @@ const requiredMaxi=findJourney('a','c',requiredModeServices,requiredModeNodes,{r
 assert.deepEqual(requiredMaxi.filter(step=>step.kind==='transit').map(step=>step.service.mode),['route_taxi','maxi'],'a Maxi-filtered journey may use a taxi connector but must include a Maxi leg');
 const noLoopOption=chooseJourneyOptions({fromPlace:requiredModeNodes.get('a').location,toPlace:requiredModeNodes.get('c').location,nodes:requiredModeNodes,services:requiredModeServices,knownFrom:requiredModeNodes.get('a'),knownTo:requiredModeNodes.get('c'),requiredMode:'maxi'});
 assert.ok(noLoopOption.every(option=>new Set([option.fromNear.node.id,...option.steps.map(step=>step.to)]).size===option.steps.length+1),'mode filtering must reject routes that loop back through a visited node');
+assert.ok(findJourney('fyzabad-area','ptsc-san-fernando',services,nodes,{transfers}),'Fyzabad should connect to San Fernando through the reported local taxi connector');
+assert.ok(findJourney('fyzabad-area','ptsc-point-fortin',services,nodes,{transfers}),'Fyzabad should reach Point Fortin through San Fernando/Point Fortin services after the local connector');
 assert.ok(findJourney('penal-siparia-taxi','siparia-penal-taxi',localSouthOnly,nodes));
 assert.ok(findJourney('maxi-mayaro','guayaguayare-area',maxiOnly,nodes));
 assert.equal(findJourney('guayaguayare-area','maxi-mayaro',maxiOnly,nodes),null,'a destination label must not invent a return service');

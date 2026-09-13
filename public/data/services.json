@@ -6234,5 +6234,67 @@
         "checkedAt": "2026-09-13"
       }
     ]
+  },
+  {
+    "id": "taxi-fyzabad-san-fernando-out",
+    "corridorId": "taxi-fyzabad-san-fernando",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "fyzabad-area",
+    "destinationNodeId": "ptsc-san-fernando",
+    "stopNodeIds": [
+      "fyzabad-area",
+      "ptsc-san-fernando"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "boardingNote": "Reported Fyzabad/San Fernando route-taxi connection from public traffic and taxi-stand notices. Exact current stand, bay, fare and operating hours need local confirmation.",
+    "sources": [
+      {
+        "name": "Legal Notice No. 45 of 2009 temporary San Fernando traffic notice",
+        "url": "https://news.gov.tt/archive/E-Gazette/Gazette%202009/legal_notices/Legal%20Notice%20No.%2045%20of%202009.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "name": "Motor Vehicles and Road Traffic Regulations taxi stand list",
+        "url": "https://www.mowt.gov.tt/MOWT/media/General/Legislation/48-50.pdf",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "taxi-fyzabad-san-fernando-back",
+    "corridorId": "taxi-fyzabad-san-fernando",
+    "mode": "route_taxi",
+    "operator": "Local route taxis",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "fyzabad-area",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "fyzabad-area"
+    ],
+    "serviceConfidence": "reported_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "boardingNote": "Reported Fyzabad/San Fernando route-taxi connection from public traffic and taxi-stand notices. Exact current stand, bay, fare and operating hours need local confirmation.",
+    "sources": [
+      {
+        "name": "Legal Notice No. 45 of 2009 temporary San Fernando traffic notice",
+        "url": "https://news.gov.tt/archive/E-Gazette/Gazette%202009/legal_notices/Legal%20Notice%20No.%2045%20of%202009.pdf",
+        "checkedAt": "2026-09-13"
+      },
+      {
+        "name": "Motor Vehicles and Road Traffic Regulations taxi stand list",
+        "url": "https://www.mowt.gov.tt/MOWT/media/General/Legislation/48-50.pdf",
+        "checkedAt": "2026-09-13"
+      }
+    ]
   }
 ]
