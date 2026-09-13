@@ -2,3 +2,8 @@
 data/submissions/
 data/candidates/
 data/reviews/
+
+# Local development dependencies and generated test output.
+node_modules/
+playwright-report/
+test-results/
