@@ -4,6 +4,7 @@ import {exactPlace,explicitNetworkNode,matchPlaces,mergePlaceSuggestions,placeTo
 import {formatClock,formatServiceDays,nextDepartures,scheduleForDate} from './src/schedule-core.mjs';
 import {fareForJourney,fareForSegment,formatFare} from './src/fare-core.mjs';
 import {boardingGuidance,transitAction} from './src/rider-instruction-core.mjs';
+import {escapeHtml,formatMinutes,maxiBandLabel,modeLabel,routeColor,serviceConfidenceLabel} from './src/presentation-core.mjs';
 
 const nodeIndex=new Map();
 let services=[];
@@ -24,10 +25,6 @@ const selectedPlaces=new Map();
 const autocompleteControllers=new Map();
 
 const $=selector=>document.querySelector(selector);
-const MODE_LABELS={ptsc:'PTSC',maxi:'Maxi',route_taxi:'Route taxi',water_taxi:'Water Taxi',ferry:'Ferry'};
-const MAXI_BAND_COLORS={1:'#F2C94C',2:'#D92D2D',3:'#2E9B4B',4:'#1C1C1E',5:'#8B5E3C',6:'#2F80ED'};
-const MAXI_BAND_LABELS={1:'Route 1 / Yellow Band',2:'Route 2 / Red Band',3:'Route 3 / Green Band',4:'Route 4 / Black Band',5:'Route 5 / Brown Band',6:'Route 6 / Blue Band'};
-const OPERATOR_COLORS={ptsc:'#C9252D',water_taxi:'#0A84FF',ferry:'#0077B6',route_taxi:'#6E6E73'};
 const ROAD_MODES=new Set(['ptsc','maxi','route_taxi']);
 const TT_BOUNDS=[[-61.98,9.95],[-60.42,11.42]];
 const TT_MAX_BOUNDS=[[-62.25,9.70],[-60.15,11.68]];
@@ -39,26 +36,6 @@ const OSRM_CACHE_KEY='transittrinidad-road-geometry-v1';
 let lastGeocodeAt=0;
 let lastOsrmAt=0;
 
-function escapeHtml(value=''){
-  return String(value).replace(/[&<>'\"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#039;','\"':'&quot;'}[char]));
-}
-function modeLabel(mode){return MODE_LABELS[mode]||mode;}
-function routeColor(service){
-  if(service.mode==='maxi'){
-    const routeArea=Number(service.routeArea||service.maxiRouteArea||service.bandRouteArea);
-    if(MAXI_BAND_COLORS[routeArea])return MAXI_BAND_COLORS[routeArea];
-    const named={yellow:1,red:2,green:3,black:4,brown:5,blue:6}[String(service.bandColor||'').toLowerCase()];
-    if(named)return MAXI_BAND_COLORS[named];
-    return '#8E8E93';
-  }
-  return OPERATOR_COLORS[service.mode]||'#6E6E73';
-}
-function maxiBandLabel(service){
-  const routeArea=Number(service.routeArea||service.maxiRouteArea||service.bandRouteArea);
-  if(MAXI_BAND_LABELS[routeArea])return MAXI_BAND_LABELS[routeArea];
-  const color=String(service.bandColor||'').trim();
-  return color?`${color[0].toUpperCase()}${color.slice(1)} Band`:'Maxi';
-}
 function filteredServices(){return services.filter(service=>service.serviceConfidence!=='needs_review'&&(activeMode==='all'||service.mode===activeMode));}
 function routingServices(){return services.filter(service=>service.serviceConfidence!=='needs_review');}
 function corridorGroups(list=filteredServices()){
@@ -107,11 +84,6 @@ function serviceEvidenceHtml(service){
   if(!links)return'';
   return`<details class="data-details"><summary>Data details</summary><ul>${links}</ul></details>`;
 }
-function serviceConfidenceLabel(service){
-  if(service.serviceConfidence==='verified_service')return'Verified route';
-  if(service.serviceConfidence==='reported_service')return'Reported route';
-  return'Route';
-}
 function serviceBadges(service,fromNodeId=service.originNodeId,toNodeId=service.destinationNodeId){
   const fare=fareForService(service,fromNodeId,toNodeId);
   const badges=[serviceConfidenceLabel(service),formatFare(fare)];
@@ -153,12 +125,6 @@ function clearJourney({clearTrip=false}={}){
   $('#detailPanel').hidden=true;
   $('#detailPanel').innerHTML='';
   activeServiceId=null;
-}
-function formatMinutes(minutes){
-  const total=Math.max(1,Math.round(minutes||0));
-  if(total<60)return`~${total} min`;
-  const hours=Math.floor(total/60),mins=total%60;
-  return`~${hours}h${mins?` ${mins}m`:''}`;
 }
 function compactJourneySteps(steps=[]){
   const compact=[];
