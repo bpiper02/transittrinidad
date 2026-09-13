@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {chooseConnectedJourney,chooseJourneyOptions,findJourney,nearestNodes,journeyMinutes,estimateAccess,countTransfers} from '../src/routing-core.mjs';
+import {chooseConnectedJourney,chooseJourneyOptions,findJourney,nearestNodes,journeyMinutes,estimateAccess,countTransfers,passThroughAccessCandidates} from '../src/routing-core.mjs';
 
 const nodesArray=JSON.parse(await readFile(new URL('../data/nodes.json',import.meta.url)));
 const services=JSON.parse(await readFile(new URL('../data/services.json',import.meta.url)));
@@ -55,6 +55,15 @@ const portOfSpain={lat:10.6500,lng:-61.5140};
 const nearestToPos=nearestNodes(portOfSpain,nodes,{limit:1})[0];
 assert.notEqual(nearestToPos.node.id,'ptsc-pos-transit-centre','fixture must reproduce the nearby-terminal problem');
 
+const sanJuan=nodes.get('san-juan-area').location;
+const sanJuanAccess=passThroughAccessCandidates(sanJuan,nodes,services,{purpose:'boarding',limit:8,maxKm:1});
+assert.ok(sanJuanAccess.some(candidate=>candidate.virtualAccess.service.id==='maxi-pos-arima-back'),'San Juan should expose westbound Route 2 pass-through access instead of only exact-node routing');
+const sanJuanToPos=chooseConnectedJourney({fromPlace:sanJuan,toPlace:portOfSpain,nodes,services,transfers,candidateLimit:10,maxAccessKm:4,rankingOptions:{passThroughAccessLimitKm:1,passThroughCandidateLimit:8}});
+assert.ok(sanJuanToPos,'San Juan to Port of Spain should route through eligible pass-through access instead of returning no route');
+assert.equal(sanJuanToPos.fromNear.node.virtual,true,'San Juan boarding should use an explicitly labeled estimated main-road access point');
+assert.ok(sanJuanToPos.steps.some(step=>step.kind==='transit'&&step.service.id==='maxi-pos-arima-back'),'San Juan to POS should use the westbound Route 2 pattern, not invent a reverse taxi route');
+assert.equal(sanJuanToPos.ranking.fromAccessTrusted,true,'pass-through evaluation should satisfy access trust without disabling safety gates');
+
 const couva={lat:10.422,lng:-61.462};
 const journey=chooseConnectedJourney({fromPlace:couva,toPlace:portOfSpain,nodes,services,transfers,candidateLimit:8});
 assert.ok(journey,'Couva to Port of Spain should find a connected nearby-node journey');
@@ -102,6 +111,22 @@ const throughJourney=findJourney('a','c',throughService,segmentNodes,{transferPe
 assert.equal(throughJourney.length,2,'ordered stop patterns should create traversable stop-to-stop segments');
 assert.equal(countTransfers(throughJourney),0,'staying on the same service across intermediate stops must not count as a transfer');
 assert.ok(findJourney('b','c',throughService,segmentNodes),'riders must be able to board at an intermediate stop');
+
+const passThroughNodes=new Map([
+  ['start',{id:'start',kind:'stand',location:{lat:10.00,lng:-61.00}}],
+  ['end',{id:'end',kind:'stand',location:{lat:10.00,lng:-61.10}}]
+]);
+const passThroughService=[{
+  id:'stand-to-stand-hail',corridorId:'stand-to-stand',mode:'maxi',originNodeId:'start',destinationNodeId:'end',stopNodeIds:['start','end'],estimatedMinutes:20,serviceConfidence:'community_verified',boardingPolicy:'hail_along_segment',alightingPolicy:'main_road_pass_through',accessSegments:[{id:'stand-end-main-road',fromNodeId:'start',toNodeId:'end',roadClass:'main_road',boardingPolicy:'hail_along_segment',alightingPolicy:'main_road_pass_through',safetyEvidence:['junction','community_verified'],confidence:'community_verified',sources:[{name:'test',url:'https://example.com',checkedAt:'2026-09-13'}]}]
+}];
+const passAccess=passThroughAccessCandidates({lat:10.0005,lng:-61.05},passThroughNodes,passThroughService,{purpose:'boarding',maxKm:1,limit:2});
+assert.equal(passAccess.length,1,'explicit accessSegments should produce virtual boarding candidates near a corridor');
+const passEnd=passThroughAccessCandidates({lat:10.0005,lng:-61.06},passThroughNodes,passThroughService,{purpose:'alighting',maxKm:1,limit:2});
+const augmented=new Map(passThroughNodes);
+for(const item of [...passAccess,...passEnd])augmented.set(item.node.id,item.node);
+const passRide=findJourney(passAccess[0].node.id,passEnd[0].node.id,passThroughService,augmented,{virtualAccessPoints:[passAccess[0].virtualAccess,passEnd[0].virtualAccess]});
+assert.equal(passRide.length,1,'same-segment virtual boarding and drop-off should become one transit leg, not fake walking');
+assert.equal(passRide[0].service.id,'stand-to-stand-hail');
 
 const weightedNodes=new Map([
   ['a',{id:'a',location:{lat:10.00,lng:-61.00}}],['b',{id:'b',location:{lat:10.02,lng:-61.00}}],['c',{id:'c',location:{lat:10.04,lng:-61.00}}],['d',{id:'d',location:{lat:10.06,lng:-61.00}}],['far',{id:'far',location:{lat:10.90,lng:-61.00}}]
