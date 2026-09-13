@@ -5,6 +5,7 @@ import {formatClock,formatServiceDays,nextDepartures,scheduleForDate,scheduleFre
 import {fareForJourney,fareForSegment,formatFare} from './src/fare-core.mjs';
 import {boardingGuidance,transitAction} from './src/rider-instruction-core.mjs';
 import {coordinatesForJourneyLeg} from './src/journey-geometry-core.mjs';
+import {requestCurrentPosition} from './src/location-core.mjs';
 
 const nodeIndex=new Map();
 let services=[];
@@ -192,6 +193,10 @@ function routeOptionLabel(option,index){
   return'Alternative';
 }
 function routeOptionModes(option){const seen=[];for(const mode of option.modes)if(!seen.includes(mode))seen.push(mode);return seen.map(modeLabel).join(' + ');}
+function locationAccuracySuffix(...points){
+  const warnings=points.filter(point=>point?.source==='browser_geolocation'&&point.accuracyWarning).map(point=>point.accuracyWarning);
+  return warnings.length?` · ${warnings[0]}`:'';
+}
 function routeStatus(option){const rides=rideSteps(option.steps);const fare=fareForJourney(compactJourneySteps(option.steps),{fares,nodes:[...nodeIndex.values()]});const wait=option.timing?.waitMinutes?` · ~${Math.round(option.timing.waitMinutes)} min expected waiting`:'';return`${formatJourneyMinutes(option)} · ${journeyFareLabel(fare)} · ${rides.length} ride${rides.length===1?'':'s'}${option.transferCount?` · ${option.transferCount} transfer${option.transferCount===1?'':'s'}`:''}${wait}`;}
 function isFormalBoardingNode(node){return['terminal','stand','ferry_terminal','water_taxi_terminal'].includes(node?.kind);}
 function transitInstruction(step){
@@ -339,7 +344,10 @@ async function geocodePlace(query){
 async function resolveEndpoint(inputId){
   const input=$(`#${inputId}`),value=input.value.trim();
   const selected=selectedPlaces.get(inputId);
-  if(selected&&selected.inputValue===input.value)return{point:{name:selected.name,lat:selected.lat,lng:selected.lng,routingRadiusKm:selected.routingRadiusKm},knownNode:null,routingRadiusKm:selected.routingRadiusKm||4};
+  if(selected&&selected.inputValue===input.value){
+    if(selected.source==='browser_geolocation')return{point:{...selected,name:selected.name,lat:selected.lat,lng:selected.lng,routingRadiusKm:selected.routingRadiusKm},knownNode:null,routingRadiusKm:selected.routingRadiusKm||5};
+    return{point:{name:selected.name,lat:selected.lat,lng:selected.lng,routingRadiusKm:selected.routingRadiusKm},knownNode:null,routingRadiusKm:selected.routingRadiusKm||4};
+  }
   const local=exactPlace(value,places);
   if(local){const point=placeToPoint(local);return{point,knownNode:null,routingRadiusKm:local.routingRadiusKm||4};}
   const node=explicitNetworkNode(value,nodeIndex,places);
@@ -362,6 +370,7 @@ function transitStepCoordinates(step){
   const service=step.service,from=nodeCoordinates(step.from),to=nodeCoordinates(step.to);
   return coordinatesForJourneyLeg({coordinates:serviceCoordinates(service),from,to,isWholeService:step.from===service.originNodeId&&step.to===service.destinationNodeId});
 }
+function searchPointFeature(kind,point){return{type:'Feature',properties:{kind,source:point.source||null,accuracyMeters:point.accuracyMeters||null},geometry:{type:'Point',coordinates:[point.lng,point.lat]}};}
 function journeyGeoJson(from,to,connected){
   const{fromNear,toNear,fromAccess,toAccess}=connected;const steps=compactJourneySteps(connected.steps);const features=[];
   if(fromAccess.mode!=='none')features.push({type:'Feature',properties:{kind:'access',accessMode:fromAccess.mode},geometry:{type:'LineString',coordinates:[[from.lng,from.lat],[fromNear.node.location.lng,fromNear.node.location.lat]]}});
@@ -374,7 +383,7 @@ function journeyGeoJson(from,to,connected){
 }
 function showJourneyMap(from,to,connected){
   map.setLayoutProperty?.('service-lines','visibility','none');
-  map.getSource('search-points')?.setData({type:'FeatureCollection',features:[{type:'Feature',properties:{kind:'from'},geometry:{type:'Point',coordinates:[from.lng,from.lat]}},{type:'Feature',properties:{kind:'to'},geometry:{type:'Point',coordinates:[to.lng,to.lat]}}]});
+  map.getSource('search-points')?.setData({type:'FeatureCollection',features:[searchPointFeature(from.source==='browser_geolocation'?'current-from':'from',from),searchPointFeature(to.source==='browser_geolocation'?'current-to':'to',to)]});
   map.getSource('journey')?.setData(journeyGeoJson(from,to,connected));
   const bounds=new maplibregl.LngLatBounds();bounds.extend([from.lng,from.lat]);bounds.extend([to.lng,to.lat]);
   for(const step of compactJourneySteps(connected.steps)){const fromPoint=nodeCoordinates(step.from),toPoint=nodeCoordinates(step.to);if(fromPoint)bounds.extend(fromPoint);if(toPoint)bounds.extend(toPoint);if(step.kind==='transit')for(const point of transitStepCoordinates(step)||[])bounds.extend(point);}
@@ -382,7 +391,7 @@ function showJourneyMap(from,to,connected){
 }
 function showNoRouteMap(from,to){
   map.setLayoutProperty?.('service-lines','visibility','visible');
-  map.getSource('journey')?.setData(emptyFeatureCollection());map.getSource('search-points')?.setData({type:'FeatureCollection',features:[{type:'Feature',properties:{kind:'from'},geometry:{type:'Point',coordinates:[from.lng,from.lat]}},{type:'Feature',properties:{kind:'to'},geometry:{type:'Point',coordinates:[to.lng,to.lat]}}]});
+  map.getSource('journey')?.setData(emptyFeatureCollection());map.getSource('search-points')?.setData({type:'FeatureCollection',features:[searchPointFeature(from.source==='browser_geolocation'?'current-from':'from',from),searchPointFeature(to.source==='browser_geolocation'?'current-to':'to',to)]});
   const bounds=new maplibregl.LngLatBounds([from.lng,from.lat],[to.lng,to.lat]);map.fitBounds(bounds,{padding:90,maxZoom:12,duration:350});
 }
 function renderJourney(connected,options=[],selectedIndex=0){
@@ -402,7 +411,7 @@ function renderJourney(connected,options=[],selectedIndex=0){
 }
 async function selectRouteOption(index){
   if(!currentRoutePlan||!currentRoutePlan.options[index])return;const requestId=++plannerRequestId;const option=currentRoutePlan.options[index];currentRoutePlan.selectedIndex=index;$('#plannerStatus').textContent='Loading route…';
-  try{await hydrateDisplayGeometry(rideSteps(option.steps).map(step=>step.service));ensureCurrent(requestId);showJourneyMap(currentRoutePlan.from,currentRoutePlan.to,option);renderJourney(option,currentRoutePlan.options,index);$('#plannerStatus').textContent=routeStatus(option);}catch(error){if(error.name!=='AbortError')$('#plannerStatus').textContent=error.message;}
+  try{await hydrateDisplayGeometry(rideSteps(option.steps).map(step=>step.service));ensureCurrent(requestId);showJourneyMap(currentRoutePlan.from,currentRoutePlan.to,option);renderJourney(option,currentRoutePlan.options,index);$('#plannerStatus').textContent=routeStatus(option)+locationAccuracySuffix(currentRoutePlan.from,currentRoutePlan.to);}catch(error){if(error.name!=='AbortError')$('#plannerStatus').textContent=error.message;}
 }
 async function planCurrentTrip({reuseContext=false}={}){
   const status=$('#plannerStatus'),button=$('#planButton'),requestId=++plannerRequestId;button.disabled=true;status.textContent=activeMode==='all'?'Finding routes…':`Finding routes using ${modeLabel(activeMode)}…`;
@@ -416,13 +425,36 @@ async function planCurrentTrip({reuseContext=false}={}){
     }
     const options=chooseJourneyOptions({fromPlace:from,toPlace:to,nodes:nodeIndex,services:routingServices(),transfers,schedules,departureDate:new Date(),knownFrom,knownTo,candidateLimit:12,maxAccessKm:Math.max(4,fromEndpoint?.routingRadiusKm||4,toEndpoint?.routingRadiusKm||4),transferPenaltyMinutes:10,accessOptions:{localWaitMinutes:10,localKph:18},maxOptions:3,requiredMode:activeMode==='all'?null:activeMode});
     ensureCurrent(requestId);
-    if(!options.length){currentRoutePlan=null;showNoRouteMap(from,to);$('#detailPanel').hidden=true;$('#detailPanel').innerHTML='';status.textContent=activeMode==='all'?'No route in the current network.':`No route using ${modeLabel(activeMode)} for this trip.`;return;}
-    const connected=options[0];currentRoutePlan={from,to,knownFrom,knownTo,options,selectedIndex:0};await hydrateDisplayGeometry(rideSteps(connected.steps).map(step=>step.service));ensureCurrent(requestId);showJourneyMap(from,to,connected);renderJourney(connected,options,0);status.textContent=routeStatus(connected);
+    if(!options.length){currentRoutePlan=null;showNoRouteMap(from,to);$('#detailPanel').hidden=true;$('#detailPanel').innerHTML='';status.textContent=(activeMode==='all'?'No route in the current network.':`No route using ${modeLabel(activeMode)} for this trip.`)+locationAccuracySuffix(from,to);return;}
+    const connected=options[0];currentRoutePlan={from,to,knownFrom,knownTo,options,selectedIndex:0};await hydrateDisplayGeometry(rideSteps(connected.steps).map(step=>step.service));ensureCurrent(requestId);showJourneyMap(from,to,connected);renderJourney(connected,options,0);status.textContent=routeStatus(connected)+locationAccuracySuffix(from,to);
   }catch(error){if(error.name!=='AbortError'){console.error(error);status.textContent=error.message;}}
   finally{if(requestId===plannerRequestId)button.disabled=false;}
 }
+function setLocationStatus(message,kind='info'){
+  const status=$('#locationStatus');
+  status.hidden=!message;
+  status.textContent=message||'';
+  status.classList.toggle('is-warning',kind==='warning');
+  status.classList.toggle('is-error',kind==='error');
+}
+async function useLiveLocation(inputId){
+  const button=$(`#${inputId==='fromInput'?'fromLocationButton':'toLocationButton'}`),input=$(`#${inputId}`),menu=$(`#${inputId==='fromInput'?'fromSuggestions':'toSuggestions'}`);
+  const requestId=++plannerRequestId;
+  button.disabled=true;setLocationStatus('Getting your location…');
+  try{
+    const place=await requestCurrentPosition();ensureCurrent(requestId);
+    input.value=place.name;
+    selectedPlaces.set(inputId,{...place,inputValue:place.name});
+    menu.hidden=true;menu.innerHTML='';currentTripContext=null;currentRoutePlan=null;clearJourney();
+    setLocationStatus(`${inputId==='fromInput'?'Start':'Destination'} set to current location · ${place.accuracyLabel}${place.accuracyWarning?` · ${place.accuracyWarning}`:''}`,place.accuracyWarning?'warning':'info');
+    map?.getSource('search-points')?.setData({type:'FeatureCollection',features:[searchPointFeature(inputId==='fromInput'?'current-from':'current-to',place)]});
+  }catch(error){if(error.name!=='AbortError')setLocationStatus(error.message||'Could not get your location.', 'error');}
+  finally{button.disabled=false;}
+}
 function setupPlanner(){
   setupAutocomplete('fromInput','fromSuggestions');setupAutocomplete('toInput','toSuggestions');
+  $('#fromLocationButton').addEventListener('click',()=>useLiveLocation('fromInput'));
+  $('#toLocationButton').addEventListener('click',()=>useLiveLocation('toInput'));
   $('#swapButton').addEventListener('click',()=>{invalidatePlanner();currentTripContext=null;currentRoutePlan=null;const fromInput=$('#fromInput'),toInput=$('#toInput');const fromValue=fromInput.value,fromSelected=selectedPlaces.get('fromInput'),toSelected=selectedPlaces.get('toInput');fromInput.value=toInput.value;toInput.value=fromValue;selectedPlaces.delete('fromInput');selectedPlaces.delete('toInput');if(toSelected)selectedPlaces.set('fromInput',{...toSelected,inputValue:fromInput.value});if(fromSelected)selectedPlaces.set('toInput',{...fromSelected,inputValue:toInput.value});});
   $('#planButton').addEventListener('click',()=>planCurrentTrip());
 }
@@ -435,7 +467,7 @@ function addMapLayers(){
   map.addLayer({id:'journey-transit-casing',type:'line',source:'journey',filter:['==',['get','kind'],'transit'],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#fff','line-width':10,'line-opacity':.9}});
   map.addLayer({id:'journey-transit',type:'line',source:'journey',filter:['==',['get','kind'],'transit'],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['get','routeColor'],'line-width':6.5,'line-opacity':1}});
   map.addSource('nodes',{type:'geojson',data:nodeGeoJson()});map.addLayer({id:'nodes',type:'circle',source:'nodes',paint:{'circle-radius':4,'circle-color':'#fff','circle-stroke-color':'#636366','circle-stroke-width':1.5}});
-  map.addSource('search-points',{type:'geojson',data:emptyFeatureCollection()});map.addLayer({id:'search-points',type:'circle',source:'search-points',paint:{'circle-radius':8,'circle-color':['match',['get','kind'],'from','#0A84FF','to','#FF3B30','#111'],'circle-stroke-color':'#fff','circle-stroke-width':3}});
+  map.addSource('search-points',{type:'geojson',data:emptyFeatureCollection()});map.addLayer({id:'search-points',type:'circle',source:'search-points',paint:{'circle-radius':['case',['in',['get','kind'],['literal',['current-from','current-to']]],10,8],'circle-color':['match',['get','kind'],'from','#0A84FF','current-from','#0A84FF','to','#FF3B30','current-to','#FF3B30','#111'],'circle-stroke-color':'#fff','circle-stroke-width':3}});
   map.on('click','service-lines',async event=>{const id=event.features?.[0]?.properties?.id,service=services.find(item=>item.id===id);if(service){await estimateRoadGeometry(service);selectService(id,false);}});map.on('mouseenter','service-lines',()=>{map.getCanvas().style.cursor='pointer';});map.on('mouseleave','service-lines',()=>{map.getCanvas().style.cursor='';});
 }
 async function start(){
