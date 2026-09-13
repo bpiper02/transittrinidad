@@ -12,9 +12,9 @@ const index=read(join(publicDir,'index.html'));
 assert.match(index,/src=["']\.\/app-v2\.js["']/,'public/index.html must load the current rider application entrypoint');
 assert.doesNotMatch(index,/src=["']\.\/app\.js["']/,'public/index.html must not load the legacy app.js entrypoint');
 
-for(const name of readdirSync(publicDir).filter(name=>name.endsWith('.html'))){
-  const html=read(join(publicDir,name));
-  assert.doesNotMatch(html,/src=["']\.\/app\.js["']/u,`${name} must not load legacy app.js`);
+for(const pageName of readdirSync(publicDir).filter(name=>name.endsWith('.html'))){
+  const html=read(join(publicDir,pageName));
+  assert.doesNotMatch(html,/src=["']\.\/app\.js["']/u,`${pageName} must not load legacy app.js`);
 }
 
 const browserMirrorModules=[
@@ -22,20 +22,21 @@ const browserMirrorModules=[
   'field-review-core.mjs',
   'network-qa-core.mjs',
   'place-core.mjs',
+  'presentation-core.mjs',
   'rider-instruction-core.mjs',
   'routing-core.mjs',
   'schedule-core.mjs'
 ];
-for(const name of browserMirrorModules){
+for(const moduleName of browserMirrorModules){
   assert.equal(
-    read(join(publicDir,'src',name)),
-    read(join(srcDir,name)),
-    `${name} browser mirror must exactly match canonical src`
+    read(join(publicDir,'src',moduleName)),
+    read(join(srcDir,moduleName)),
+    `${moduleName} browser mirror must exactly match canonical src`
   );
 }
 
 const browserRuntimeFiles=readdirSync(publicDir)
-  .filter(name=>/\.(?:js|html)$/u.test(name)&&name!=='app.js')
+  .filter(name=>/\.(?:js|html)$/u.test(name))
   .map(name=>[name,read(join(publicDir,name))]);
 for(const [name,contents] of browserRuntimeFiles){
   assert.doesNotMatch(contents,/['"]\.\/routing-core\.mjs['"]/u,`${name} must import canonical browser mirrors from ./src, not legacy public/routing-core.mjs`);
