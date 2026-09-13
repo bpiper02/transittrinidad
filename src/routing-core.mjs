@@ -311,6 +311,8 @@ export function chooseJourneyOptions({
   maxOptions=3,
   maxAlternativeRatio=2.5,
   maxAlternativeExtraMinutes=120,
+  maxWaterAlternativeRatio=3,
+  maxWaterAlternativeExtraMinutes=240,
   maxDetourRatio=2.5,
   maxBacktrackRatio=0.35,
   maxBacktrackFloorKm=3,
@@ -362,7 +364,9 @@ export function chooseJourneyOptions({
   const chosenSignatures=new Set([journeySignature(best)]);
   const chosenModes=new Set([best.modeSignature]);
 
-  const waterAlternative=eligible.find(candidate=>
+  const waterCeiling=Math.min(best.score*maxWaterAlternativeRatio,best.score+maxWaterAlternativeExtraMinutes);
+  const waterAlternative=sorted.find(candidate=>
+    candidate.score<=waterCeiling&&
     !chosenSignatures.has(journeySignature(candidate))&&
     candidate.modes.some(mode=>mode==='water_taxi'||mode==='ferry')&&
     !best.modes.some(mode=>mode==='water_taxi'||mode==='ferry')
