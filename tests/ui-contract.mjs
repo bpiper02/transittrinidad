@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const html=readFileSync(new URL('../public/index.html',import.meta.url),'utf8');
 const app=readFileSync(new URL('../public/app-v2.js',import.meta.url),'utf8');
+const presentation=readFileSync(new URL('../public/src/presentation-core.mjs',import.meta.url),'utf8');
 const css=readFileSync(new URL('../public/styles.css',import.meta.url),'utf8');
 
 for(const id of ['appShell','map','serviceList','serviceCount','modeTabs','detailPanel','fromInput','toInput','planButton','swapButton','plannerStatus','fromSuggestions','toSuggestions'])assert.match(html,new RegExp(`id=["']${id}["']`),`missing #${id}`);
@@ -16,6 +17,7 @@ assert.match(app,/\.\/src\/routing-core\.mjs/);
 assert.match(app,/\.\/src\/place-core\.mjs/,'browser must use the canonical place-resolution vocabulary');
 assert.match(app,/\.\/src\/fare-core\.mjs/,'browser must use the canonical fare engine');
 assert.match(app,/\.\/src\/rider-instruction-core\.mjs/,'browser must use shared rider-instruction semantics');
+assert.match(app,/\.\/src\/presentation-core\.mjs/,'browser must delegate presentation primitives to the presentation core');
 assert.match(app,/getJson\('\.\/data\/places\.json'\)/,'browser must load local place aliases and centroids');
 assert.match(app,/getJson\('\.\/data\/fares\.json'\)/,'browser must load editable fare overrides');
 assert.match(app,/exactPlace\(/,'plain town names should resolve through the place layer');
@@ -52,7 +54,7 @@ assert.match(app,/fareForSegment/,'leg fares must use segment-aware fare logic')
 assert.match(app,/fareForJourney/,'journey totals must sum leg fare ranges');
 assert.match(app,/formatFare/,'fare output must consistently distinguish estimates and confirmed fares');
 assert.doesNotMatch(app,/Fare unknown|fare not in dataset/,'routable journeys should receive a confirmed/reported fare or explicit estimate');
-assert.match(app,/Reported route/,'reported service confidence should remain visible as metadata');
+assert.match(presentation,/Reported route/,'reported service confidence should remain visible through presentation metadata');
 assert.match(app,/Journey data/,'journey evidence should be available in one expandable section');
 assert.doesNotMatch(app,/current operation unconfirmed|Confirm service and boarding|access method unconfirmed|Sailing times are not yet included/,'route cards should not repeat defensive notices already covered globally');
 assert.doesNotMatch(app,/\bOn time\b/,'static schedules cannot claim real-time punctuality');
@@ -63,7 +65,7 @@ assert.match(app,/autocompleteControllers\.get\(inputId\)\?\.abort\(\)/);
 assert.match(app,/event\.key==='ArrowDown'/);
 assert.match(app,/router\.project-osrm\.org\/route\/v1\/driving/);
 assert.match(app,/OSRM_CACHE_KEY/);
-assert.match(app,/MAXI_BAND_COLORS/);
+assert.match(presentation,/MAXI_BAND_COLORS/,'maxi color vocabulary must remain in the presentation core');
 assert.match(app,/\['get','routeColor'\]/);
 assert.match(app,/line-join':'round'/);
 
