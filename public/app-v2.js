@@ -29,6 +29,10 @@ const selectedPlaces=new Map();
 const autocompleteControllers=new Map();
 
 const $=selector=>document.querySelector(selector);
+function lockUnavailableUi(){
+  for(const selector of['#fromInput','#toInput','#swapButton','#planButton','#trayToggle']){const control=$(selector);if(control)control.disabled=true;}
+  $('#modeTabs')?.querySelectorAll('button').forEach(button=>{button.disabled=true;});
+}
 const ROAD_MODES=new Set(['ptsc','maxi','route_taxi']);
 const TT_BOUNDS=[[-61.98,9.95],[-60.42,11.42]];
 const TT_MAX_BOUNDS=[[-62.25,9.70],[-60.15,11.68]];
@@ -389,6 +393,6 @@ async function start(){
     renderList();setupModeTabs();setupTray();setupPlanner();
     map=new maplibregl.Map({container:'map',style:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],tileSize:256,attribution:'© OpenStreetMap contributors'}},layers:[{id:'osm',type:'raster',source:'osm'}]},bounds:TT_BOUNDS,fitBoundsOptions:{padding:50},maxBounds:TT_MAX_BOUNDS,minZoom:7,maxZoom:17,attributionControl:true});
     map.addControl(new maplibregl.NavigationControl({showCompass:false}),'bottom-right');map.on('load',()=>{addMapLayers();fitCountry();});
-  }catch(error){console.error(error);$('#plannerStatus').textContent='Transport data failed to load.';}
+  }catch(error){console.error(error);lockUnavailableUi();$('#plannerStatus').textContent='Transport data failed to load.';}
 }
 start();
