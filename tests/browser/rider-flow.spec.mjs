@@ -14,6 +14,7 @@ export class Map {
   getSource(id){return this.sources.get(id);}
   getCanvas(){return this.canvas;}
   fitBounds(){}
+  setLayoutProperty(){}
   isStyleLoaded(){return true;}
   on(event,layerOrHandler,maybeHandler){const handler=typeof layerOrHandler==='function'?layerOrHandler:maybeHandler;if(!this.handlers.has(event))this.handlers.set(event,[]);this.handlers.get(event).push(handler);}
 }

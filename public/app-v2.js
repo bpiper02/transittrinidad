@@ -4,6 +4,7 @@ import {exactPlace,explicitNetworkNode,matchPlaces,mergePlaceSuggestions,placeTo
 import {formatClock,formatServiceDays,nextDepartures,scheduleForDate,scheduleFreshness} from './src/schedule-core.mjs';
 import {fareForJourney,fareForSegment,formatFare} from './src/fare-core.mjs';
 import {boardingGuidance,transitAction} from './src/rider-instruction-core.mjs';
+import {coordinatesForJourneyLeg} from './src/journey-geometry-core.mjs';
 
 const nodeIndex=new Map();
 let services=[];
@@ -149,6 +150,7 @@ function clearJourney({clearTrip=false}={}){
   currentRoutePlan=null;
   if(clearTrip)currentTripContext=null;
   if(map?.isStyleLoaded()){
+    map.setLayoutProperty?.('service-lines','visibility','visible');
     map.getSource('journey')?.setData(emptyFeatureCollection());
     map.getSource('search-points')?.setData(emptyFeatureCollection());
   }
@@ -351,7 +353,10 @@ async function estimateRoadGeometry(service){
   try{const response=await fetchWithTimeout(url,{},6000);if(!response.ok)return;const data=await response.json(),route=data?.routes?.[0];if(!route?.geometry?.coordinates?.length)return;const value={coordinates:route.geometry.coordinates,durationSeconds:route.duration,distanceMeters:route.distance};displayGeometry.set(service.id,{...value,source:'osrm'});cache[key]=value;writeRoadCache(cache);}catch(error){console.warn('Road geometry unavailable for',service.id,error);}
 }
 async function hydrateDisplayGeometry(list){for(const service of[...new Map(list.map(item=>[item.id,item])).values()])await estimateRoadGeometry(service);refreshMapData();renderList();}
-function transitStepCoordinates(step){const service=step.service;if(step.from===service.originNodeId&&step.to===service.destinationNodeId)return serviceCoordinates(service);const from=nodeCoordinates(step.from),to=nodeCoordinates(step.to);return from&&to?[from,to]:serviceCoordinates(service);}
+function transitStepCoordinates(step){
+  const service=step.service,from=nodeCoordinates(step.from),to=nodeCoordinates(step.to);
+  return coordinatesForJourneyLeg({coordinates:serviceCoordinates(service),from,to,isWholeService:step.from===service.originNodeId&&step.to===service.destinationNodeId});
+}
 function journeyGeoJson(from,to,connected){
   const{fromNear,toNear,fromAccess,toAccess}=connected;const steps=compactJourneySteps(connected.steps);const features=[];
   if(fromAccess.mode!=='none')features.push({type:'Feature',properties:{kind:'access',accessMode:fromAccess.mode},geometry:{type:'LineString',coordinates:[[from.lng,from.lat],[fromNear.node.location.lng,fromNear.node.location.lat]]}});
@@ -363,6 +368,7 @@ function journeyGeoJson(from,to,connected){
   return{type:'FeatureCollection',features};
 }
 function showJourneyMap(from,to,connected){
+  map.setLayoutProperty?.('service-lines','visibility','none');
   map.getSource('search-points')?.setData({type:'FeatureCollection',features:[{type:'Feature',properties:{kind:'from'},geometry:{type:'Point',coordinates:[from.lng,from.lat]}},{type:'Feature',properties:{kind:'to'},geometry:{type:'Point',coordinates:[to.lng,to.lat]}}]});
   map.getSource('journey')?.setData(journeyGeoJson(from,to,connected));
   const bounds=new maplibregl.LngLatBounds();bounds.extend([from.lng,from.lat]);bounds.extend([to.lng,to.lat]);
@@ -370,6 +376,7 @@ function showJourneyMap(from,to,connected){
   map.fitBounds(bounds,{padding:{top:70,bottom:70,left:70,right:70},maxZoom:11,duration:450});
 }
 function showNoRouteMap(from,to){
+  map.setLayoutProperty?.('service-lines','visibility','visible');
   map.getSource('journey')?.setData(emptyFeatureCollection());map.getSource('search-points')?.setData({type:'FeatureCollection',features:[{type:'Feature',properties:{kind:'from'},geometry:{type:'Point',coordinates:[from.lng,from.lat]}},{type:'Feature',properties:{kind:'to'},geometry:{type:'Point',coordinates:[to.lng,to.lat]}}]});
   const bounds=new maplibregl.LngLatBounds([from.lng,from.lat],[to.lng,to.lat]);map.fitBounds(bounds,{padding:90,maxZoom:12,duration:350});
 }
