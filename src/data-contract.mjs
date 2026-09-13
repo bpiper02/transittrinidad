@@ -7,7 +7,7 @@ export const TRANSFER_CONFIDENCE = new Set(['verified_walk','estimated_walk']);
 export const SCHEDULE_STATUS = new Set(['published_times','times_unavailable']);
 export const SERVICE_DAYS = new Set(['mon','tue','wed','thu','fri','sat','sun']);
 export const SOURCE_KINDS = new Set(['web','association_contact']);
-export const BOARDING_POLICIES = new Set(['fixed_stop_only','terminal_or_stand_only','main_road_pass_through','hail_along_segment','unknown_do_not_assume','corridor_hail','corridor_request']);
+export const BOARDING_POLICIES = new Set(['fixed_stop_only','terminal_or_stand_only','main_road_pass_through','hail_along_segment','unknown_do_not_assume','corridor_hail','corridor_request','mixed']);
 export const ACCESS_SEGMENT_CONFIDENCE = new Set(['association_confirmed','community_verified','reported','inferred_from_route_shape','unknown']);
 export const ACCESS_ROAD_CLASSES = new Set(['main_road','arterial','collector','local','highway','expressway','unknown']);
 export const ACCESS_SAFETY_EVIDENCE = new Set(['terminal_or_stand','named_stop','junction','layby','wide_shoulder','association_confirmed','community_verified','unknown']);
@@ -30,7 +30,8 @@ function isRealDate(value) {
 function canonicalBoardingPolicy(policy) {
   return {
     corridor_hail: 'hail_along_segment',
-    corridor_request: 'main_road_pass_through'
+    corridor_request: 'main_road_pass_through',
+    mixed: 'unknown_do_not_assume'
   }[policy] || policy;
 }
 
