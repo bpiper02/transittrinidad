@@ -1562,5 +1562,71 @@
         "checkedAt": "2026-09-13"
       }
     ]
+  },
+  {
+    "id": "ptsc-official-8226-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-8226",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-couva/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2447-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2447",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-mayaro/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2441-mon-tue-wed-thu-fri",
+    "serviceId": "ptsc-official-2441",
+    "timezone": "America/Port_of_Spain",
+    "serviceDays": [
+      "mon",
+      "tue",
+      "wed",
+      "thu",
+      "fri"
+    ],
+    "departureTimes": [],
+    "status": "times_unavailable",
+    "confidence": "official_current",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/couva-pos/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
   }
 ]

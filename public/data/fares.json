@@ -1392,5 +1392,56 @@
         "checkedAt": "2026-09-13"
       }
     ]
+  },
+  {
+    "id": "ptsc-official-8226-official-fare",
+    "serviceId": "ptsc-official-8226",
+    "fromNodeId": "ptsc-pos-transit-centre",
+    "toNodeId": "maxi-couva",
+    "minTTD": 8,
+    "maxTTD": 8,
+    "confidence": "official_current",
+    "method": "published_fare",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/pos-couva/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2447-official-fare",
+    "serviceId": "ptsc-official-2447",
+    "fromNodeId": "ptsc-san-fernando",
+    "toNodeId": "maxi-mayaro",
+    "minTTD": 9,
+    "maxTTD": 9,
+    "confidence": "official_current",
+    "method": "published_fare",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/san-fernando-mayaro/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
+  },
+  {
+    "id": "ptsc-official-2441-official-fare",
+    "serviceId": "ptsc-official-2441",
+    "fromNodeId": "maxi-couva",
+    "toNodeId": "ptsc-pos-transit-centre",
+    "minTTD": 8,
+    "maxTTD": 8,
+    "confidence": "official_current",
+    "method": "published_fare",
+    "sources": [
+      {
+        "name": "PTSC Routes and Schedules",
+        "url": "https://ptsc.co.tt/routes/couva-pos/",
+        "checkedAt": "2026-09-13"
+      }
+    ]
   }
 ]
