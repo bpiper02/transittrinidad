@@ -21,6 +21,18 @@ export function nearestNodes(place,nodes,{limit=6,maxKm=Infinity,allowedNodeIds=
 
 const MODE_SPEED_KPH={ptsc:27,maxi:25,route_taxi:30,water_taxi:34,ferry:38};
 const ROUTE_DISTANCE_FACTOR={ptsc:1.28,maxi:1.28,route_taxi:1.22,water_taxi:1.04,ferry:1.04};
+const FORMAL_ACCESS_NODE_KINDS=new Set(['terminal','stand','station','ferry_terminal','water_taxi_terminal']);
+
+export function isFormalAccessNode(node){return FORMAL_ACCESS_NODE_KINDS.has(node?.kind);}
+
+export function localAccessSupported(near,access,{walkThresholdKm=1.5,maxInformalLocalAccessKm=2,maxApproximateLocalAccessKm=1.8}={}){
+  if(!access||access.mode!=='local')return true;
+  const node=near?.node;
+  if(!node)return false;
+  if(isFormalAccessNode(node))return true;
+  const limit=node.locationConfidence==='approximate_area'?maxApproximateLocalAccessKm:maxInformalLocalAccessKm;
+  return access.km<=Math.max(walkThresholdKm,limit);
+}
 
 export function estimateServiceMinutes(service,nodes){
   if(Number.isFinite(service.estimatedMinutes)&&service.estimatedMinutes>0)return service.estimatedMinutes;
@@ -243,6 +255,9 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
   const networkMinutes=timing?.totalMinutes??journeyMinutes(steps,nodes,{transferPenaltyMinutes});
   const fromAccess=estimateAccess(start.km,accessOptions);
   const toAccess=estimateAccess(end.km,accessOptions);
+  const accessTrustOptions={...accessOptions,...rankingOptions};
+  const fromAccessTrusted=localAccessSupported(start,fromAccess,accessTrustOptions);
+  const toAccessTrusted=localAccessSupported(end,toAccess,accessTrustOptions);
   const {
     unconfirmedAccessPenaltyMinutes=35,
     detourPenaltyMinutes=18,
@@ -276,7 +291,7 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
     estimatedMinutesMin:Math.round((timing?.minTotalMinutes??networkMinutes)+fromAccess.minutes+toAccess.minutes),
     estimatedMinutesMax:Math.round((timing?.maxTotalMinutes??networkMinutes)+fromAccess.minutes+toAccess.minutes),
     timing,
-    ranking:{accessPenalty,detourRatio,detourPenalty,backtrackKm:awayKm,directionPenalty,servicePenalty,timetablePenalty}
+    ranking:{accessPenalty,detourRatio,detourPenalty,backtrackKm:awayKm,directionPenalty,servicePenalty,timetablePenalty,fromAccessTrusted,toAccessTrusted}
   };
 }
 
@@ -315,6 +330,7 @@ export function chooseJourneyOptions({
   const unique=new Map();
   const availableModes=[...new Set(eligibleServices.filter(service=>service.serviceConfidence!=='needs_review').map(service=>service.mode))];
   const directKm=fromPlace&&toPlace?kmBetween(fromPlace,toPlace):0;
+  const {allowUntrustedLocalAccess=false}=rankingOptions;
 
   for(const start of starts){
     for(const end of ends){
@@ -324,6 +340,7 @@ export function chooseJourneyOptions({
         if(steps===null||hasJourneyLoop(start.node.id,steps))continue;
         if(steps.length===0&&!(knownFrom&&knownTo&&knownFrom.id===knownTo.id))continue;
         const candidate=candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOptions,toPlace,directKm,rankingOptions,scheduledServiceIds,schedules,departureDate});
+        if(!allowUntrustedLocalAccess&&(!candidate.ranking.fromAccessTrusted||!candidate.ranking.toAccessTrusted))continue;
         if(candidate.ranking.detourRatio>maxDetourRatio)continue;
         const maxBacktrackKm=Math.max(maxBacktrackFloorKm,directKm*maxBacktrackRatio);
         if(candidate.ranking.backtrackKm>maxBacktrackKm)continue;
