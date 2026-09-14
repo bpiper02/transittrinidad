@@ -32,4 +32,15 @@ assert.match(dropOffGuidance,/estimated main-road drop-off area/,'virtual alight
 assert.doesNotMatch(dropOffGuidance,/virtual-alighting/,'rider copy must hide internal virtual alighting ids');
 assert.match(passThroughSafetyCopy(),/Prefer a stand/);
 
+const localConnector={
+  id:'local-connector-virtual-local-origin-101803--615468-virtual-local-destination-101333--615000',
+  corridorId:'local-connector-fallback',
+  mode:'route_taxi',
+  boardingNote:'Use a rideshare, hail a taxi, or arrange a short local taxi connection. This is an estimate, not a surveyed route.'
+};
+assert.equal(transitAction(localConnector,{toward:'Estimated local connector destination'}),'Use a local taxi or rideshare toward Estimated local connector destination');
+const connectorGuidance=boardingGuidance(localConnector,{fromName:'Estimated local connector start',toName:'Estimated local connector destination'});
+assert.match(connectorGuidance,/rideshare|hail a taxi|short local taxi/i,'local connector fallback should explain practical access options');
+assert.match(connectorGuidance,/not a surveyed route/i,'local connector fallback must keep uncertainty visible');
+
 console.log('rider instruction core tests passed');
