@@ -133,6 +133,20 @@ test('local corridor directions explain roadside hail and requested drop-off',as
   await expect(panel).toContainText(/TT\$/);
 });
 
+test('San Juan to Port of Spain pass-through journey hides virtual ids and draws transit geometry',async({page},testInfo)=>{
+  await chooseLocalPlace(page,'fromInput','San Juan');
+  await chooseLocalPlace(page,'toInput','Port of Spain');
+  await page.locator('#planButton').click();
+  const panel=page.locator('#detailPanel');
+  await expect(panel).toBeVisible();
+  await expect(page.locator('#plannerStatus')).not.toContainText(/No route|Finding routes|Loading route/);
+  await expect(panel).toContainText('estimated main-road boarding area');
+  await expect(panel).toContainText('Use a visible, legal, well-lit place');
+  await expect(panel).not.toContainText(/virtual-(boarding|alighting)/);
+  const coordinates=await attachJourneyAudit(page,testInfo,'San Juan to Port of Spain pass-through');
+  expect(coordinates.length).toBeGreaterThan(1);
+});
+
 test('Point Fortin to Fyzabad does not invent or highlight an unsupported journey',async({page},testInfo)=>{
   await chooseLocalPlace(page,'fromInput','Point Fortin');
   await chooseLocalPlace(page,'toInput','Fyzabad');
