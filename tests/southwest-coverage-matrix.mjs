@@ -60,6 +60,7 @@ function assertConnected({id,from,to,maxTransfers,requiredMode}){
 const directCoverage=[
   {id:'sf-to-siparia-maxi',from:'sf-siparia-maxi',to:'maxi-siparia',mode:'maxi'},
   {id:'siparia-to-sf-taxi',from:'siparia-sf-taxi',to:'ptsc-san-fernando',mode:'route_taxi'},
+  {id:'siparia-to-fyzabad-taxi',from:'siparia-fyzabad-taxi',to:'fyzabad-area',mode:'route_taxi'},
   {id:'penal-to-siparia-taxi',from:'penal-siparia-taxi',to:'siparia-penal-taxi',mode:'route_taxi'},
   {id:'siparia-to-penal-taxi',from:'siparia-penal-taxi',to:'penal-siparia-taxi',mode:'route_taxi'},
   {id:'point-fortin-to-sf-ptsc',from:'ptsc-point-fortin',to:'ptsc-san-fernando',mode:'ptsc'},
@@ -78,7 +79,6 @@ for(const fixture of directCoverage)assertDirect(fixture);
 const connectedCoverage=[
   {id:'penal-to-san-fernando',from:'penal-siparia-taxi',to:'ptsc-san-fernando',maxTransfers:1,requiredMode:'route_taxi'},
   {id:'siparia-to-point-fortin',from:'siparia-sf-taxi',to:'ptsc-point-fortin',maxTransfers:2},
-  {id:'fyzabad-to-siparia',from:'fyzabad-area',to:'siparia-fyzabad-taxi',maxTransfers:1,requiredMode:'route_taxi'},
   {id:'la-brea-to-port-of-spain',from:'la-brea-area',to:'ptsc-pos-transit-centre',maxTransfers:2},
   {id:'point-fortin-to-port-of-spain',from:'ptsc-point-fortin',to:'ptsc-pos-transit-centre',maxTransfers:1,requiredMode:'ptsc'},
   {id:'san-fernando-to-erin',from:'ptsc-san-fernando',to:'erin-area',maxTransfers:0,requiredMode:'ptsc'}
@@ -87,6 +87,7 @@ const connectedCoverage=[
 for(const fixture of connectedCoverage)assertConnected(fixture);
 
 assert.equal(findJourney('la-brea-area','ptsc-point-fortin',services,baseNodes,{transfers}),null,'La Brea → Point Fortin must remain unresolved until reverse evidence is added');
+assert.equal(findJourney('fyzabad-area','siparia-fyzabad-taxi',services,baseNodes,{transfers}),null,'Fyzabad → Siparia must not be invented from the one-way Siparia → Fyzabad route-taxi record');
 assert.equal(findJourney('erin-area','siparia-erin-taxi',services,baseNodes,{transfers}),null,'Erin → Siparia taxi must not be invented from the one-way Siparia → Erin record');
 
 console.log(`Southwest coverage matrix passed: ${directCoverage.length} direct patterns, ${connectedCoverage.length} connected journeys`);
