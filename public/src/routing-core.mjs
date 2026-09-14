@@ -38,6 +38,15 @@ export function localAccessSupported(near,access,{walkThresholdKm=1.5,maxInforma
   return access.km<=Math.max(walkThresholdKm,limit);
 }
 
+export function destinationAccessSupported(near,access,{walkThresholdKm=1.5,maxDestinationLocalAccessKm=3,maxFormalDestinationLocalAccessKm=4}={}){
+  if(near?.virtualAccess?.evaluation?.eligible)return true;
+  if(!access||access.mode!=='local')return true;
+  const node=near?.node;
+  if(!node)return false;
+  const limit=isFormalAccessNode(node)?maxFormalDestinationLocalAccessKm:maxDestinationLocalAccessKm;
+  return access.km<=Math.max(walkThresholdKm,limit);
+}
+
 export function estimateServiceMinutes(service,nodes){
   if(Number.isFinite(service.estimatedMinutes)&&service.estimatedMinutes>0)return service.estimatedMinutes;
   const origin=nodes.get(service.originNodeId),destination=nodes.get(service.destinationNodeId);
@@ -410,7 +419,7 @@ function candidateFor(start,end,steps,nodes,{transferPenaltyMinutes,accessOption
   const toAccess=estimateAccess(end.km,accessOptions);
   const accessTrustOptions={...accessOptions,...rankingOptions};
   const fromAccessTrusted=start.virtualAccess?.evaluation?.eligible||localAccessSupported(start,fromAccess,accessTrustOptions);
-  const toAccessTrusted=end.virtualAccess?.evaluation?.eligible||localAccessSupported(end,toAccess,accessTrustOptions);
+  const toAccessTrusted=end.virtualAccess?.evaluation?.eligible||destinationAccessSupported(end,toAccess,accessTrustOptions);
   const {
     unconfirmedAccessPenaltyMinutes=35,
     detourPenaltyMinutes=18,
