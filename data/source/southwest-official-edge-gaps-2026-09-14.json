@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-09-14",
+  "region": "southwest-trinidad",
+  "purpose": "Track source-backed South/Southwest PTSC and local-route coverage gaps without inventing stops, reverse directions, or service patterns.",
+  "sourcePolicy": "Only promote routes into services.json when an endpoint node exists or can be backed by a public facility/place source, and the route direction is explicitly supported by the source.",
+  "gaps": [
+    {
+      "id": "ptsc-san-fernando-icacos",
+      "status": "source_found_pending_endpoint_node",
+      "mode": "ptsc",
+      "sourceTitle": "San Fernando / Icacos",
+      "sourceUrl": "https://ptsc.co.tt/from/sanfernando/",
+      "fromNodeId": "ptsc-san-fernando",
+      "missingEndpoint": "icacos-area",
+      "nextAction": "Add an Icacos area node from a public map/gazetteer source, then add the official San Fernando → Icacos PTSC service. Do not infer the reverse direction unless a source supports it."
+    },
+    {
+      "id": "ptsc-siparia-pos-via-penal",
+      "status": "source_found_pending_service_shape",
+      "mode": "ptsc",
+      "sourceTitle": "Siparia / POS via Penal (Commuter Special)",
+      "sourceUrl": "https://ptsc.co.tt/to/port-of-spain/",
+      "fromCandidateNodeIds": [
+        "siparia-sf-taxi",
+        "maxi-siparia"
+      ],
+      "viaCandidateNodeIds": [
+        "penal-sf-taxi",
+        "penal-siparia-taxi"
+      ],
+      "toNodeId": "ptsc-pos-transit-centre",
+      "nextAction": "Promote only after choosing the least misleading Siparia and Penal nodes for a PTSC commuter route. Keep route title and fare/schedule evidence attached."
+    },
+    {
+      "id": "palo-seco-local-service",
+      "status": "insufficient_route_evidence",
+      "mode": "unknown",
+      "knownPlace": "Palo Seco",
+      "nextAction": "Keep as a tracked place/search centroid, not a routable service, until a route/operator/source confirms how riders travel from the area."
+    },
+    {
+      "id": "santa-flora-local-service",
+      "status": "insufficient_route_evidence",
+      "mode": "unknown",
+      "knownPlace": "Santa Flora",
+      "nextAction": "Keep as a tracked place/search centroid, not a routable service, until a route/operator/source confirms how riders travel from the area."
+    }
+  ]
+}
