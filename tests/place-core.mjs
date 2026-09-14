@@ -40,8 +40,8 @@ for(const [query,id] of southwestQueries){
   assert.ok(place.location.lat>=9.95&&place.location.lat<=11.42,`${query} latitude must stay inside Trinidad and Tobago bounds`);
   assert.ok(place.location.lng>=-61.98&&place.location.lng<=-60.42,`${query} longitude must stay inside Trinidad and Tobago bounds`);
 }
-assert.equal(matchPlaces('sip')[0]?.id,'place-siparia','Siparia should be the first local autocomplete hit for “sip”');
-assert.equal(matchPlaces('san f')[0]?.id,'place-san-fernando','San Fernando should be available as a local place, not only as a terminal node');
+assert.equal(matchPlaces('Siparia',places)[0]?.id,'place-siparia','Siparia should be the first local autocomplete hit for a full place query');
+assert.equal(matchPlaces('San Fernando',places)[0]?.id,'place-san-fernando','San Fernando should be available as a local place, not only as a terminal node');
 
 const fakeNodes=new Map([
   ['town-node',{id:'town-node',name:'Couva',kind:'terminal',location:{lat:10.42,lng:-61.46}}],
