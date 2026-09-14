@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-09-13",
+  "purpose": "Decide which inferred pass-through corridors are safe to promote into explicit service.accessSegments.",
+  "decisionSummary": [
+    {
+      "corridor": "Route 2 / Red Band: Port of Spain ↔ Sangre Grande / Arima direction",
+      "serviceIdsReviewed": [
+        "maxi-red-pos-to-sangre-grande",
+        "maxi-red-sangre-grande-to-pos"
+      ],
+      "decision": "do_not_promote_yet",
+      "reason": "Current dataset has strong endpoint/corridor evidence, but not enough explicit intermediate stop-order and safe-stopping evidence around San Juan to promote inferred pass-through access into declared accessSegments.",
+      "routingPosture": "Keep using conservative inferred pass-through access through the routing safety gates. Treat San Juan pass-through as estimated until field or association confirmation is collected.",
+      "neededEvidence": [
+        "Association or driver confirmation that westbound Route 2 maxis accept boarding/alighting along the San Juan / Eastern Main Road segment",
+        "Exact safe pickup/drop-off zone names or junctions",
+        "Direction-specific notes for Port of Spain-bound and eastbound travel",
+        "Current fare and operating pattern if available"
+      ]
+    },
+    {
+      "corridor": "Route 3 / Green Band: Chaguanas ↔ San Fernando",
+      "serviceIdsReviewed": [
+        "maxi-chag-san-fernando-out",
+        "maxi-chag-san-fernando-back"
+      ],
+      "decision": "candidate_for_next_explicit_access_segment_pass",
+      "reason": "The southbound service already includes multiple corridor communities in stopNodeIds and has rider/press evidence for intermediate Southern Main Road communities. This is a stronger candidate than Route 2 for explicit segment promotion, though current safe pickup points still need local confirmation before raising confidence above inferred/reported.",
+      "routingPosture": "Prefer explicit segments only if each segment remains confidence-labeled and safety-evidence-gated. Do not mark as official stops."
+    },
+    {
+      "corridor": "Route 4 / Black Band: San Fernando ↔ Princes Town",
+      "serviceIdsReviewed": [
+        "maxi-black-san-fernando-to-princes-town"
+      ],
+      "decision": "candidate_for_next_explicit_access_segment_pass",
+      "reason": "The service includes named intermediate communities and fare-stage evidence. This is a good candidate for explicit accessSegments once stop order and pickup safety language are validated.",
+      "routingPosture": "Treat as corridor-stage access, not surveyed stops."
+    }
+  ],
+  "guardrail": "Do not promote inferred pass-through behavior into explicit accessSegments unless the source supports direction, segment order, and safe stopping evidence. Explicit does not mean official; confidence must remain association_confirmed, community_verified, reported, or inferred_from_route_shape as appropriate."
+}
