@@ -19,13 +19,15 @@ function node(id){
   return item;
 }
 
-function assertDirect({id,from,to,serviceId,mode}){
+function assertDirect({id,from,to,mode}){
   const journey=findJourney(from,to,services,baseNodes,{transfers});
   assert.ok(journey,`${id}: expected direct routed service from ${from} to ${to}`);
   const transit=journey.filter(step=>step.kind==='transit');
   assert.ok(transit.length,`${id}: expected at least one transit step`);
-  assert.ok(transit.some(step=>step.service.id===serviceId),`${id}: expected service ${serviceId}`);
-  if(mode)assert.ok(transit.some(step=>step.service.mode===mode),`${id}: expected mode ${mode}`);
+  assert.ok(
+    transit.some(step=>step.from===from&&step.to===to&&(!mode||step.service.mode===mode)),
+    `${id}: expected a direct ${mode||'transit'} leg from ${from} to ${to}`
+  );
 }
 
 function assertConnected({id,from,to,maxTransfers,requiredMode}){
@@ -56,19 +58,19 @@ function assertConnected({id,from,to,maxTransfers,requiredMode}){
 }
 
 const directCoverage=[
-  {id:'sf-to-siparia-maxi',from:'sf-siparia-maxi',to:'maxi-siparia',serviceId:'maxi-brown-san-fernando-to-siparia',mode:'maxi'},
-  {id:'siparia-to-sf-maxi',from:'maxi-siparia',to:'sf-siparia-maxi',serviceId:'maxi-brown-siparia-to-san-fernando',mode:'maxi'},
-  {id:'penal-to-siparia-taxi',from:'penal-siparia-taxi',to:'siparia-penal-taxi',serviceId:'taxi-penal-siparia-out',mode:'route_taxi'},
-  {id:'siparia-to-penal-taxi',from:'siparia-penal-taxi',to:'penal-siparia-taxi',serviceId:'taxi-penal-siparia-back',mode:'route_taxi'},
-  {id:'point-fortin-to-sf-ptsc',from:'ptsc-point-fortin',to:'ptsc-san-fernando',serviceId:'ptsc-point-fortin-to-san-fernando',mode:'ptsc'},
-  {id:'sf-to-point-fortin-ptsc',from:'ptsc-san-fernando',to:'ptsc-point-fortin',serviceId:'ptsc-san-fernando-to-point-fortin',mode:'ptsc'},
-  {id:'sf-to-la-brea-maxi',from:'sf-la-brea-area',to:'la-brea-area',serviceId:'maxi-san-fernando-la-brea-out',mode:'maxi'},
-  {id:'la-brea-to-sf-maxi',from:'la-brea-area',to:'sf-la-brea-area',serviceId:'maxi-san-fernando-la-brea-back',mode:'maxi'},
-  {id:'point-fortin-to-la-brea-ptsc',from:'ptsc-point-fortin',to:'la-brea-area',serviceId:'ptsc-official-2384',mode:'ptsc'},
-  {id:'fyzabad-to-sf-taxi',from:'fyzabad-area',to:'ptsc-san-fernando',serviceId:'taxi-fyzabad-san-fernando-out',mode:'route_taxi'},
-  {id:'sf-to-fyzabad-taxi',from:'ptsc-san-fernando',to:'fyzabad-area',serviceId:'taxi-fyzabad-san-fernando-back',mode:'route_taxi'},
-  {id:'siparia-to-erin-taxi',from:'siparia-erin-taxi',to:'erin-area',serviceId:'taxi-siparia-to-erin',mode:'route_taxi'},
-  {id:'sf-to-erin-ptsc',from:'ptsc-san-fernando',to:'erin-area',serviceId:'ptsc-official-2430',mode:'ptsc'}
+  {id:'sf-to-siparia-maxi',from:'sf-siparia-maxi',to:'maxi-siparia',mode:'maxi'},
+  {id:'siparia-to-sf-maxi',from:'maxi-siparia',to:'sf-siparia-maxi',mode:'maxi'},
+  {id:'penal-to-siparia-taxi',from:'penal-siparia-taxi',to:'siparia-penal-taxi',mode:'route_taxi'},
+  {id:'siparia-to-penal-taxi',from:'siparia-penal-taxi',to:'penal-siparia-taxi',mode:'route_taxi'},
+  {id:'point-fortin-to-sf-ptsc',from:'ptsc-point-fortin',to:'ptsc-san-fernando',mode:'ptsc'},
+  {id:'sf-to-point-fortin-ptsc',from:'ptsc-san-fernando',to:'ptsc-point-fortin',mode:'ptsc'},
+  {id:'sf-to-la-brea-maxi',from:'sf-la-brea-area',to:'la-brea-area',mode:'maxi'},
+  {id:'la-brea-to-sf-maxi',from:'la-brea-area',to:'sf-la-brea-area',mode:'maxi'},
+  {id:'point-fortin-to-la-brea-ptsc',from:'ptsc-point-fortin',to:'la-brea-area',mode:'ptsc'},
+  {id:'fyzabad-to-sf-taxi',from:'fyzabad-area',to:'ptsc-san-fernando',mode:'route_taxi'},
+  {id:'sf-to-fyzabad-taxi',from:'ptsc-san-fernando',to:'fyzabad-area',mode:'route_taxi'},
+  {id:'siparia-to-erin-taxi',from:'siparia-erin-taxi',to:'erin-area',mode:'route_taxi'},
+  {id:'sf-to-erin-ptsc',from:'ptsc-san-fernando',to:'erin-area',mode:'ptsc'}
 ];
 
 for(const fixture of directCoverage)assertDirect(fixture);
