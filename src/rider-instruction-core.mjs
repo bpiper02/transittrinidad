@@ -2,11 +2,13 @@ const POLICY_ALIASES={fixed_only:'fixed_stop_only',corridor_hail:'hail_along_seg
 const HAIL_POLICIES=new Set(['hail_along_segment','main_road_pass_through']);
 const FIXED_POLICIES=new Set(['fixed_stop_only','terminal_or_stand_only']);
 const PASS_THROUGH_SAFETY_COPY='Use a visible, legal, well-lit place to wait. Prefer a stand, marked stop, junction, lay-by, or locally known pickup point.';
+const LOCAL_CONNECTOR_COPY='Use a rideshare, hail a taxi, or arrange a short local taxi connection. This is an estimate, not a surveyed route.';
 
 function cleanPolicy(value){return POLICY_ALIASES[value]||value||'unknown_do_not_assume';}
 function allowsHail(policy){return HAIL_POLICIES.has(cleanPolicy(policy));}
 function isFixedPolicy(policy){return FIXED_POLICIES.has(cleanPolicy(policy));}
 function isVirtualPlace(value){return /^virtual-/i.test(String(value||''))||/^estimated main-road/i.test(String(value||''));}
+function isLocalConnectorFallback(service){return service?.corridorId==='local-connector-fallback'||/^local-connector-/i.test(String(service?.id||''));}
 function displayPlaceName(value,purpose='boarding'){
   if(isVirtualPlace(value))return purpose==='alighting'?'estimated main-road drop-off area':'estimated main-road boarding area';
   return value;
@@ -22,6 +24,7 @@ export function passThroughSafetyCopy(){return PASS_THROUGH_SAFETY_COPY;}
 export function transitAction(service,{toward,bandLabel='Maxi',fromIsTerminal=false,fromName='',fromVirtualAccess=null}={}){
   const target=directionName(toward);
   const virtualBoarding=hasVirtualAccess(fromVirtualAccess,'boarding')||isVirtualPlace(fromName);
+  if(isLocalConnectorFallback(service))return`Use a local taxi or rideshare toward ${target}`;
   if(service?.mode==='maxi'){
     if((virtualBoarding||allowsHail(service.boardingPolicy))&&!fromIsTerminal)return`Hail the ${bandLabel} toward ${target}`;
     if(service.patternType==='express'||service.patternType==='limited'||isFixedPolicy(service.boardingPolicy))return`Board the ${bandLabel} toward ${target}`;
@@ -43,6 +46,11 @@ export function boardingGuidance(service,{fromName='the boarding point',toName='
   const virtualAlighting=hasVirtualAccess(toVirtualAccess,'alighting')||isVirtualPlace(toName);
   const boardingName=displayPlaceName(fromName,'boarding');
   const alightingName=displayPlaceName(toName,'alighting');
+  if(isLocalConnectorFallback(service)){
+    parts.push(service.boardingNote||LOCAL_CONNECTOR_COPY);
+    parts.push(`${boardingName} → ${alightingName}`);
+    return parts.join(' · ');
+  }
   if(virtualBoarding){
     parts.push(`Hail at the ${boardingName} in the service direction`);
     parts.push(PASS_THROUGH_SAFETY_COPY);
