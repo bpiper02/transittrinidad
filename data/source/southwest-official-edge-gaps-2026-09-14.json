@@ -6,13 +6,14 @@
   "gaps": [
     {
       "id": "ptsc-san-fernando-icacos",
-      "status": "source_found_pending_endpoint_node",
+      "status": "promoted_directional_service",
       "mode": "ptsc",
       "sourceTitle": "San Fernando / Icacos",
       "sourceUrl": "https://ptsc.co.tt/from/sanfernando/",
       "fromNodeId": "ptsc-san-fernando",
-      "missingEndpoint": "icacos-area",
-      "nextAction": "Add an Icacos area node from a public map/gazetteer source, then add the official San Fernando → Icacos PTSC service. Do not infer the reverse direction unless a source supports it."
+      "nextAction": "Field-check the exact Icacos boarding/drop-off point and add the reverse Icacos → San Fernando service only if a source supports that direction.",
+      "endpointNodeId": "icacos-area",
+      "promotedServiceId": "ptsc-official-san-fernando-to-icacos"
     },
     {
       "id": "ptsc-siparia-pos-via-penal",

@@ -2111,5 +2111,28 @@
         "checkedAt": "2026-09-12"
       }
     ]
+  },
+  {
+    "id": "icacos-area",
+    "name": "Icacos",
+    "kind": "stop_zone",
+    "location": {
+      "lat": 10.04564,
+      "lng": -61.91404
+    },
+    "locationConfidence": "approximate_area",
+    "sources": [
+      {
+        "name": "Mapcarta: Icacos village OpenStreetMap node 1186091819",
+        "url": "https://mapcarta.com/19494458",
+        "checkedAt": "2026-09-14"
+      },
+      {
+        "name": "Geographic.org / NGA geographic names: Icacos populated place",
+        "url": "https://geographic.org/geographic_names/name.php?c=trinidad_and_tobago&fid=6033&uni=-1958347",
+        "checkedAt": "2026-09-14"
+      }
+    ],
+    "boardingNote": "Area marker only; confirm the actual PTSC pickup/drop-off point locally."
   }
 ]

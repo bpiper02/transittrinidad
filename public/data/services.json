@@ -6296,5 +6296,37 @@
         "checkedAt": "2026-09-13"
       }
     ]
+  },
+  {
+    "id": "ptsc-official-san-fernando-to-icacos",
+    "corridorId": "ptsc-ptsc-san-fernando-icacos-area",
+    "mode": "ptsc",
+    "operator": "PTSC",
+    "originNodeId": "ptsc-san-fernando",
+    "destinationNodeId": "icacos-area",
+    "stopNodeIds": [
+      "ptsc-san-fernando",
+      "icacos-area"
+    ],
+    "serviceConfidence": "verified_service",
+    "geometryConfidence": "endpoints_only",
+    "geometry": null,
+    "fareTTD": null,
+    "fareConfidence": "unknown",
+    "scheduleConfidence": "unknown",
+    "officialRouteTitle": "San Fernando / Icacos",
+    "officialRecordId": "ptsc-route-san-fernando-icacos",
+    "sources": [
+      {
+        "name": "PTSC San Fernando routes",
+        "url": "https://ptsc.co.tt/from/sanfernando/",
+        "checkedAt": "2026-09-14"
+      },
+      {
+        "name": "PTSC San Fernando / Icacos route",
+        "url": "https://ptsc.co.tt/routes/san-fernando-icacos/",
+        "checkedAt": "2026-09-14"
+      }
+    ]
   }
 ]
