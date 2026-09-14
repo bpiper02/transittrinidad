@@ -134,11 +134,8 @@ test('local corridor directions explain roadside hail and requested drop-off',as
 });
 
 test('San Juan to Port of Spain pass-through journey hides virtual ids and draws transit geometry',async({page},testInfo)=>{
-  await chooseLocalPlace(page,'fromInput','San Juan');
-  await chooseLocalPlace(page,'toInput','Port of Spain');
-  await page.locator('#planButton').click();
+  await planNamedTrip(page,'San Juan','Port of Spain');
   const panel=page.locator('#detailPanel');
-  await expect(panel).toBeVisible();
   await expect(page.locator('#plannerStatus')).not.toContainText(/No route|Finding routes|Loading route/);
   await expect(panel).toContainText('estimated main-road boarding area');
   await expect(panel).toContainText('Use a visible, legal, well-lit place');
