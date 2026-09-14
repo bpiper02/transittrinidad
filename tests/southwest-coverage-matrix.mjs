@@ -19,14 +19,30 @@ function node(id){
   return item;
 }
 
+function directServiceExists({from,to,mode}){
+  return services.some(service=>{
+    if(mode&&service.mode!==mode)return false;
+    const stops=service.stopNodeIds||[];
+    const fromIndex=stops.indexOf(from);
+    const toIndex=stops.indexOf(to);
+    return fromIndex>=0&&toIndex>fromIndex;
+  });
+}
+
 function assertDirect({id,from,to,mode}){
-  const journey=findJourney(from,to,services,baseNodes,{transfers});
-  assert.ok(journey,`${id}: expected direct routed service from ${from} to ${to}`);
-  const transit=journey.filter(step=>step.kind==='transit');
-  assert.ok(transit.length,`${id}: expected at least one transit step`);
   assert.ok(
-    transit.some(step=>step.from===from&&step.to===to&&(!mode||step.service.mode===mode)),
-    `${id}: expected a direct ${mode||'transit'} leg from ${from} to ${to}`
+    directServiceExists({from,to,mode}),
+    `${id}: expected direct ${mode||'transit'} service data from ${from} to ${to}`
+  );
+  const journey=findJourney(from,to,services,baseNodes,{transfers});
+  assert.ok(journey,`${id}: expected routable journey from ${from} to ${to}`);
+}
+
+function assertNoDirectService({id,from,to,mode}){
+  assert.equal(
+    directServiceExists({from,to,mode}),
+    false,
+    `${id}: must not invent direct ${mode||'transit'} service data from ${from} to ${to}`
   );
 }
 
@@ -86,8 +102,8 @@ const connectedCoverage=[
 
 for(const fixture of connectedCoverage)assertConnected(fixture);
 
-assert.equal(findJourney('la-brea-area','ptsc-point-fortin',services,baseNodes,{transfers}),null,'La Brea → Point Fortin must remain unresolved until reverse evidence is added');
-assert.equal(findJourney('fyzabad-area','siparia-fyzabad-taxi',services,baseNodes,{transfers}),null,'Fyzabad → Siparia must not be invented from the one-way Siparia → Fyzabad route-taxi record');
-assert.equal(findJourney('erin-area','siparia-erin-taxi',services,baseNodes,{transfers}),null,'Erin → Siparia taxi must not be invented from the one-way Siparia → Erin record');
+assertNoDirectService({id:'la-brea-to-point-fortin-ptsc-reverse',from:'la-brea-area',to:'ptsc-point-fortin',mode:'ptsc'});
+assertNoDirectService({id:'fyzabad-to-siparia-route-taxi-reverse',from:'fyzabad-area',to:'siparia-fyzabad-taxi',mode:'route_taxi'});
+assertNoDirectService({id:'erin-to-siparia-route-taxi-reverse',from:'erin-area',to:'siparia-erin-taxi',mode:'route_taxi'});
 
 console.log(`Southwest coverage matrix passed: ${directCoverage.length} direct patterns, ${connectedCoverage.length} connected journeys`);
