@@ -144,6 +144,16 @@ test('San Juan to Port of Spain pass-through journey hides virtual ids and draws
   expect(coordinates.length).toBeGreaterThan(1);
 });
 
+test('Fyzabad to Siparia direct local fallback draws a visible taxi route line',async({page},testInfo)=>{
+  await planNamedTrip(page,'Fyzabad','Siparia');
+  const panel=page.locator('#detailPanel');
+  await expect(page.locator('#plannerStatus')).not.toContainText(/No route|Finding routes|Loading route/);
+  await expect(panel).toContainText(/route taxi/i);
+  await expect(panel).toContainText(/rideshare|hail a taxi|short local taxi/i);
+  const coordinates=await attachJourneyAudit(page,testInfo,'Fyzabad to Siparia local fallback');
+  expect(coordinates.length).toBeGreaterThan(1);
+});
+
 test('Point Fortin to Fyzabad does not invent or highlight an unsupported journey',async({page},testInfo)=>{
   await chooseLocalPlace(page,'fromInput','Point Fortin');
   await chooseLocalPlace(page,'toInput','Fyzabad');
