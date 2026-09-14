@@ -23,6 +23,26 @@ assert.equal(exactPlace('Princes Town',places)?.id,'place-princes-town');
 assert.equal(matchPlaces('crown',places)[0]?.id,'place-crown-point');
 assert.deepEqual(placeToPoint(exactPlace('Chaguanas',places)),{name:'Chaguanas',lat:10.5147394,lng:-61.4076757,placeId:'place-chaguanas',routingRadiusKm:5});
 
+const southwestQueries=[
+  ['Siparia','place-siparia'],
+  ['siparia trinidad','place-siparia'],
+  ['Penal','place-penal'],
+  ['Debe','place-debe'],
+  ['South Oropouche','place-south-oropouche'],
+  ['Palo Seco','place-palo-seco'],
+  ['Santa Flora','place-santa-flora'],
+  ['Sando','place-san-fernando'],
+  ['Point Fortin','place-point-fortin']
+];
+for(const [query,id] of southwestQueries){
+  const place=exactPlace(query,places);
+  assert.equal(place?.id,id,`${query} should resolve to a local place before remote geocoding`);
+  assert.ok(place.location.lat>=9.95&&place.location.lat<=11.42,`${query} latitude must stay inside Trinidad and Tobago bounds`);
+  assert.ok(place.location.lng>=-61.98&&place.location.lng<=-60.42,`${query} longitude must stay inside Trinidad and Tobago bounds`);
+}
+assert.equal(matchPlaces('sip')[0]?.id,'place-siparia','Siparia should be the first local autocomplete hit for “sip”');
+assert.equal(matchPlaces('san f')[0]?.id,'place-san-fernando','San Fernando should be available as a local place, not only as a terminal node');
+
 const fakeNodes=new Map([
   ['town-node',{id:'town-node',name:'Couva',kind:'terminal',location:{lat:10.42,lng:-61.46}}],
   ['explicit-terminal',{id:'explicit-terminal',name:'Couva Transit Terminal',kind:'terminal',location:{lat:10.421,lng:-61.461}}],
@@ -34,6 +54,8 @@ assert.equal(explicitNetworkNode('Some Area',fakeNodes,places),null,'approximate
 
 const merged=mergePlaceSuggestions([exactPlace('Couva',places)],[{name:'Couva, Couva-Tabaquite-Talparo, Trinidad and Tobago',lat:10.4223,lng:-61.4587}],{limit:6});
 assert.equal(merged[0].placeId,'place-couva','local place entities should rank before remote geocoder matches');
+const sipariaMerged=mergePlaceSuggestions([exactPlace('Siparia',places)],[{name:'Siparia Regional Corporation, Trinidad and Tobago',lat:10.13,lng:-61.50}],{limit:6});
+assert.equal(sipariaMerged[0].placeId,'place-siparia','Siparia local centroid should outrank broad regional remote geocoder matches');
 
 assert.ok(nodes.size>0);
 console.log(`place core tests passed: ${places.length} canonical places`);
