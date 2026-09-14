@@ -36,10 +36,12 @@ for(const required of ['ptsc-san-fernando-icacos','ptsc-siparia-pos-via-penal','
 }
 
 const icacos=byId.get('ptsc-san-fernando-icacos');
-assert.equal(icacos.status,'source_found_pending_endpoint_node');
+assert.equal(icacos.status,'promoted_directional_service');
 assert.ok(nodeIds.has(icacos.fromNodeId),'San Fernando endpoint must stay anchored to the official PTSC terminal');
-assert.equal(nodeIds.has(icacos.missingEndpoint),false,'Icacos must not be routable until an endpoint node is added deliberately');
-assert.equal(directServiceExists({from:icacos.fromNodeId,to:icacos.missingEndpoint,mode:'ptsc'}),false,'San Fernando → Icacos PTSC must not be partially invented without an endpoint node');
+assert.ok(nodeIds.has(icacos.endpointNodeId),'Promoted Icacos endpoint must have a deliberate public map/gazetteer-backed node');
+assert.ok(serviceIds.has(icacos.promotedServiceId),'Promoted Icacos service must exist in services.json');
+assert.equal(directServiceExists({from:icacos.fromNodeId,to:icacos.endpointNodeId,mode:'ptsc'}),true,'San Fernando → Icacos PTSC should be routable after endpoint promotion');
+assert.equal(directServiceExists({from:icacos.endpointNodeId,to:icacos.fromNodeId,mode:'ptsc'}),false,'Icacos → San Fernando PTSC must not be invented as a reverse direction');
 
 const sipariaPos=byId.get('ptsc-siparia-pos-via-penal');
 assert.equal(sipariaPos.status,'source_found_pending_service_shape');
