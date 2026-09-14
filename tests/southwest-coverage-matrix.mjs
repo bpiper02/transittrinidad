@@ -59,7 +59,7 @@ function assertConnected({id,from,to,maxTransfers,requiredMode}){
 
 const directCoverage=[
   {id:'sf-to-siparia-maxi',from:'sf-siparia-maxi',to:'maxi-siparia',mode:'maxi'},
-  {id:'siparia-to-sf-maxi',from:'maxi-siparia',to:'sf-siparia-maxi',mode:'maxi'},
+  {id:'siparia-to-sf-taxi',from:'siparia-sf-taxi',to:'ptsc-san-fernando',mode:'route_taxi'},
   {id:'penal-to-siparia-taxi',from:'penal-siparia-taxi',to:'siparia-penal-taxi',mode:'route_taxi'},
   {id:'siparia-to-penal-taxi',from:'siparia-penal-taxi',to:'penal-siparia-taxi',mode:'route_taxi'},
   {id:'point-fortin-to-sf-ptsc',from:'ptsc-point-fortin',to:'ptsc-san-fernando',mode:'ptsc'},
@@ -77,7 +77,7 @@ for(const fixture of directCoverage)assertDirect(fixture);
 
 const connectedCoverage=[
   {id:'penal-to-san-fernando',from:'penal-siparia-taxi',to:'ptsc-san-fernando',maxTransfers:1,requiredMode:'route_taxi'},
-  {id:'siparia-to-point-fortin',from:'maxi-siparia',to:'ptsc-point-fortin',maxTransfers:3},
+  {id:'siparia-to-point-fortin',from:'siparia-sf-taxi',to:'ptsc-point-fortin',maxTransfers:2},
   {id:'fyzabad-to-siparia',from:'fyzabad-area',to:'siparia-fyzabad-taxi',maxTransfers:1,requiredMode:'route_taxi'},
   {id:'la-brea-to-port-of-spain',from:'la-brea-area',to:'ptsc-pos-transit-centre',maxTransfers:2},
   {id:'point-fortin-to-port-of-spain',from:'ptsc-point-fortin',to:'ptsc-pos-transit-centre',maxTransfers:1,requiredMode:'ptsc'},
