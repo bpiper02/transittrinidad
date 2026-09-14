@@ -27,7 +27,7 @@ assert.equal(service.sources.some(source=>source.url==='https://ptsc.co.tt/route
 
 const outbound=findJourney('ptsc-san-fernando','icacos-area',services,nodes,{transfers});
 assert.ok(outbound,'San Fernando → Icacos should route through the official PTSC edge');
-assert.equal(outbound.steps.some(step=>step.kind==='transit'&&step.service?.id==='ptsc-official-san-fernando-to-icacos'),true);
+assert.equal(outbound.some(step=>step.kind==='transit'&&step.service?.id==='ptsc-official-san-fernando-to-icacos'),true);
 
 const reverse=findJourney('icacos-area','ptsc-san-fernando',services,nodes,{transfers});
 assert.equal(reverse,null,'Icacos → San Fernando must not be invented as a reverse PTSC service');
