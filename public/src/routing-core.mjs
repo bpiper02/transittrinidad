@@ -489,7 +489,7 @@ function directLocalFallbackCandidate({fromPlace,toPlace,nodes,requiredMode,dire
     serviceConfidence:'reported_service',
     boardingPolicy:'hail_along_segment',
     alightingPolicy:'main_road_pass_through',
-    boardingNote:'No confirmed corridor found; this is a short local connection estimate, not a surveyed route.',
+    boardingNote:'Use a rideshare, hail a taxi, or arrange a short local taxi connection. This is an estimate, not a surveyed route.',
     sources:[]
   };
   const steps=[{kind:'transit',from:fromNode.id,to:toNode.id,service,minutes}];
@@ -620,7 +620,13 @@ export function chooseJourneyOptions({
   const sorted=[...unique.values()].sort((a,b)=>a.score-b.score);
   if(!sorted.length){
     const fallback=directLocalFallbackCandidate({fromPlace,toPlace,nodes:candidateNodes,requiredMode,directKm,transferPenaltyMinutes,accessOptions,rankingOptions:candidateRankingOptions});
-    if(fallback)return[fallback];
+    if(fallback){
+      if(typeof nodes?.set==='function'){
+        if(fallback.fromNear?.node?.id)nodes.set(fallback.fromNear.node.id,fallback.fromNear.node);
+        if(fallback.toNear?.node?.id)nodes.set(fallback.toNear.node.id,fallback.toNear.node);
+      }
+      return[fallback];
+    }
     return[];
   }
   const best=sorted[0];
