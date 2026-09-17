@@ -97,8 +97,8 @@ function legacyFullFare(service,fromNodeId,toNodeId){
   };
 }
 
-function interpolateFromFullFare(service,fromNodeId,toNodeId,nodes=[]){
-  if(!Number.isFinite(service.fareTTD))return null;
+function interpolateFromFullFareValue(service,fromNodeId,toNodeId,nodes,fullFareTTD){
+  if(!Number.isFinite(fullFareTTD))return null;
   const stops=service.stopNodeIds||[];
   const fromIndex=stops.indexOf(fromNodeId),toIndex=stops.indexOf(toNodeId);
   if(fromIndex<0||toIndex<=fromIndex||stops.length<3)return null;
@@ -106,9 +106,21 @@ function interpolateFromFullFare(service,fromNodeId,toNodeId,nodes=[]){
   const segmentKm=segmentDistanceKm(service,fromNodeId,toNodeId,nodes);
   const indexRatio=(toIndex-fromIndex)/(stops.length-1);
   const ratio=Number.isFinite(wholeKm)&&wholeKm>0&&Number.isFinite(segmentKm)?Math.min(1,Math.max(0.1,segmentKm/wholeKm)):indexRatio;
-  const center=Math.max(3,service.fareTTD*ratio);
+  const center=Math.max(3,fullFareTTD*ratio);
   const width=Math.max(1.5,center*0.2);
-  return {minTTD:roundFare(Math.max(2.5,center-width)),maxTTD:roundFare(center+width),confidence:'estimated',method:'same_service_interpolation',sourceKind:'derived'};
+  const minTTD=roundFare(Math.max(2.5,center-width));
+  const maxTTD=roundFare(Math.min(center+width,fullFareTTD));
+  return {minTTD:Math.min(minTTD,maxTTD),maxTTD,confidence:'estimated',method:'same_service_interpolation',sourceKind:'derived'};
+}
+
+function interpolateFromFullFare(service,fromNodeId,toNodeId,nodes=[]){
+  return interpolateFromFullFareValue(service,fromNodeId,toNodeId,nodes,service.fareTTD);
+}
+
+function interpolateFromFullFareRecord(service,fromNodeId,toNodeId,fares,nodes){
+  const fullRecord=exactRecord(fares,service,service.originNodeId,service.destinationNodeId);
+  if(!fullRecord)return null;
+  return interpolateFromFullFareValue(service,fromNodeId,toNodeId,nodes,fullRecord.maxTTD);
 }
 
 function fallbackEstimate(service,fromNodeId,toNodeId,nodes=[],rules=DEFAULT_RULES){
@@ -126,6 +138,8 @@ export function fareForSegment({service,fromNodeId,toNodeId,fares=[],nodes=[],ru
   if(legacy)return legacy;
   const interpolated=interpolateFromFullFare(service,fromNodeId,toNodeId,nodes);
   if(interpolated)return interpolated;
+  const interpolatedFromRecord=interpolateFromFullFareRecord(service,fromNodeId,toNodeId,fares,nodes);
+  if(interpolatedFromRecord)return interpolatedFromRecord;
   return fallbackEstimate(service,fromNodeId,toNodeId,nodes,rules);
 }
 
