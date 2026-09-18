@@ -451,12 +451,25 @@ async function useLiveLocation(inputId){
   }catch(error){if(error.name!=='AbortError')setLocationStatus(error.message||'Could not get your location.', 'error');}
   finally{button.disabled=false;}
 }
+function setupDemoTrips(){
+  document.querySelectorAll('[data-demo-from][data-demo-to]').forEach(button=>button.addEventListener('click',async()=>{
+    invalidatePlanner();clearJourney({clearTrip:true});setLocationStatus('');
+    const fromInput=$('#fromInput'),toInput=$('#toInput');
+    fromInput.value=button.dataset.demoFrom;toInput.value=button.dataset.demoTo;
+    selectedPlaces.delete('fromInput');selectedPlaces.delete('toInput');
+    activeMode=button.dataset.demoMode||'all';
+    $('#modeTabs').querySelectorAll('button').forEach(item=>item.classList.toggle('is-active',item.dataset.mode===activeMode));
+    renderList();refreshMapData();
+    await planCurrentTrip();
+  }));
+}
 function setupPlanner(){
   setupAutocomplete('fromInput','fromSuggestions');setupAutocomplete('toInput','toSuggestions');
   $('#fromLocationButton').addEventListener('click',()=>useLiveLocation('fromInput'));
   $('#toLocationButton').addEventListener('click',()=>useLiveLocation('toInput'));
   $('#swapButton').addEventListener('click',()=>{invalidatePlanner();currentTripContext=null;currentRoutePlan=null;const fromInput=$('#fromInput'),toInput=$('#toInput');const fromValue=fromInput.value,fromSelected=selectedPlaces.get('fromInput'),toSelected=selectedPlaces.get('toInput');fromInput.value=toInput.value;toInput.value=fromValue;selectedPlaces.delete('fromInput');selectedPlaces.delete('toInput');if(toSelected)selectedPlaces.set('fromInput',{...toSelected,inputValue:fromInput.value});if(fromSelected)selectedPlaces.set('toInput',{...fromSelected,inputValue:toInput.value});});
   $('#planButton').addEventListener('click',()=>planCurrentTrip());
+  setupDemoTrips();
 }
 function addMapLayers(){
   map.addSource('services',{type:'geojson',data:visibleGeoJson()});

@@ -114,6 +114,23 @@ test('loads the canonical network and plans a local-place journey',async({page})
   expect(await page.locator('.journey-leg').count()).toBeGreaterThan(0);
 });
 
+test('one-tap examples run through the real mode-specific planner',async({page})=>{
+  const cases=[
+    {name:/Maxi · Couva/,from:'Couva',to:'Chaguanas',mode:'Maxi'},
+    {name:/Taxi · Sando/,from:'San Fernando',to:'Gulf City',mode:'Route taxi'},
+    {name:/Water Taxi · POS/,from:'Port of Spain Water Taxi',to:'San Fernando Water Taxi',mode:'Water Taxi'}
+  ];
+  for(const item of cases){
+    await page.getByRole('button',{name:item.name}).click();
+    const panel=page.locator('#detailPanel');
+    await expect(panel).toBeVisible();
+    await expect(panel.locator('h2')).toContainText(item.from);
+    await expect(panel.locator('h2')).toContainText(item.to);
+    await expect(panel).toContainText(item.mode);
+    await expect(page.locator('#plannerStatus')).not.toContainText(/No route|Finding routes|Loading route/);
+  }
+});
+
 test('every planned transit journey displays a fare or explicit estimate',async({page})=>{
   await planCouvaToChaguanas(page);
   await expect(page.locator('#detailPanel')).toContainText(/TT\$/);
