@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Transit Trinidad</title>
+  <title>trinimaps — public beta</title>
   <meta name="description" content="Plan trips across Trinidad and Tobago's public and shared transport network." />
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-gl.css" />
   <link rel="stylesheet" href="./styles.css" />
@@ -17,8 +17,8 @@
 
     <aside class="directions-shell">
       <header class="topbar">
-        <strong class="brand">Transit Trinidad</strong>
-        <span class="subbrand">Public + shared transport</span>
+        <strong class="brand">trinimaps</strong>
+        <span class="subbrand">Trinidad & Tobago public transport · beta</span>
       </header>
 
       <section class="planner" aria-label="Trip planner">
@@ -57,6 +57,12 @@
         <div id="serviceList" class="service-list" hidden></div>
       </section>
     </aside>
+    <nav id="mapStyles" class="map-styles" aria-label="Map style">
+      <button class="is-active" data-map-style="transit" type="button">Transit</button>
+      <button data-map-style="standard" type="button">Standard</button>
+      <button data-map-style="satellite" type="button">Satellite</button>
+    </nav>
+    <a class="feedback-link" href="./field-review.html">Report map feedback</a>
   </div>
   <script type="module" src="./app-v2.js"></script>
 </body>

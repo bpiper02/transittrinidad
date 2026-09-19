@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {geometryPlan,hasKnownCorridor,osrmWaypointCoordinates} from '../src/geometry-core.mjs';
+
+const nodesArray=JSON.parse(await readFile(new URL('../data/nodes.json',import.meta.url)));
+const services=JSON.parse(await readFile(new URL('../data/services.json',import.meta.url)));
+const nodes=new Map(nodesArray.map(node=>[node.id,node]));
+const local=services.find(service=>service.id==='maxi-chag-san-fernando-out');
+const reverse=services.find(service=>service.id==='maxi-chag-san-fernando-back');
+assert.ok(local&&reverse);
+assert.equal(hasKnownCorridor(local),true);
+const expected=['chag-maxi-area','chase-village-area','maxi-couva','california-area','claxton-bay-area','marabella-area','sf-chag-maxi'];
+const expectedCoordinates=expected.map(id=>{const point=nodes.get(id).location;return[point.lng,point.lat];});
+assert.deepEqual(geometryPlan(local,nodes).coordinates,expectedCoordinates,'known southbound local pattern must render every stored corridor node');
+assert.deepEqual(osrmWaypointCoordinates(local,nodes),expectedCoordinates,'OSRM must receive all corridor waypoints, never endpoints only');
+assert.deepEqual(geometryPlan(reverse,nodes).coordinates,[...expectedCoordinates].reverse(),'reverse must respect stored reverse sequence');
+const californiaIndex=expected.indexOf('california-area');
+assert.deepEqual(geometryPlan(local,nodes).coordinates.slice(californiaIndex),expectedCoordinates.slice(californiaIndex),'California to San Fernando retains Claxton Bay and Marabella');
+const couvaIndex=expected.indexOf('maxi-couva');
+assert.deepEqual(geometryPlan(local,nodes).coordinates.slice(couvaIndex),expectedCoordinates.slice(couvaIndex),'Couva to San Fernando retains the selected local corridor');
+console.log('geometry core Central-South tests passed');

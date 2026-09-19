@@ -5,6 +5,7 @@ import {formatClock,formatServiceDays,nextDepartures,scheduleForDate,scheduleFre
 import {fareForJourney,fareForSegment,formatFare} from './src/fare-core.mjs';
 import {boardingGuidance,transitAction} from './src/rider-instruction-core.mjs';
 import {coordinatesForJourneyLeg} from './src/journey-geometry-core.mjs';
+import {geometryPlan,hasKnownCorridor,isEquivalentPattern,osrmWaypointCoordinates} from './src/geometry-core.mjs';
 import {requestCurrentPosition} from './src/location-core.mjs';
 
 const nodeIndex=new Map();
@@ -20,6 +21,7 @@ let map;
 let plannerRequestId=0;
 let currentTripContext=null;
 let currentRoutePlan=null;
+let activeMapStyle='transit';
 
 const displayGeometry=new Map();
 const selectedPlaces=new Map();
@@ -38,6 +40,12 @@ const PHOTON_BASE='https://photon.komoot.io/api';
 const GEOCODE_CACHE_KEY='transittrinidad-geocode-v2';
 const OSRM_BASE='https://router.project-osrm.org/route/v1/driving';
 const OSRM_CACHE_KEY='transittrinidad-road-geometry-v1';
+const MAP_STYLES={
+  // OpenFreeMap is a keyless vector style: Transit retains roads/labels while transport overlays lead.
+  transit:'https://tiles.openfreemap.org/styles/liberty',
+  standard:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],tileSize:256,attribution:'© OpenStreetMap contributors'}},layers:[{id:'osm',type:'raster',source:'osm'}]},
+  satellite:{version:8,sources:{esri:{type:'raster',tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],tileSize:256,attribution:'Tiles © Esri'}},layers:[{id:'esri',type:'raster',source:'esri'}]}
+};
 let lastGeocodeAt=0;
 let lastOsrmAt=0;
 
@@ -74,7 +82,10 @@ function corridorGroups(list=filteredServices()){
 function corridorIsBidirectional(group){
   return group.patterns.some(a=>group.patterns.some(b=>a.originNodeId===b.destinationNodeId&&a.destinationNodeId===b.originNodeId));
 }
-function backgroundServices(){return corridorGroups().map(group=>group.representative);}
+function backgroundServices(){
+  // Preserve meaningful directional/local variants; collapse only identical shapes.
+  return corridorGroups().flatMap(group=>group.patterns.filter((service,index,all)=>!all.slice(0,index).some(other=>isEquivalentPattern(other,service,nodeIndex))));
+}
 function hasLocation(node){return node?.location&&Number.isFinite(node.location.lat)&&Number.isFinite(node.location.lng);}
 function serviceNodes(service){return[nodeIndex.get(service.originNodeId),nodeIndex.get(service.destinationNodeId)];}
 function serviceSchedules(serviceId){return schedules.filter(schedule=>schedule.serviceId===serviceId);}
@@ -123,18 +134,11 @@ function serviceBadges(service,fromNodeId=service.originNodeId,toNodeId=service.
   return badges.map(label=>`<span class="data-chip">${escapeHtml(label)}</span>`).join('');
 }
 
-function fallbackCoordinates(service){
-  const[origin,destination]=serviceNodes(service);
-  if(!hasLocation(origin)||!hasLocation(destination))return null;
-  return service.geometry?.length?service.geometry.map(point=>[point.lng,point.lat]):[[origin.location.lng,origin.location.lat],[destination.location.lng,destination.location.lat]];
-}
-function serviceCoordinates(service){return displayGeometry.get(service.id)?.coordinates||fallbackCoordinates(service);}
-function displayPathKind(service){
-  if(service.geometry?.length&&service.geometryConfidence==='verified_path')return'verified';
-  if(displayGeometry.get(service.id)?.source==='osrm')return'estimated';
-  return'connector';
-}
-function displayPathLabel(service){const kind=displayPathKind(service);return kind==='verified'?'Verified path':kind==='estimated'?'Estimated path':'Approx. path';}
+function geometryFor(service){return geometryPlan(service,nodeIndex,{snapped:displayGeometry.get(service.id)});}
+function fallbackCoordinates(service){return geometryFor(service)?.coordinates||null;}
+function serviceCoordinates(service){return geometryFor(service)?.coordinates||null;}
+function displayPathKind(service){return geometryFor(service)?.kind||'connector';}
+function displayPathLabel(service){return geometryFor(service)?.label||'Approx. endpoint connector';}
 function serviceFeature(service){
   const coordinates=serviceCoordinates(service);
   return coordinates?{type:'Feature',properties:{id:service.id,corridorId:service.corridorId,mode:service.mode,pathKind:displayPathKind(service),routeColor:routeColor(service)},geometry:{type:'LineString',coordinates}}:null;
@@ -145,6 +149,32 @@ function nodeGeoJson(){
 }
 function fitCountry(){map?.fitBounds(TT_BOUNDS,{padding:50,duration:0});}
 function refreshMapData(){if(map?.isStyleLoaded())map.getSource('services')?.setData(visibleGeoJson());}
+function applyTransitStyleOverrides(){
+  if(activeMapStyle!=='transit')return;
+  for(const layer of map.getStyle().layers||[]){
+    const id=layer.id.toLowerCase();
+    if(/poi|aeroway|building-3d/.test(id)&&layer.layout?.visibility!=='none')map.setLayoutProperty(layer.id,'visibility','none');
+  }
+}
+function restoreMapOverlays(){
+  applyTransitStyleOverrides();
+  addMapLayers();
+  if(currentRoutePlan){
+    const option=currentRoutePlan.options[currentRoutePlan.selectedIndex];
+    if(option)showJourneyMap(currentRoutePlan.from,currentRoutePlan.to,option);
+  }else if(activeServiceId){renderDetail(services.find(service=>service.id===activeServiceId));}
+}
+function setupMapStyles(){
+  $('#mapStyles').querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>{
+    const style=button.dataset.mapStyle;if(style===activeMapStyle)return;
+    activeMapStyle=style;
+    $('#mapStyles').querySelectorAll('button').forEach(item=>item.classList.toggle('is-active',item===button));
+    map.setStyle(MAP_STYLES[style]);
+    map.once('style.load',restoreMapOverlays);
+    // A failed satellite source leaves the application usable; return to Standard automatically.
+    if(style==='satellite')map.once('error',()=>{if(activeMapStyle==='satellite'){activeMapStyle='standard';$('#mapStyles button[data-map-style="standard"]').classList.add('is-active');map.setStyle(MAP_STYLES.standard);map.once('style.load',restoreMapOverlays);}});
+  }));
+}
 function invalidatePlanner(){plannerRequestId+=1;}
 function ensureCurrent(requestId){if(requestId!==plannerRequestId)throw new DOMException('Superseded','AbortError');}
 function clearJourney({clearTrip=false}={}){
@@ -358,11 +388,11 @@ async function resolveEndpoint(inputId){
 
 async function estimateRoadGeometry(service){
   if(!ROAD_MODES.has(service.mode)||service.geometry?.length)return;
-  const[origin,destination]=serviceNodes(service);if(!hasLocation(origin)||!hasLocation(destination))return;
-  const cache=readRoadCache();const key=`${service.id}:${origin.location.lng},${origin.location.lat}:${destination.location.lng},${destination.location.lat}`;
+  const waypoints=osrmWaypointCoordinates(service,nodeIndex);if(waypoints.length<2)return;
+  const cache=readRoadCache();const key=`${service.id}:${waypoints.map(point=>point.join(',')).join(';')}`;
   if(cache[key]?.coordinates?.length){displayGeometry.set(service.id,{...cache[key],source:'osrm'});return;}
   const wait=Math.max(0,350-(Date.now()-lastOsrmAt));if(wait)await sleep(wait);lastOsrmAt=Date.now();
-  const url=`${OSRM_BASE}/${origin.location.lng},${origin.location.lat};${destination.location.lng},${destination.location.lat}?overview=full&geometries=geojson&steps=false&alternatives=false`;
+  const url=`${OSRM_BASE}/${waypoints.map(point=>point.join(',')).join(';')}?overview=full&geometries=geojson&steps=false&alternatives=false`;
   try{const response=await fetchWithTimeout(url,{},6000);if(!response.ok)return;const data=await response.json(),route=data?.routes?.[0];if(!route?.geometry?.coordinates?.length)return;const value={coordinates:route.geometry.coordinates,durationSeconds:route.duration,distanceMeters:route.distance};displayGeometry.set(service.id,{...value,source:'osrm'});cache[key]=value;writeRoadCache(cache);}catch(error){console.warn('Road geometry unavailable for',service.id,error);}
 }
 async function hydrateDisplayGeometry(list){for(const service of[...new Map(list.map(item=>[item.id,item])).values()])await estimateRoadGeometry(service);refreshMapData();renderList();}
@@ -460,7 +490,7 @@ function setupPlanner(){
 }
 function addMapLayers(){
   map.addSource('services',{type:'geojson',data:visibleGeoJson()});
-  map.addLayer({id:'service-lines',type:'line',source:'services',layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['get','routeColor'],'line-width':['case',['==',['get','pathKind'],'verified'],3,2.5],'line-opacity':['case',['==',['get','pathKind'],'connector'],.18,.42],'line-dasharray':['case',['==',['get','pathKind'],'connector'],['literal',[2,2]],['literal',[1,0]]]}});
+  map.addLayer({id:'service-lines',type:'line',source:'services',layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['get','routeColor'],'line-width':['case',['==',['get','pathKind'],'verified'],3,2.5],'line-opacity':['case',['in',['get','pathKind'],['literal',['connector','estimated']]],.25,.60],'line-dasharray':['case',['in',['get','pathKind'],['literal',['connector','estimated','corridor','snapped_corridor']]],['literal',[2,1]],['literal',[1,0]]]}});
   map.addSource('journey',{type:'geojson',data:emptyFeatureCollection()});
   map.addLayer({id:'journey-access',type:'line',source:'journey',filter:['==',['get','kind'],'access'],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['case',['==',['get','accessMode'],'walk'],'#636366','#8E8E93'],'line-width':3,'line-dasharray':['case',['==',['get','accessMode'],'walk'],['literal',[1,1]],['literal',[2,1]]]}});
   map.addLayer({id:'journey-transfer',type:'line',source:'journey',filter:['==',['get','kind'],'transfer'],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#636366','line-width':4,'line-dasharray':[1,1]}});
@@ -475,8 +505,9 @@ async function start(){
     const[nodesData,servicesData,transfersData,schedulesData,placesData,faresData]=await Promise.all([getJson('./data/nodes.json'),getJson('./data/services.json'),getJson('./data/transfers.json'),getJson('./data/schedules.json'),getJson('./data/places.json'),getJson('./data/fares.json')]);
     nodesData.forEach(node=>nodeIndex.set(node.id,node));services=servicesData;transfers=transfersData;schedules=schedulesData;places=placesData;fares=faresData;
     renderList();setupModeTabs();setupTray();setupPlanner();
-    map=new maplibregl.Map({container:'map',style:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],tileSize:256,attribution:'© OpenStreetMap contributors'}},layers:[{id:'osm',type:'raster',source:'osm'}]},bounds:TT_BOUNDS,fitBoundsOptions:{padding:50},maxBounds:TT_MAX_BOUNDS,minZoom:7,maxZoom:17,attributionControl:true});
-    map.addControl(new maplibregl.NavigationControl({showCompass:false}),'bottom-right');map.on('load',()=>{addMapLayers();fitCountry();});
+    map=new maplibregl.Map({container:'map',style:MAP_STYLES.transit,bounds:TT_BOUNDS,fitBoundsOptions:{padding:50},maxBounds:TT_MAX_BOUNDS,minZoom:7,maxZoom:17,attributionControl:true});
+    setupMapStyles();
+    map.addControl(new maplibregl.NavigationControl({showCompass:false}),'bottom-right');map.on('load',()=>{restoreMapOverlays();fitCountry();});
   }catch(error){console.error(error);$('#plannerStatus').textContent='Transport data failed to load.';}
 }
 start();
