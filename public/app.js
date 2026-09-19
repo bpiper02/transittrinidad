@@ -31,7 +31,7 @@ const OPERATOR_COLORS = {ptsc:'#C9252D',water_taxi:'#0A84FF',ferry:'#0077B6',rou
 const ROAD_MODES = new Set(['ptsc','maxi','route_taxi']);
 const TT_BOUNDS = [[-61.98,9.95],[-60.42,11.42]];
 const TT_MAX_BOUNDS = [[-62.25,9.70],[-60.15,11.68]];
-const GEOCODER_BASE = 'https://nominatim.openstreetmap.org/search';
+
 const PHOTON_BASE = 'https://photon.komoot.io/api';
 const GEOCODE_CACHE_KEY = 'transittrinidad-geocode-v1';
 const OSRM_BASE = 'https://router.project-osrm.org/route/v1/driving';
@@ -379,13 +379,10 @@ async function geocodePlace(query){
   if(cache[key]) return cache[key];
   const wait=Math.max(0,1100-(Date.now()-lastGeocodeAt));
   if(wait) await sleep(wait);
-  const params=new URLSearchParams({q:cleaned,format:'jsonv2',limit:'1',countrycodes:'tt',bounded:'1',viewbox:'-61.98,11.42,-60.42,9.95'});
   lastGeocodeAt=Date.now();
-  const response=await fetchWithTimeout(`${GEOCODER_BASE}?${params}`,{headers:{Accept:'application/json'}},7000);
-  if(!response.ok) throw new Error('Place search failed.');
-  const rows=await response.json();
+  const rows=await remoteAutocomplete(cleaned);
   if(!rows.length) throw new Error(`Could not find “${cleaned}”.`);
-  const place={name:rows[0].display_name,lat:+rows[0].lat,lng:+rows[0].lon};
+  const place=rows[0];
   cache[key]=place;
   writeGeoCache(cache);
   return place;

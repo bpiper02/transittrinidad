@@ -30,8 +30,6 @@ assert.match(app,/exactPlace\(/,'plain town names should resolve through the pla
 assert.match(app,/explicitNetworkNode\(/,'explicit stand and terminal searches should remain possible');
 assert.match(app,/matchPlaces\(/,'local place aliases should participate in autocomplete');
 assert.match(app,/mergePlaceSuggestions\(/,'local and external place search should merge rather than compete');
-assert.match(app,/nominatim\.openstreetmap\.org\/search/);
-assert.match(app,/countrycodes:'tt'/);
 assert.match(app,/photon\.komoot\.io\/api/);
 assert.match(app,/bbox:'-61\.98,9\.95,-60\.42,11\.42'/);
 
@@ -86,6 +84,26 @@ assert.match(css,/\.suggestions\{/);
 assert.match(css,/\.mode-tabs\{[^}]*scrollbar-width:none/);
 assert.match(css,/\.route-options\{/);
 assert.match(css,/\.route-option\.is-active/);
+assert.match(html,/<strong class="brand">trinimaps<\/strong>/,'public shell should use the lowercase trinimaps name');
+assert.match(html,/Public Beta/,'public shell should identify beta status');
+assert.match(html,/id="mapPresentation"/,'map presentation control should be present');
+assert.match(html,/data-map-mode="transit"/);
+assert.match(html,/data-map-mode="standard"/);
+assert.match(html,/data-map-mode="satellite"/);
+assert.match(html,/Report route issue/);
+assert.match(html,/Add missing route/);
+assert.match(html,/href="\.\/feedback\.html"/,'missing-route feedback should open the local draft workflow');
+assert.match(html,/href="\.\/field-review\.html"/,'route-issue feedback should remain available from the planner');
+assert.match(app,/activeMapPresentation='transit'/,'Transit should be the default presentation');
+assert.match(app,/basemap-transit/);
+assert.match(app,/basemap-standard/);
+assert.match(app,/basemap-satellite/);
+assert.match(app,/server\.arcgisonline\.com\/ArcGIS\/rest\/services\/World_Imagery/,'Satellite must use a real imagery source');
+assert.match(app,/setMapPresentation/,'presentation changes should only toggle map layers');
+assert.match(app,/MAXI_BAND_COLORS/,'association route colors must remain data-driven');
+assert.match(app,/node-halos/,'terminals and stands should receive a stronger map treatment');
+assert.match(app,/recordPrivacyLightEvent/,'analytics must pass through the privacy-light allowlist');
+assert.doesNotMatch(app,/nominatim/i,'the public planner must not use prohibited Nominatim autocomplete');
 assert.match(locationCss,/\.use-location-button/);
 assert.match(locationCss,/\.location-status/);
 

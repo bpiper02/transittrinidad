@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Transit Trinidad</title>
+  <title>trinimaps — Public Beta</title>
   <meta name="description" content="Plan trips across Trinidad and Tobago's public and shared transport network." />
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@6.8.0/dist/maplibre-gl.css" />
   <link rel="stylesheet" href="./styles.css" />
@@ -17,8 +17,8 @@
 
     <aside class="directions-shell">
       <header class="topbar">
-        <strong class="brand">Transit Trinidad</strong>
-        <span class="subbrand">Public + shared transport</span>
+        <div class="brand-row"><strong class="brand">trinimaps</strong><span class="beta-badge">Public Beta</span></div>
+        <span class="subbrand">Plan public and shared transport across Trinidad & Tobago.</span>
       </header>
 
       <section class="planner" aria-label="Trip planner">
@@ -35,7 +35,7 @@
         <p id="plannerStatus" class="planner-status" aria-live="polite">Search anywhere in Trinidad & Tobago.</p>
         <details class="network-notice">
           <summary>About this map</summary>
-          <p>Transit Trinidad combines the best public, mapped and locally reported transport data currently available. Routes, stops, fares, schedules and operations can change, and trip times are estimates unless a published timetable is shown.</p>
+          <p>Route, fare and schedule information comes from public, mapped and locally reported sources. Services can change; trip times are estimates unless a published timetable is shown.</p>
         </details>
       </section>
 
@@ -56,7 +56,15 @@
         </button>
         <div id="serviceList" class="service-list" hidden></div>
       </section>
+      <footer class="feedback-links" aria-label="Network feedback">
+        <a href="./field-review.html">Report route issue</a><span aria-hidden="true">·</span><a href="./feedback.html">Add missing route</a>
+      </footer>
     </aside>
+    <nav id="mapPresentation" class="map-presentation" aria-label="Map presentation">
+      <button class="is-active" data-map-mode="transit" type="button" aria-pressed="true">Transit</button>
+      <button data-map-mode="standard" type="button" aria-pressed="false">Standard</button>
+      <button data-map-mode="satellite" type="button" aria-pressed="false">Satellite</button>
+    </nav>
   </div>
   <script type="module" src="./app-v2.js"></script>
 </body>
