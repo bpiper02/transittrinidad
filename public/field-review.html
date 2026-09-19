@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Transit Trinidad — Field Route Review</title>
+<title>trinimaps — Field Route Review</title>
 <style>
 :root{color-scheme:light;--paper:#f3efe4;--ink:#171714;--muted:#69675f;--line:#bdb6a7;--panel:#fbf8f0;--accent:#a42b24;--ok:#235f3a}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 Georgia,'Times New Roman',serif}button,input,select,textarea{font:inherit;color:inherit}header{border-bottom:2px solid var(--ink);padding:22px max(18px,calc((100vw - 1120px)/2)) 16px}header p{margin:4px 0 0;color:var(--muted);font-family:system-ui,sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:.08em}h1{margin:0;font-size:clamp(30px,5vw,54px);line-height:.95;letter-spacing:-.04em}.shell{max-width:1120px;margin:auto;padding:24px 18px 60px;display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,.72fr);gap:20px}.panel{background:var(--panel);border:1px solid var(--line);box-shadow:3px 3px 0 #d6cfbf;padding:20px}.panel h2{font-size:22px;margin:0 0 16px;border-bottom:1px solid var(--ink);padding-bottom:8px}.field{display:grid;gap:6px;margin:0 0 14px}.field>span,.legend{font:700 12px/1.2 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.07em}.hint{font:12px/1.4 system-ui,sans-serif;color:var(--muted);margin-top:-2px}input,select,textarea{width:100%;border:1px solid #918b7e;background:#fffdf7;padding:10px 11px;border-radius:0}textarea{min-height:120px;resize:vertical}.route-picker{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:18px}.route-card{border:1px solid var(--ink);padding:14px;background:#fffdf7}.route-card strong{display:block;font-size:20px}.meta{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.chip{font:700 11px/1 system-ui,sans-serif;border:1px solid var(--line);padding:5px 7px;text-transform:uppercase;letter-spacing:.04em}.accuracy{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}.accuracy label{border:1px solid var(--line);padding:12px;background:#fffdf7;cursor:pointer;font-family:system-ui,sans-serif;font-weight:700}.accuracy input{width:auto;margin-right:7px}.accuracy label:has(input:checked){border:2px solid var(--ink);padding:11px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.actions{display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:16px;margin-top:18px}button{border:1px solid var(--ink);background:#fffdf7;padding:10px 14px;min-height:44px;cursor:pointer;font-family:system-ui,sans-serif;font-weight:750}button.primary{background:var(--ink);color:var(--paper)}button:disabled{opacity:.45;cursor:not-allowed}.status{font:13px/1.4 system-ui,sans-serif;margin:12px 0 0}.status.error{color:var(--accent)}.status.ok{color:var(--ok)}pre{white-space:pre-wrap;word-break:break-word;font:12px/1.45 ui-monospace,SFMono-Regular,Consolas,monospace;margin:0;max-height:70vh;overflow:auto}.notice{font:13px/1.45 system-ui,sans-serif;color:var(--muted);border-left:3px solid var(--ink);padding-left:10px;margin:0 0 18px}@media(max-width:800px){.shell{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}.panel{padding:16px}.accuracy{grid-template-columns:1fr}pre{max-height:42vh}}
 </style>
 </head>
 <body>
-<header><h1>Field Route Review</h1><p>Transit Trinidad · driver & association validation sheet</p></header>
+<header><h1>Field Route Review</h1><p>trinimaps · driver & association validation sheet</p></header>
 <main class="shell">
 <section class="panel">
 <h2>1. Pick the route you know</h2>
@@ -41,7 +41,7 @@
 <label class="field"><span>Role (optional)</span><input id="reviewerRole" placeholder="Driver, dispatcher, route coordinator"></label>
 <label class="field"><span>Contact method (optional)</span><input id="contactChannel" placeholder="In person, phone, WhatsApp"></label>
 </div>
-<p class="notice">This page does not change the public map. It creates a review file that must pass Transit Trinidad’s normal evidence and promotion checks first.</p>
+<p class="notice">This page does not change the public map. It creates a review file that must pass trinimaps’ normal evidence and promotion checks first.</p>
 <div class="actions"><button id="preview" class="primary">Preview review</button><button id="export" disabled>Export review JSON</button><button id="copy" disabled>Copy JSON</button></div>
 <p id="status" class="status" aria-live="polite"></p>
 </section>

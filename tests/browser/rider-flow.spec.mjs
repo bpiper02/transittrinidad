@@ -181,6 +181,19 @@ test('mode tabs re-plan the current trip without losing endpoints',async({page})
   await expect(page.locator('#plannerStatus')).not.toContainText(/Finding routes|Loading route/);
 });
 
+test('map presentations preserve the planned journey and endpoints',async({page})=>{
+  await planCouvaToChaguanas(page);
+  const before=await page.evaluate(()=>JSON.stringify(globalThis.__testMap.getSource('journey').data));
+  for(const name of ['Standard','Satellite','Transit']){
+    await page.getByRole('button',{name,exact:true}).click();
+    await expect(page.getByRole('button',{name,exact:true})).toHaveAttribute('aria-pressed','true');
+    await expect(page.locator('#fromInput')).toHaveValue(/Couva/i);
+    await expect(page.locator('#toInput')).toHaveValue(/Chaguanas/i);
+    await expect(page.locator('#detailPanel')).toBeVisible();
+    await expect.poll(()=>page.evaluate(()=>JSON.stringify(globalThis.__testMap.getSource('journey').data))).toBe(before);
+  }
+});
+
 test('swap preserves selected local places',async({page})=>{
   await chooseLocalPlace(page,'fromInput','Couva');
   await chooseLocalPlace(page,'toInput','Chaguanas');

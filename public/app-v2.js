@@ -14,6 +14,7 @@ let schedules=[];
 let places=[];
 let fares=[];
 let activeMode='all';
+let activeMapPresentation='transit';
 let activeServiceId=null;
 let selectedScheduleDate=new Date();
 let map;
@@ -141,7 +142,7 @@ function serviceFeature(service){
 }
 function visibleGeoJson(){return{type:'FeatureCollection',features:backgroundServices().map(serviceFeature).filter(Boolean)};}
 function nodeGeoJson(){
-  return{type:'FeatureCollection',features:[...nodeIndex.values()].filter(hasLocation).map(node=>({type:'Feature',properties:{id:node.id,name:node.name},geometry:{type:'Point',coordinates:[node.location.lng,node.location.lat]}}))};
+  return{type:'FeatureCollection',features:[...nodeIndex.values()].filter(hasLocation).map(node=>({type:'Feature',properties:{id:node.id,name:node.name,kind:node.kind||'node'},geometry:{type:'Point',coordinates:[node.location.lng,node.location.lat]}}))};
 }
 function fitCountry(){map?.fitBounds(TT_BOUNDS,{padding:50,duration:0});}
 function refreshMapData(){if(map?.isStyleLoaded())map.getSource('services')?.setData(visibleGeoJson());}
@@ -281,6 +282,20 @@ function setupModeTabs(){
   }));
 }
 function setupTray(){const button=$('#trayToggle'),list=$('#serviceList');button.addEventListener('click',()=>{list.hidden=!list.hidden;button.setAttribute('aria-expanded',String(!list.hidden));});}
+function setMapPresentation(mode){
+  activeMapPresentation=mode;
+  if(map?.isStyleLoaded()){
+    for(const name of ['transit','standard','satellite'])map.setLayoutProperty?.(`basemap-${name}`,'visibility',name===mode?'visible':'none');
+    const transit=mode==='transit';
+    map.setPaintProperty?.('service-lines','line-width',transit?['case',['==',['get','pathKind'],'verified'],4.5,3.5]:['case',['==',['get','pathKind'],'verified'],3,2.5]);
+    map.setPaintProperty?.('service-lines','line-opacity',transit?['case',['==',['get','pathKind'],'connector'],.28,.8]:['case',['==',['get','pathKind'],'connector'],.18,.42]);
+    map.setPaintProperty?.('nodes','circle-radius',transit?4.5:4);
+  }
+  $('#mapPresentation').querySelectorAll('button').forEach(button=>{const selected=button.dataset.mapMode===mode;button.classList.toggle('is-active',selected);button.setAttribute('aria-pressed',String(selected));});
+}
+function setupMapPresentation(){
+  $('#mapPresentation').querySelectorAll('button').forEach(button=>button.addEventListener('click',()=>setMapPresentation(button.dataset.mapMode)));
+}
 
 function readGeoCache(){try{return JSON.parse(localStorage.getItem(GEOCODE_CACHE_KEY)||'{}');}catch{return{};}}
 function writeGeoCache(cache){try{localStorage.setItem(GEOCODE_CACHE_KEY,JSON.stringify(cache));}catch{}}
@@ -460,13 +475,16 @@ function setupPlanner(){
 }
 function addMapLayers(){
   map.addSource('services',{type:'geojson',data:visibleGeoJson()});
-  map.addLayer({id:'service-lines',type:'line',source:'services',layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['get','routeColor'],'line-width':['case',['==',['get','pathKind'],'verified'],3,2.5],'line-opacity':['case',['==',['get','pathKind'],'connector'],.18,.42],'line-dasharray':['case',['==',['get','pathKind'],'connector'],['literal',[2,2]],['literal',[1,0]]]}});
+  map.addLayer({id:'service-lines',type:'line',source:'services',layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['get','routeColor'],'line-width':['case',['==',['get','pathKind'],'verified'],4.5,3.5],'line-opacity':['case',['==',['get','pathKind'],'connector'],.28,.8],'line-dasharray':['case',['==',['get','pathKind'],'connector'],['literal',[2,2]],['literal',[1,0]]]}});
   map.addSource('journey',{type:'geojson',data:emptyFeatureCollection()});
   map.addLayer({id:'journey-access',type:'line',source:'journey',filter:['==',['get','kind'],'access'],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['case',['==',['get','accessMode'],'walk'],'#636366','#8E8E93'],'line-width':3,'line-dasharray':['case',['==',['get','accessMode'],'walk'],['literal',[1,1]],['literal',[2,1]]]}});
   map.addLayer({id:'journey-transfer',type:'line',source:'journey',filter:['==',['get','kind'],'transfer'],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#636366','line-width':4,'line-dasharray':[1,1]}});
   map.addLayer({id:'journey-transit-casing',type:'line',source:'journey',filter:['==',['get','kind'],'transit'],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':'#fff','line-width':10,'line-opacity':.9}});
   map.addLayer({id:'journey-transit',type:'line',source:'journey',filter:['==',['get','kind'],'transit'],layout:{'line-join':'round','line-cap':'round'},paint:{'line-color':['get','routeColor'],'line-width':6.5,'line-opacity':1}});
-  map.addSource('nodes',{type:'geojson',data:nodeGeoJson()});map.addLayer({id:'nodes',type:'circle',source:'nodes',paint:{'circle-radius':4,'circle-color':'#fff','circle-stroke-color':'#636366','circle-stroke-width':1.5}});
+  map.addSource('nodes',{type:'geojson',data:nodeGeoJson()});
+  const hubFilter=['in',['get','kind'],['literal',['terminal','stand','ferry_terminal','water_taxi_terminal']]];
+  map.addLayer({id:'node-halos',type:'circle',source:'nodes',filter:hubFilter,paint:{'circle-radius':9,'circle-color':'#fff','circle-opacity':.88,'circle-stroke-color':'#1d1d1f','circle-stroke-width':1}});
+  map.addLayer({id:'nodes',type:'circle',source:'nodes',paint:{'circle-radius':4.5,'circle-color':'#fff','circle-stroke-color':'#4a4a4a','circle-stroke-width':1.5}});
   map.addSource('search-points',{type:'geojson',data:emptyFeatureCollection()});map.addLayer({id:'search-points',type:'circle',source:'search-points',paint:{'circle-radius':['case',['in',['get','kind'],['literal',['current-from','current-to']]],10,8],'circle-color':['match',['get','kind'],'from','#0A84FF','current-from','#0A84FF','to','#FF3B30','current-to','#FF3B30','#111'],'circle-stroke-color':'#fff','circle-stroke-width':3}});
   map.on('click','service-lines',async event=>{const id=event.features?.[0]?.properties?.id,service=services.find(item=>item.id===id);if(service){await estimateRoadGeometry(service);selectService(id,false);}});map.on('mouseenter','service-lines',()=>{map.getCanvas().style.cursor='pointer';});map.on('mouseleave','service-lines',()=>{map.getCanvas().style.cursor='';});
 }
@@ -474,9 +492,9 @@ async function start(){
   try{
     const[nodesData,servicesData,transfersData,schedulesData,placesData,faresData]=await Promise.all([getJson('./data/nodes.json'),getJson('./data/services.json'),getJson('./data/transfers.json'),getJson('./data/schedules.json'),getJson('./data/places.json'),getJson('./data/fares.json')]);
     nodesData.forEach(node=>nodeIndex.set(node.id,node));services=servicesData;transfers=transfersData;schedules=schedulesData;places=placesData;fares=faresData;
-    renderList();setupModeTabs();setupTray();setupPlanner();
-    map=new maplibregl.Map({container:'map',style:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],tileSize:256,attribution:'© OpenStreetMap contributors'}},layers:[{id:'osm',type:'raster',source:'osm'}]},bounds:TT_BOUNDS,fitBoundsOptions:{padding:50},maxBounds:TT_MAX_BOUNDS,minZoom:7,maxZoom:17,attributionControl:true});
-    map.addControl(new maplibregl.NavigationControl({showCompass:false}),'bottom-right');map.on('load',()=>{addMapLayers();fitCountry();});
+    renderList();setupModeTabs();setupTray();setupPlanner();setupMapPresentation();
+    map=new maplibregl.Map({container:'map',style:{version:8,sources:{osm:{type:'raster',tiles:['https://tile.openstreetmap.org/{z}/{x}/{y}.png'],tileSize:256,attribution:'© OpenStreetMap contributors'},satellite:{type:'raster',tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'],tileSize:256,attribution:'Tiles © Esri'}},layers:[{id:'basemap-transit',type:'raster',source:'osm',paint:{'raster-saturation':-.82,'raster-contrast':.08,'raster-brightness-max':.96}},{id:'basemap-standard',type:'raster',source:'osm',layout:{visibility:'none'}},{id:'basemap-satellite',type:'raster',source:'satellite',layout:{visibility:'none'},paint:{'raster-saturation':-.15,'raster-contrast':.04}}]},bounds:TT_BOUNDS,fitBoundsOptions:{padding:50},maxBounds:TT_MAX_BOUNDS,minZoom:7,maxZoom:17,attributionControl:true});
+    map.addControl(new maplibregl.NavigationControl({showCompass:false}),'bottom-right');map.on('load',()=>{addMapLayers();setMapPresentation(activeMapPresentation);fitCountry();});
   }catch(error){console.error(error);$('#plannerStatus').textContent='Transport data failed to load.';}
 }
 start();
