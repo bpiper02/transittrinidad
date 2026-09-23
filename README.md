@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> **Recovery status — 2026-09-23:** the legacy README below describes historical V1 framing and must not be treated as the current product or architecture specification. Start with [AGENTS.md](./AGENTS.md), then [docs/PRODUCT.md](./docs/PRODUCT.md), [docs/DOMAIN.md](./docs/DOMAIN.md), [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md), and [docs/PLANS/RECOVERY.md](./docs/PLANS/RECOVERY.md). Rider-facing V1 feature work is frozen while V2 foundations are recovered.
+
 # Transit Trinidad
 
 A public transport atlas and routing foundation for Trinidad & Tobago, covering PTSC, maxi taxis, route taxis, water taxi, and inter-island ferry services.
