@@ -19,7 +19,7 @@ PRIOR DEEP AUDIT: 23 grouped findings were reported in the Sprint #23 investigat
 
 These sets are versioned snapshots and overlap heavily. They must not be summed into “number of bugs.”
 
-DEDUPLICATED RECOVERY LEDGER: 34 root-cause/data-gap/quality clusters below. This is the authoritative recovery set for deciding V2 work; it is not a claim that only 34 individual manifestations ever existed.
+DEDUPLICATED RECOVERY LEDGER: 36 root-cause/data-gap/quality clusters below. This is the authoritative recovery set for deciding V2 work; it is not a claim that only 36 individual manifestations ever existed.
 
 ## Root-cause ledger
 
@@ -288,3 +288,21 @@ Status: OPEN. Add privacy-safe planner trace before wide beta.
 
 ## Deduplication rule
 A manifestation belongs to the earliest causal cluster that would prevent it by construction. Example: “12 directions shown” belongs to RC-001/RC-025, not a new architecture bug for each duplicated PTSC row. Conversely, schedule-date mismatch (RC-014) and boarding-time eligibility (RC-010) remain separate because either can exist without the other.
+
+
+### RC-035 — Travel-time estimates imply unsupported operational precision
+Category: DATA-CONFIDENCE / ARCHITECTURE DEFECT. Severity: P1.
+Symptom: when a service lacks explicit estimatedMinutes, V1 estimates whole-service travel time from straight-line endpoint distance multiplied by a mode factor/speed; multi-stop segment times are then apportioned using straight-line distances between stops.
+Affected: route ranking, ETA ranges, transfer timing, schedule compatibility.
+Root cause: topology and approximate geography are being used as a substitute for operational travel-time evidence.
+Invariant: an ETA must carry its derivation/confidence and must not appear more precise than the underlying travel-time evidence.
+Sibling manifestations: detouring routes scored too optimistically; stop-to-stop time distributed incorrectly; estimated wait plus estimated ride presented as one apparently coherent duration.
+Status: OPEN. V2 must make travel-time model/evidence explicit and confidence-bearing.
+
+### RC-036 — Origin/destination local access can complete a journey without evidence of that connector
+Category: DOMAIN-MODEL / UX / DATA-CONFIDENCE DEFECT. Severity: P1.
+Symptom: access beyond the walk threshold becomes a generic “local” connection with assumed wait/speed; selected formal marine journeys receive special tolerance for otherwise untrusted local access.
+Affected: first/last mile, marine alternatives, total ETA, rider expectations.
+Root cause: access estimation and verified transit connectivity are mixed in one journey score.
+Invariant: a verified transit leg does not verify the rider’s first/last-mile connection. Generic taxi/rideshare/local access must be a separate, explicitly estimated access option or an evidence-backed service.
+Status: OPEN. V2 separates query-local access options from canonical transit and exposes their confidence independently.
