@@ -19,7 +19,7 @@ PRIOR DEEP AUDIT: 23 grouped findings were reported in the Sprint #23 investigat
 
 These sets are versioned snapshots and overlap heavily. They must not be summed into “number of bugs.”
 
-DEDUPLICATED RECOVERY LEDGER: 36 root-cause/data-gap/quality clusters below. This is the authoritative recovery set for deciding V2 work; it is not a claim that only 36 individual manifestations ever existed.
+DEDUPLICATED RECOVERY LEDGER: 37 root-cause/data-gap/quality clusters below. This is the authoritative recovery set for deciding V2 work; it is not a claim that only 37 individual manifestations ever existed.
 
 ## Root-cause ledger
 
@@ -306,3 +306,12 @@ Affected: first/last mile, marine alternatives, total ETA, rider expectations.
 Root cause: access estimation and verified transit connectivity are mixed in one journey score.
 Invariant: a verified transit leg does not verify the rider’s first/last-mile connection. Generic taxi/rideshare/local access must be a separate, explicitly estimated access option or an evidence-backed service.
 Status: OPEN. V2 separates query-local access options from canonical transit and exposes their confidence independently.
+
+
+### RC-037 — Ambiguous free-text endpoint can silently resolve to the geocoder’s first match
+Category: UX / SOFTWARE DEFECT. Severity: P1.
+Symptom: autocomplete can present choices, but if the rider types free text and plans without selecting one, geocodePlace requests a single Nominatim result (limit=1) and uses it without a disambiguation step.
+Affected: landmark/locality ambiguity, wrong origin/destination, downstream wrong route.
+Root cause: endpoint resolution treats geocoder ranking as rider intent.
+Invariant: materially ambiguous Places require explicit disambiguation or sufficient locality evidence; external rank is not silent product truth.
+Status: OPEN. V2 search/endpoint resolution must return typed candidate sets and an ambiguity state.
