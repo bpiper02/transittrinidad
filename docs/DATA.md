@@ -90,3 +90,13 @@ Other evidence includes OSM, association/passenger reports, news/traffic schemes
 6. Operating windows/frequency for informal modes.
 7. Curated landmarks that improve rider search.
 8. Ferry dated schedule ingestion with validity windows.
+
+
+## Explicit topology reachability
+Using only declared directed Pattern-like legacy service edges and the 88 stored transfer rows, and excluding runtime-generated proximity bridges:
+- weakly connected components: 2;
+- main component: 106 nodes;
+- isolated component: 2 nodes — Maraval Taxi Stand and Maraval area;
+- the isolated component has one declared route-taxi service and no stored TransferLink to the main component.
+
+This is a modeled-data gap, not proof of real-world isolation. V2 must keep the gap visible until a real access/transfer/service relationship is evidenced.
