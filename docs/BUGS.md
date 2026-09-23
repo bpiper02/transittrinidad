@@ -19,7 +19,7 @@ PRIOR DEEP AUDIT: 23 grouped findings were reported in the Sprint #23 investigat
 
 These sets are versioned snapshots and overlap heavily. They must not be summed into “number of bugs.”
 
-DEDUPLICATED RECOVERY LEDGER: 37 root-cause/data-gap/quality clusters below. This is the authoritative recovery set for deciding V2 work; it is not a claim that only 37 individual manifestations ever existed.
+DEDUPLICATED RECOVERY LEDGER: 38 root-cause/data-gap/quality clusters below. This is the authoritative recovery set for deciding V2 work; it is not a claim that only 38 individual manifestations ever existed.
 
 ## Root-cause ledger
 
@@ -315,3 +315,12 @@ Affected: landmark/locality ambiguity, wrong origin/destination, downstream wron
 Root cause: endpoint resolution treats geocoder ranking as rider intent.
 Invariant: materially ambiguous Places require explicit disambiguation or sufficient locality evidence; external rank is not silent product truth.
 Status: OPEN. V2 search/endpoint resolution must return typed candidate sets and an ambiguity state.
+
+
+### RC-038 — Explicit canonical topology contains an isolated Maraval subnetwork
+Category: DATA GAP. Severity: P1/P2.
+Symptom: using only declared service edges plus stored TransferLinks, the 108-node legacy network has two weak components: a 106-node main component and a 2-node Maraval component (Maraval Taxi Stand ↔ Maraval area has one declared route-taxi service and no stored transfer into the main component).
+Affected: Port of Spain/Maraval reachability and any cross-network journey involving this service.
+Root cause: connection/access evidence between the stand/service and the broader network has not been modeled.
+Invariant: disconnected canonical topology must remain visible as a data gap until an evidence-backed access/transfer/service relationship is added; runtime proximity bridges must not hide it.
+Status: OPEN. This is not evidence that no real connection exists.
