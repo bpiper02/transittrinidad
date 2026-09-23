@@ -100,3 +100,16 @@ Using only declared directed Pattern-like legacy service edges and the 88 stored
 - the isolated component has one declared route-taxi service and no stored TransferLink to the main component.
 
 This is a modeled-data gap, not proof of real-world isolation. V2 must keep the gap visible until a real access/transfer/service relationship is evidenced.
+
+
+## Access-point identity review signals
+A pure proximity scan is useful for finding records to inspect, not for creating routing links:
+- 160 node pairs are within 750 m;
+- 116 of those have no stored TransferLink;
+- 45 unlinked pairs are within 250 m;
+- 12 pairs are effectively coordinate-identical within 5 m while remaining distinct records;
+- normalized duplicate-name groups include La Horquetta and several records named “San Fernando Taxi Stand.”
+
+Examples include distinct San Fernando maxi/taxi stands/area markers sharing or nearly sharing coordinates. These may represent legitimate adjacent route-specific stands, approximate copied coordinates, aliases, or missing facility relationships. Sprint 1 must report the collisions; a later evidence/field pass decides merge vs distinct AccessPoints vs explicit Interchange/TransferLink.
+
+Proximity is never sufficient to resolve the ambiguity automatically.
