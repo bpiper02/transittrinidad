@@ -96,3 +96,42 @@ Recovery: hold for mapping/review, never auto-promote over stronger evidence.
 ## F15 Maintainer promotion
 System: normalize raw evidence into claims; compare against canonical entities; do not downgrade stronger truth; run schema, semantic, routing, golden-journey, and data-quality gates; require reviewer distinct from builder for material changes.
 Output: versioned network snapshot and migration/promotion report.
+
+
+## Real-world scenario review
+
+### “I am in Port of Spain and want to reach X.”
+UX requirement: origin may be a locality/current position rather than City Gate. Resolve the rider’s actual location first, then explain which terminal/stand to reach. Do not silently replace “Port of Spain” with one transport node.
+
+### “I know the destination but not which stand serves it.”
+UX requirement: search/index must bridge Place -> suitable Access Point/Pattern and show the boarding stand in rider language. Formal terminal names should be suggestions, not hidden exact-match-only knowledge.
+
+### “I need two different vehicles.”
+UX requirement: every board/alight/transfer is explicit. The route score must account for transfer burden and operating compatibility. A walk between stands needs a real Transfer Link.
+
+### “I do not know the formal stop name.”
+UX requirement: normal landmark/neighbourhood search is first-class. Formal stop vocabulary is an implementation detail until the route explanation.
+
+### “The app’s data is incomplete.”
+UX requirement: show what is known and where evidence stops. “No verified route in our current data” is the default uncertainty state; do not claim service nonexistence.
+
+### “The service stops running before I get there.”
+UX requirement: route legality uses the time of boarding that leg, not the trip’s initial date. Reject the itinerary or offer the next evidence-backed option.
+
+### “The route involves walking between two stands.”
+UX requirement: show the walk as a separate leg, distance/time confidence, destination stand name, and map segment. Never infer the interchange solely from distance.
+
+### “I am using one hand on a phone outside.”
+UX requirement: large controls, concise primary copy, visible next action, low text density, no horizontal overflow, map/result state that does not require tiny hit targets, and evidence detail behind expansion.
+
+### “I do not understand Trinidad transit terminology.”
+UX requirement: preserve local terms because they carry real meaning, but pair them with action copy: e.g. “Green Band maxi — board at …” rather than presenting unexplained internal labels.
+
+### “The suggested boarding point is wrong.”
+UX requirement: the app must not fight the rider with false precision. Surface location confidence and provide a correction/evidence path. Critical field corrections go through reviewed promotion.
+
+### “I change my destination halfway through planning.”
+UX requirement: invalidate query/result state and re-plan cleanly. Canonical network data and previous query-local virtual access state must remain untouched.
+
+### Product implication
+A technically connected path is not enough. A valid Transit Trinidad itinerary must be operationally plausible, explainable to the rider, evidence-aware, and recover safely when truth is incomplete.
