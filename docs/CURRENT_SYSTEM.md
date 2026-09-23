@@ -60,3 +60,11 @@ The latest baseline SHA has successful GitHub Actions runs for test and browser-
 
 ## Investigative branch
 wb2/a9090e4c5607 is one commit ahead of main and adds map-style/mode state, geometry helpers, and visual-QA notes. It does not resolve the recovered domain/routing defects and must not be merged wholesale. Useful pieces can be cherry-picked only after independent review against docs/DESIGN.md and V2 boundaries.
+
+
+## Additional routing precision findings
+- If a legacy service lacks estimatedMinutes, estimateServiceMinutes derives time from straight-line endpoint distance multiplied by a mode-specific route factor and assumed speed.
+- For a multi-stop service, estimateSegmentMinutes apportions that derived total across adjacent stops using straight-line stop-to-stop distances.
+- Origin/destination access beyond the walking threshold is represented as a generic local connector using an assumed speed and wait; this is not evidence of an operated route.
+- Formal Water Taxi/ferry alternatives receive special treatment in access-trust filtering, so the marine leg can be strong evidence while the first/last mile remains generic.
+These are useful fallback heuristics for rough ranking only; they are not authoritative operational travel-time or service evidence.
