@@ -113,3 +113,21 @@ A pure proximity scan is useful for finding records to inspect, not for creating
 Examples include distinct San Fernando maxi/taxi stands/area markers sharing or nearly sharing coordinates. These may represent legitimate adjacent route-specific stands, approximate copied coordinates, aliases, or missing facility relationships. Sprint 1 must report the collisions; a later evidence/field pass decides merge vs distinct AccessPoints vs explicit Interchange/TransferLink.
 
 Proximity is never sufficient to resolve the ambiguity automatically.
+
+
+## Source/review layer audit
+The repository contains valuable pre-canonical evidence under data/source/ and it must survive V2 as raw/review evidence rather than being flattened into canonical entities.
+
+PTSC Sep 13 source pipeline:
+- official catalog captured: 117 source records;
+- route-review status: 72 already_represented, 3 ready_for_service_review, 42 needs_endpoint_mapping;
+- blocker manifestations in the review include 30 destination_node_unresolved, 9 official_fare_unavailable, 8 official_endpoint_taxonomy_missing, and 4 origin_node_unresolved (a record may have multiple blockers);
+- promotion artifact records 3 promoted IDs, 72 upgraded IDs, 42 blocked source records, and 2 missing-fare IDs.
+
+Local-network review Sep 11:
+- 78 reviewed service claims: 77 routing_reported and 1 held;
+- 12 additional candidates intentionally not routed.
+
+Unresolved-gap ledgers are also present and explicitly document cases where evidence was insufficient to synthesize reverse service, terminal links, or local service. This is exactly the evidence/hold pattern V2 should preserve.
+
+Therefore canonical record count is not a completeness metric: raw source evidence can be known while canonical routing identity/location remains unresolved.
